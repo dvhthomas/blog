@@ -10,7 +10,7 @@ series: []
 summary: Slides and recording of my presentation about how technical program management (TPM) came about at GitHub. All in context of Tuckman's model of group development.
 mermaid: false
 mathjax: false
-draft: true
+draft: false
 images:
 - speaker-photo.jpg
 ---
