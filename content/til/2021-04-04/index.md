@@ -1,5 +1,5 @@
 ---
-title: 2021 04 04
+title: Leadership memo and role definitions
 date: 2021-04-04T10:29:18-06:00
 tags: [leadership]
 toc: true

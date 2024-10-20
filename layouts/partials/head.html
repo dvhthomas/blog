@@ -11,11 +11,12 @@
     <link rel="stylesheet" href="{{ $css }}">
     <link rel="stylesheet" href="{{ $siteCss }}">
     {{ partial "favicon.html" . }}
-     <!-- open graph -->
+     <!-- open graph
     <meta property="og:type" content="website" />
     <meta property="og:title" content="{{ .Site.Title }}"/>
     <meta property="og:description" content="{{ .Site.Params.description }}"/>
     <meta property="og:site_name" content="{{ .Site.Title }}"/>
     <meta property="og:url" content="{{ .Site.BaseURL }}"/>
-    <meta property="og:locale" content="en">
+    <meta property="og:locale" content="en">-->
+    {{ template "_internal/opengraph.html" . }}
 </head>
