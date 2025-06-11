@@ -32,7 +32,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     env:
-      HUGO_VERSION: 0.135.0 # Locked version to ensure consistent builds
+      HUGO_VERSION: 0.147.8 # Locked version to ensure consistent builds
     steps:
       - name: Install Hugo CLI
         run: |
