@@ -1,5 +1,5 @@
 ---
-title: 2021-08-31
+title: .env file, tmux, and direnv
 date: 2021-08-31T09:12:27-06:00
 tags: [tools, direnv]
 toc: true
