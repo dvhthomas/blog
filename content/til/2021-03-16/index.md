@@ -25,7 +25,7 @@ Google's Tech Infrastructure team (think SRE) released [Practical Guide to Cloud
 
 Since I just got on the Terrafrom bandwagon as a user vs. a reader, this piqued my interest:
 
-{{< twitter user="vicnastea" id="1370166601991868419" >}}
+{{< x user="vicnastea" id="1370166601991868419" >}}
 
 Getting [the `resource-config` API](https://cloud.google.com/sdk/gcloud/reference/alpha/resource-config) running took a couple of tries, but here's what worked on a project called traintrack that I set up using Terraform:
 

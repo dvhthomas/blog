@@ -17,7 +17,7 @@ But now I'm out of the San Francisco Bay Area and back in the middle-ish
 of the United States, and doing other tech stuff of the cloud-y variety.
 
 Over those years I never did find much of a non-work creative outlet.
-Facebook sucks so I un-joined. I discovered that Twitter ([here I am](https://twitter.com/dvhthomas)) works relatively well
+Facebook sucks so I un-joined. I discovered that ~Twitter ([here I am](https://twitter.com/dvhthomas)) works relatively well~ (NOTE: I'm off Twitter in 2025)
 for me as a consumer, but I never wrote much on it. So it's been rather quiet, apart from the odd post on LinkedIn ([me again](https://www.linkedin.com/in/dylan-thomas/)). And zero on the public coding
 side of things other than the [odd tweak to my dot files](https://github.com/dvhthomas/dotfiles).
 

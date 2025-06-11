@@ -15,7 +15,7 @@ vega: true
 
 I did a thing and it got posted.
 
-{{< twitter user="dvhthomas" id="1425712358735847432" >}}
+{{< x user="dvhthomas" id="1425712358735847432" >}}
 
 ## Link to a post
 
@@ -90,4 +90,3 @@ You must:
 For example, this chart has an `id` of `viz` (meaning that the div containing this chart has an id of `viz`), and a `spec` value of `tips.json` since that's the name of  the file in `/static/charts/`.
 
 {{<vega id="viz" spec="tips.json">}}
-

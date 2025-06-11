@@ -22,4 +22,4 @@ Since then I've done a variety of things like:
 
 But the whole way through, I keep geeking out with languages, text editors, and new ways to solving the same old problems. I am, you see, an incurable tinkerer. Which is why my blog stops and starts, and covers a rather odd range of topics in not much depth. It's how I roll.
 
-Follow the various links to LinkedIn, Twitter, and GitHub for more. Or stick around here to read posts and get the [details]({{< ref "resume/index.md" >}}) on me.
+Follow the various links to LinkedIn, GitHub, and others for more. Or stick around here to read posts and get the [details]({{< ref "resume/index.md" >}}) on me.

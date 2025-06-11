@@ -2,7 +2,9 @@ baseURL = "https://bitsby.me/"
 languageCode = "en-us"
 title = "Bits By Me"
 
-paginate = 10
+[pagination]
+  pagerSize = 10
+
 ignoreErrors = ["error-remote-getjson"]
 
 [params]

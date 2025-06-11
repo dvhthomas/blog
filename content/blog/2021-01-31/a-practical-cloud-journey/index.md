@@ -17,9 +17,7 @@ I wrote [this post](https://woolpert.com/media/blogs/geospatial/woolpert-2021-bl
 
 ## Introduction
 
-{{<twitter user="kelseyhightower" id="1348046036422385665">}}
-
-That [Tweet](https://twitter.com/kelseyhightower/status/1348046036422385665) by Kelsey Hightower is a tongue-in-cheek version of the buzzword heavy phrases we’ve all probably heard in relation to digital transformation. But practically speaking: What does it mean? And how much of it applies to your situation? And does it even make sense?!
+That Tweet[^1] by Kelsey Hightower is a tongue-in-cheek version of the buzzword heavy phrases we’ve all probably heard in relation to digital transformation. But practically speaking: What does it mean? And how much of it applies to your situation? And does it even make sense?!
 
 In 2021, the Woolpert Cloud Solutions team will publish a blog series: A Practical Cloud Journey. We’ll focus on prerequisites to success, such as a focus on customer value, and how to make decisions in context instead of from canned playbooks. In this first blog in the series, I want to provide some of that context and give a preview of some of the topics we’ll discover in the coming year. Are you ready for a journey? Here we go!
 
@@ -86,3 +84,5 @@ Themes you will hear about in this A Practical Cloud Journey blog series include
 ## Beginning with a Single Step
 
 So, let’s start our journey and keep it practical. Yes, we aspire to summit a 14er, but we need to remember our sun block and our map—this way we are protected and we know how to reach our destination.
+
+[^1]: The ~Tweet~ post on X no longer exists but [the interview on Go Time](https://changelog.com/gotime/114) that spawned the quote is still available.
