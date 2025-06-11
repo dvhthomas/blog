@@ -4,7 +4,7 @@ date: 2021-08-31T09:12:27-06:00
 tags: [tools, direnv]
 toc: true
 series: []
-summary: Using `direnv` to automatically handle environment variables. 
+summary: Using `direnv` to automatically handle environment variables.
 mermaid: false
 mathjax: false
 draft: false
@@ -86,3 +86,17 @@ Your active configuration is: [ttrack]
 And yes! Without doing anything at all I have the correct and expected `gcloud` configuration with the right project, etc.
 
 I can see this being really useful for [configuring 12 Factor apps](https://12factor.net/config).
+
+## Now with .env support
+
+I was setting this up on a new machine recently and wanted `direnv` to just use my existing `.env` file rather than the `.envrc` file.
+As of my testing in June 2025 this is possible but requires adding a configuration file to explicitly allow it:
+
+Create a file called `~/.config/direnv/direnv.toml` with the following content:
+
+```toml
+[global]
+load_dotenv = true
+```
+
+Now you'll still get the same request to `direnv allow` but you don't have to create a `.envrc` file.
