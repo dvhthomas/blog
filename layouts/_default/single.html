@@ -2,19 +2,21 @@
 
 <header>
     <h1>{{ .Title }}</h1>
+    <div class="article-meta">{{ partial "date-and-tags.html" . }}</div>
 </header>
-{{ partial "date-and-tags.html" . }}
-<p></p>
-{{ partial "series.html" . }}
-{{ if .Params.summary }}
+{{ partial "series.html" . }} {{ if .Params.summary }}
 <div id="abstract">{{ .Params.summary | markdownify }}</div>
-{{ end }}
-{{ partial "toc.html" . }}
+{{ end }} {{ partial "toc.html" . }}
 <article>
     {{ .Content }}
-    <br>
+    <br />
     {{ partial "related.html" . }}
 </article>
 {{ partial "series.html" . }}
-    <a class="no-print" href="https://www.linkedin.com/shareArticle?mini=true&url={{ .Permalink }}&title={{ .Title | htmlEscape }}&summary={{ .Summary | htmlEscape }}&source={{ .Site.BaseURL }}">&#128279; Share on LinkedIn</a> or visit me on <a rel="me" href="https://hachyderm.io/@BitsByMe">Mastodon</a>
+<a
+    class="no-print"
+    href="https://www.linkedin.com/shareArticle?mini=true&url={{ .Permalink }}&title={{ .Title | htmlEscape }}&summary={{ .Summary | htmlEscape }}&source={{ .Site.BaseURL }}"
+    >&#128279; Share on LinkedIn</a
+>
+or visit me on <a rel="me" href="https://hachyderm.io/@BitsByMe">Mastodon</a>
 {{ end }}

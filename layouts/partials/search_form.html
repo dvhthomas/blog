@@ -1,4 +1,20 @@
-<form action="/search" method="GET" class="form-inline">
-    <input class="form-control" type="search" name="s" id="search-query" placeholder="Search....">
-    <button class="btn btn-outline-secondary" type="submit">Search</button>
+<form
+    action="/search"
+    method="GET"
+    class="form-inline"
+    role="search"
+    aria-label="Site search"
+>
+    <label for="search-query" class="sr-only">Search the site</label>
+    <input
+        class="form-control"
+        type="search"
+        name="s"
+        id="search-query"
+        placeholder="Search...."
+        aria-label="Search query"
+    />
+    <button class="btn search-button" type="submit" aria-label="Submit search">
+        Search
+    </button>
 </form>

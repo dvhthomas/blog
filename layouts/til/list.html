@@ -8,19 +8,6 @@
   of the content folders, e.g., the content in
   content/blog/_index.md.
 -->
-{{ .Content }}
-
-{{ range .Paginator.Pages.ByPublishDate.Reverse }}
-<p>
-    {{ $dateFormat := .Site.Params.dateFormat | default "Jan 2, 2006" }}
-    <a class="font-125" href="{{ .RelPermalink }}">{{ .Title }}</a>
-    {{ if .Params.summary }}
-    &mdash; <span class="summary">{{ .Params.summary | markdownify | truncate 200 }}</span>
-    {{ end }}
-    <br>
-    {{ partial "date-and-tags.html" . }}
-</p>
-{{ end }}
-{{- partial "pagination.html" . -}}
-
-{{ end }}
+{{ .Content }} {{ range .Paginator.Pages.ByPublishDate.Reverse }} {{ partial
+"article-listing.html" . }} {{ end }} {{- partial "pagination.html" . -}} {{ end
+}}

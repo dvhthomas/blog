@@ -1,12 +1,14 @@
 {{ if .Params.series }} {{ $name := index .Params.series 0 }} {{ $currentPage :=
 . }} {{ $seriesKey := $name | urlize | replaceRE "-" " " }} {{ $seriesURL :=
 printf "/series/%s/" ($name | urlize) }}
-<div>
-    <p>This article is part of a <a href="{{ $seriesURL }}">series</a>.</p>
-    <ul>
+<nav aria-labelledby="series-heading">
+    <p id="series-heading">
+        This article is part of a <a href="{{ $seriesURL }}">series</a>.
+    </p>
+    <ul aria-label="Articles in this series">
         {{ with index .Site.Taxonomies.series $seriesKey }} {{ range $num, $post
         := .Pages.ByDate }} {{ if eq $post.Permalink $currentPage.Permalink }}
-        <li>Part {{ add $num 1 }}: This Article</li>
+        <li aria-current="page">Part {{ add $num 1 }}: This Article</li>
         {{ else }}
         <li>
             <a href="{{$post.Permalink}}">
@@ -15,5 +17,5 @@ printf "/series/%s/" ($name | urlize) }}
         </li>
         {{end}} {{end}} {{end}}
     </ul>
-</div>
+</nav>
 {{end}}

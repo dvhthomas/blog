@@ -1,0 +1,18 @@
+{{/* Reusable article listing partial - shows title with inline date and summary, tags below */}}
+<p>
+    {{ $dateFormat := .Site.Params.dateFormat | default "Jan 2, 2006" }}
+    <a class="font-125" href="{{ .RelPermalink }}">{{ .Title }}</a>
+    &mdash; <time class="summary" datetime="{{ .PublishDate.Format "2006-01-02" }}"><em>{{ .PublishDate.Format $dateFormat }}</em></time>
+    {{ if .Params.summary }}
+    &mdash; <span class="summary">{{ .Params.summary | markdownify | truncate 200 }}</span>
+    {{ end }}
+    <br>
+    {{ with .Params.tags }}
+    <div role="list" aria-label="Tags">
+    {{ range . }}
+    {{ $href := print (absURL "tags/") (urlize .) }}
+    <a class="btn btn-sm btn-outline-dark tag-btn summary" href="{{ $href }}" role="listitem" aria-label="Tag: {{ . }}">{{ . }}</a>
+    {{ end }}
+    </div>
+    {{ end }}
+</p>

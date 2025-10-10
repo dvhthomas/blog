@@ -1,44 +1,53 @@
 :root {
-    --brand-lightness: 40%;
-    --base-hue: 300; /* fuchsia */
-    --brand-color: hsl(var(--base-hue), 75%, var(--brand-lightness));
-    --highlight-color: hsl(calc(var(--base-hue) + 180), 84%, var(--brand-lightness));
-    --action-color: hsl(calc(var(--base-hue) + 270), 96%, 30%);
+    --base-hue: 215; /* ink blue */
+    --brand-color: hsl(var(--base-hue), 70%, 45%); /* lighter blue ink */
+    --highlight-color: hsl(calc(var(--base-hue) + 180), 84%, 40%);
+    --action-color: hsl(
+        var(--base-hue),
+        80%,
+        65%
+    ); /* brighter blue for hover */
 }
 body {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    font-family:
+        -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial,
+        sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
 }
 /* https://stackoverflow.com/questions/2436749/how-to-add-multiple-font-files-for-the-same-font */
 @font-face {
-    font-family: 'BerkeleyMono';
-    src: url('../fonts/BerkeleyMono-Regular.woff2'),
-        url('../fonts/BerkeleyMono-Regular.woff');
+    font-family: "BerkeleyMono";
+    src:
+        url("../fonts/BerkeleyMono-Regular.woff2"),
+        url("../fonts/BerkeleyMono-Regular.woff");
     font-weight: bold;
     font-style: italic, oblique;
 }
 @font-face {
-    font-family: 'BerkeleyMono';
-    src: url('../fonts/BerkeleyMono-Italic.woff2'),
-        url('../fonts/BerkeleyMono-Italic.woff');
+    font-family: "BerkeleyMono";
+    src:
+        url("../fonts/BerkeleyMono-Italic.woff2"),
+        url("../fonts/BerkeleyMono-Italic.woff");
     font-style: italic, oblique;
 }
 @font-face {
-    font-family: 'BerkeleyMono';
-    src: url('../fonts/BerkeleyMono-Bold.woff2'),
-        url('../fonts/BerkeleyMono-Bold.woff');
+    font-family: "BerkeleyMono";
+    src:
+        url("../fonts/BerkeleyMono-Bold.woff2"),
+        url("../fonts/BerkeleyMono-Bold.woff");
     font-weight: bold;
 }
 @font-face {
-    font-family: 'BerkeleyMono';
-    src: url('../fonts/BerkeleyMono-Regular.woff2'),
-        url('../fonts/BerkeleyMono-Regular.woff');
+    font-family: "BerkeleyMono";
+    src:
+        url("../fonts/BerkeleyMono-Regular.woff2"),
+        url("../fonts/BerkeleyMono-Regular.woff");
 }
 .container {
     max-width: 700px;
 }
 
 #nav {
-    padding: .5rem 0.5rem;
+    padding: 0.5rem 0.5rem;
     color: var(--brand-color);
 }
 
@@ -53,13 +62,22 @@ nav a {
 
 a {
     color: var(--brand-color);
+    text-decoration: underline;
+}
+
+/* Remove underline from links in headings */
+h1 a,
+h2 a,
+h3 a,
+h4 a,
+h5 a,
+h6 a {
     text-decoration: none;
 }
 
 a:hover {
     color: var(--action-color);
     text-decoration: underline;
-    filter: brightness(0.6);
 }
 
 a.tag-btn:hover {
@@ -102,14 +120,56 @@ h2,
 h3,
 h4 {
     font-weight: 600;
-    padding-bottom: 1.0rem;
+    padding-bottom: 1rem;
     padding-top: 1.3rem;
 }
-h2 {font-size: 1.9rem;}
-h2 {font-size: 1.9rem;}
+
+/* Reduce top spacing for first h1 on pages */
+#main > h1:first-child,
+#main > header > h1:first-child {
+    padding-top: 0.5rem;
+}
+
+h2 {
+    font-size: 1.9rem;
+}
 
 #home-jumbotron {
     background-color: inherit;
+    padding: 2rem 2rem;
+    margin-bottom: 2rem;
+}
+
+/* Search form styling */
+.form-inline #search-query {
+    margin-right: 0.5rem;
+}
+
+.search-button {
+    background-color: var(--brand-color);
+    color: white;
+    border: 1px solid var(--brand-color);
+    padding: 0.375rem 1rem;
+}
+
+.search-button:hover {
+    background-color: var(--action-color);
+    border-color: var(--action-color);
+    color: white;
+}
+
+header h1 {
+    padding-bottom: 0.25rem;
+    margin-bottom: 0;
+}
+
+.article-meta {
+    margin-bottom: 1rem;
+}
+
+.article-meta time {
+    display: block;
+    margin-bottom: 0.5rem;
 }
 
 #main blockquote {
@@ -126,6 +186,17 @@ h2 {font-size: 1.9rem;}
 
 .tag-btn {
     margin-bottom: 0.5rem;
+    text-decoration: none;
+    background-color: hsl(var(--base-hue), 30%, 95%);
+    border-color: hsl(var(--base-hue), 30%, 85%);
+}
+
+.btn {
+    text-decoration: none;
+}
+
+.btn:hover {
+    text-decoration: none;
 }
 
 img {
@@ -134,7 +205,7 @@ img {
 
 .summary {
     color: hsla(237, 0%, 25%, 1);
-    font-size: .9rem;
+    font-size: 0.9rem;
 }
 
 #abstract {
@@ -144,12 +215,12 @@ img {
     margin-bottom: 1rem;
 }
 
-aside.toc ul>li {
+aside.toc ul > li {
     list-style-type: none;
     padding-left: 1.5rem;
 }
 aside.toc ul {
-   padding-left: 0; 
+    padding-left: 0;
 }
 
 figure img {
@@ -175,17 +246,74 @@ article ul {
 
 article ol li,
 article ul li {
-    padding-top: .6rem;
+    padding-top: 0.6rem;
     margin-left: 0;
     padding-left: 0;
 }
 
 code,
 pre {
-    font-family: 'BerkeleyMono', monospace;
+    font-family: "BerkeleyMono", monospace;
 }
+
+pre {
+    overflow-x: auto;
+    max-width: 100%;
+    font-size: 0.9em;
+    /* Force scrollbar to always be visible */
+    scrollbar-width: thin; /* Firefox */
+    -webkit-overflow-scrolling: touch; /* iOS momentum scrolling */
+}
+
+/* Force scrollbar visibility on WebKit browsers (Safari, Chrome) */
+pre::-webkit-scrollbar {
+    height: 12px;
+    -webkit-appearance: none;
+}
+
+pre::-webkit-scrollbar-track {
+    background-color: rgba(0, 0, 0, 0.1);
+    border-radius: 3px;
+}
+
+pre::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 0, 0.3);
+    border-radius: 3px;
+}
+
+pre::-webkit-scrollbar-thumb:hover {
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
 code {
     color: var(--highlight-color);
+}
+
+.highlight {
+    overflow-x: auto;
+    max-width: 100%;
+    /* Force scrollbar to always be visible */
+    scrollbar-width: thin; /* Firefox */
+}
+
+/* Force scrollbar visibility on .highlight for WebKit browsers */
+.highlight::-webkit-scrollbar {
+    height: 12px;
+    -webkit-appearance: none;
+}
+
+.highlight::-webkit-scrollbar-track {
+    background-color: rgba(0, 0, 0, 0.1);
+    border-radius: 3px;
+}
+
+.highlight::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 0, 0.3);
+    border-radius: 3px;
+}
+
+.highlight::-webkit-scrollbar-thumb:hover {
+    background-color: rgba(0, 0, 0, 0.5);
 }
 
 .highlight code {
@@ -196,7 +324,7 @@ p code {
     font-size: 0.95em;
 }
 
-article>dl>dd {
+article > dl > dd {
     padding-left: 2rem;
 }
 
@@ -215,7 +343,7 @@ article table {
 
 article table td,
 article table th {
-    padding: .2rem 1rem;
+    padding: 0.2rem 1rem;
     border: 1px solid hsl(0, 0%, 80%);
 }
 
@@ -224,6 +352,72 @@ article table th {
 }
 @media print {
     .no-print {
-    display: none;
+        display: none;
     }
+}
+
+/* Accessibility improvements */
+
+/* Screen reader only class */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+/* Skip to main content link */
+.skip-to-main {
+    position: absolute;
+    top: -40px;
+    left: 0;
+    background: var(--brand-color);
+    color: white;
+    padding: 8px 16px;
+    text-decoration: none;
+    z-index: 100;
+    border-radius: 0 0 4px 0;
+}
+
+.skip-to-main:focus {
+    top: 0;
+    color: white;
+    outline: 3px solid var(--action-color);
+    outline-offset: 2px;
+}
+
+/* Improved focus states for keyboard navigation */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+    outline: 3px solid var(--action-color);
+    outline-offset: 2px;
+}
+
+/* Remove focus outline for mouse users but keep for keyboard */
+a:focus:not(:focus-visible),
+button:focus:not(:focus-visible),
+input:focus:not(:focus-visible) {
+    outline: none;
+}
+
+/* Ensure sufficient color contrast for tag buttons */
+.tag-btn:focus-visible,
+.btn:focus-visible {
+    outline: 3px solid var(--action-color);
+    outline-offset: 2px;
+}
+
+/* Improve nav icon accessibility */
+nav a:focus-visible {
+    outline: 3px solid var(--action-color);
+    outline-offset: 2px;
+    border-radius: 4px;
 }

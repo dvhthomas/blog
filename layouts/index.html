@@ -16,27 +16,14 @@
 <h2>Today I Learned&hellip;</h2>
 
 {{ range first 3 (where (where .Site.Pages "Section" "til") ".Title" "!=" "Today I Learned") }}
-<p>
-    <a class="font-125" href="{{ .RelPermalink }}">{{ .Title }}
-        {{ if .Params.summary }}
-        <small class="summary">&mdash; {{ .Params.summary | markdownify | truncate 200 }}</small>
-        {{ end }}
-    </a>
-</p>
+{{ partial "article-listing.html" . }}
 {{ end }}
 <small class="muted"><a href="/til/">More&hellip;</a></small>
 
 <h2>Recent Blog Posts</h2>
 
 {{ range first 5 (where (where .Site.Pages "Section" "blog") ".Title" "!=" "Blog") }}
-<h3>
-    <a class="font-125" href="{{ .RelPermalink }}">{{ .Title }}</a>
-    <br>
-    {{ partial "date-and-tags.html" . }}
-</h3>
-{{ if .Params.summary }}
-<p class="summary">{{ .Params.summary | markdownify | truncate 200 }}</p>
-{{ end }}
+{{ partial "article-listing.html" . }}
 {{ end }}
 
 <small class="muted"><a href="/blog/">More&hellip;</a></small>

@@ -1,15 +1,14 @@
 <!doctype html>
 <html lang="en">
-{{ partial "head.html" . }}
-{{ partial "script.html" . }}
-<body>
-    {{ partial "nav.html" . }}
-    <div class="container">
-        <main id="main">
-            {{ block "main" . }}{{ end }}
-        </main>
-    </div>
-</body>
-{{ partial "footer.html" . }}
-
+    {{ partial "head.html" . }} {{ partial "script.html" . }}
+    <body>
+        <a href="#main" class="skip-to-main">Skip to main content</a>
+        {{ partial "nav.html" . }}
+        <div class="container">
+            <main id="main" role="main" aria-label="Main content">
+                {{ block "main" . }}{{ end }}
+            </main>
+        </div>
+    </body>
+    {{ partial "footer.html" . }}
 </html>
