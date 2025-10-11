@@ -2,9 +2,9 @@
 <p>
     {{ $dateFormat := .Site.Params.dateFormat | default "Jan 2, 2006" }}
     <a class="font-125" href="{{ .RelPermalink }}">{{ .Title }}</a>
-    &mdash; <time class="summary" datetime="{{ .PublishDate.Format "2006-01-02" }}"><em>{{ .PublishDate.Format $dateFormat }}</em></time>
+    &mdash; <time datetime="{{ .PublishDate.Format "2006-01-02" }}"><em>{{ .PublishDate.Format $dateFormat }}</em></time>
     {{ if .Params.summary }}
-    &mdash; <span class="summary">{{ .Params.summary | markdownify | truncate 200 }}</span>
+    &mdash; {{ .Params.summary | markdownify | truncate 200 }}
     {{ end }}
     <br>
     {{ with .Params.tags }}

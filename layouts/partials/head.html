@@ -1,22 +1,28 @@
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description"
-        content="{{ if .Params.summary }}{{ .Params.summary }}{{ else if .Site.Params.Description }}{{ .Site.Params.description }}{{ else }}Blog{{ end }}" />
-    {{ hugo.Generator }} {{ $title := print .Title " | " .Site.Title }} {{ if .IsHome }}{{ $title = .Site.Title }}{{ end
-    }}
+    <meta charset="utf-8" />
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <meta
+        name="description"
+        content="{{ if .Params.summary }}{{ .Params.summary }}{{ else if .Site.Params.Description }}{{ .Site.Params.description }}{{ else }}Blog{{ end }}"
+    />
+    {{ hugo.Generator }} {{ $title := print .Title " | " .Site.Title }} {{ if
+    .IsHome }}{{ $title = .Site.Title }}{{ end }}
     <title>{{ $title }}</title>
-    {{ $css := "css/bootstrap.min.css" | relURL }}
-    {{ $siteCss := "css/site.css" | relURL }}
-    <link rel="stylesheet" href="{{ $css }}">
-    <link rel="stylesheet" href="{{ $siteCss }}">
+    {{ $css := "css/bootstrap.min.css" | relURL }} {{ $siteCss := "css/site.css"
+    | relURL }}
+    <link rel="stylesheet" href="{{ $css }}" />
+    <link rel="stylesheet" href="{{ $siteCss }}" />
     {{ partial "favicon.html" . }}
-     <!-- open graph
+    <!-- open graph
     <meta property="og:type" content="website" />
     <meta property="og:title" content="{{ .Site.Title }}"/>
     <meta property="og:description" content="{{ .Site.Params.description }}"/>
     <meta property="og:site_name" content="{{ .Site.Title }}"/>
     <meta property="og:url" content="{{ .Site.BaseURL }}"/>
     <meta property="og:locale" content="en">-->
-    {{ template "_internal/opengraph.html" . }}
+    {{ template "_internal/opengraph.html" . }} {{ template
+    "_internal/twitter_cards.html" . }}
 </head>

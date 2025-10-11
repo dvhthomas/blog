@@ -1,0 +1,11 @@
+{{ define "main" }}
+
+<h1>{{ .Title }}</h1>
+
+{{ .Content }}
+{{/* For series pages, show oldest to newest (chronological order) */}}
+{{ range .Paginator.Pages.ByPublishDate }}
+    {{ partial "article-listing.html" . }}
+{{ end }}
+{{- partial "pagination.html" . -}}
+{{ end }}
