@@ -358,6 +358,38 @@ article table th {
 article table th {
     text-align: center;
 }
+/* Footer styling */
+footer {
+    margin-top: 4rem;
+    padding: 2rem 0;
+    border-top: 1px solid var(--brand-color);
+}
+
+.footer-links nav {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 2rem;
+}
+
+.footer-links a {
+    color: var(--brand-color);
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    padding: 0.5rem;
+}
+
+.footer-links a:hover {
+    color: var(--action-color);
+}
+
+.footer-links .icon {
+    width: 20px;
+    height: 20px;
+    margin-right: 0.5rem;
+}
+
 @media print {
     .no-print {
         display: none;
