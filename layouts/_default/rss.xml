@@ -34,14 +34,15 @@
       <guid>{{ .Permalink }}</guid>
       <description>
         {{- /* Include image in description for RSS readers */ -}}
+        {{- $page := . -}}
         {{- with .Params.images -}}
           {{- range first 1 . -}}
             {{- $image := . -}}
             {{- $imageURL := $image -}}
             {{- if not (hasPrefix $image "http") -}}
-              {{- $imageURL = printf "%s%s" $.Permalink $image -}}
+              {{- $imageURL = printf "%s%s" $page.Permalink $image -}}
             {{- end -}}
-            {{- printf "<img src=\"%s\" alt=\"%s\" style=\"max-width: 100%%; height: auto;\"><br><br>" $imageURL $.Title | safeHTML -}}
+            {{- printf "<img src=\"%s\" alt=\"%s\" style=\"max-width: 100%%; height: auto;\" /><br /><br />" $imageURL $page.Title | safeHTML -}}
           {{- end -}}
         {{- end -}}
         {{- .Summary | html -}}
