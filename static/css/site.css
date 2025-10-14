@@ -461,3 +461,13 @@ nav a:focus-visible {
     outline-offset: 2px;
     border-radius: 4px;
 }
+
+/* Content type badge styling */
+.badge.badge-secondary {
+    background-color: var(--brand-color);
+    color: white;
+    vertical-align: baseline;
+    position: relative;
+    top: -0.15em;
+    margin-right: 0.5rem;
+}

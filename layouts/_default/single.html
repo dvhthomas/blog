@@ -4,9 +4,9 @@
     <h1>{{ .Title }}</h1>
     <div class="article-meta">{{ partial "date-and-tags.html" . }}</div>
 </header>
-{{ partial "series.html" . }} {{ if .Params.summary }}
+{{ if .Params.summary }}
 <div id="abstract">{{ .Params.summary | markdownify }}</div>
-{{ end }} {{ partial "toc.html" . }}
+{{ end }} {{ partial "series.html" . }} {{ partial "toc.html" . }}
 <article>
     {{ .Content }}
     <br />

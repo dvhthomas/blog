@@ -8,24 +8,15 @@
     </div>
 </div>
 
-<p>Hi 👋 <a href="/about">I'm Dylan</a>.
-	Most content is in <a href="/blog/">blog posts</a> or little notes to my future self called <a href="/til/">Today I Learned&hellip;</a>
-    Follow the links up top☝️to explore.
-    Social links are in the footer👇
+<p>
+    Hi 👋 <a href="/about">I'm Dylan</a>. Most content is in
+    <a href="/blog/">blog posts</a> or little notes to my future self called
+    <a href="/til/">Today I Learned&hellip;</a>
+    Follow the links up top☝️to explore. Social links are in the footer👇
 </p>
 
-<h2>Today I Learned&hellip;</h2>
+<hr />
 
-{{ range first 3 (where (where .Site.Pages "Section" "til") ".Title" "!=" "Today I Learned") }}
-{{ partial "article-listing.html" . }}
-{{ end }}
-<small class="muted"><a href="/til/">More&hellip;</a></small>
-
-<h2>Recent Blog Posts</h2>
-
-{{ range first 5 (where (where .Site.Pages "Section" "blog") ".Title" "!=" "Blog") }}
-{{ partial "article-listing.html" . }}
-{{ end }}
-
-<small class="muted"><a href="/blog/">More&hellip;</a></small>
-{{ end }}
+{{ $allContent := where .Site.RegularPages "Section" "in" (slice "blog" "til")
+}} {{ range first 10 $allContent }} {{ partial "article-listing.html" . }} {{
+end }} {{ end }}

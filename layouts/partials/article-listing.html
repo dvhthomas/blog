@@ -1,7 +1,8 @@
 {{/* Reusable article listing partial - shows title with inline date and summary, tags below */}}
 <p>
     {{ $dateFormat := .Site.Params.dateFormat | default "Jan 2, 2006" }}
-    <a class="font-125" href="{{ .RelPermalink }}">{{ .Title }}</a>
+
+    <a class="font-125" href="{{ .RelPermalink }}">{{ .Title }}</a> <span class="badge badge-secondary">{{ .Section }}</span>
     &mdash; <time datetime="{{ .PublishDate.Format "2006-01-02" }}"><em>{{ .PublishDate.Format $dateFormat }}</em></time>
     {{ if .Params.summary }}
     &mdash; {{ .Params.summary | markdownify | truncate 200 }}
