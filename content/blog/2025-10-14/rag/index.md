@@ -7,7 +7,7 @@ series: [AI Engineering Course]
 summary: Part two of the AI Engineering Course, focusing on Retrieval Augmented Generation (RAG) and its applications.
 mermaid: false
 mathjax: false
-draft: true
+draft: false
 images: [lora-paper.png]
 ---
 
