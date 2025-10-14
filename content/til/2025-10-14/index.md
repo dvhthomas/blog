@@ -7,7 +7,7 @@ series: []
 summary: How to interpret the numbers used to describe LLMs.
 mermaid: false
 mathjax: true
-draft: true
+draft: false
 images: []
 ---
 
