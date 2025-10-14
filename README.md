@@ -55,20 +55,50 @@ If you want to publish and put all the non-draft content into the `public/` dire
 
 ## Content pre-processing
 
-### Shrink PNGs
+### Compress PNG Images
 
-Following [this advice](https://til.simonwillison.net/macos/shrinking-pngs-with-pngquant-and-oxipng) it's a good idea to squish PNG images down before adding to Git or the blog.
-I'm seeing results like a reduction from 480kb to 70kb.
+Following [this advice](https://til.simonwillison.net/macos/shrinking-pngs-with-pngquant-and-oxipng) it's a good idea to compress PNG images before adding to Git. Typical results: 480KB → 70KB (85% reduction).
 
-One time:
+#### Prerequisites
+
+Install the compression tools once:
 
 ```sh
+# macOS
 brew install pngquant oxipng
+
+# Linux (Ubuntu/Debian)
+sudo apt install pngquant
+cargo install oxipng
 ```
 
-Then use like so, passing in the name of a content directory containing PNGs to squish:
+#### Using the squish script
+
+The `squish` script recursively finds and compresses all PNG images in a directory:
 
 ```sh
-pngquant --quality 20-50 content/til/2021-03-31/*.png
-oxipng -o 3 -i 0 --strip safe content/til/2021-03-31/*-fs8.png
+# Preview what will be compressed (dry-run, safe)
+./squish content/blog/2021-05-11
+
+# Actually compress images (creates -fs8.png versions)
+./squish content/blog/2021-05-11 --now
+
+# Replace original images with compressed versions (destructive!)
+./squish content/blog/2021-05-11 --now --clean
 ```
+
+
+**Features:**
+- Recursively finds all PNG files in a directory
+- Handles filenames with spaces
+- Shows before/after sizes and compression ratios
+- Safe by default (dry-run mode)
+- Intermediate `-fs8.png` files are git-ignored
+
+**Workflow:**
+1. Add images to your post directory
+2. Run `./squish <path>` to preview
+3. Run `./squish <path> --now` to compress
+4. Review the `-fs8.png` files
+5. Run `./squish <path> --now --clean` to replace originals
+6. Commit the compressed images

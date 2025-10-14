@@ -11,6 +11,9 @@ $RECYCLE.BIN/
 # OSX
 .DS_Store
 
+# Image compression intermediate files
+*-fs8.png
+
 # Dev-specific Env and configs
 .venv
 .ipynb_checkpoints

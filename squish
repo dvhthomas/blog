@@ -1,0 +1,355 @@
+#!/usr/bin/env bash
+# Image compression utility for blog posts.
+#
+# Usage:
+#   ./squish content/blog/2025/03/coding         # Dry run (show what will be compressed)
+#   ./squish content/blog/2025/03/coding --now   # Actually compress images
+#   ./squish content/blog/2025/03/coding --clean # Replace originals with compressed versions
+
+set -e
+
+# Colors for output
+RED='\033[0;31m'
+GREEN='\033[0;32m'
+YELLOW='\033[1;33m'
+NC='\033[0m' # No Color
+
+# Function to print error and exit
+error() {
+    printf "${RED}Error: %s${NC}\n" "$1" >&2
+    exit 1
+}
+
+# Function to print success
+success() {
+    printf "${GREEN}✓ %s${NC}\n" "$1"
+}
+
+# Function to print warning
+warning() {
+    printf "${YELLOW}⚠  %s${NC}\n" "$1"
+}
+
+# Check if required tools are installed
+check_dependencies() {
+    missing=""
+
+    if ! command -v pngquant >/dev/null 2>&1; then
+        missing="${missing}pngquant "
+    fi
+
+    if ! command -v oxipng >/dev/null 2>&1; then
+        missing="${missing}oxipng "
+    fi
+
+    if [ -n "$missing" ]; then
+        error "Missing required tools: $missing\n\nInstall with:\n  macOS/Linux: brew install pngquant oxipng\n  Linux (apt): sudo apt install pngquant && cargo install oxipng\n  Windows: choco install pngquant oxipng"
+    fi
+}
+
+# Show usage
+show_usage() {
+    cat << EOF
+Usage: squish DIRECTORY [--now] [--clean]
+
+Compress PNG images in blog content directories
+
+Arguments:
+  DIRECTORY   Full or relative path to directory (e.g., content/blog/2025/03/coding)
+  --now       Actually run compression (default is dry-run mode)
+  --clean     Replace original *-fs8.png images with originals (destructive)
+
+Examples:
+  squish content/blog/2025/03/coding         # Dry run - show what will be compressed
+  squish content/blog/2025/03/coding --now   # Actually compress images
+  squish content/blog/2025/03/coding --clean # Replace originals with existing *-fs8.png files
+EOF
+    exit 0
+}
+
+# Parse arguments
+if [ $# -eq 0 ] || [ "$1" = "-h" ] || [ "$1" = "--help" ]; then
+    show_usage
+fi
+
+DIR_PATH="$1"
+DRY_RUN=1
+CLEAN_MODE=0
+
+# Parse flags
+shift
+while [ $# -gt 0 ]; do
+    case "$1" in
+        --now)
+            DRY_RUN=0
+            ;;
+        --clean)
+            CLEAN_MODE=1
+            ;;
+        *)
+            error "Unknown argument: $1"
+            ;;
+    esac
+    shift
+done
+
+# Resolve target directory (handle both absolute and relative paths)
+if [ -d "$DIR_PATH" ]; then
+    TARGET_DIR="$(cd "$DIR_PATH" && pwd)"
+else
+    error "Directory not found: $DIR_PATH"
+fi
+
+# Function to get file size (cross-platform)
+get_file_size() {
+    if [ "$(uname)" = "Darwin" ]; then
+        # macOS
+        stat -f%z "$1"
+    else
+        # Linux
+        stat -c%s "$1"
+    fi
+}
+
+# Function to format bytes to KB
+bytes_to_kb() {
+    echo "scale=1; $1 / 1024" | bc
+}
+
+# Function to calculate percentage
+calc_percent() {
+    echo "scale=1; (1 - $1 / $2) * 100" | bc
+}
+
+# Dry run - show what will be compressed
+dry_run_images() {
+    cd "$TARGET_DIR"
+
+    echo "============================================================"
+    echo "DRY RUN - Images that will be compressed (recursive):"
+    echo "============================================================"
+
+    total_size=0
+    image_count=0
+
+    # Use while loop with null-terminated strings to handle spaces in filenames
+    while IFS= read -r -d '' original; do
+        image_count=$((image_count + 1))
+        orig_size=$(get_file_size "$original")
+        total_size=$((total_size + orig_size))
+        orig_kb=$(bytes_to_kb "$orig_size")
+        # Show relative path from target directory
+        rel_path=$(echo "$original" | sed 's|^\./||')
+        printf "%-50s %10sKB\n" "$rel_path" "$orig_kb"
+    done < <(find . -name "*.png" ! -name "*-fs8.png" -type f -print0 2>/dev/null | sort -z)
+
+    if [ $image_count -eq 0 ]; then
+        echo "No PNG images found in $TARGET_DIR"
+        exit 0
+    fi
+
+    echo "============================================================"
+    total_kb=$(bytes_to_kb "$total_size")
+    printf "TOTAL: %d image(s)%*s%10sKB\n" "$image_count" $((35 - ${#image_count})) "" "$total_kb"
+    echo ""
+    echo "To actually compress these images, run:"
+    echo "  ./squish $DIR_PATH --now"
+}
+
+# Squish images (non-destructive)
+squish_images() {
+    cd "$TARGET_DIR"
+
+    # Count and collect PNG files (properly handling spaces)
+    image_count=0
+    temp_list=$(mktemp)
+
+    while IFS= read -r -d '' original; do
+        image_count=$((image_count + 1))
+        echo "$original" >> "$temp_list"
+    done < <(find . -name "*.png" ! -name "*-fs8.png" -type f -print0 2>/dev/null)
+
+    if [ $image_count -eq 0 ]; then
+        echo "No PNG images found in $TARGET_DIR"
+        rm -f "$temp_list"
+        exit 0
+    fi
+
+    echo "Found $image_count PNG image(s) to compress (recursively)"
+
+    # Step 1: Run pngquant
+    echo ""
+    echo "[1/2] Running pngquant..."
+
+    # Process each file individually to handle spaces properly
+    pngquant_errors=0
+    while IFS= read -r original; do
+        if ! pngquant --quality 20-50 --skip-if-larger --force "$original" 2>/dev/null; then
+            pngquant_errors=$((pngquant_errors + 1))
+        fi
+    done < "$temp_list"
+
+    if [ $pngquant_errors -eq 0 ]; then
+        success "pngquant completed"
+    else
+        warning "pngquant had issues with some images (this is normal if some images couldn't be compressed further)"
+    fi
+
+    # Step 2: Count -fs8.png files
+    fs8_count=0
+    while IFS= read -r -d '' fs8; do
+        fs8_count=$((fs8_count + 1))
+    done < <(find . -name "*-fs8.png" -type f -print0 2>/dev/null)
+
+    if [ $fs8_count -eq 0 ]; then
+        warning "No -fs8.png files were created by pngquant"
+        rm -f "$temp_list"
+        exit 0
+    fi
+
+    echo ""
+    echo "[2/2] Running oxipng on $fs8_count file(s)..."
+
+    # Process each fs8 file individually to handle spaces
+    oxipng_errors=0
+    while IFS= read -r -d '' fs8; do
+        if ! oxipng -o 3 -i 0 --strip safe "$fs8" 2>/dev/null; then
+            oxipng_errors=$((oxipng_errors + 1))
+        fi
+    done < <(find . -name "*-fs8.png" -type f -print0 2>/dev/null)
+
+    if [ $oxipng_errors -eq 0 ]; then
+        success "oxipng completed"
+    else
+        error "oxipng failed on some files"
+    fi
+
+    # Show size comparison
+    echo ""
+    echo "============================================================"
+    echo "Compression Results:"
+    echo "============================================================"
+
+    total_original=0
+    total_compressed=0
+    skipped_count=0
+
+    while IFS= read -r original; do
+        # Get the directory of the original file
+        original_dir=$(dirname "$original")
+        original_basename=$(basename "$original" .png)
+        compressed="${original_dir}/${original_basename}-fs8.png"
+        rel_path=$(echo "$original" | sed 's|^\./||')
+
+        if [ -f "$compressed" ]; then
+            orig_size=$(get_file_size "$original")
+            comp_size=$(get_file_size "$compressed")
+
+            total_original=$((total_original + orig_size))
+            total_compressed=$((total_compressed + comp_size))
+
+            orig_kb=$(bytes_to_kb "$orig_size")
+            comp_kb=$(bytes_to_kb "$comp_size")
+            savings=$(calc_percent "$comp_size" "$orig_size")
+
+            printf "%-40s %7sKB → %7sKB (%5s%% reduction)\n" \
+                "$rel_path" "$orig_kb" "$comp_kb" "$savings"
+        else
+            # File couldn't be compressed (already optimized)
+            orig_size=$(get_file_size "$original")
+            orig_kb=$(bytes_to_kb "$orig_size")
+            printf "%-40s %7sKB    (skipped - already optimized)\n" \
+                "$rel_path" "$orig_kb"
+            skipped_count=$((skipped_count + 1))
+        fi
+    done < "$temp_list"
+
+    if [ $total_original -gt 0 ]; then
+        total_orig_kb=$(bytes_to_kb "$total_original")
+        total_comp_kb=$(bytes_to_kb "$total_compressed")
+        total_savings=$(calc_percent "$total_compressed" "$total_original")
+
+        echo "============================================================"
+        printf "%-40s %7sKB → %7sKB (%5s%% reduction)\n" \
+            "TOTAL" "$total_orig_kb" "$total_comp_kb" "$total_savings"
+    fi
+
+    echo ""
+    success "Compression complete!"
+    if [ $skipped_count -gt 0 ]; then
+        echo ""
+        echo "$skipped_count file(s) skipped (already optimized, couldn't compress further)"
+    fi
+    echo ""
+    echo "Compressed images are saved with '-fs8.png' suffix."
+    echo "Review the results, then run with --clean to replace originals:"
+    echo "  ./squish $DIR_PATH --now --clean"
+
+    rm -f "$temp_list"
+}
+
+# Clean images (destructive)
+clean_images() {
+    cd "$TARGET_DIR"
+
+    # Count compressed images
+    fs8_count=0
+    while IFS= read -r -d '' fs8; do
+        fs8_count=$((fs8_count + 1))
+    done < <(find . -name "*-fs8.png" -type f -print0 2>/dev/null)
+
+    if [ $fs8_count -eq 0 ]; then
+        error "No compressed images (*-fs8.png) found. Run without --clean first."
+    fi
+
+    echo "Found $fs8_count compressed image(s) to promote"
+    echo ""
+    warning "WARNING: This will permanently replace the original images!"
+    echo ""
+    printf "Proceed? (yes/no): "
+    read -r response
+
+    if [ "$response" != "yes" ] && [ "$response" != "y" ]; then
+        echo "Aborted."
+        exit 0
+    fi
+
+    echo ""
+    echo "Replacing original images..."
+
+    while IFS= read -r -d '' compressed; do
+        # Get original filename by removing -fs8 suffix (keeping full path)
+        compressed_basename=$(basename "$compressed" .png)
+        original_basename=$(echo "$compressed_basename" | sed 's/-fs8$//')
+        original_dir=$(dirname "$compressed")
+        original="${original_dir}/${original_basename}.png"
+
+        if [ -f "$original" ]; then
+            # Remove original and rename compressed
+            rm "$original"
+            mv "$compressed" "$original"
+            rel_path=$(echo "$original" | sed 's|^\./||')
+            success "Replaced $rel_path"
+        else
+            rel_path=$(echo "$compressed" | sed 's|^\./||')
+            warning "Original not found for $rel_path, skipping"
+        fi
+    done < <(find . -name "*-fs8.png" -type f -print0 2>/dev/null)
+
+    echo ""
+    success "Cleanup complete! Original images have been replaced."
+}
+
+# Main execution
+check_dependencies
+
+echo "Working directory: $TARGET_DIR"
+echo ""
+
+if [ $CLEAN_MODE -eq 1 ]; then
+    clean_images
+elif [ $DRY_RUN -eq 1 ]; then
+    dry_run_images
+else
+    squish_images
+fi
