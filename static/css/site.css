@@ -471,3 +471,9 @@ nav a:focus-visible {
     top: -0.15em;
     margin-right: 0.5rem;
 }
+
+/* Home page horizontal rule spacing */
+#main hr {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}

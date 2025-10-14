@@ -19,4 +19,22 @@
 
 {{ $allContent := where .Site.RegularPages "Section" "in" (slice "blog" "til")
 }} {{ range first 10 $allContent }} {{ partial "article-listing.html" . }} {{
-end }} {{ end }}
+end }}
+
+<script>
+    document.addEventListener("keydown", function (e) {
+        if (
+            e.key === "/" &&
+            document.activeElement.tagName !== "INPUT" &&
+            document.activeElement.tagName !== "TEXTAREA"
+        ) {
+            e.preventDefault();
+            var searchInput = document.getElementById("search-query");
+            if (searchInput) {
+                searchInput.focus();
+            }
+        }
+    });
+</script>
+
+{{ end }}
