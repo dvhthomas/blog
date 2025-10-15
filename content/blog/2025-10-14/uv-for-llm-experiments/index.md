@@ -11,7 +11,7 @@ draft: false
 images: [pyproject.png]
 ---
 
-![code listing of the pyproject.toml file](pyproject.png)
+{{< figure src="pyproject.png" title="pyproject.toml for an LLM project" >}}
 
 I'm a `uv` convert.
 It's a much faster way to set up isolated virtual environments for Python than other methods that I've used, including Anaconda and the `venv` + `pip` combination.

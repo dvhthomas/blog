@@ -22,3 +22,4 @@ notebooks/*.*
 !notebooks/*.ipynb.hugo_build.lock
 .hugo_build.lock
 git-sim_media
+.tool-versions
