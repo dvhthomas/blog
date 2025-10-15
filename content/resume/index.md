@@ -1,5 +1,5 @@
 ---
-title: "Dominic 'Dylan' Thomas"
+title: "Dominic ‘Dylan’ Thomas"
 date: 2020-02-11T20:37:28-07:00
 draft: false
 toc: false
@@ -96,6 +96,7 @@ University of North Carolina
 ## Other
 
 U.S. and U.K. citizen
+
 
 
 

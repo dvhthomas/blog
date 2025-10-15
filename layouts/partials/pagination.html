@@ -1,15 +1,10 @@
-{{ if ne .Paginator.TotalPages 0 }}
+{{ if ne .Paginator.TotalPages 0 }} {{ if or .Paginator.HasNext
+.Paginator.HasPrev }}
 <div class="paginator">
     {{ if .Paginator.HasNext }}
     <a href="{{ .Paginator.Next.URL }}" class="older">&laquo; Older</a>
-    {{ else }}
-    &laquo; Older
-    {{ end }}
-
-    {{ if .Paginator.HasPrev }}
+    {{ end }} {{ if .Paginator.HasPrev }}
     <a href="{{ .Paginator.Prev.URL }}" class="newer">Newer &raquo;</a>
-    {{ else }}
-    Newer &raquo;
     {{ end }}
 </div>
-{{ end }}
+{{ end }} {{ end }}

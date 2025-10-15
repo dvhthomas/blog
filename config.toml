@@ -56,10 +56,12 @@ ignoreErrors = ["error-remote-getjson"]
 [taxonomies]
   tag = "tags"
   series = "series"
+  capability = "capabilities"
 
 [permalinks]
   blog = "/:year/:month/:title"
   til = "til/:year-:month-:day/"
+  resume = "work/:title"
 
 [markup]
   [markup.highlight]

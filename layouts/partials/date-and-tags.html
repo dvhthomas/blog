@@ -3,18 +3,22 @@
 <time class="summary" datetime="{{ $dateTime }}"
     >{{ .PublishDate.Format $dateFormat }}</time
 >
-{{ with .Params.tags }}
+{{ $taxonomies := slice (dict "name" "tags" "label" "Tags" "singular" "Tag")
+(dict "name" "capabilities" "label" "Capabilities" "singular" "Capability") }}
+{{ range $taxonomies }} {{ $taxonomy := . }} {{ $terms := index $.Params .name
+}} {{ with $terms }}
 <br />
-<div role="list" aria-label="Tags">
-    {{ range . }} {{ $href := print (absURL "tags/") (urlize .) }}
+<div role="list" aria-label="{{ $taxonomy.label }}">
+    {{ range . }} {{ $href := print (relURL (printf "%s/" $taxonomy.name))
+    (urlize .) }}
     <a
         class="btn btn-sm btn-outline-dark tag-btn summary"
         href="{{ $href }}"
         role="listitem"
-        aria-label="Tag: {{ . }}"
+        aria-label="{{ $taxonomy.singular }}: {{ . }}"
         >{{ . }}</a
     >
     {{ end }}
 </div>
-{{ end }}
+{{ end }} {{ end }}
 <br />
