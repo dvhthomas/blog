@@ -1,5 +1,5 @@
 ---
-title: LLM Foundations
+title: "Week 1: LLM Foundations"
 date: 2025-10-10T13:34:50-06:00
 tags: [llm, ai, engineering]
 toc: true

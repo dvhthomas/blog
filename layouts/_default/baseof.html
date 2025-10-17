@@ -1,6 +1,6 @@
 <!doctype html>
 <html lang="en">
-    {{ partial "head.html" . }} {{ partial "script.html" . }}
+    {{ partial "head.html" . }}
     <body>
         <a href="#main" class="skip-to-main">Skip to main content</a>
         {{ partial "nav.html" . }}
@@ -9,6 +9,7 @@
                 {{ block "main" . }}{{ end }}
             </main>
         </div>
+        {{ partial "script.html" . }}
     </body>
     {{ partial "footer.html" . }}
 </html>
