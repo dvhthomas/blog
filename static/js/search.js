@@ -79,7 +79,17 @@ function populateResults(results) {
     "search-result-template",
   ).innerHTML;
 
-  results.forEach(function (value, key) {
+  // Deduplicate results by permalink to show only one result per page
+  var seenPermalinks = {};
+  var uniqueResults = [];
+  results.forEach(function (value) {
+    if (!seenPermalinks[value.item.permalink]) {
+      seenPermalinks[value.item.permalink] = true;
+      uniqueResults.push(value);
+    }
+  });
+
+  uniqueResults.forEach(function (value, key) {
     var contents = value.item.contents;
     var snippet = "";
     var snippetHighlights = [];
