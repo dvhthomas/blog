@@ -259,7 +259,22 @@ Retrieval is a search problem:
   By chunking using length, regex, or HTML/Markdown splitting, can get more manageable and even intelligent splitting of long documents.
   HTML/Markdown splitters tend to preserve the semantic structure of the document, like headers, etc.
   Check out [text spliters by LangChain](https://python.langchain.com/docs/concepts/text_splitters/).
-* Indexing.
+* Indexing. Vector-based is the most common way today.
+  KB-based indexing is specific some certain domains.
+  Text-based methods - they are simple and easy to implement using something like ElasticSearch. However, they lose the semantic meaning and synonyms.
+  Vector-based methods - they are more complex and require more resources, but they preserve the semantic meaning and synonyms.
+
+{{<mermaid>}}
+graph LR
+    A[Indexing] --> B[Keyword-based]
+    A --> C[Full-text]
+    A --> D[Knowledge graph-based]
+    A --> E[Vector-based]
+
+    style E fill:#ffeb3b,stroke:#333,stroke-width:3px
+  {{</mermaid>}}
+  
+
 
 ## LLM Resources: Organized by Topic
 
