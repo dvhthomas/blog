@@ -1,3 +1,4 @@
+.task
 # Hugo default output directory
 /public
 
@@ -13,6 +14,11 @@ $RECYCLE.BIN/
 
 # Image compression intermediate files
 *-fs8.png
+
+# D2 diagram generated files (generated from .d2 source files)
+# Only ignore SVG files - these are most commonly generated from D2
+# PNG/PDF from D2 are less common, and we want to keep user-added PNGs
+content/**/*.svg
 
 # Dev-specific Env and configs
 .venv

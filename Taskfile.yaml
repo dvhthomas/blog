@@ -8,10 +8,22 @@ vars:
 
 tasks:
   default:
-    desc: Start a local dev server
+    desc: Start dev server with D2 diagram watching
+    deps: [render-d2]
     cmds:
-      - hugo server --buildDrafts --noHTTPCache
+      - go run blog.go --serve
     interactive: true
+
+  render-d2:
+    desc: Render all D2 diagrams to SVG
+    cmds:
+      - go run blog.go
+    sources:
+      - content/**/*.d2
+      - config.toml
+    generates:
+      - content/**/*.svg
+    method: checksum
   blog:
     desc: Create a new blog post with a title, TITLE="my-post" task blog
     cmds:
@@ -27,3 +39,9 @@ tasks:
      - rm content/til/{{.DATE}}/index.md.bak
     env:
       TITLE: ""
+
+  build:
+    desc: Build the site for production
+    deps: [render-d2]
+    cmds:
+      - hugo

@@ -232,7 +232,7 @@ aside.toc ul {
 }
 
 figure img {
-    box-shadow: 0rem 0rem 1rem hsl(0, 0%, 80%);
+    /*box-shadow: 0rem 0rem 1rem hsl(0, 0%, 80%);*/
     display: block;
     margin-left: auto;
     margin-right: auto;
@@ -476,4 +476,22 @@ nav a:focus-visible {
 #main hr {
     margin-top: 2rem;
     margin-bottom: 2rem;
+}
+
+/* D2 diagram styling */
+figure.d2-diagram {
+    margin: 2rem 0;
+}
+
+figure.d2-diagram img {
+    max-width: 100%;
+    height: auto;
+    width: 70%; /* Scale diagrams to 70% of container width */
+}
+
+figure.d2-diagram figcaption {
+    font-size: 0.9rem;
+    text-align: center;
+    font-style: italic;
+    padding-top: 0.5rem;
 }

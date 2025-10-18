@@ -1,0 +1,22 @@
+direction: right
+
+classes: {
+    highlight: {
+        style.fill: yellow
+    }
+}
+
+idx: Indexing {
+    class: highlight
+}
+kw: Keyword-based
+ft: Full-text
+kb: Knowledge graph-based
+vb: Vector-based {
+    class: highlight
+}
+
+idx -> kw
+idx -> ft
+idx -> kb
+idx -> vb

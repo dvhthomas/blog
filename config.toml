@@ -12,6 +12,12 @@ ignoreErrors = ["error-remote-getjson"]
     dateFormat = "January 2, 2006"
     description = "The personal website and blog of Dylan Thomas"
 
+    [params.d2]
+        theme = "3"  # https://d2lang.com/tour/themes/
+        layout = "elk"  # Default layout engine (empty = default, or set to: "elk", "dagre", etc.)
+        sketch = false  # Enable sketch/hand-drawn style globally
+        pad = 10  # Padding in pixels around diagrams (default: 100)
+
 
 [sitemap]
   changefreq = "weekly"
