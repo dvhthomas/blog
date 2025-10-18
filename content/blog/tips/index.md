@@ -5,6 +5,7 @@ draft: true
 mermaid: true
 mathjax: true
 vega: true
+toc: true
 ---
 
 ## Pictures
@@ -49,6 +50,8 @@ We can display it using
 
 ## Diagrams
 
+### Mermaid
+
 The YAML front matter contains `mermaid: true` and then this will render a nice diagram.
 
 {{<mermaid>}}
@@ -57,6 +60,44 @@ graph TD;
     note
     t-->B;
 {{</mermaid>}}
+
+### D2
+
+[D2](https://d2lang.com/) is a modern diagram scripting language. Create a `.d2` file in the same directory as your post, then reference it using the `d2` shortcode.
+
+For example, here's a simple workflow diagram defined in `example.d2`:
+
+{{< d2 src="example.d2" width="50%"/>}}
+
+The D2 source looks like this:
+
+```
+start -> process: step 1
+process -> end: step 2
+```
+
+Reference it in your markdown with:
+
+```
+{{</* d2 src="example.d2" */>}}
+```
+
+Include an optional `width: xx%` to control the diagram's width. For example:
+
+```
+{{</* d2 src="example.d2" width="85%" */>}}
+```
+
+#### Controlling diagram width
+
+By default, D2 diagrams scale to 70% of the container width. You can override this with the `width` parameter:
+
+- Default (70%): `{{</* d2 src="diagram.d2" */>}}`
+- Full width (100%): `{{</* d2 src="diagram.d2" width="100%" */>}}`
+- Half width (50%): `{{</* d2 src="diagram.d2" width="50%" */>}}`
+- Custom: `{{</* d2 src="diagram.d2" width="85%" */>}}`
+
+Use wider widths for complex flow diagrams, and narrower widths for simple hierarchical diagrams.
 
 ## Reference URLs
 

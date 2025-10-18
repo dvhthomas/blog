@@ -1,0 +1,114 @@
+# Define reusable style classes
+classes: {
+  process: {
+    style: {
+      stroke: "#333"
+      border-radius: 10
+    }
+  }
+
+  io: {
+  }
+
+  retrieval-box: {
+    style: {
+      fill: "#ffffcc"
+    }
+  }
+
+  data: {
+    style.multiple: true
+    shape: document
+  }
+
+  generation-box: {
+    style: {
+      fill: "#e8e8e8"
+      italic: true
+    }
+  }
+
+  dashed-container: {
+    style: {
+      stroke-dash: 5
+      fill: "#f5f5f5"
+    }
+  }
+
+  text-box: {
+    style: {
+      fill: "#ffffff"
+      stroke: "#333"
+    }
+  }
+
+  retrieved-docs: {
+    style: {
+      stroke-dash: 3
+      fill: "#ffffff"
+    }
+  }
+}
+
+# Document database with stacked documents
+docs: Document database {
+  class: dashed-container
+
+  pdfs: PDFs {
+    class: data
+  }
+  img: Images {
+    class: data
+  }
+  html: HTML {
+  class: data
+  }
+  etc: {
+  class: data
+  }
+}
+
+# Retrieval process
+retrieval: Retrieval {
+  class: [process; retrieval-box]
+}
+
+# Retrieved documents
+retrieved: "[retrieved 1]\n[retrieved 2]\n...\n[retrieved k]" {
+  class: retrieved-docs
+}
+
+# Generation process
+generation: Generation {
+  class: [process; generation-box]
+}
+
+# User query
+query: "What is the\nrefund policy?" {
+  class: [io; text-box]
+}
+
+# Generated answer
+answer: "You can return items\nfor any reason within\n30 days of your purchase" {
+  class: [io; text-box]
+}
+
+# Connections
+docs <-> retrieval: {
+  style.stroke-width: 2
+}
+retrieval -> retrieved: {
+  style.stroke-width: 2
+}
+retrieved -> generation: {
+  style.stroke-width: 2
+}
+query -> retrieval: {
+  style.stroke-width: 2
+}
+query -> generation: {
+  style.stroke-width: 2
+}
+generation -> answer: {
+  style.stroke-width: 2
+}

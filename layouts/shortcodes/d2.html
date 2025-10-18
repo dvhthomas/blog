@@ -1,4 +1,5 @@
 {{- $file := .Get "src" -}}
+{{- $width := .Get "width" -}}
 
 {{- if not $file -}}
     {{- errorf "d2 shortcode requires 'src' parameter with path to .d2 file" -}}
@@ -11,7 +12,7 @@
 {{- $id := printf "d2-%s" (md5 $file) -}}
 
 <figure class="d2-diagram" id="{{ $id }}">
-    <img src="{{ $outputFilename }}" alt="D2 diagram from {{ $file }}" loading="lazy" />
+    <img src="{{ $outputFilename }}" alt="D2 diagram from {{ $file }}" loading="lazy" {{- if $width }} style="width: {{ $width }};"{{- end }} />
     {{- with .Inner -}}
         <figcaption>{{ . | markdownify }}</figcaption>
     {{- end -}}

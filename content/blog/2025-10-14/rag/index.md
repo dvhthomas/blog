@@ -245,6 +245,8 @@ The problem with our prior example (system prompt) is that reading the support p
 Basically, the knowledge is too big to read into a prompt.
 That's where retrieval augmented generation (RAG) comes in.
 
+{{< d2 src="rag-flow.d2" width="100%" />}}
+
 Retrieval is a search problem:
 
 * **Pre-process.** Build a searchable index from documents.
