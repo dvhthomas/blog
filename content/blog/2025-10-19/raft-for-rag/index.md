@@ -7,7 +7,7 @@ series: []
 summary: RAFT (Retrieval-Augmented Fine-Tuning) confused me when I first heard about it in a training class. It's a technique that combines both offline fine-tuning and runtime retrieval to improve the performance of language models. But I wasn't sure whether the core LLM should be fine-tuned or the retrieval augmented generation (RAG) vector store, or both. So I dug in.
 mermaid: false
 mathjax: false
-draft: true
+draft: false
 images: [raft-paper.png]
 ---
 ![authors of the raft paper](raft-paper.png)
