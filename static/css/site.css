@@ -11,6 +11,19 @@
         70%,
         45%
     ); /* darker blue - hover color */
+
+    /* Callout colors based on brand hue rotations */
+    --tip-hue: calc(
+        var(--base-hue) + 60
+    ); /* 60° rotation for distinct but harmonious color */
+    --tip-bg-color: hsl(var(--tip-hue), 45%, 95%);
+    --tip-border-color: hsl(var(--tip-hue), 60%, 50%);
+    --tip-text-color: hsl(var(--tip-hue), 60%, 40%);
+
+    --info-hue: calc(var(--base-hue) - 30); /* analogous: 30° rotation */
+    --info-bg-color: hsl(var(--info-hue), 45%, 95%);
+    --info-border-color: hsl(var(--info-hue), 80%, 55%);
+    --info-text-color: hsl(var(--info-hue), 80%, 45%);
 }
 body {
     font-family:
@@ -186,6 +199,53 @@ header h1 {
     padding-left: 1rem;
     margin-left: 1rem;
     border-left: solid hsla(237, 0%, 90%, 1) 5px;
+}
+
+/* TIP and INFO blockquote styling */
+#main blockquote.tip,
+#main blockquote.info {
+    font-style: normal;
+    font-weight: 400;
+    padding: 1rem 1rem 1rem 1rem;
+    margin: 1.5rem 0;
+    border-radius: 4px;
+    position: relative;
+}
+
+#main blockquote.tip {
+    background-color: var(--tip-bg-color);
+    border-left: solid var(--tip-border-color) 5px;
+}
+
+#main blockquote.info {
+    background-color: var(--info-bg-color);
+    border-left: solid var(--info-border-color) 5px;
+}
+
+#main blockquote.tip::before,
+#main blockquote.info::before {
+    content: "";
+    font-weight: 700;
+    font-style: normal;
+    font-size: 0.9rem;
+    display: block;
+    margin-bottom: 0.5rem;
+    letter-spacing: 0.05em;
+}
+
+#main blockquote.tip::before {
+    content: "💡 TIP";
+    color: var(--tip-text-color);
+}
+
+#main blockquote.info::before {
+    content: "ℹ️ INFO";
+    color: var(--info-text-color);
+}
+
+#main blockquote.tip p,
+#main blockquote.info p {
+    margin: 0;
 }
 
 .font-125 {

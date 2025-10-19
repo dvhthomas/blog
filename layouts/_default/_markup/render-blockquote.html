@@ -1,0 +1,22 @@
+{{- $text := .Text | plainify | strings.TrimSpace -}}
+{{- $textUpper := $text | upper -}}
+{{- $class := "" -}}
+{{- $content := .Text -}}
+
+{{- if hasPrefix $textUpper "TIP:" -}}
+    {{- $class = "tip" -}}
+    {{- $content = replaceRE "(?i)^\\s*<p>\\s*TIP:\\s*" "<p>" .Text -}}
+{{- else if hasPrefix $textUpper "INFO:" -}}
+    {{- $class = "info" -}}
+    {{- $content = replaceRE "(?i)^\\s*<p>\\s*INFO:\\s*" "<p>" .Text -}}
+{{- end -}}
+
+{{- if $class -}}
+<blockquote class="{{ $class }}">
+    {{- $content | safeHTML -}}
+</blockquote>
+{{- else -}}
+<blockquote>
+    {{- .Text | safeHTML -}}
+</blockquote>
+{{- end -}}

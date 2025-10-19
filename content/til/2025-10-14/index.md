@@ -11,6 +11,9 @@ draft: false
 images: []
 ---
 
+> TIP: The [Transformers, the tech behind LLMs | Deep Learning Chapter 5
+](https://www.youtube.com/watch?v=wjZofJX0v4M) video by 3Blue1Brown is superb at explaining the Transformer architecture and where the size numbers come from.
+
 First remember what the hidden dimension (embedding size) is. The embedding dimension is absolutely a choice made by the model designer before training starts.
 
 ## Where the numbers come from

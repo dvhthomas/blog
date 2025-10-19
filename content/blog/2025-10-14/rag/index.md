@@ -247,6 +247,10 @@ That's where retrieval augmented generation (RAG) comes in.
 
 {{< d2 src="rag-flow.d2" width="100%" />}}
 
+Here's a more detailed view of the complete RAG architecture, showing both the indexing and retrieval/generation pipelines:
+
+{{< d2 src="rag-architecture.d2" width="80%" />}}
+
 Retrieval is a search problem:
 
 * **Pre-process.** Build a searchable index from documents.
@@ -261,7 +265,7 @@ Retrieval is a search problem:
   By chunking using length, regex, or HTML/Markdown splitting, can get more manageable and even intelligent splitting of long documents.
   HTML/Markdown splitters tend to preserve the semantic structure of the document, like headers, etc.
   Check out [text spliters by LangChain](https://python.langchain.com/docs/concepts/text_splitters/).
-* Indexing. Vector-based is the most common way today.
+* **Indexing.** Vector-based is the most common way today.
   KB-based indexing is specific some certain domains.
   Text-based methods - they are simple and easy to implement using something like ElasticSearch. However, they lose the semantic meaning and synonyms.
   Vector-based methods - they are more complex and require more resources, but they preserve the semantic meaning and synonyms.

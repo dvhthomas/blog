@@ -1,0 +1,205 @@
+# Define reusable style classes
+classes: {
+  database: {
+    shape: cylinder
+}
+
+  process: {
+    style: {
+      fill: "#d4c5f9"
+      stroke: "#333"
+      stroke-width: 2
+      border-radius: 8
+    }
+  }
+
+  encoder: {
+    style: {
+      fill: "#c8f0c8"
+      stroke: "#333"
+      stroke-width: 2
+      border-radius: 8
+    }
+  }
+
+  image-encoder: {
+    style: {
+      stroke-width: 2
+      border-radius: 8
+    }
+  }
+
+  container: {
+    style: {
+      stroke: "#333"
+      stroke-dash: 5
+      fill: transparent
+      stroke-width: 2
+    }
+  }
+
+  retrieval-container: {
+    style: {
+      fill: "#ffffcc"
+      stroke: "#333"
+      stroke-width: 2
+      border-radius: 10
+    }
+  }
+
+  generation-container: {
+    style: {
+      fill: "#bbdefb"
+      stroke: "#333"
+      stroke-width: 2
+      border-radius: 10
+    }
+  }
+
+  safety: {
+    style: {
+      fill: "#ffcccc"
+      stroke: "#333"
+      stroke-width: 2
+      border-radius: 8
+    }
+  }
+
+  expansion: {
+    style: {
+      fill: "#ffffcc"
+      stroke: "#333"
+      stroke-width: 2
+      border-radius: 8
+    }
+  }
+
+  llm: {
+    style: {
+      fill: "#ffffff"
+      stroke: "#333"
+      stroke-width: 2
+      border-radius: 8
+    }
+  }
+
+  user: {
+    shape: person
+    style: {
+      stroke: "#333"
+      stroke-width: 2
+    }
+  }
+}
+
+# Indexing process container
+indexing: Indexing process {
+  class: container
+
+  doc-db: Document databases {
+    shape: document
+    style: {
+      fill: "#ffffff"
+      stroke: "#333"
+      stroke-width: 2
+      multiple: true
+    }
+  }
+
+  parsing: "Document\nParsing & Chunking" {
+    class: process
+  }
+
+  text-enc: "Text\nEncoder" {
+    class: encoder
+  }
+
+  image-enc: "Image\nEncoder" {
+    class: image-encoder
+  }
+
+  doc-db -> parsing
+  parsing -> text-enc
+  parsing -> image-enc
+}
+
+# Index databases
+text-idx: "Index\n(text)" {
+  class: database
+}
+
+image-idx: "Index\n(images)" {
+  class: database
+}
+
+indexing.text-enc -> text-idx
+indexing.image-enc -> image-idx
+
+# Retrieval container
+retrieval: Retrieval {
+  class: retrieval-container
+
+  ret-text-enc: "Text\nEncoder" {
+    class: encoder
+  }
+
+  nn-search: "Nearest Neighbor\nSearch" {
+    class: process
+  }
+
+  ret-text-enc -> nn-search
+}
+
+text-idx -> retrieval.nn-search
+image-idx -> retrieval.nn-search
+
+# Generation container
+generation: Generation {
+  class: generation-container
+
+  prompt-eng: "Prompt\nEngineering" {
+    class: process
+  }
+
+  llm: LLM {
+    class: llm
+  }
+
+  safety-filter-out: "Safety\nFiltering" {
+    class: safety
+  }
+
+  prompt-eng -> llm
+  llm -> safety-filter-out
+}
+
+# User and query flow
+user: User {
+  class: user
+}
+
+user-query: "User\nquery" {
+  shape: text
+}
+
+user -> user-query
+
+safety-filter-in: "Safety\nFiltering" {
+  class: safety
+}
+
+query-exp: "Query\nExpansion" {
+  class: expansion
+}
+
+response: Response {
+  shape: text
+}
+
+# Connections
+user-query -> safety-filter-in
+safety-filter-in -> query-exp
+query-exp -> retrieval.ret-text-enc
+query-exp -> generation.prompt-eng
+retrieval.nn-search -> generation.prompt-eng
+generation.safety-filter-out -> response
