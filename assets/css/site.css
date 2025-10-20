@@ -254,6 +254,7 @@ header h1 {
 
 .tag-btn {
     margin-bottom: 0.5rem;
+    margin-right: 0.5rem;
     text-decoration: none;
     background-color: hsl(var(--base-hue), 30%, 95%);
     border-color: hsl(var(--base-hue), 30%, 85%);

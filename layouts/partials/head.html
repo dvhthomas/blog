@@ -11,10 +11,10 @@
     {{ hugo.Generator }} {{ $title := print .Title " | " .Site.Title }} {{ if
     .IsHome }}{{ $title = .Site.Title }}{{ end }}
     <title>{{ $title }}</title>
-    {{ $css := "css/bootstrap.min.css" | relURL }} {{ $siteCss := "css/site.css"
-    | relURL }}
-    <link rel="stylesheet" href="{{ $css }}" />
-    <link rel="stylesheet" href="{{ $siteCss }}" />
+    {{ $bootstrap := resources.Get "css/bootstrap.min.css" | fingerprint }}
+    {{ $siteCss := resources.Get "css/site.css" | fingerprint }}
+    <link rel="stylesheet" href="{{ $bootstrap.RelPermalink }}" />
+    <link rel="stylesheet" href="{{ $siteCss.RelPermalink }}" />
     {{ partial "favicon.html" . }}
     <!-- open graph
     <meta property="og:type" content="website" />
