@@ -1,9 +1,8 @@
-{{ define "main" }}
-{{ partial "search_form.html" . }}
+{{ define "main" }} {{ partial "search_form.html" . }}
 
 <main>
     <div id="search-results"></div>
-    <div class="search-loading">Loading...</div>
+    <div class="search-loading" style="display: none;">Loading...</div>
 
     <script id="search-result-template" type="text/x-js-template">
         <div id="summary-${key}">
@@ -16,12 +15,24 @@
             </p>
         </div>
     </script>
-
 </main>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/3.2.0/fuse.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js"></script>
 
-{{ $js := "js/search.js" | absURL }}
-<script src="{{ $js }}"></script>
+{{ $fuse := .Resources.Get "fuse.min.js" }} {{ $fuse = $fuse | minify |fingerprint }}
+<script
+    src="{{ $fuse.RelPermalink }}"
+    integrity="{{ $fuse.Data.Integrity }}"
+></script>
 
-{{ end }}
+{{ $mark := .Resources.Get "mark.min.js" }} {{ $mark = $mark | minify | fingerprint }}
+<script
+    src="{{ $mark.RelPermalink }}"
+    integrity="{{ $mark.Data.Integrity }}"
+></script>
+
+{{ $js := .Resources.Get "search.js" }} {{ if $js }} {{ $js = $js | minify |
+fingerprint }}
+<script
+    src="{{ $js.RelPermalink }}"
+    integrity="{{ $js.Data.Integrity }}"
+></script>
+{{ end }} {{ end }}

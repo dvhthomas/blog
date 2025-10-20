@@ -1,10 +1,10 @@
 # https://taskfile.dev
 
-version: '3'
+version: "3"
 
 vars:
   DATE:
-   sh: date "+%Y-%m-%d"
+    sh: date "+%Y-%m-%d"
 
 tasks:
   default:
@@ -27,16 +27,16 @@ tasks:
   blog:
     desc: Create a new blog post with a title, TITLE="my-post" task blog
     cmds:
-     - hugo new blog/{{.DATE}}/$TITLE/index.md
+      - hugo new blog/{{.DATE}}/$TITLE/index.md
     env:
       TITLE: ""
   today-i-learned:
     desc: Create a new Today I Learned post, TITLE="the title" task til
     aliases: [til]
     cmds:
-     - hugo new til/{{.DATE}}/index.md
-     - 'sed -i.bak "2s/title.*/title: $TITLE/" content/til/{{.DATE}}/index.md'
-     - rm content/til/{{.DATE}}/index.md.bak
+      - hugo new til/{{.DATE}}/index.md
+      - 'sed -i.bak "2s/title.*/title: $TITLE/" content/til/{{.DATE}}/index.md'
+      - rm content/til/{{.DATE}}/index.md.bak
     env:
       TITLE: ""
 
@@ -44,4 +44,4 @@ tasks:
     desc: Build the site for production
     deps: [render-d2]
     cmds:
-      - hugo
+      - hugo --gc --minify
