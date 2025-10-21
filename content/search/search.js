@@ -10,18 +10,13 @@ var summaryInclude = 60;
 var fuseOptions = {
   shouldSort: true,
   includeMatches: true,
-  threshold: 0.0,
-  tokenize: true,
+  // threshold: 0.6 is the default - removed to use default
+  // Lower values = stricter matching (0.0 = exact match only)
+  // Higher values = more fuzzy matching (1.0 = match anything)
   location: 0,
   distance: 100,
-  maxPatternLength: 32,
   minMatchCharLength: 1,
-  keys: [
-    { name: "title", weight: 0.8 },
-    { name: "contents", weight: 0.5 },
-    { name: "tags", weight: 0.3 },
-    { name: "categories", weight: 0.3 },
-  ],
+  keys: ["title", "contents", "tags", "categories"],
 };
 
 // =============================
@@ -56,6 +51,7 @@ function executeSearch(searchQuery) {
       .then(function (pages) {
         var fuse = new Fuse(pages, fuseOptions);
         var result = fuse.search(searchQuery);
+
         if (result.length > 0) {
           populateResults(result);
         } else {
