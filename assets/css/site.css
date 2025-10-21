@@ -556,3 +556,12 @@ figure.d2-diagram figcaption {
     font-style: italic;
     padding-top: 0.5rem;
 }
+
+/* Search result highlighting (mark.js) */
+mark {
+    background-color: var(--tip-bg-color);
+    color: var(--tip-text-color);
+    font-weight: 600;
+    padding: 0.1em 0.2em;
+    border-radius: 2px;
+}
