@@ -1,9 +1,12 @@
-{{ if .Params.series }} {{ $name := index .Params.series 0 }} {{ $currentPage :=
-. }} {{ $seriesKey := $name | urlize | replaceRE "-" " " }} {{ $seriesURL :=
-printf "/series/%s/" ($name | urlize) }}
-<nav aria-labelledby="series-heading">
-    <p id="series-heading">
-        This article is part of a <a href="{{ $seriesURL }}">series</a>.
-    </p>
-</nav>
-{{end}}
+{{ if .Params.series }}
+    {{ $name := index .Params.series 0 }}
+    {{ $seriesURL := printf "/series/%s/" ($name | urlize) }}
+    {{ $seriesPages := where .Site.RegularPages "Params.series" "intersect" .Params.series }}
+    {{ $articleCount := len $seriesPages }}
+
+    <nav aria-labelledby="series-heading">
+        <p id="series-heading">
+            This article is part of the <a href="{{ $seriesURL }}">{{ $name }}</a> series ({{ $articleCount }} articles).
+        </p>
+    </nav>
+{{ end }}
