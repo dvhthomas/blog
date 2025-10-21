@@ -7,8 +7,8 @@ series: []
 summary: I want to set up an exit node on my Mac Mini using Tailscale. That way I can watch movies from anywhere and print stuff without being at home.
 mermaid: false
 mathjax: false
-draft: true
-images: []
+draft: false
+images: [exit-node.png]
 ---
 
 I do not want the standard user-level setup with the Tailscale GUI app setup because if the Mac power cycles, Tailscale exit node should work without a user having to log in.
