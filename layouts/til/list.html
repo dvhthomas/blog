@@ -8,6 +8,10 @@
   of the content folders, e.g., the content in
   content/blog/_index.md.
 -->
-{{ .Content }} {{ range .Paginator.Pages.ByPublishDate.Reverse }} {{ partial
+<div style="margin-bottom: 2rem; padding-bottom: 1.5rem; border-bottom: 1px solid rgba(0, 0, 0, 0.1);">
+{{ .Content }}
+</div>
+
+{{ range .Paginator.Pages.ByPublishDate.Reverse }} {{ partial
 "article-listing.html" . }} {{ end }} {{- partial "pagination.html" . -}} {{ end
 }}
