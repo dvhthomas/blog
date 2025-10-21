@@ -13,6 +13,7 @@ ignoreErrors = ["error-remote-getjson"]
     homeText = "tech cycling dadops learning"
     dateFormat = "January 2, 2006"
     description = "The personal website and blog of Dylan Thomas"
+    images = ["/about/me-2025.png"]
 
     [params.d2]
         theme = "3"  # https://d2lang.com/tour/themes/
