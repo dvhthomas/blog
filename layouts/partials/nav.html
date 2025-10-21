@@ -6,7 +6,13 @@
         aria-label="Main navigation"
     >
         {{ range .Site.Menus.main }}
-        <a href="{{ .URL }}" aria-label="{{ .Name }}">
+        {{ $isActive := false }}
+        {{ if eq .URL "/" }}
+            {{ $isActive = eq $.RelPermalink "/" }}
+        {{ else }}
+            {{ $isActive = hasPrefix $.RelPermalink .URL }}
+        {{ end }}
+        <a href="{{ .URL }}" aria-label="{{ .Name }}" {{ if $isActive }}class="active"{{ end }}>
             <svg class="icon" aria-hidden="true" focusable="false">
                 <use xlink:href="#{{ .Pre }}" />
             </svg>

@@ -81,6 +81,10 @@ nav a {
     color: var(--action-color);
 }
 
+#nav a.active {
+    color: var(--tip-text-color);
+}
+
 a {
     color: var(--brand-color);
     text-decoration: underline;
@@ -185,12 +189,11 @@ header h1 {
 }
 
 .article-meta {
-    margin-bottom: 1rem;
+    margin-bottom: 1.5rem;
 }
 
 .article-meta time {
-    display: block;
-    margin-bottom: 0.5rem;
+    display: inline;
 }
 
 #main blockquote {
@@ -305,6 +308,48 @@ figcaption h4 {
     font-style: italic;
     padding-top: 1.5em;
     padding-bottom: 2em;
+}
+
+/* Side-by-side figures container */
+.figures-side-by-side {
+    display: flex;
+    gap: 2rem;
+    margin: 0 0 2rem 0;
+    align-items: flex-start;
+}
+
+.figures-side-by-side figure {
+    flex: 0 1 auto;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.figures-side-by-side figure img {
+    width: auto;
+    height: 400px;
+    object-fit: contain;
+    filter: sepia(0.4) hue-rotate(215deg) saturate(1);
+}
+
+.figures-side-by-side figure::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 400px;
+    pointer-events: none;
+}
+
+.figures-side-by-side figcaption {
+    margin-top: 0.5rem;
+}
+
+.figures-side-by-side figcaption h4 {
+    padding-top: 0.5rem;
+    padding-bottom: 0;
 }
 
 article ol,
@@ -531,6 +576,16 @@ nav a:focus-visible {
     position: relative;
     top: -0.15em;
     margin-right: 0.5rem;
+}
+
+/* Content type indicator at top of single pages */
+.content-type-badge {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--brand-color);
+    font-weight: 600;
+    margin-bottom: 0.5rem;
 }
 
 /* Home page horizontal rule spacing */

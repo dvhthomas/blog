@@ -1,5 +1,5 @@
 ---
-title: 2021 06 15
+title: awk-ing
 date: 2021-06-15T09:59:30-07:00
 tags: [linux, tools, gcp, billing]
 toc: true

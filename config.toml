@@ -2,6 +2,8 @@ baseURL = "https://bitsby.me/"
 languageCode = "en-us"
 title = "Bits By Me"
 
+enableGitInfo = true
+
 [pagination]
   pagerSize = 10
 

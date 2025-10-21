@@ -5,7 +5,12 @@ draft: false
 toc: false
 ---
 
+<div class="figures-side-by-side">
+
 {{< figure src="me.jpg" title="The author as a younger man" >}}
+{{< figure src="me-2025.png" title="The author today" >}}
+
+</div>
 
 Hello, my name is Dylan Thomas. I've have a varied and interesting career in technology which all began on Sun workstations while studying geography. Yes, I'm a geographer by training, getting my BSc. in Human and Physical Geography at the [University of Reading](http://www.reading.ac.uk/ges/) (say "Redding" not "Reeding") in England. I moved to the United States from my native England many years ago and then got my MA in Geography at the University of North Carolina at Charlotte (UNCC).
 
