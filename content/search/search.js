@@ -93,12 +93,16 @@ const populateResults = (results, searchQuery) => {
   // Deduplicate results by permalink (in case same page matches multiple fields)
   const uniqueResults = deduplicateByPermalink(results);
 
-  // Render each result
-  uniqueResults.forEach((result, index) => {
-    const resultHtml = createResultHtml(result, index, searchQuery, templateDefinition);
-    searchResults.innerHTML += resultHtml;
+  // Build all HTML at once (avoiding DOM manipulation in loop)
+  const allResultsHtml = uniqueResults
+    .map((result, index) => createResultHtml(result, index, searchQuery, templateDefinition))
+    .join('');
 
-    // Apply mark.js highlighting to both title and snippet
+  // Update DOM once
+  searchResults.innerHTML = allResultsHtml;
+
+  // Apply mark.js highlighting to all results after DOM update
+  uniqueResults.forEach((result, index) => {
     const resultElement = document.getElementById(`summary-${index}`);
     if (resultElement) {
       const marker = new Mark(resultElement);
