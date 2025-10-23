@@ -26,15 +26,15 @@ git commit -m "my cool post"
 git push origin master
 ```
 
-You do the roughly the same thing for Today I Learned posts but you don't provide a `TITLE`.
+Today I Learned posts work exactly the same way - provide a `TITLE`:
 
 ```sh
-task today-i-learned
-OR
-task til
+TITLE="something-i-learned" task til
+# OR
+TITLE="something-i-learned" task today-i-learned
 ```
 
-Each post is put into a folder like `til/1971-01-01/` or `blog/1971-01-01/awesome-title` with an `index.md` file. This gives you a spot to drop post-specific content next to the post itself. For example, if you want an image for a post you can drop it in that folder and reference it in the post thus:
+Each post is put into a folder like `blog/1971/01/01/my-post-title/index.md` or `til/1971/01/01/my-til-title/index.md`. This gives you a spot to drop post-specific content next to the post itself. For example, if you want an image for a post you can drop it in that folder and reference it in the post thus:
 
 ## Hosting
 
@@ -209,13 +209,13 @@ The `squish` script recursively finds and compresses all PNG images in a directo
 
 ```sh
 # Preview what will be compressed (dry-run, safe)
-./squish content/blog/2021-05-11
+./squish content/blog/2021/05/11
 
 # Actually compress images (creates -fs8.png versions)
-./squish content/blog/2021-05-11 --now
+./squish content/blog/2021/05/11 --now
 
 # Replace original images with compressed versions (destructive!)
-./squish content/blog/2021-05-11 --now --clean
+./squish content/blog/2021/05/11 --now --clean
 ```
 
 
