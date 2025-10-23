@@ -18,7 +18,7 @@ I live in Denver so I thought I'd start there.
 
 Denver.gov have an Open Data Portal so grabbing all of the [real property residential data](https://www.denvergov.org/opendata/dataset/city-and-county-of-denver-real-property-residential-characteristics) was easy.
 
-I downloaded it and took a first look using [VisiData]({{< ref "til/2021/03/10/2021-03-10/index.md" >}}):
+I downloaded it and took a first look using [VisiData]({{< ref "til/2021/03/10/visidata/index.md" >}}):
 
 ```sh
 wget -O denver.csv https://www.denvergov.org/media/gis/DataCatalog/real_property_residential_characteristics/csv/real_property_residential_characteristics.csv
