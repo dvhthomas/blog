@@ -27,16 +27,24 @@ tasks:
   blog:
     desc: Create a new blog post with a title, TITLE="my-post" task blog
     cmds:
-      - hugo new blog/{{.DATE}}/$TITLE/index.md
+      - |
+        YEAR=$(echo {{.DATE}} | cut -d'-' -f1)
+        MONTH=$(echo {{.DATE}} | cut -d'-' -f2)
+        DAY=$(echo {{.DATE}} | cut -d'-' -f3)
+        hugo new blog/${YEAR}/${MONTH}/${DAY}/$TITLE/index.md
     env:
       TITLE: ""
   today-i-learned:
     desc: Create a new Today I Learned post, TITLE="the title" task til
     aliases: [til]
     cmds:
-      - hugo new til/{{.DATE}}/index.md
-      - 'sed -i.bak "2s/title.*/title: $TITLE/" content/til/{{.DATE}}/index.md'
-      - rm content/til/{{.DATE}}/index.md.bak
+      - |
+        YEAR=$(echo {{.DATE}} | cut -d'-' -f1)
+        MONTH=$(echo {{.DATE}} | cut -d'-' -f2)
+        DAY=$(echo {{.DATE}} | cut -d'-' -f3)
+        hugo new til/${YEAR}/${MONTH}/${DAY}/$TITLE/index.md
+        sed -i.bak "2s/title.*/title: $TITLE/" content/til/${YEAR}/${MONTH}/${DAY}/$TITLE/index.md
+        rm content/til/${YEAR}/${MONTH}/${DAY}/$TITLE/index.md.bak
     env:
       TITLE: ""
 
