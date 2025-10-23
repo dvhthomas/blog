@@ -12,6 +12,16 @@
 <article>
     {{ .Content }}
     <br />
-    {{ partial "related.html" . }}
+    {{ partial "related.html" . }} {{- if and .File .Site.Params.githubRepo -}}
+    <p style="margin-top: 2rem; font-size: 0.9rem">
+        <a
+            href="{{ .Site.Params.githubRepo }}/blob/main/content/{{ .File.Path }}"
+            target="_blank"
+            rel="noopener"
+        >
+            View page source
+        </a>
+    </p>
+    {{- end -}}
 </article>
 {{ end }}

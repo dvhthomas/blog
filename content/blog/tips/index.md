@@ -28,6 +28,30 @@ Or a specific link in a page. This uses the fact that markdown adds an automatic
 
 [Blogging title]({{< relref "blog/2020/02/11/welcome-back/index.md#im-blogging-again" >}})
 
+## Link to GitHub repo files
+
+Use the `github` shortcode to link to files in your GitHub repository. The repo URL is configured in `config.toml` as `params.githubRepo`.
+
+Basic usage (defaults to `main` branch):
+
+```markdown
+[`blog.go`]({{</* github path="blog.go" */>}})
+```
+
+Link to a specific branch:
+
+```markdown
+[README on develop]({{</* github path="README.md" branch="develop" */>}})
+```
+
+Link to content files:
+
+```markdown
+[This post's source]({{</* github path="content/blog/tips/index.md" */>}})
+```
+
+This generates URLs like `https://github.com/dvhthomas/blog/blob/main/blog.go`.
+
 ## A gist on Github
 
 {{< gist dvhthomas 239909 >}}
