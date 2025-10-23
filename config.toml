@@ -14,6 +14,7 @@ ignoreErrors = ["error-remote-getjson"]
     dateFormat = "January 2, 2006"
     description = "The personal website and blog of Dylan Thomas"
     images = ["/about/me-2025.png"]
+    githubRepo = "https://github.com/dvhthomas/blog"
 
     [params.d2]
         theme = "3"  # https://d2lang.com/tour/themes/

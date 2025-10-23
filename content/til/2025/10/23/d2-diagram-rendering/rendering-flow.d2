@@ -1,0 +1,26 @@
+# How D2 rendering works in this blog
+
+d2 files: {
+  shape: page
+}
+
+blog.go: {
+  shape: hexagon
+}
+
+svg files: {
+  shape: page
+}
+
+hugo: {
+  shape: hexagon
+}
+
+website: {
+  shape: document
+}
+
+d2 files -> blog.go: watches & renders
+blog.go -> svg files: generates
+svg files -> hugo: includes
+hugo -> website: builds

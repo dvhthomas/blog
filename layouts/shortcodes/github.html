@@ -1,0 +1,13 @@
+{{- $path := .Get "path" -}}
+{{- $repo := .Site.Params.githubRepo -}}
+{{- $branch := .Get "branch" | default "main" -}}
+
+{{- if not $path -}}
+    {{- errorf "github shortcode requires 'path' parameter" -}}
+{{- end -}}
+
+{{- if not $repo -}}
+    {{- errorf "github shortcode requires site.Params.githubRepo to be set in config.toml" -}}
+{{- end -}}
+
+{{- printf "%s/blob/%s/%s" $repo $branch $path -}}
