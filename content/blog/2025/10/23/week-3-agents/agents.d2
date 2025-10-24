@@ -1,0 +1,26 @@
+direction: right
+classes: {
+    io: {
+        style.fill: yellow
+    }
+    flow: {
+        style.stroke-width: 5
+    }
+}
+
+system : Agentic system {
+    agent : Agent\n(software)
+    LLM
+    Memory
+    Tools
+}
+
+Prompt { class: io }
+Response { class: io }
+
+Prompt -> system.agent -> Response {
+    class: flow
+}
+system.agent <-> system.Tools : action
+system.agent <-> system.Memory : store / retrieve
+system.agent <-> system.LLM : plan/reason

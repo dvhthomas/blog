@@ -1,0 +1,16 @@
+direction: right
+p: Prompt
+r: Response
+
+s: System {
+    i: Input\nLogic
+    l1: LLM
+    l2: LLM
+    l3: LLM
+    a: Aggregator { style.fill: yellow }
+}
+
+p --> s.i
+s.i -->s.l1 --> s.a --> r { style.animated: true }
+s.i -->s.l2 --> s.a { style.animated: true }
+s.i -->s.l3 --> s.a { style.animated: true }

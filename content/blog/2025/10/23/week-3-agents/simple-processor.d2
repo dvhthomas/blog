@@ -1,0 +1,33 @@
+direction: right
+classes {
+  io {
+    style: {
+      fill: "lightgray"
+    }
+  }
+}
+
+Prompt.class: io
+Response.class: io
+
+software : Software { style: { fill: "yellow" } }
+Prompt -> software -> Response { style.animated: true }
+software <-> LLM <-> software <-> LLM
+
+inside: |md
+  More tasks:
+  - Tokenization
+  - Prompt engineering
+  - Create <user,assistant> templates
+  - ...
+|
+
+inside: {
+ shape: rectangle
+ style: {
+    fill: "white"
+    stroke-dash: 2
+    stroke: lightgray
+    }
+}
+inside -> software { style.stroke-dash: 2 }

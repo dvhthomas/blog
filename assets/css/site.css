@@ -602,7 +602,7 @@ figure.d2-diagram {
 figure.d2-diagram img {
     max-width: 100%;
     height: auto;
-    width: 70%; /* Default scale for diagrams (can be overridden with width parameter) */
+    width: 90%; /* Default scale for diagrams (can be overridden with width parameter) */
 }
 
 figure.d2-diagram figcaption {

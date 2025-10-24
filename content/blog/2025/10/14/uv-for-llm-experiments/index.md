@@ -3,7 +3,7 @@ title: uv for LLM Experiments
 date: 2025-10-14T10:46:24-06:00
 tags: [uv, python, tooling]
 toc: true
-series: [AI Engineering Course]
+series: []
 summary: Using `uv` instead of Anaconda `environment.yml` to set up a virtual environment for LLM experiments.
 mermaid: false
 mathjax: false

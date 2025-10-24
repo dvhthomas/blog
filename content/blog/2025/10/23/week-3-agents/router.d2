@@ -1,0 +1,14 @@
+direction: right
+prompt: Where is my order? { style.fill:white}
+answer: The mail\ncarrier has it  { style.fill:white}
+
+s: System {
+    router: Router { style.fill: yellow }
+    ship: Shipping\nLLM
+    returns: Returns\nLLM
+    finance: Finance\nLLM
+}
+
+prompt -> s.router -> s.ship -> answer {style.animated: true}
+s.router -> s.returns { style.stroke-dash: 2}
+s.router -> s.finance { style.stroke-dash: 2}

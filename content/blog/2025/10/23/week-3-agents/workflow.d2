@@ -1,0 +1,24 @@
+direction: right
+
+Prompt
+Response
+
+w: Workflow {
+  style: {
+    fill: white
+    border-radius: 5
+  }
+  a
+  b { shape: diamond }
+  c { shape: diamond }
+  d
+  e
+  f
+  g
+  h
+}
+
+Prompt -> w.a --> w.b -> w.c -> w.d -> w.e -> Response { style.animated: true }
+w.c -> w.f -> w.g -> Response
+w.b -> w.h -> w.f
+w.h -> w.g <- w.f
