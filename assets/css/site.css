@@ -620,3 +620,60 @@ mark {
     padding: 0.1em 0.2em;
     border-radius: 2px;
 }
+
+/* Mobile responsive fixes - prevent wrapping, allow shrinking */
+@media (max-width: 576px) {
+    /* Search form: prevent wrapping on mobile */
+    .form-inline {
+        flex-wrap: nowrap !important;
+        gap: 0.25rem;
+    }
+
+    .form-inline #search-query {
+        margin-right: 0.25rem;
+        flex: 1 1 auto;
+        min-width: 0;
+        font-size: 0.9rem;
+    }
+
+    .search-button {
+        flex: 0 0 auto;
+        padding: 0.375rem 0.75rem;
+        font-size: 0.9rem;
+        white-space: nowrap;
+    }
+
+    /* Navigation: prevent wrapping and reduce spacing */
+    #nav {
+        flex-wrap: nowrap !important;
+        gap: 0.25rem;
+        padding: 0.5rem 0.25rem;
+    }
+
+    #nav a {
+        padding: 0.1rem 0.2rem;
+        font-size: 0.85rem;
+        white-space: nowrap;
+        flex: 0 1 auto;
+        min-width: 0;
+        display: flex;
+        align-items: center;
+    }
+
+    #nav a .icon {
+        width: 20px;
+        height: 20px;
+        margin-right: 3px;
+        flex-shrink: 0;
+    }
+
+    #nav a span {
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    /* Reduce jumbotron padding on mobile */
+    #home-jumbotron {
+        padding: 1rem 0.5rem;
+    }
+}
