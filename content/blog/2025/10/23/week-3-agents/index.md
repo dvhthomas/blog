@@ -13,7 +13,7 @@ images: [router.svg]
 
 ## Defining Agents
 
-> INFO: This is a work in progress but I want to get the ball rolling.
+> TIP: The [accompanying project code](https://github.com/bytebyteai/ai-eng-projects/tree/main/project_3) is helpful to see many of these concepts in action.
 
 ### LLMs are static
 
@@ -333,6 +333,96 @@ This came from [a Jan 2025 post][stack] and nicely summarizes a lot of the tooli
 - [A survey of AI agents protocol](https://arxiv.org/abs/2504.16736) - Academic survey analyzing existing agent communication protocols and standards
 - [Agent leaderboard](https://github.com/rungalileo/agent-leaderboard) - Ranking LLMs on agentic tasks across real-world business scenarios
 - [OpenAI Agent SDK](https://openai.github.io/openai-agents-python/) - OpenAI's Python SDK for building production-ready agentic AI applications
+
+## Agentic Tool Stack Jan 2025
+
+[source][stack]
+
+### Model Serving & Inference
+
+* Open Source
+  * together.ai - https://www.together.ai/
+  * Fireworks AI - https://fireworks.ai/
+  * LLMSG - https://llm.sg/
+  * Ollama - https://ollama.com/
+  * replicate - https://replicate.com/
+  * LLAMA - https://llama.meta.com/
+
+* Closed Source
+  * OpenAI - https://openai.com/
+  * Anthropic (AI logo) - https://www.anthropic.com/
+  * Gemini - https://gemini.google.com/
+  * groq - https://groq.com/
+  * cerebras - https://www.cerebras.net/
+
+### Storage
+
+* Open Source
+  * chroma - https://www.trychroma.com/
+  * drant - https://qdrant.tech/
+  * weaviate - https://weaviate.io/
+  * Milvus - https://milvus.io/
+  * supabase - https://supabase.com/
+
+* Closed Source
+  * Pinecone - https://www.pinecone.io/
+  * NEON - https://neon.tech/
+
+### Agent Development
+
+* Open Source
+  * Letta - https://www.letta.com/
+  * LangGraph - https://www.langchain.com/langgraph
+  * AutoGen - https://microsoft.github.io/autogen/
+  * LlamaIndex - https://www.llamaindex.ai/
+  * crewai - https://www.crewai.com/
+  * phidata - https://www.phidata.com/
+  * DSPy - https://dspy-docs.vercel.app/
+  * Semantic Kernel - https://learn.microsoft.com/en-us/semantic-kernel/
+  * Swarm - https://github.com/openai/swarm
+  * E2B - https://e2b.dev/
+  * CAMEL-AI - https://www.camel-ai.org/
+
+* Closed Source
+  * replit - https://replit.com/
+  * Modal - https://modal.com/
+  * OpenAI Operator - https://openai.com/index/introducing-operator/
+  * aws Bedrock - https://aws.amazon.com/bedrock/
+
+### Tool Execution
+
+* Open Source
+  * composio - https://composio.dev/
+  * nPi - https://npi.ai/
+
+* Closed Source
+  * exa - https://exa.ai/
+  * linkup - https://www.linkup.so/
+  * Browserbase - https://www.browserbase.com/
+
+### Observability
+
+* Open Source
+  * comet Opik - https://www.comet.com/site/products/opik/
+  * Weave - https://wandb.ai/site/weave/
+  * arize - https://arize.com/
+  * Langfuse - https://langfuse.com/
+  * helicone - https://www.helicone.ai/
+
+* Closed Source
+  * COV.AI - https://www.cov.ai/
+  * Vocera - https://vocera.ai/
+  * LangSmith - https://www.langchain.com/langsmith
+  * Foundry.ai - https://www.foundry.ai/
+
+### Memory Management
+
+* Open Source
+  * zep - https://www.getzep.com/
+  * cognee - https://www.cognee.ai/
+  * mem0 - https://mem0.ai/
+  * Letta - https://www.letta.com/
+  * LangChain - https://www.langchain.com/
 
 [^def]: See [Hugging Face's introductory course](https://huggingface.co/learn/agents-course/en/unit1/what-are-agents):
 
