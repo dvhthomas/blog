@@ -205,8 +205,135 @@ Imagine that the Tools in this workflow are augmenting the system and user promp
 
 {{< d2 src="workflow-with-tools.d2" />}}
 
+This **fixes** the issues of access of current information.
+
 #### Multi-step agents
 
-Coming soon!
+Solves the problem of fixed workflows by giving decision-making authority to the agent.
+
+{{< d2 src="multi-step.d2" />}}
+
+Making good decisions involves access to **both** tools **and** memory of what happened before.
+We've covered the tools.
+Memory is for storing and observing past interactions as additional context.
+
+Logically this is a continuous Planning cycle consisting of think, act, observe:
+
+{{< mermaid >}}
+graph LR
+    T[Think] --> A[Act] --> M[Observe]
+    M --> T
+{{< /mermaid >}}
+
+
+Pseudo-prompt:
+
+```txt
+Thought: I need to check the current weather for New York.
+Action:
+{
+    "action": "get_weather",
+    "action_input": {
+        "location": "New York"
+    }
+}
+Observe: I got the answer "<result>34F</result>"
+```
+
+Anthropic's [Building Effective Agents Cookbook](https://github.com/anthropics/claude-cookbooks/tree/main/patterns/agents) is a key resource to understand these patterns ([example](https://github.com/anthropics/claude-cookbooks/blob/main/patterns/agents/orchestrator_workers.ipynb)).
+For example, [their prompts for research agents](https://github.com/anthropics/claude-cookbooks/tree/main/patterns/agents/prompts) demonstrate how to instruct the LLM to act in specific ways, including being critical of tool results (_"...do not take tool results at face value..."_) and watching out for information pointing to future (looking for 'could' 'maybe' 'future' in search results).
+
+There's a lot of prompt engineering going in here (look for `<tags>` in prompts).
+
+There are different approaches to `plan > act > adapt`.
+[ReACT (2023)](https://arxiv.org/abs/2210.03629) is probably the most popular approach as of October 2025.
+It's just a prompting technique.
+
+{{< youtube PB7hrp0mz54 >}}
+
+Other papers describing how to implement this `think > plan > act` loop:
+
+- [Reflexion](https://arxiv.org/abs/2303.11366) - Reflexion: Language Agents with Verbal Reinforcement Learning
+- [ReWOO](https://arxiv.org/abs/2305.18323) - ReWOO: Decoupling Reasoning from Observations for Efficient Augmented Language Models
+- [Tree Search for Language Model Agents](https://arxiv.org/abs/2407.01476) - Research on using tree search algorithms for improved agent planning and decision-making
+
+In summary, workflows vs multi-step agents:
+
+* Workflows offer predictability and consistency for well-defined tasks, whereas agents are the better option when flexibility and model-driven decision-making are needed at scale.
+* Agents can adapt to new situations, like answering a customer’s unique question. Workflows are rigid, better for repeating the same process, like scheduling maintenance.
+
+When evaluating whether to use multi-step agents:
+
+* The autonomous nature of agents means **higher costs**, and the potential for compounding errors.
+* Challenging due to their dynamic nature. They can be unreliable, illogical, or prone to infinite loops,
+* When a problem's solution is already well-understood and repeatable, constraining the agent to a predetermined, fixed workflow is more effective
+* Agents can be used for open-ended problems where it’s difficult to predict the required number of steps, and where you can’t hardcode a fixed path.
+
+#### Multi-agent system
+
+Single agent may not be capable or the problem is too complex for a single agent.
+On agent may fail or move in an incorrect direction, so multi-agent systems can self correct.
+
+This is not easy!
+Common challenges include:
+
+* Coordination. Sharing planning, results.
+* Memory management. When to share, when to isolate.
+* Compounding errors. The inherent loop means errors can be amplified.
+
+The [Anthropic multi-agent research system](https://www.anthropic.com/engineering/multi-agent-research-system) is a good read that shows the level of effort.
+[OpenAI has shared a practical guide](https://cdn.openai.com/business-guides-and-resources/a-practical-guide-to-building-agents.pdf) that covers design patterns.
+
+The coordination between agents led Google to defined and [release](https://developers.googleblog.com/en/a2a-a-new-era-of-agent-interoperability/) the Agent To Agent (A2A) protocol.
+Agents can communicate regardless of who built them.
+A2A is to inter-agent communication what MCP is to tool sharing.
+
+**How do you evaluate agents?**
+
+Things to thing about:
+
+* Accuracy: How well does the agent achieve its goal?
+* Efficiency: How quickly does the agent achieve its goal?
+* Robustness: How well does the agent handle unexpected inputs or changes in the environment?
+* Safety: How well does the agent avoid harmful actions or outcomes?
+* Fairness: How well does the agent treat different groups or individuals?
+
+ Some common metrics include:
+
+* METRIC: Token consumption, e.g., avg token usage per request.
+* METRIC: Tool execution success rate.
+* METRIC: Observability. How easily can you even find errors.
+* METRIC: Task success rate.
+
+
+## The AI Agent Stack
+
+This came from [a Jan 2025 post][stack] and nicely summarizes a lot of the tooling options so that you don't think you have to build everything from scratch!
+
+![diagram showing elements of the AI agent stack grouped by logical area of the architecture](agent-stack.webp)
+
+[source][stack]
+
+## Resources
+
+- [Introducing Operator](https://openai.com/index/introducing-operator/) - OpenAI's AI agent that can autonomously perform tasks through a web browser
+- [Building effective agents](https://www.anthropic.com/engineering/building-effective-agents) - Anthropic's guide on practical patterns and best practices for developing AI agents
+- [Building Effective Agents Cookbook](https://github.com/anthropics/anthropic-cookbook/tree/main/patterns/agents) - Anthropic's cookbook repository with code examples for agent patterns
+- [Function calling](https://cookbook.openai.com/examples/fine_tuning_for_function_calling) - OpenAI Cookbook guide on fine-tuning models for improved function calling accuracy
+- [Langchain tools](https://python.langchain.com/docs/integrations/tools/) - Comprehensive directory of tool integrations available in the LangChain framework
+- [MCP](https://www.anthropic.com/news/model-context-protocol) - Introducing the Model Context Protocol, an open standard for connecting AI assistants to data sources
+- [Langchain function calling](https://python.langchain.com/docs/how_to/function_calling/) - LangChain documentation on implementing tool and function calling
+- [ReAct paper](https://arxiv.org/abs/2210.03629) - ReAct: Synergizing Reasoning and Acting in Language Models
+- [Reflexion](https://arxiv.org/abs/2303.11366) - Reflexion: Language Agents with Verbal Reinforcement Learning
+- [ReWOO](https://arxiv.org/abs/2305.18323) - ReWOO: Decoupling Reasoning from Observations for Efficient Augmented Language Models
+- [Tree Search for Language Model Agents](https://arxiv.org/abs/2407.01476) - Research on using tree search algorithms for improved agent planning and decision-making
+- [How we built our multi-agent research system](https://www.anthropic.com/engineering/multi-agent-research-system) - Anthropic's engineering deep-dive on building production multi-agent systems
+- [A practical guide to building agents](https://cdn.openai.com/business-guides-and-resources/a-practical-guide-to-building-agents.pdf) - OpenAI's comprehensive guide for product and engineering teams on agent development
+- [A2A](https://developers.googleblog.com/en/a2a-a-new-era-of-agent-interoperability/) - Announcing the Agent2Agent Protocol for enabling AI agents to collaborate across platforms
+- [A survey of AI agents protocol](https://arxiv.org/abs/2504.16736) - Academic survey analyzing existing agent communication protocols and standards
+- [Agent leaderboard](https://github.com/rungalileo/agent-leaderboard) - Ranking LLMs on agentic tasks across real-world business scenarios
+- [OpenAI Agent SDK](https://openai.github.io/openai-agents-python/) - OpenAI's Python SDK for building production-ready agentic AI applications
 
 [^def]: See [Hugging Face's introductory course](https://huggingface.co/learn/agents-course/en/unit1/what-are-agents):
+
+[stack]: https://thenuancedperspective.substack.com/p/the-ai-agent-stack-in-2025-how-its
