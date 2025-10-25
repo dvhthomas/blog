@@ -1,0 +1,28 @@
+classes {
+  io: {
+    style.fill: yellow
+  }
+  agent: {
+    style.fill: red
+    style.text-color: white
+  }
+}
+
+p: Prompt { class: io }
+s: Agentic\nSoftware
+t: Tools {
+    grid-rows: 3
+
+    Web Search
+    Calculator
+    Database Query
+    Weather API
+    Code Generator
+}
+
+l: LLM
+r: Response { class: io }
+
+p -> s -> r { style.animated: true }
+s <-> t
+s <-> l

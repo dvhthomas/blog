@@ -143,4 +143,70 @@ The Critic could write tests to assess and then ask the Generator to iterate on 
 
 {{< d2 src="parallelization.d2" />}}
 
+##### Tool Caller
+
+> TIP: I've [written a bunch of examples](https://github.com/dvhthomas/agent-learn/tree/main/5-tool-use) of the tool-caller pattern.
+
+{{< d2 src="tool-caller.d2" />}}
+
+
+Tool calling workflow:
+
+1. Define a Tool
+2. Let LLM know about the tool
+3. When the LLM wants to use it, call the tool and return the response.
+
+One way to let the LLM know about a tool is to define it in the system prompt. The key is to have the LLM spit out a structured format that the Agent can recognize:
+
+* System Prompt:
+
+  ```txt
+  You can use a tool called add to add two numbers. It takes two inputs: number 1 and number 2. It returns their sum. Use it like this:
+
+  <tool>
+    add(number1, number2)
+  </tool>
+
+  Just replace number1 and number2 with the numbers you want to add.
+  ```
+* User prompt:
+
+  ```txt
+  What is 184322 + 54821?
+  ```
+
+* Response:
+
+  ```txt
+  <tool>
+  add(184322, 54821)
+  </tool>
+  ```
+
+Add this point the Agent Software can recognize the format of the response and can call an appropriate existing tool. In this case it might be a Python tool with an `add(n1, n2)` signature, or even [have the LLM write a function](https://github.com/dvhthomas/agent-learn/blob/main/5-tool-use/code_exec.py).
+LangChain makes [tool integration pretty easy](https://python.langchain.com/docs/how_to/function_calling/).
+
+But this isn't scalable: jamming stuff into a system prompt is non-standard, impossible to maintain, and leads to brittle code.
+
+**Model Context Protocol (MCP)** is the new standard for tool integration.
+It's a protocol.
+The service provider writes the tool functions once and exposes them as an MCP-compliant server to broad consumption.
+
+{{< d2 src="mcp.d2" />}}
+
+You introduce the MCP Servers to your LLM through a standard mechanism and protocol.
+
+{{< d2 src="mcp-for-llm.d2" />}}
+
+This is more maintainable: adding a new tool is as simple as adding a new server to the MCP `server.json`. See [GitHub MCP Registry](https://github.com/mcp) for a searchable list of available MCP servers.
+
+If you revisit Workflows and plug in the tools concept, everything becomes more maintainable and scalable and flexible.
+Imagine that the Tools in this workflow are augmenting the system and user prompt as data flows through the system.
+
+{{< d2 src="workflow-with-tools.d2" />}}
+
+#### Multi-step agents
+
+Coming soon!
+
 [^def]: See [Hugging Face's introductory course](https://huggingface.co/learn/agents-course/en/unit1/what-are-agents):

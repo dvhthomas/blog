@@ -1,0 +1,13 @@
+direction: right
+slack: Slack {
+  grid-columns: 1
+  slack_list_channels
+  slack_get_channel_history
+}
+
+ct: Company 1 Tools {
+ c: MCP Client
+ s: MCP Host
+}
+
+ct.c <-> ct.s <-> MCP Server <- Slack

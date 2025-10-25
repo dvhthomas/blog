@@ -1,0 +1,33 @@
+direction: right
+
+Prompt
+Response
+
+w: Workflow {
+  style: {
+    fill: white
+    border-radius: 5
+  }
+  a: LLM
+  b: LLM { shape: diamond }
+  c { shape: diamond }
+  d
+  e
+  f
+  g
+  h: LLM
+  tools: { style.fill: yellow }
+  more tools: { style.fill: yellow }
+  tools again: { style.fill: yellow }
+}
+
+Prompt -> w.a
+w.a --> w.b
+w.c -> w.d -> w.e -> Response
+w.c -> w.f -> w.g -> Response
+w.b -> w.h -> w.f
+w.h -> w.g <- w.f
+
+w.a <-> w.tools { style.animated: true }
+w.b <-> w.more tools { style.animated: true }
+w.h <-> w.tools again { style.animated: true }

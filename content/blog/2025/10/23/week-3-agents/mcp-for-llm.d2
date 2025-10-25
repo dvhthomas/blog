@@ -1,0 +1,19 @@
+spec: |js
+  "mcpServers": {
+    "github": {
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-github"],
+      "env": {
+        "GITHUB_TOKEN": "<YOUR_TOKEN>"
+      }
+    }
+    "slack": {
+        ...
+    }
+    "get_weather": {
+        ...
+    }
+  }
+|
+
+LLM -> Software <-> spec
