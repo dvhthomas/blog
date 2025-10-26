@@ -14,6 +14,7 @@ images: [router.svg]
 ## Defining Agents
 
 > TIP: The [accompanying project code](https://github.com/bytebyteai/ai-eng-projects/tree/main/project_3) is helpful to see many of these concepts in action.
+> I also paired with Claude to create a [sample MCP client and server](https://github.com/dvhthomas/mcp_demo) to help me understand how the plumbing works.
 
 ### LLMs are static
 
