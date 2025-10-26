@@ -8,7 +8,7 @@ summary: Resources from Week 1 of the AI Engineering Course
 mermaid: false
 mathjax: false
 draft: false
-images: []
+images: [scaling-laws.png]
 ---
 
 I'm taking a an AI Engineering course and capturing some notes and resources as a go.
@@ -57,6 +57,16 @@ Newer tokenizers address this:
 * Training on diverse multilingual data helps the model learn useful merges for common multi-byte sequences
 
 The key insight is that byte-level BPE is language-agnostic but can be inefficient for scripts that use many bytes per character.
+
+## Scaling LLMs
+
+There's a [section of the Stanford CS229 course lecture](https://youtu.be/9vM4p9NN0Ts?si=utbIHw7q7_W4Ckcp&t=2697) on scaling LLMs that deals with a specific question:
+
+> You have 10K GPUs for a month. Which model should you train?
+
+The concept count is high, but it's a practical example of how companies building LLMs make decisions about model size and training time.
+
+![slide on tuning LLM tuning based on scaling laws](scaling-laws.png)
 
 ## Resources
 
