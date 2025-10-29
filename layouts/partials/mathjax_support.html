@@ -1,5 +1,5 @@
-<script>
-  MathJax = {
+<script type="module">
+  window.MathJax = {
     tex: {
       inlineMath: [['$', '$'], ['\\(', '\\)']],
       displayMath: [['$$','$$'], ['\\[', '\\]']],
@@ -8,15 +8,19 @@
     },
     options: {
       skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+    },
+    startup: {
+      ready() {
+        MathJax.startup.defaultReady();
+        MathJax.startup.promise.then(() => {
+          document.querySelectorAll("mjx-container").forEach(function(x){
+            x.parentElement.classList.add('has-jax');
+          });
+        });
+      }
     }
   };
 
-  window.addEventListener('load', (event) => {
-      document.querySelectorAll("mjx-container").forEach(function(x){
-        x.parentElement.classList += 'has-jax'})
-    });
-
+  // Load MathJax as ES module
+  await import('https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js');
 </script>
-<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-<script type="text/javascript" id="MathJax-script" async
-  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>

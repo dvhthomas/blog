@@ -4,9 +4,7 @@ date: {{ .Date }}
 tags: []
 toc: true
 series: []
-summary: 
-mermaid: false
-mathjax: false
+summary:
 draft: true
 images: []
 ---

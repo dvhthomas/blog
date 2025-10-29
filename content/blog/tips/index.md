@@ -146,12 +146,15 @@ And [this StackExchange Math](https://math.meta.stackexchange.com/questions/5020
 ## Charts
 
 Using [vega-lite](https://vega.github.io/vega-lite/).
-You must:
 
-- Put the `chart.json` definition in the `/static/charts` folder with a unique name.
-- Reference that name in the `vega` shortcode as `chart.json` _without_ the directory name.
-- Add `vega: true` to the front matter of the page.
+Create a `.json` file with your Vega-Lite specification in the same directory as your `index.md`, then reference it using the `vega` shortcode.
 
-For example, this chart has an `id` of `viz` (meaning that the div containing this chart has an id of `viz`), and a `spec` value of `tips.json` since that's the name of  the file in `/static/charts/`.
+For example, this chart references `tips.json` in the same directory:
 
 {{<vega id="viz" spec="tips.json">}}
+
+The shortcode takes two parameters:
+- `id`: A unique ID for the chart div (e.g., `viz`, `chart1`, etc.)
+- `spec`: The filename of the JSON spec in your page directory (e.g., `tips.json`)
+
+No front matter configuration needed - the shortcode is self-contained and loads Vega-Embed automatically.

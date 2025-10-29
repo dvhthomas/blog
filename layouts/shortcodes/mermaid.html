@@ -1,3 +1,17 @@
+{{/*
+    Mermaid diagram shortcode using ES modules.
+
+    Self-contained - no front matter needed. If you use the shortcode, the JS loads.
+    The first shortcode on a page imports and initializes mermaid (cached for subsequent uses).
+    All shortcodes output standard .mermaid divs and mermaid's startOnLoad handles rendering.
+*/}}
+{{ if not (.Page.Scratch.Get "mermaid-loaded") }}
+<script type="module">
+    import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';
+    mermaid.initialize({ startOnLoad: true });
+</script>
+{{ .Page.Scratch.Set "mermaid-loaded" true }}
+{{ end }}
 <div class="mermaid">
-    {{.Inner}}
+{{.Inner}}
 </div>

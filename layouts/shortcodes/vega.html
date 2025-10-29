@@ -1,6 +1,28 @@
+{{/*
+    Vega/Vega-Lite chart shortcode using ES modules.
+
+    Looks for the spec file as a page resource (in the same directory as the content) first.
+    Falls back to /static/charts/ for backwards compatibility.
+
+    Usage: {{< vega id="chart1" spec="mychart.json" >}}
+*/}}
 {{ $spec := .Get "spec" }}
-<div id='{{ .Get "id" }}'></div>
-<script type="text/javascript">
-    var spec = {{ printf "%s%s/%s" .Site.BaseURL "charts" $spec }}
-    vegaEmbed('#{{ .Get "id" }}', spec).then(function(result) {}).catch(console.error);
+{{ $id := .Get "id" }}
+{{ $specContent := "" }}
+
+{{/* Try to find spec as a page resource first */}}
+{{ $resource := .Page.Resources.GetMatch $spec }}
+{{ if $resource }}
+    {{ $specContent = $resource.Content }}
+{{ else }}
+    {{/* Fallback to /static/charts/ directory */}}
+    {{ $staticPath := printf "charts/%s" $spec }}
+    {{ $specContent = readFile (printf "static/%s" $staticPath) }}
+{{ end }}
+
+<div id='{{ $id }}'></div>
+<script type="module">
+    import vegaEmbed from 'https://cdn.jsdelivr.net/npm/vega-embed@7/+esm';
+    const spec = {{ $specContent | safeJS }};
+    vegaEmbed('#{{ $id }}', spec).then(result => {}).catch(console.error);
 </script>

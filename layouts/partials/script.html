@@ -1,19 +1,3 @@
-<!-- MermaidJS support -->
-{{ if (.Params.mermaid) }}
-<script async src="https://unpkg.com/mermaid@9.3.0/dist/mermaid.min.js"></script>
-<script>
-    mermaid.initialize({
-        startOnLoad: true
-    });
-</script>
-{{ end }}
-
 {{ if (.Params.mathjax) }}
 {{ partial "mathjax_support.html" . }}
-{{ end }}
-
-{{ if (.Params.vega) }}
-<script src="https://cdn.jsdelivr.net/npm/vega@5.21.0"></script>
-<script src="https://cdn.jsdelivr.net/npm/vega-lite@5.2.0"></script>
-<script src="https://cdn.jsdelivr.net/npm/vega-embed@6.20.2"></script>
 {{ end }}
