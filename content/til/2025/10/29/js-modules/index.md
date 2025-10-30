@@ -5,7 +5,7 @@ tags: [javascript, hugo, modules]
 toc: true
 series: []
 summary: In which I finally read some docs on what a JavaScript module is and how it made my Hugo shortcodes self contained.
-draft: true
+draft: false
 images: [network.png]
 ---
 
