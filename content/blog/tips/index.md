@@ -1,10 +1,8 @@
 ---
 title: "Tips"
 date: 2020-02-12T07:45:59-07:00
-draft: true
-mermaid: true
+draft: false
 mathjax: true
-vega: true
 toc: true
 ---
 
