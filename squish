@@ -184,7 +184,7 @@ squish_images() {
     # Process each file individually to handle spaces properly
     pngquant_errors=0
     while IFS= read -r original; do
-        if ! pngquant --quality 20-50 --skip-if-larger --force "$original" 2>/dev/null; then
+        if ! pngquant --quality 20-50 --skip-if-larger --force "$original"; then
             pngquant_errors=$((pngquant_errors + 1))
         fi
     done < "$temp_list"
@@ -202,26 +202,24 @@ squish_images() {
     done < <(find . -name "*-fs8.png" -type f -print0 2>/dev/null)
 
     if [ $fs8_count -eq 0 ]; then
-        warning "No -fs8.png files were created by pngquant"
-        rm -f "$temp_list"
-        exit 0
-    fi
-
-    echo ""
-    echo "[2/2] Running oxipng on $fs8_count file(s)..."
-
-    # Process each fs8 file individually to handle spaces
-    oxipng_errors=0
-    while IFS= read -r -d '' fs8; do
-        if ! oxipng -o 3 -i 0 --strip safe "$fs8" 2>/dev/null; then
-            oxipng_errors=$((oxipng_errors + 1))
-        fi
-    done < <(find . -name "*-fs8.png" -type f -print0 2>/dev/null)
-
-    if [ $oxipng_errors -eq 0 ]; then
-        success "oxipng completed"
+        warning "No -fs8.png files were created by pngquant (images already optimized)"
     else
-        error "oxipng failed on some files"
+        echo ""
+        echo "[2/2] Running oxipng on $fs8_count file(s)..."
+
+        # Process each fs8 file individually to handle spaces
+        oxipng_errors=0
+        while IFS= read -r -d '' fs8; do
+            if ! oxipng -o 3 -i 0 --strip safe "$fs8"; then
+                oxipng_errors=$((oxipng_errors + 1))
+            fi
+        done < <(find . -name "*-fs8.png" -type f -print0 2>/dev/null)
+
+        if [ $oxipng_errors -eq 0 ]; then
+            success "oxipng completed"
+        else
+            error "oxipng failed on some files"
+        fi
     fi
 
     # Show size comparison

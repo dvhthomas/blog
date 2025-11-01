@@ -158,7 +158,7 @@ The two ways to pick the 'best' are:
     Reward models are trained on pairs of prompt and responses and is capable of generating a score---the same as training and post-training.
     That's generally manual data generation with humans scoring the answers, i.e., an **annotated dataset** of the prompt, response, and score.
 
-A lot of early LLMs were using this combinted COT + Self-consistency.
+A lot of early LLMs were using this combined COT + Self-consistency.
 
 #### Tree of Thoughts (ToT)
 
@@ -235,6 +235,59 @@ def sequential_sampling_with_rm (prompt, K):
 
 This pattern of comparing multiple generated outputs to select the highest quality one is also similar to "Voting" in parallelization workflows.
 
+For complex problems with high difficulty, it's very likely that that model will be pretty far off on the first attempt so parallel is better (observationally), but in practice the two approaches are very often combined.
+
+#### Summary
+
+Inference-time scaling is trading off compute for quality and we're not adjusting the LLM itself.
+
+### Training with Reasoning
+
+Many of the inference time techniques have a corollary at training time.
+
+#### Train with CoT data
+
+**Self-Taught Reasoner (STaR)**
+
+{{< mermaid >}}
+graph LR;
+    i[LLM]
+    t{LLM Training}
+    o[Reasoning LLM]
+    c[CoT Data]
+    i --> t --> o
+    c --> t
+{{< /mermaid >}}
+
+The approach described in [the STaR paper][star] shows how using questions with predictable correct answers provides the training data using a CoT approach:
+
+{{< figure src="star.png" title="The core method from the STaR paper" >}}
+
+So for correct answers we combine the original question with the correct answer to form training data.
+For that to work we introduce **special tokens** like `<scratch>` to indicate that the LLM is in the 'thinking' process.
+When it's done thinking it would close the `</scratch>` tag.
+
+You can figure those out by either reading papers or using a site like [TikTokenizer](https://tiktokenizer.vercel.app) and typing words like `<scratchpad>` or `<think>` and see that the vocabulary sees that as a single token.
+
+#### Reinforcement Learning with Reward Model
+
+Self-consistency created multiple parallel options and picked the best.
+The idea with RL is to continue training based on these best answers: it requires a way to **reward** the model for these correct answers.
+
+## Resources
+
+* [Text leaderboard][text-leaderboard]
+* [DeepSeek-R1 paper][deepseek-r1]
+* [Large Language Models are Zero-Shot Reasoners][zero-shot-reasoners]
+* [Self-Consistency Improves Chain of Thought Reasoning in Language Models][self-consistency]
+* [Scaling LLM Test-Time Compute Optimally can be More Effective than Scaling Model Parameters][scaling-test-time]
+* [STaR: Bootstrapping Reasoning With Reasoning][star]
+* [Let's Verify Step by Step][verify-step-by-step]
+* [Improve Mathematical Reasoning in Language Models by Automated Process Supervision][process-supervision]
+* [Training Language Models to Self-Correct via Reinforcement Learning][self-correct-rl]
+* [Towards System 2 Reasoning in LLMs: Learning How to Think With Meta Chain-of-Thought][system-2-reasoning]
+* [Introducing deep research][deep-research]
+
 [^hyperbolic]:
     [Hyperbolic.ai](https://hyperbolic.ai/) is a great website for testing these models.
     It's not free because they have to pay for GPUs and more.
@@ -259,3 +312,15 @@ This pattern of comparing multiple generated outputs to select the highest quali
             "stream": false
         }'
     ```
+
+[text-leaderboard]: https://lmarena.ai/leaderboard/text
+[deepseek-r1]: https://arxiv.org/abs/2501.12948
+[zero-shot-reasoners]: https://arxiv.org/abs/2205.11916
+[self-consistency]: https://arxiv.org/abs/2203.11171
+[scaling-test-time]: https://arxiv.org/abs/2408.03314
+[star]: https://arxiv.org/abs/2203.14465
+[verify-step-by-step]: https://arxiv.org/abs/2305.20050
+[process-supervision]: https://arxiv.org/abs/2406.06592v1
+[self-correct-rl]: https://arxiv.org/abs/2409.12917
+[system-2-reasoning]: https://arxiv.org/abs/2501.04682
+[deep-research]: https://openai.com/index/introducing-deep-research
