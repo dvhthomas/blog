@@ -274,23 +274,76 @@ You can figure those out by either reading papers or using a site like [TikToken
 Self-consistency created multiple parallel options and picked the best.
 The idea with RL is to continue training based on these best answers: it requires a way to **reward** the model for these correct answers.
 
-## Resources
 
-* [Text leaderboard][text-leaderboard]
-* [DeepSeek-R1 paper][deepseek-r1]
-* [Large Language Models are Zero-Shot Reasoners][zero-shot-reasoners]
-* [Self-Consistency Improves Chain of Thought Reasoning in Language Models][self-consistency]
-* [Scaling LLM Test-Time Compute Optimally can be More Effective than Scaling Model Parameters][scaling-test-time]
-* [STaR: Bootstrapping Reasoning With Reasoning][star]
-* [Let's Verify Step by Step][verify-step-by-step]
-* [Improve Mathematical Reasoning in Language Models by Automated Process Supervision][process-supervision]
-* [Training Language Models to Self-Correct via Reinforcement Learning][self-correct-rl]
-* [Towards System 2 Reasoning in LLMs: Learning How to Think With Meta Chain-of-Thought][system-2-reasoning]
-* [Introducing deep research][deep-research]
+> TIP: During the lecture our AI Engineering instructor shared a very new (November 2025) video from Stanford on [Deep Reinforcement Learning](https://www.youtube.com/watch?v=4E27qlfYw0A).
+> It's 1:45h long so I haven't watched it yet ;-)
+>
+> And for an _incredibly_ detailed technical view of how the team building SmolLM3 made many of their decisions, there's a [HuggingFace article](https://huggingface.co/spaces/HuggingFaceTB/smol-training-playbook).
+> This is more of a just-in-case reference because most of the details are way beyond my understanding (at this point) involving the internals of GPUs, for example.
+>
+> HuggingFace's [guid for LLM Evaluation](https://github.com/huggingface/evaluation-guidebook) seems much more pratical.
 
-[^hyperbolic]:
-    [Hyperbolic.ai](https://hyperbolic.ai/) is a great website for testing these models.
-    It's not free because they have to pay for GPUs and more.
+{{< d2 src="rl.d2" />}}
+
+The **Outcome-supervised Reward Model (ORM)** follows this pattern. Within the LLM in the above diagram, there are multiple CoT threads with intermediate steps but ORM is focused _only_ on the final outcome.
+
+The scores can be grades either automatically because they are deterministic (like math) or by human feedback (either offline training or realtime feedback via the application).
+
+This is disposing of potentially useful data.
+
+**Process-supervised ORM ([PRM][process-supervision])** was proposed by OpenAI to address this loss of information.
+
+At a high level:
+
+```txt
+Input = (question, "thought, ... thought, answer")
+Label = human score for every thorugh (or a
+        comparison of two traces)
+Loss = cross-entropy on step-level preferences
+```
+
+Where `loss` is the difference between the score that the the answer from the LLM achieved and the perfect score at each step, i.e., the difference.
+
+- The **primary benefit** is to feed back the best answers and even interim thoughts into the LLM that is being trained so that it generates output that a human would score as 'better' in future.
+- But there's a **second benefit** of PRM algorithms, and that's at inference time!
+Remember Tree of Thought (ToT) is basically a search-like function that needs a way to score each branch of the tree?
+Well, a good PRM model can be used by the ToT.
+
+### Self Correction
+
+LLM detects and revises it's own responses in order to eventually arrive at the best possible final response.
+This depends on sequential revision.
+
+Two dimensions:
+* Timing
+  * **Inference compute:** Prompt-engineer! More tokens at runtime.
+  * **Training compute:** Train for better revisions.
+* Source of Correction
+  * Intrinsic
+  * Extrinsic
+
+Focus on training-time compute: we need to **train the LLM for better response revisions**.
+We need **revision data** to train the LLM to generate better responses.
+That owuld be data in the form a trajectories, typically a set of incorrect answers moving towards the correct answer.
+
+As of 2024 [self-correction through reinforcement learning][self-correct-rl] (Google Brain) uses an approach called 'SCoRe'.
+The details are pretty complicatione, i.e., beyond me, but here's the basic idea _after training_:
+
+{{< d2 src="score.d2" />}}
+
+#### Internalizing search (Meta CoT)
+
+
+(Meta Chain of Thought)[system-2-reasoning] is an approach to handle more complex questions.
+It's not just a sequence of thoughts followed by the final answer.
+It's more about trying early 'final' answers and then training the LLM to backtrack, try different ideas, use different data.
+
+You can see this in thinking models with interim---or 'latent'---thoughts, backtracking to different ideas, and using different data.
+
+{{< figure src="meta-cot.png" title="Example internal process of meta CoT" attrlink="https://arxiv.org/pdf/2501.04682" attr="Source" >}}
+
+[^hyperbolic]: [Hyperbolic.ai](https://hyperbolic.ai/) is a great website for testing these models.
+It's not free because they have to pay for GPUs and more.
     Nevertheless, I threw $25 into my account and that's been enough to experiment.
 
     I also appreciate their tuneable parameters and the code snippets to reproduce.

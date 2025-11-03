@@ -1,0 +1,27 @@
+p: "prompt: How should I learn AI?"
+llm: LLM
+rms: " " {
+    rm: Reward Model { style.fill: "yellow" }
+    s1: Score 0.26
+    s2: Score 0.13
+    s3: Score 0.86
+    s4: Score 0.95
+
+    rm -> s1
+    rm -> s2
+    rm -> s3
+    rm -> s4
+}
+rl: "RL algorithm\n(PPO)" {
+  shape: diamond
+  style.fill: "yellow"
+}
+
+p -> llm
+llm -> rms.rm
+llm -> rms.rm
+llm -> rms.rm
+llm -> rms.rm
+
+rms -> rl { style.animated: true}
+rl -> llm : Update the model { style.animated: true}

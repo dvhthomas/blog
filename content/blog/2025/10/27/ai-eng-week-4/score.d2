@@ -1,0 +1,21 @@
+direction: right
+
+p: prompt
+l1: LLM
+cot1: CoT output 1
+e1: Evaluate and\nfix errors\nif any
+l2: LLM
+cot2: CoT output 2
+e2: Evaluate and\nfix errors\nif any
+lsc: LLM\n(trained to\nself-correct) {
+  style.fill: "yellow"
+}
+cot3: CoT output 3 {
+  style.fill: "green"
+  style.font-color: "white"
+}
+r: Final answer
+
+p -> l1 -> cot1 -> l2 -> cot2 -> lsc -> cot3 -> r
+e1 -> l2
+e2 -> lsc
