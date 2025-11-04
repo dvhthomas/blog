@@ -47,7 +47,7 @@ The **ability and desire to learn** got me from being a geographer in both [the 
 * Starting [Google Maps](https://maps.google.com) customer success
 * Launching [Android Auto](https://www.android.com/auto/) in 70M vehicles
 * [Building]({{< relRef "series/woolpert-cloud-journey/" >}}) a Cloud consulting product and practice
-* [Leading](http://localhost:1313/2024/10/tpm-journey-at-github/) the TPM team at GitHub through major product and platform shifts.
+* [Leading]({{< ref "blog/2024/10/20/tpm-journey-at-github/index.md" >}}) the TPM team at GitHub through major product and platform shifts.
 * Having a life by taking two sabbaticals as **Head of DadOps** for my family.
 
 Again, my [resume / C.V.]({{< ref "resume/index.md" >}}) has all the details.

@@ -32,7 +32,7 @@ _Remote_
 
 _June 2025 to Present_
 
-- My sabbatical is focused on Dad Operations a.k.a. DadOps as I lead the Thomas family towards high performance!
+- My sabbatical is focused on Dad Operations (DadOps) as I lead the Thomas family towards high performance!
 - University tours, a structured approach to high school, and ensuring that the home network is up to the rigors of both gaming and the home office.
 - I'm also finally getting to learn more about AI fundamentals in the [ByteByteGo AI Engineering course]({{< relref "/series/ai-engineering-course" >}}).
   [Agentic patterns, too](https://github.com/dvhthomas/agent-learn).
@@ -45,7 +45,18 @@ _Remote_
 
 _Jan 2022 to June 2025_
 
-COMING SOON!
+- **GHES Releases are Boring.** [GitHub Enterprise Server](https://docs.github.com/en/enterprise-server@3.18/admin/overview/about-github-enterprise-server) (GHES) is responsible for a sizable percentage of GitHub's revenue.
+  In early 2022 each release was stressful and at risk of being late to demanding customers.
+  I led a small team of TPMs to provide clear expectations and repeatable processes for all GitHub feature teams: timeframes, quality bar, and communication channels.
+  By mid-2023 most [releases](https://docs.github.com/en/enterprise-server@3.18/admin/all-releases) were on time and contained few regressions, enabling the GHES team to focus more on net new features for customers.
+- **PRC Compliance.** GitHub's certification for sale in the People's Republic of China (PRC) hinged on [compliance with a country-specific UTF encoding](https://en.wikipedia.org/wiki/GB_18030).
+  There was no clear ownership so I took responsibility to get product buy-in, engineering funding, and budget approval for certification testing.
+  As a result, GitHub achieved GB18030 compliance each year my team ran the program, thus protecting our revenue stream in the PRC.
+- **Strategic focus.** When I joined GitHub, a team of 30+ TPMs was working on 20+ programs and projects.
+  I introduced a regular review of strategic need against investments made, thus putting more TPM investment into programs with the biggest impact.
+  The [cut line](https://docs.google.com/presentation/d/e/2PACX-1vQcpNhOQvyvVCIwSSiIrUr58PcaTftCpXzjePcV4mw7n-omPv6a-7j_NMqwGHt-Q-_-Hi0OAakXKeTJ/pub?start=false&loop=false&delayms=5000&slide=id.g2f82f98138f_0_15) was painful, necessary, and agreed upon by VP+ stakeholders.
+  By early 2025 GitHub TPM was running 5 major programs with ~30 TPMs focused _solely_ on major company goals including [security](https://www.microsoft.com/en-us/security/blog/2024/05/03/security-above-all-else-expanding-microsofts-secure-future-initiative/), [Copilot AI](https://techcrunch.com/2024/12/18/github-launches-a-free-version-of-its-copilot/), and [enterprise data residency](https://github.com/enterprise/data-residency).
+- **Rapid response at scale.** Created the Flex Team---a dedicated squad of 3 TPMs---to handle urgent, high-impact projects without disrupting ongoing programs. **Critical projects were staffed within minutes-to-hours**, with systems and processes measurably improved within days-to-weeks. For example, I staffed a project within 60 minutes of getting an urgent text message about an active security concern, our small team was actively coordinating the response with 2 hours.
 
 ### Woolpert
 
@@ -58,7 +69,7 @@ _Jan 2019 to Jan 2022_
 - **Leadership with EQ.** Defined brand new roles and [ways of working]({{< ref "blog/2021/06/15/how-we-work/index.md" >}}) within a traditional corporate environment. Psychological safety, a culture of learning, and goals based on reality rather than hope.
 - **Scaling teams.** Hired a team of 12 engineers as both team leads and individual contributors. Established a repeatable hiring process with [core and technical skill components]({{< ref "blog/2019/01/29/core-skills-ge-tech-skills/index.md" >}}) and a high bar. Established an org chart that can scale.
 - **Technical delivery.** Closed and delivered consulting engineering work worth $450,000.
-  Established pre-award R&D goals, work estimation, co-authored the technical proposal, and led agile project delivery.
+  Established pre-award R&D goals, work estimation, co-authored the technical proposal, and led agile project delivery with Google as my client.
 - **Product.** Formed and led the team that defined, built, and sold our [first SaaS product](https://woolpert.com/stream-raster/).
   As product leader I defined the SLOs and SLAs, directed the engineering team daily, and directed all aspects of go to market.
 - **Acquisitions.** Technical reviewer for acquisitions, providing valued input on GO/NOGO decisions related to technical risk, technical staff, and product roadmap feasibility.
