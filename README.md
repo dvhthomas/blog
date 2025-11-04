@@ -13,6 +13,7 @@ If you must use locally then you need to install:
 - [Hugo](https://gohugo.io/installation/) - `brew install hugo`
 - [Task](https://taskfile.dev/installation/) - `go install github.com/go-task/task/v3/cmd/task@latest` && `asdf reshim`.
 - [D2](https://d2lang.com/) - `curl -fsSL https://d2lang.com/install.sh | sh -s --` (required if using D2 diagrams)
+- **Chrome or Chromium** - Required for resume PDF generation. Usually already installed on macOS/Linux. On Ubuntu: `sudo apt-get install chromium-browser`
 
 ## Author and publish
 
@@ -59,10 +60,15 @@ Visit http://localhost:1313 to preview. The server watches for changes and autom
 **Build for production:**
 
 ```shell
-task build                # Renders D2 diagrams + builds Hugo site to public/
-# OR
-go run blog.go && hugo    # Same thing manually
+task build                           # Renders D2 + builds Hugo + generates resume PDF
+# OR manually:
+go run blog.go && hugo --gc --minify && go run blog.go  # D2 → Hugo → PDF
 ```
+
+The build process:
+1. Renders D2 diagrams to SVG
+2. Builds Hugo site to `public/`
+3. Generates `public/resume.pdf` from `public/resume/index.html`
 
 Look at the draft [Tips](http://localhost:1313/2020/02/tips/) post to see examples of how you can use various elements like diagrams, code, and tweets.
 

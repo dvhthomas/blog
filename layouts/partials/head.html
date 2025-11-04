@@ -25,4 +25,29 @@
     <meta property="og:locale" content="en">-->
     {{ template "_internal/opengraph.html" . }} {{ template
     "_internal/twitter_cards.html" . }} {{ partial "script.html" . }}
+
+    {{- if eq .Type "resume" -}}
+    <!-- Structured data for ATS and search engines -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "{{ .Title }}",
+        "url": "{{ .Permalink }}",
+        {{- with .Params.email -}}
+        "email": "{{ . }}",
+        {{- end -}}
+        {{- with .Params.linkedin -}}
+        "sameAs": ["{{ . }}"],
+        {{- end -}}
+        {{- with .Params.location -}}
+        "workLocation": "{{ . }}",
+        {{- end -}}
+        {{- with .Description -}}
+        "description": "{{ . }}",
+        {{- end -}}
+        "jobTitle": "Technical Program Management Leader"
+    }
+    </script>
+    {{- end -}}
 </head>
