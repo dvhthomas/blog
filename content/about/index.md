@@ -19,11 +19,11 @@ I respond to both Dylan and Dominic 😁
 
 I immigrated to the USA many years ago and I've spent more than half of my life here.
 As a result, I sound like a mixed up American with the occasional British-ism.
-
-For example,I say `to-MAH-toe` 🍅 rather than `tu-MAY-toe` and I still say `YOG-urg` rather than `YO-gurg`.
-I _still_ can't wrap my head around the American version of those two words 😬
+I'm a geographer by training and a (slow) cyclist by nature.
 
 ## People first and then the machines
+
+> TIP: Skip to my [resume]({{< ref "resume/index.md" >}}) if you just need a rundown of my career.
 
 Professionally I describe myself as a technologist, with a focus on both cloud-based products and things with a geospatial twist.
 
@@ -50,7 +50,7 @@ The **ability and desire to learn** got me from being a geographer in both [the 
 * [Leading](http://localhost:1313/2024/10/tpm-journey-at-github/) the TPM team at GitHub through major product and platform shifts.
 * Having a life by taking two sabbaticals as **Head of DadOps** for my family.
 
-Read my [resume]({{< ref "resume/index.md" >}}) for more on my career.
+Again, my [resume / C.V.]({{< ref "resume/index.md" >}}) has all the details.
 
 ## Get In Touch
 

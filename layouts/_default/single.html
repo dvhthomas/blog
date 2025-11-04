@@ -4,7 +4,9 @@
 
 <header>
     <h1>{{ .Title }}</h1>
+    {{- if ne .Type "resume" -}}
     <div class="article-meta">{{ partial "date-and-tags.html" . }}</div>
+    {{- end -}}
 </header>
 {{ if .Params.summary }}
 <div id="abstract">{{ .Params.summary | markdownify }}</div>

@@ -1,38 +1,76 @@
 ---
-title: "Dominic ‘Dylan’ Thomas"
+title: "Dominic 'Dylan' Thomas"
 date: 2020-02-11T20:37:28-07:00
 draft: false
 toc: false
+type: "resume"
+layout: "single"
+# Structured data for ATS systems
+email: "dylant@hey.com"
+linkedin: "https://www.linkedin.com/in/dylan-thomas/"
+location: "Remote"
 ---
 
-Email: **dylant at hey dot com** | Website: **[Bits By Me](https://bitsby.me)** | LinkedIn: [Dylan Thomas](https://www.linkedin.com/in/dylan-thomas/)
+Email: **dylant@hey.com** | Website: **[Bits By Me](https://bitsby.me)** | LinkedIn: [Dylan Thomas](https://www.linkedin.com/in/dylan-thomas/)
 
+> I am a highly experienced technical leader and builder of remote teams with deep expertise in technical program management.
+> I balance open communication and team harmony with a strong focus on customer value.
+> Nothing makes me happier than getting things shipped to customers with an appropriately high quality bar.
 
-> I am a highly experienced technical leader and builder of remote teams. I balance open communication and team harmony with a strong focus on customer value. Nothing makes me happier than getting things shipped to customers with an appropriately high quality bar.
+## Skills
 
-# Work Experience
+- **Core:** [Technical Program Management]({{< ref "blog/2024/10/20/tpm-journey-at-github/index.md">}}), Agile Delivery, Technical Partnerships, [Balanced Leadership]({{< ref "blog/2019/01/29/core-skills-ge-tech-skills/index.md" >}}), [Remote Leadership]({{< ref "blog/2021/06/15/how-we-work/index.md" >}}), [Growing teams]({{< ref "blog/2021/03/24/transforming-the-team/index.md" >}}),  Organizational Development
+- **Technical:** [AI Engineering]({{< relref "/series/ai-engineering-course" >}}), [Python]({{< relref "/tags/python" >}}), [Go]({{< relref "/tags/go">}}), [Google Cloud]({{< relref "/tags/gcp" >}}), Ruby on Rails, [Terraform]({{< relref "/tags/terraform" >}}), PostgreSQL, [bash]({{< relref "/tags/shell-scripting/" >}})
 
-## Woolpert
+## Work Experience
+
+### Sabbatical
 
 _Remote_
 
-### Cloud Solutions Director
+#### Head of DadOps
 
-_Jan 2019 to Present_
+_June 2025 to Present_
 
-- **Leadership with EQ.** Defined brand new roles and [ways of working](https://bitsby.me/2021/06/operating-principles-a.k.a.-how-we-work/) within a traditional corporate environment. Psychological safety, a culture of learning, and goals based on reality rather than hope.
-- **Scaling teams.** Hired a team of 12 engineers (and counting) as both team leads and individual contributors. Established a repeatable hiring process with [core and technical skill components](https://bitsby.me/2019/01/core-skills-technical-skills/) and a high bar. Established an org chart that can scale.
-- **Technical delivery.** Closed and delivered consulting engineering work worth $450,000. Established pre-award R&D goals, work estimation, co-authored the technical proposal, and led agile project delivery.
-- **Product.** Formed and led the team that defined, built, and sold our [first SaaS product](https://woolpert.com/stream-raster/). As product leader I defined the SLOs and SLAs, directed the engineering team daily, and directed all aspects of go to market.
+- My sabbatical is focused on Dad Operations a.k.a. DadOps as I lead the Thomas family towards high performance!
+- University tours, a structured approach to high school, and ensuring that the home network is up to the rigors of both gaming and the home office.
+- I'm also finally getting to learn more about AI fundamentals in the [ByteByteGo AI Engineering course]({{< relref "/series/ai-engineering-course" >}}).
+  [Agentic patterns, too](https://github.com/dvhthomas/agent-learn).
+
+### GitHub
+
+_Remote_
+
+#### Head of Technical Program Management (TPM)
+
+_Jan 2022 to June 2025_
+
+COMING SOON!
+
+### Woolpert
+
+_Remote_
+
+#### Cloud Solutions Director
+
+_Jan 2019 to Jan 2022_
+
+- **Leadership with EQ.** Defined brand new roles and [ways of working]({{< ref "blog/2021/06/15/how-we-work/index.md" >}}) within a traditional corporate environment. Psychological safety, a culture of learning, and goals based on reality rather than hope.
+- **Scaling teams.** Hired a team of 12 engineers as both team leads and individual contributors. Established a repeatable hiring process with [core and technical skill components]({{< ref "blog/2019/01/29/core-skills-ge-tech-skills/index.md" >}}) and a high bar. Established an org chart that can scale.
+- **Technical delivery.** Closed and delivered consulting engineering work worth $450,000.
+  Established pre-award R&D goals, work estimation, co-authored the technical proposal, and led agile project delivery.
+- **Product.** Formed and led the team that defined, built, and sold our [first SaaS product](https://woolpert.com/stream-raster/).
+  As product leader I defined the SLOs and SLAs, directed the engineering team daily, and directed all aspects of go to market.
 - **Acquisitions.** Technical reviewer for acquisitions, providing valued input on GO/NOGO decisions related to technical risk, technical staff, and product roadmap feasibility.
-- **Open source.** Led the effort to release our [first open source solution](https://woolpert.com/geoawareness/), GeoAwareness. Writing and promoting [open data standards](https://schemas.opencamadata.org/0.1/data.schema.json) in an industry that is not known for openess.
+- **Open source.** Led the effort to release our [first open source solution](https://woolpert.com/news/press-releases/woolpert-launches-geoawareness-solution-for-curbside-pickup-upon-arrival/), GeoAwareness.
+  [Writing](https://opencamadata.org/docs/0.9/) and promoting [open data standards](https://opencamadata.org) in an industry that is not known for openness.
 
 
-## Google
+### Google
 
-Mountain View, California and Remote
+_Remote and Mountain View, California_
 
-### Head of Partner Engineers, Android Automotive --- _2014-2018_
+#### Head of Partner Engineering, Android Automotive --- _2014-2018_
 
 - **Leadership.** Founding team member 2014, global lead from 2015. I built and led a global hybrid remote team of 15+ technical staff. We got [Android Auto](https://www.android.com/auto/) embedded and shipping with 75+ industry partners in 130+ head unit variants in the first 24 months.
 - **Global technology partnerships.** Fully accountable for the first global Android automotive engineering partnerships with most OEMs and their entire Tier 1 supply chains. Influencing platform and hardware/software roadmaps across an industry.
@@ -41,14 +79,14 @@ Mountain View, California and Remote
 -  **Technical clarity.** Led and contributed to an effort to clarify the Android Auto protocol-level integration spec resulting in: an improved test suite to cover all `MUST` cases; greater clarity for all engineers integrating Android Auto into their head units.
 -  **Corporate citizenship.** Sat on TPM hiring committee reviewing 50+ candidate packages for hire/no hire decisions, and personally interviewed 70+ technical and non-technical candidates.
 
-### Google Maps Program Manager --- _2012-2014_
+#### Google Maps Program Manager --- _2012-2014_
 
 - **Program Leadership.** Founder of Geo Customer Success Services; I provided leadership for the practice, including program management and project execution. On a day-to-day basis I served as a technical advisor and advocate for strategic Google Maps OEMs, touching 27% of Geo revenue and key name brands.
 - **2013 Enterprise Operations Chief of Staff.** As a successful program manager I was selected for one of four global spots on the OCS leadership rotation in Singapore. Covered six countries in six weeks with great international business exposure alongside Google's regional leadership team.
 
 ## Other Experience
 
-**Stay at home Dad** --- _2018-2019 (Denver, Colorado)_
+**Stay at Home Dad** --- _2018-2019 (Denver, Colorado)_
 
 - Took 5 wonderful months away from corporate life to settle the family into Denver after a move from San Francisco.
 - Did a lot of school-related activities, and finally got both of them confidently riding bikes.
@@ -66,23 +104,9 @@ Mountain View, California and Remote
 - Delivered core business objects and persistence tier for $8M suite of applications and data at a major U.S. airport.
 - As Project Manager I opened a new remote office in Seattle, Washington; I pitched, won, and delivered technical contracts in the $20K-$250K range.
 
-## Skills
-Management: [`Balanced Leadership`](https://bitsby.me/2019/01/core-skills-technical-skills/),
-[`Remote Leadership`](https://bitsby.me/2021/06/operating-principles-a.k.a.-how-we-work/),
-[`Growing teams`](https://bitsby.me/2021/03/transforming-the-team-on-your-practical-cloud-journey/),
-`Agile Delivery`,
-`Technical Partnerships`
-
-Technical: mostly [`Python`](https://bitsby.me/til/2021-06-02/),
-`Google Cloud` with [`Go`](https://bitsby.me/2021/02/coding-exercise-in-go/),
-`Ruby on Rails`,
-[`Terraform`](https://bitsby.me/2021/06/terraforming-101/),
-`PostgreSQL`,
-[`bash`](https://bitsby.me/2020/02/gcp-billing-api-scripting/) as needed.
-
 ## Education
 
-University of North Carolina
+**University of North Carolina**
 : _1993-1996_
 : **Masters of Arts in Geography**
 : Charlotte, North Carolina
@@ -92,11 +116,6 @@ University of North Carolina
 : **Bachelor of Science in Geography**
 : Reading, United Kingdom
 
-
 ## Other
 
 U.S. and U.K. citizen
-
-
-
-

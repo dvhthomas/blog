@@ -1,7 +1,7 @@
 ---
 title: Tracking program investments in SQLite
 date: 2023-02-13T18:19:47-07:00
-tags: [sqlite, cte, hierarchical, data]
+tags: [sqlite, cte, hierarchical, data, go]
 toc: true
 series:
   - SQLite and Go
@@ -360,9 +360,9 @@ WITH RECURSIVE subordinate AS (
             json_array() as org_tree
     FROM people
     WHERE id = (select id from people where manager IS NULL)
- 
+
     UNION ALL
- 
+
     /*
       Now get the same info, but note that we're joining
       to the subordinate table recursively to walk the hierarchy.
@@ -397,12 +397,12 @@ team_size AS (
     p.id as id,
     (
       WITH RECURSIVE cte AS (
-          SELECT 
+          SELECT
               pp.id,
               pp.manager
           FROM people pp
           WHERE pp.id = p.id
-          
+
           UNION ALL
 
           SELECT
@@ -421,7 +421,7 @@ team_size AS (
   and team size
 */
 employees as (
-    SELECT 
+    SELECT
       s.id,
       s.name,
       s.email,
@@ -473,7 +473,7 @@ Sure take your time with it and ready it carefully, but apart from the `CASE` st
 /*
   Build a single view of investments at the
   staff level for each Initiative.
-  
+
   This enforces a rule: investments from subordinates
   are discarded if someone higher up in the organization has
   an investment for the same initiative. Look at the `included`
@@ -505,7 +505,7 @@ management_investment AS (
     The investment amount for each record should only be used
     in calculations if nobody further up in the org has an
     investment for the same initiative. For example, if Alice has
-    an investment of 0.5 for the Project A initiaitve and nobody 
+    an investment of 0.5 for the Project A initiaitve and nobody
     further up in the org has added an investment for Project A
     then the value for `include_investment` will be TRUE (1).
     However, if Bob is somewhere in Alice's management hierarchy
@@ -534,7 +534,7 @@ investments AS (
     org.org_size,
     mi.include_investment as included,
     org.org_level,
-    CASE 
+    CASE
     -- Stop investments of greater that 100% of any person's total team size
     -- General calc works because `include_investment` is zero for 'no investment'.
     WHEN (org.org_size = 1)
@@ -574,7 +574,7 @@ Basically, fix some empty things and add up the FTEs for each initiative.
   Initiatives with total FTE investment
 */
 CREATE VIEW IF NOT EXISTS initiative_view
-AS 
+AS
 SELECT
   i.id,
   i.name,
