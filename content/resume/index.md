@@ -20,7 +20,7 @@ Email: **dylant@hey.com** | Website: **[Bits By Me](https://bitsby.me)** | Linke
 ## Skills
 
 - **Core:** [Technical Program Management]({{< ref "blog/2024/10/20/tpm-journey-at-github/index.md">}}), Agile Delivery, Technical Partnerships, [Balanced Leadership]({{< ref "blog/2019/01/29/core-skills-ge-tech-skills/index.md" >}}), [Remote Leadership]({{< ref "blog/2021/06/15/how-we-work/index.md" >}}), [Growing teams]({{< ref "blog/2021/03/24/transforming-the-team/index.md" >}}),  Organizational Development
-- **Technical:** [AI Engineering]({{< relref "/series/ai-engineering-course" >}}), [Python]({{< relref "/tags/python" >}}), [Go]({{< relref "/tags/go">}}), [Google Cloud]({{< relref "/tags/gcp" >}}), Ruby on Rails, [Terraform]({{< relref "/tags/terraform" >}}), PostgreSQL, [bash]({{< relref "/tags/shell-scripting/" >}})
+- **Technical:** [AI Engineering]({{< ref "/series/ai-engineering-course" >}}), [Python]({{< ref "/tags/python" >}}), [Go]({{< ref "/tags/go">}}), [Google Cloud]({{< ref "/tags/gcp" >}}), Ruby on Rails, [Terraform]({{< ref "/tags/terraform" >}}), PostgreSQL, [bash]({{< ref "/tags/shell-scripting/" >}})
 
 ## Work Experience
 
