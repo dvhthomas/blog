@@ -1,0 +1,47 @@
+direction: down
+
+classes {
+  be: {
+    style {
+      fill: white
+      stroke-dash: 3
+    }
+  }
+}
+
+p: Prompt
+pr: Prompt\nRewriter
+ma: Manager\nAgent { style.fill: yellow }
+
+wsa1: Web Search\nAgent 1
+
+be1: " " {
+    class: be
+    t: Tools
+    tllm: Thinking\nLLM
+    mem: Memory
+}
+
+wsa2: Web Search\nAgent 2
+
+be2: " " {
+  class: be
+    t: Tools
+    tllm: Thinking\nLLM
+    mem: Memory
+}
+
+wsa3: Web Search\nAgent N
+
+be3: " " {
+class: be
+
+    t: Tools
+    tllm: Thinking\nLLM
+    mem: Memory
+}
+
+p -> pr -> ma
+ma -> wsa1 -> be1
+ma -> wsa2 -> be2
+ma -> wsa3 -> be3

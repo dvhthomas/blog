@@ -1,0 +1,19 @@
+classes {
+  anim {
+    style.animated: true
+    style.stroke: deepskyblue
+  }
+  io {
+    style.fill: white
+  }
+}
+
+msa: Multli-step Agent {
+  style.fill: yellow
+}
+Prompt { class: io }
+Response { class: io }
+Prompt -> msa -> Response
+msa <-> Thinking LLM { class: anim }
+msa <-> Tools { class: anim }
+msa <-> Memory { class: anim }

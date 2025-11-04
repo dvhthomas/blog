@@ -333,7 +333,6 @@ The details are pretty complicatione, i.e., beyond me, but here's the basic idea
 
 #### Internalizing search (Meta CoT)
 
-
 (Meta Chain of Thought)[system-2-reasoning] is an approach to handle more complex questions.
 It's not just a sequence of thoughts followed by the final answer.
 It's more about trying early 'final' answers and then training the LLM to backtrack, try different ideas, use different data.
@@ -341,6 +340,29 @@ It's more about trying early 'final' answers and then training the LLM to backtr
 You can see this in thinking models with interim---or 'latent'---thoughts, backtracking to different ideas, and using different data.
 
 {{< figure src="meta-cot.png" title="Example internal process of meta CoT" attrlink="https://arxiv.org/pdf/2501.04682" attr="Source" >}}
+
+### Deep Research Tool
+
+Deep Research extends many of the techniques from Meta CoT, including:
+
+- **Latent Thoughts**: Deep Research introduces latent thoughts, which are intermediate steps that help the model explore different paths and ideas.
+- **Backtracking**: The tool allows the model to backtrack and try different approaches when it encounters difficulties.
+- **Data Selection**: Deep Research enables the model to select and use different data sources to enhance its understanding and generate more accurate responses.
+
+{{< d2 src="deep-research.d2" />}}
+
+Prompt engineering is used to push the Agent to *think* in models like ReACT, but now we're able to call a Thinking LLM instead of a 'normal' LLM.
+
+In practice, these are multi-agent systems that looks something like this:
+
+{{< d2 src="dr-detail.d2">}}
+Deep research is agentic and tool-calling
+{{</ d2 >}}
+
+The `Web Search Agent` may in fact be different agent types, but you get the point.
+Here's an example of Claude Opus 4.1 taking a difficult task and doing prompt rewriting, stating the objective, and starting to spin up sub-agents for reseearch tasks.
+
+{{< figure src="dr-in-claude.png" title="Deep Research in Claude Opus 4.1" >}}
 
 [^hyperbolic]: [Hyperbolic.ai](https://hyperbolic.ai/) is a great website for testing these models.
 It's not free because they have to pay for GPUs and more.
