@@ -11,7 +11,7 @@
 {{ if .Params.summary }}
 <div id="abstract">{{ .Params.summary | markdownify }}</div>
 {{ end }} {{ partial "series.html" . }} {{ partial "toc.html" . }}
-<article>
+<article class="section-{{ .Type }}">
     {{ .Content }}
     <br />
     {{ partial "related.html" . }} {{- if and .File .Site.Params.githubRepo -}}
