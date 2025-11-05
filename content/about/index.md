@@ -2,23 +2,10 @@
 title: "About Me"
 date: 2020-02-11T20:37:28-07:00
 draft: false
-toc: true
 ---
-
-<div class="figures-side-by-side">
-
-{{< figure src="me.jpg" title="How it started" >}}
-{{< figure src="me-2025.png" title="How it's going" >}}
-
-</div>
 
 Hi, I'm Dylan Thomas 👋  My legal name is Dominic Thomas but Dylan is a poetry-related[^poetry] nickname that I've had since I was a teen.
 I respond to both Dylan and Dominic 😁
-
-## Formerly English, Currently American
-
-I immigrated to the USA many years ago and I've spent more than half of my life here.
-As a result, I sound like a mixed up American with the occasional British-ism.
 I'm a geographer by training and a (slow) cyclist by nature.
 
 ## People first and then the machines

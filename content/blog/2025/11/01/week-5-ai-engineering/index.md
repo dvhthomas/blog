@@ -1,5 +1,5 @@
 ---
-title: Week 5 Ai Engineering
+title: Week 5 AI Engineering
 date: 2025-11-01T11:03:11-06:00
 tags: []
 toc: true
