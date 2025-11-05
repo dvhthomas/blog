@@ -289,3 +289,11 @@ const initializeSearch = () => {
 
 // Run on page load
 initializeSearch();
+
+// Focus search box when '/' key is pressed
+document.addEventListener('keydown', (e) => {
+  if (e.key === '/' && !['INPUT', 'TEXTAREA'].includes(document.activeElement.tagName)) {
+    e.preventDefault();
+    document.getElementById('search-query')?.focus();
+  }
+});

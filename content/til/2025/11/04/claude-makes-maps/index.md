@@ -23,6 +23,8 @@ First, [here's the resulting app](https://dvhthomas.github.io/mapsicle/), which 
 
 ![desktop sized view of a web app showing places with photos](desktop.png)
 
+## Things I Learned
+
 I'm poking around `~/.claude/` JSON files to see how the conversaion actually went, but what did I learn?
 
 **First**, it really helps to force Claude to **keep track of decisions** in documents like a README.md. At some point pretty quickly, the token limit causes Claude (and really any agentic system) to compress the conversation and ultimately to lose context.
