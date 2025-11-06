@@ -97,7 +97,7 @@ _Remote and Mountain View, California_
   I built and led a global hybrid remote team of 15+ technical staff.
   We got [Android Auto](https://www.android.com/auto/) embedded and jointly [shipped](https://www.hyundainews.com/assets/documents/original/23958-HYUNDAIISTHEFIRSTAUTOMAKERTOLAUNCHANDROIDAUTO.pdf) with 75+ industry partners in 130+ head unit variants in the first 24 months.
 -  **Technical clarity for implementors.**
-   Implemented the Android Auto Protocol (AAP) in a car left many open questions for automotive suppliers.
+   Implementing the Android Auto Protocol (AAP) in a car left many open questions for automotive suppliers.
    I led the effort to codify requirements and guidelines via clear written documentation and testing procedures.
    Third party (supplier) engineering teams could now validate correctness on their own before attempting certification.
    Google's own codebase also improved, notably around [audio management](https://source.android.com/docs/automotive/audio/audio-focus).
@@ -105,7 +105,6 @@ _Remote and Mountain View, California_
    My team was the limiting factor in certifying and launching new Android Auto project (AAP) head units.
    First I established a reproducible certification process applicable to all partners and internal teams (learn and do)
    This enabled my team to outsource certifcation through a 3rd Party Labs ("3PL") program to dramatically increase the reach of the product.
--  **Technical thought leadership.** The auto industry has a strong driver safety focus, leading to numerous one-off conversations with Android UX and PM. I codified those nascent discussions into an unambiguous, holistic spec using clear [RFC2119-style](https://datatracker.ietf.org/doc/html/rfc2119) language.
 - **Global technology partnerships.**
 -  **Corporate citizenship.** Sat on TPM hiring committee reviewing 50+ candidate packages for hire/no hire decisions, and personally interviewed 70+ technical and non-technical candidates.
 
