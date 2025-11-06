@@ -1,5 +1,5 @@
 ---
-title: 2021-06-02
+title: OSM and Python
 date: 2021-06-02T11:56:57-06:00
 tags: [geospatial, python, geocode, osm]
 toc: true
@@ -77,4 +77,3 @@ It's a utility library and set of algorithms for both accessing (downloading) Op
 For example...how to download data for a city, build a walking graph of the street network, then calculate how far you can get from a single location in $X$ minutes.
 
 The examples repo shows [exactly how to do this](https://github.com/gboeing/osmnx-examples/blob/main/notebooks/13-isolines-isochrones.ipynb).
-
