@@ -100,12 +100,11 @@ _Remote and Mountain View, California_
    Implementing the Android Auto Protocol (AAP) in a car left many open questions for automotive suppliers.
    I led the effort to codify requirements and guidelines via clear written documentation and testing procedures.
    Third party (supplier) engineering teams could now validate correctness on their own before attempting certification.
-   Google's own codebase also improved, notably around [audio management](https://source.android.com/docs/automotive/audio/audio-focus).
+   Google's own codebase also improved as a result, notably around [audio management](https://source.android.com/docs/automotive/audio/audio-focus).
 -  **Launch 3rd Party Labs testing for automotive.**
    My team was the limiting factor in certifying and launching new Android Auto project (AAP) head units.
    First I established a reproducible certification process applicable to all partners and internal teams (learn and do)
    This enabled my team to outsource certifcation through a 3rd Party Labs ("3PL") program to dramatically increase the reach of the product.
-- **Global technology partnerships.**
 -  **Corporate citizenship.** Sat on TPM hiring committee reviewing 50+ candidate packages for hire/no hire decisions, and personally interviewed 70+ technical and non-technical candidates.
 
 #### Google Maps Program Manager --- _2012-2014_
