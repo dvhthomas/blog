@@ -11,9 +11,6 @@ draft: false
 images: [deepseek-hyperbolic.png]
 ---
 
-> INFO: This is a work in progress and I get through Week 4 lectures and other material.
-> Come back for more in a few days.
-
 ## Introduction
 
 Complex prompts are better handled with multi-step logical answers. Reasoning models are still an LLM, but we add reasoning before the response is provided.
