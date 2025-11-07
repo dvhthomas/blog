@@ -4,13 +4,12 @@ date: 2020-02-11T20:37:28-07:00
 draft: false
 ---
 
-Hi, I'm Dylan Thomas 👋  My legal name is Dominic Thomas but Dylan is a poetry-related[^poetry] nickname that I've had since I was a teen.
-I respond to both Dylan and Dominic 😁
+Hi, I'm Dylan Thomas 👋  My legal name is Dominic Thomas, but Dylan is a poetry-related[^poetry] nickname that I've had since I was a teen.
 I'm a geographer by training and a (slow) cyclist by nature.
 
 ## People first and then the machines
 
-> TIP: Skip to my [resume]({{< ref "resume/index.md" >}}) if you just need a rundown of my career.
+> TIP: Skip to my [resume]({{< ref "resume/index.md" >}}) ([PDF](/resume.pdf)) if you just need a rundown of my career, or check out [examples of my work]({{< ref "work/_index.md" >}}).
 
 Professionally I describe myself as a technologist, with a focus on both cloud-based products and things with a geospatial twist.
 

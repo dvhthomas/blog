@@ -369,6 +369,8 @@ func generateResumePDF(verbose bool) error {
 			document.querySelectorAll('footer').forEach(el => el.remove());
 			// Remove hidden SVG icon definitions
 			document.querySelectorAll('svg[display="none"], svg[style*="display: none"]').forEach(el => el.remove());
+			// Remove heading anchor links (octothorpes)
+			document.querySelectorAll('.heading-anchor').forEach(el => el.remove());
 
 			// Set clean sans-serif font for PDF (overriding site's body font)
 			document.body.style.fontFamily = '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif';
