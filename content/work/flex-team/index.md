@@ -29,7 +29,7 @@ Understanding that the urgent needs wouldn't go away, I dedicated 3 TPMs (10% of
 
 The hypothesis: it was better for GitHub to have experienced TPMs sitting on the bench waiting for ~something to go wrong~ an urgent need, that to disrupt strategic programs mid-flight.
 
-We created a dedicated comms channelwith our CTO (`#flex-team`) and established a rule: anyone could _ask_ for help from this dedication team, but only the CTO had the ability to say "Do it!"
+We created a dedicated comms channel with our CTO (`#flex-team`) and established a rule: anyone could _ask_ for help from this dedication team, but only the CTO had the ability to say "Do it!"
 
 The Flex Team handled several high urgency, high importance projects in the 6 months that it was fully funded.
 The projects included responding to an urgent security issue involving a large number of team at GitHub.
