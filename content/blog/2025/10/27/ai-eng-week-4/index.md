@@ -5,13 +5,14 @@ tags: [ai, engineering, llm]
 toc: true
 series: [AI Engineering Course]
 summary: Complex prompts are better handled with multi-step logical answers. Reasoning models are still an LLM, but we add reasoning before the response is provided.
-mermaid: true
 mathjax: true
 draft: false
 images: [deepseek-hyperbolic.png]
 ---
 
 ## Introduction
+
+> INFO: Find the annotated code at [bytebyteai/ai-eng-projects](https://github.com/bytebyteai/ai-eng-projects/blob/main/project_4/)
 
 Complex prompts are better handled with multi-step logical answers. Reasoning models are still an LLM, but we add reasoning before the response is provided.
 
