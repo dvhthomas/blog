@@ -9,6 +9,7 @@ mermaid: false
 mathjax: true
 draft: false
 images: []
+aliases: ["/til/2025-10-14/"]
 ---
 
 > TIP: The [Transformers, the tech behind LLMs | Deep Learning Chapter 5

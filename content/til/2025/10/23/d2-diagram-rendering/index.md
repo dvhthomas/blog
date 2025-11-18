@@ -9,6 +9,7 @@ mermaid: false
 mathjax: false
 draft: false
 images: []
+aliases: ["/til/2025-10-23/"]
 ---
 
 ## Why D2?

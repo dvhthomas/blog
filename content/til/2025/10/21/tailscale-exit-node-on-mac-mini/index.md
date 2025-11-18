@@ -9,6 +9,7 @@ mermaid: false
 mathjax: true
 draft: false
 images: [exit-node.png]
+aliases: ["/til/2025-10-21/"]
 ---
 
 ## Goals and Constraints

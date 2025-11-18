@@ -6,6 +6,7 @@ toc: true
 series: []
 mermaid: false
 draft: false
+aliases: ["/til/2021-02-28/"]
 ---
 
 * [Make a Hugo blog from scratch][1]

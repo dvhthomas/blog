@@ -8,6 +8,7 @@ summary: Learning about Pangeo and friends
 mermaid: false
 mathjax: true
 draft: false
+aliases: ["/til/2021-03-31/"]
 ---
 
 ## Pangeo

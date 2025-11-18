@@ -8,6 +8,7 @@ summary: Data engineering audiocast, plus Python photos
 mermaid: false
 mathjax: false
 draft: false
+aliases: ["/til/2021-11-11/"]
 ---
 
 ## Data Engineering audiocast

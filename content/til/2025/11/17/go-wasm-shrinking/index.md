@@ -9,6 +9,7 @@ summary: |
   It also produces massive files to download.
   So how can we shrink this down?
 draft: false
+aliases: ["/til/2025-11-17/"]
 images: [tinygo.png]
 ---
 

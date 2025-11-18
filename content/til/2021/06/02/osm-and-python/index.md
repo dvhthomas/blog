@@ -9,6 +9,7 @@ summary: |-
 mermaid: false
 mathjax: true
 draft: false
+aliases: ["/til/2021-06-02/"]
 ---
 
 Learned about a couple of handy python geospatial projects.

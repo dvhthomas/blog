@@ -7,6 +7,7 @@ series: []
 summary: I decided to vibe code, truly putting Anthropic's Claude CLI in the driver's seat. It was instructive!
 draft: false
 images: [desktop.png]
+aliases: ["/til/2025-11-04/"]
 ---
 
 I've been wanted a little GitOps-y application where I can map out places I've been and throw a few photos in there while I'm at it.

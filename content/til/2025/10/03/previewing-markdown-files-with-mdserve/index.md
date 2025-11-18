@@ -9,6 +9,7 @@ mermaid: false
 mathjax: false
 draft: false
 images: []
+aliases: ["/til/2025-10-03/"]
 ---
 
 I was running `brew update` and saw a new item whiz by called [mdserve][mds].
