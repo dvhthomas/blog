@@ -1,11 +1,10 @@
 ---
-title: 2021-08-28
+title: Git large file storage
 date: 2021-08-28T07:40:13-06:00
 tags: [git]
 toc: true
 series: []
 summary: Using GitLFS for the first time.
-mermaid: false
 mathjax: false
 draft: false
 ---
