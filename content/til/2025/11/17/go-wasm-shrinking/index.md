@@ -9,7 +9,7 @@ summary: |
   It also produces massive files to download.
   So how can we shrink this down?
 draft: false
-images: [tinygo.png]
+images: [calcdown-app.png]
 ---
 
 For [go-calcmark](https://github.com/calcmark/go-calcmark) I decided that I would keep an implementation of the spec in the same Git repository as the spec itself.
