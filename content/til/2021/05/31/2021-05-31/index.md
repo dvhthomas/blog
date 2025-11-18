@@ -8,6 +8,7 @@ summary: Wardley maps to visualize strategy
 mermaid: false
 mathjax: false
 draft: false
+aliases: ["/til/2021-05-31/"]
 ---
 
 ## Wardley maps

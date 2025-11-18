@@ -7,6 +7,7 @@ series: []
 summary: Using GitLFS for the first time.
 mathjax: false
 draft: false
+aliases: ["/til/2021-08-28/"]
 ---
 
 ## Using GitLFS for the first time

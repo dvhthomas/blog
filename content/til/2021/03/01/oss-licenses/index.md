@@ -6,6 +6,7 @@ toc: true
 series: []
 mermaid: false
 draft: false
+aliases: ["/til/2021-03-01/"]
 ---
 
 - **Picking a license.** Was trying to remember why we selected the Mozilla Public License (MPL) for Woolpert's open source work.

@@ -7,6 +7,7 @@ series: []
 summary: In which I finally read some docs on what a JavaScript module is and how it made my Hugo shortcodes self contained.
 draft: false
 images: [network.png]
+aliases: ["/til/2025-10-29/"]
 ---
 
 ## Current JS Setup

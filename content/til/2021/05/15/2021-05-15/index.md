@@ -8,6 +8,7 @@ summary: ICU for Python head-scratcher solved
 mermaid: false
 mathjax: false
 draft: false
+aliases: ["/til/2021-05-15/"]
 ---
 
 This is the yak shaving edition of getting things to work instead of doing work with things.

@@ -8,6 +8,7 @@ summary: Starting some micro-donations to open source developers. And a font.
 mermaid: false
 mathjax: false
 draft: false
+aliases: ["/til/2023-02-05/"]
 ---
 
 ## Sponsoring open source

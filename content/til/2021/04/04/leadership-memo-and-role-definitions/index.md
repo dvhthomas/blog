@@ -8,6 +8,7 @@ summary: PM and Eng leadership
 mermaid: false
 mathjax: false
 draft: false
+aliases: ["/til/2021-04-04/"]
 ---
 
 ## Leadership memos

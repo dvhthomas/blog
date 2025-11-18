@@ -8,6 +8,7 @@ summary: PNG squishing and static sites on GCS
 mermaid: false
 mathjax: false
 draft: false
+aliases: ["/til/2021-04-02/"]
 ---
 
 ## Squishing PNGs

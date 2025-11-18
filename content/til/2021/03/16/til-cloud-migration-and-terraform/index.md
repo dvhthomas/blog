@@ -7,6 +7,7 @@ series: []
 summary: From GCP to Terraform
 mermaid: false
 draft: false
+aliases: ["/til/2021-03-16/"]
 ---
 
 ## Practical Cloud Migration

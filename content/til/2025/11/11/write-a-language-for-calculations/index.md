@@ -10,6 +10,7 @@ summary: |-
     of my capabilities.
 draft: false
 images: [demo.png]
+aliases: ["/til/2025-11-11/"]
 ---
 
 I'll have more to say about this later, but something I've longed for is a little calculator that let's me do calculations like I'm in a spreadsheet, but in the context of something like a markdown document.

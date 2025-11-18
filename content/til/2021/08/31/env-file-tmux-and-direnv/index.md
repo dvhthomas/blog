@@ -8,6 +8,7 @@ summary: Using `direnv` to automatically handle environment variables.
 mermaid: false
 mathjax: false
 draft: false
+aliases: ["/til/2021-08-31/"]
 ---
 
 ## Changing environments per directory

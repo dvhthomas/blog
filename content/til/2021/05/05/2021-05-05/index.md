@@ -8,6 +8,7 @@ summary: Getting Python running on fresh Linux
 mermaid: false
 mathjax: false
 draft: false
+aliases: ["/til/2021-05-05/"]
 ---
 
 ## Problem - unhappy Python

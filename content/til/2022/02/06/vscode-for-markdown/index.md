@@ -8,6 +8,7 @@ summary: Writing Markdown using VS Code
 mermaid: false
 mathjax: false
 draft: false
+aliases: ["/til/2022-02-06/"]
 ---
 
 I'm writing a lot of [Markdown](https://www.markdownguide.org/) recently, and most of that is in GitHub repositories.

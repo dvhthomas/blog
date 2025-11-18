@@ -8,6 +8,7 @@ summary: Default git branch name and Python formatting
 mermaid: false
 mathjax: false
 draft: false
+aliases: ["/til/2021-04-29/"]
 ---
 
 ## Main not Master

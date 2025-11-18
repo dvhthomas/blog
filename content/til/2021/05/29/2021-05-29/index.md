@@ -8,6 +8,7 @@ summary: Trying svelte-kit and Tailwind CSS
 mermaid: false
 mathjax: false
 draft: false
+aliases: ["/til/2021-05-29/"]
 ---
 
 ## Svelte Kit and Tailwind CSS

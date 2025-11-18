@@ -8,6 +8,7 @@ summary: Some awk for text file munging
 mermaid: false
 mathjax: false
 draft: false
+aliases: ["/til/2021-06-15/"]
 ---
 
 ## AWK-ing

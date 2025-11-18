@@ -7,6 +7,7 @@ series: []
 summary:
 mermaid: false
 draft: false
+aliases: ["/til/2021-03-10/"]
 ---
 
 ## VisiData

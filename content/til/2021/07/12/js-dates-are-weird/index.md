@@ -8,6 +8,7 @@ summary: In which type coercion and JavaScript magic bite me in the...date math.
 mermaid: false
 mathjax: false
 draft: false
+aliases: ["/til/2021-07-12/"]
 ---
 
 ## Strings becoming numbers in dates

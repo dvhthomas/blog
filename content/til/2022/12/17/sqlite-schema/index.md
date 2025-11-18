@@ -8,6 +8,7 @@ summary: Learning a few bits about SQLite that are worth noting.
 mermaid: false
 mathjax: false
 draft: false
+aliases: ["/til/2022-12-17/"]
 ---
 
 ## Query the structure and schema

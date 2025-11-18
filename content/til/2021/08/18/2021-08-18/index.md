@@ -8,6 +8,7 @@ summary: Using Google Sheets for event planning
 mermaid: false
 mathjax: false
 draft: false
+aliases: ["/til/2021-08-18/"]
 ---
 
 ## Using some little Google Sheets tricks for an agenda

@@ -9,6 +9,7 @@ summary: Using the GitHub CLI to make authenticated and authorized download from
 mermaid: false
 mathjax: false
 draft: false
+aliases: ["/til/2023-02-11/"]
 ---
 
 ## The GitHub `gh` CLI rocks

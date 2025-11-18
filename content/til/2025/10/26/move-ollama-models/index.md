@@ -9,6 +9,7 @@ mermaid: false
 mathjax: false
 draft: false
 images: [ollama.png]
+aliases: ["/til/2025-10-26/"]
 ---
 
 By default, Ollama stores its models in `~/.ollama/models` on macOS.

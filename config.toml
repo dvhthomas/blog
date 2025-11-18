@@ -70,7 +70,7 @@ ignoreErrors = ["error-remote-getjson"]
 
 [permalinks]
   blog = "/:year/:month/:title"
-  til = "til/:year-:month-:day/"
+  til = "til/:year-:month-:day/:slug"
   resume = "work/:title"
 
 [markup]

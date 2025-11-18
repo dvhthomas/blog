@@ -8,6 +8,7 @@ summary: Working with Pi-hole and a bit of `sed`.
 mermaid: false
 mathjax: false
 draft: false
+aliases: ["/til/2023-03-09/"]
 ---
 
 ## Whitelisting with [Pi-hole][pi]

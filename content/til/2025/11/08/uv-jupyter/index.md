@@ -7,6 +7,7 @@ series: []
 summary:
 draft: false
 images: []
+aliases: ["/til/2025-11-08/"]
 ---
 
 Literally before I forget!

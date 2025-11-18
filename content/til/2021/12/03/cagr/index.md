@@ -8,6 +8,7 @@ summary: Compound annual growth rate (CAGR)
 mermaid: false
 mathjax: true
 draft: true
+aliases: ["/til/2021-12-03/"]
 ---
 Compound annual growth rate (CAGR).
 But really a shameless excuse to try `$Mathtex$` rendering in the browser.
