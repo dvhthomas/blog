@@ -1,0 +1,120 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>CalcMark TinyGo WASM Test</title>
+        <script src="wasm_exec_tiny.js"></script>
+        <script>
+            async function loadCalcMark() {
+                const go = new Go();
+
+                try {
+                    const result = await WebAssembly.instantiateStreaming(
+                        fetch("calcmark-0.1.23-tiny.wasm"),
+                        go.importObject,
+                    );
+
+                    go.run(result.instance);
+
+                    // Test the API
+                    console.log("✓ CalcMark loaded successfully");
+                    console.log("Version:", window.calcmark.getVersion());
+
+                    // Test evaluation
+                    const evalResult = window.calcmark.evaluate(
+                        "x = 5 + 3\ny = x * 2",
+                        false,
+                    );
+                    console.log("Evaluation result:", evalResult);
+
+                    if (!evalResult.error) {
+                        const results = JSON.parse(evalResult.results);
+                        console.log("Parsed results:", results);
+                        document.getElementById("output").innerHTML +=
+                            `<p><strong>✓ Evaluation test passed</strong></p>
+             <pre>${JSON.stringify(results, null, 2)}</pre>`;
+                    } else {
+                        document.getElementById("output").innerHTML +=
+                            `<p style="color: red;"><strong>✗ Evaluation failed:</strong> ${evalResult.error}</p>`;
+                    }
+
+                    // Test tokenization
+                    const tokenResult =
+                        window.calcmark.tokenize("salary = $50000");
+                    console.log("Tokenization result:", tokenResult);
+
+                    if (!tokenResult.error) {
+                        const tokens = JSON.parse(tokenResult.tokens);
+                        document.getElementById("output").innerHTML +=
+                            `<p><strong>✓ Tokenization test passed</strong></p>
+             <pre>${JSON.stringify(tokens, null, 2)}</pre>`;
+                    }
+
+                    // Test validation
+                    const validateResult =
+                        window.calcmark.validate("x = 5\ny = z + 1");
+                    console.log("Validation result:", validateResult);
+
+                    if (!validateResult.error) {
+                        const diagnostics = JSON.parse(
+                            validateResult.diagnostics,
+                        );
+                        document.getElementById("output").innerHTML +=
+                            `<p><strong>✓ Validation test passed</strong></p>
+             <pre>${JSON.stringify(diagnostics, null, 2)}</pre>`;
+                    }
+                } catch (err) {
+                    console.error("Failed to load WASM:", err);
+                    document.getElementById("output").innerHTML =
+                        `<p style="color: red;"><strong>✗ Failed to load WASM:</strong> ${err.message}</p>`;
+                }
+            }
+
+            window.addEventListener("load", loadCalcMark);
+        </script>
+        <style>
+            body {
+                font-family:
+                    -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+                    sans-serif;
+                max-width: 800px;
+                margin: 50px auto;
+                padding: 20px;
+            }
+            h1 {
+                color: #333;
+            }
+            pre {
+                background: #f5f5f5;
+                padding: 15px;
+                border-radius: 5px;
+                overflow-x: auto;
+            }
+            .info {
+                background: #e3f2fd;
+                padding: 15px;
+                border-radius: 5px;
+                margin-bottom: 20px;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>CalcMark TinyGo WASM Test</h1>
+
+        <div class="info">
+            <p><strong>File sizes:</strong></p>
+            <ul>
+                <li>calcmark-0.1.23-tiny.wasm: 655 KB (TinyGo build)</li>
+                <li>wasm_exec_tiny.js: 16 KB</li>
+            </ul>
+            <p><strong>Compare to standard Go build:</strong></p>
+            <ul>
+                <li>calcmark-0.1.23.wasm: 3.7 MB (5.6x larger!)</li>
+            </ul>
+        </div>
+
+        <div id="output">
+            <p>Loading CalcMark WASM... (check browser console for details)</p>
+        </div>
+    </body>
+</html>
