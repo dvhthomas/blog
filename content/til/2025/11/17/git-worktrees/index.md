@@ -5,7 +5,7 @@ tags: [git]
 toc: true
 series: []
 summary: Using git worktrees for the first time in local development requires some new muscle memory.
-draft: true
+draft: false
 images: [git-butler.png]
 ---
 
