@@ -50,7 +50,7 @@ _Jan 2022 to June 2025_
   I led a small team of TPMs to provide clear expectations and repeatable processes for all GitHub feature teams: timeframes, quality bar, and communication channels.
   By mid-2023 most [releases](https://docs.github.com/en/enterprise-server@3.18/admin/all-releases) were on time and contained few regressions, enabling the GHES team to focus more on net new features for customers.
   There was no clear ownership so I took responsibility to get product buy-in, engineering funding, and budget approval for certification testing.
-- **GitHub products are compliant to sell in Chine (PRC).** GitHub's certification to sell in the People's Republic of China (PRC) hinged on [compliance with a country-specific UTF encoding](https://en.wikipedia.org/wiki/GB_18030).
+- **GitHub products are compliant to sell in China (PRC).** GitHub's certification to sell in the People's Republic of China (PRC) hinged on [compliance with a country-specific UTF encoding](https://en.wikipedia.org/wiki/GB_18030).
   I recognized the gap in compliance coverage and spun up a program in conjunction with Microsoft.
   As a result, GitHub achieved GB18030 compliance each year my team ran the program, thus protecting our revenue stream in the PRC.
 - **Narrowed the focus from 20+ to just 5 key programs.**
