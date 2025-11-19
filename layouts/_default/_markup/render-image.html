@@ -1,0 +1,46 @@
+{{- $u := urls.Parse .Destination -}} {{- $src := $u.String -}} {{- $alt :=
+.Text -}} {{- $title := .Title -}} {{- $width := "" -}} {{- $height := "" -}}
+{{- $defaultFormat := .Page.Site.Params.defaultImageFormat -}} {{- if not
+$u.IsAbs -}} {{- if $u.RawQuery -}} {{- with or (.Page.Resources.Get $u.Path)
+(resources.Get $u.Path) -}} {{- $img := . -}} {{- $query := $u.RawQuery -}} {{-
+$spec := "" -}} {{- if strings.Contains $query "w=" -}} {{- $w := index (split
+$query "w=") 1 -}} {{- $w = index (split $w "&") 0 -}} {{- if $defaultFormat -}}
+{{- $spec = printf "%sx %s" $w $defaultFormat -}} {{- else -}} {{- $spec =
+printf "%sx" $w -}} {{- end -}} {{- else if strings.Contains $query "h=" -}} {{-
+$h := index (split $query "h=") 1 -}} {{- $h = index (split $h "&") 0 -}} {{- if
+$defaultFormat -}} {{- $spec = printf "x%s %s" $h $defaultFormat -}} {{- else
+-}} {{- $spec = printf "x%s" $h -}} {{- end -}} {{- end -}} {{- if $spec -}} {{-
+$img = $img.Resize $spec -}} {{- $src = $img.RelPermalink -}} {{- $width =
+$img.Width -}} {{- $height = $img.Height -}} {{- else -}} {{- $src =
+$img.RelPermalink -}} {{- end -}} {{- end -}} {{- else -}} {{- with or
+(.Page.Resources.Get $u.Path) (resources.Get $u.Path) -}} {{- $src =
+.RelPermalink -}} {{- end -}} {{- end -}} {{- end -}}
+
+<img
+    src="{{ $src }}"
+    alt="{{ $alt }}"
+    {{-
+    with
+    $title
+    }}
+    title="{{ . }}"
+    {{
+    end
+    -}}
+    {{-
+    with
+    $width
+    }}
+    width="{{ . }}"
+    {{
+    end
+    -}}
+    {{-
+    with
+    $height
+    }}
+    height="{{ . }}"
+    {{
+    end
+    -}}
+/>

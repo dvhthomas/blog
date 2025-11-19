@@ -12,9 +12,11 @@ ignoreErrors = ["error-remote-getjson"]
 [params]
     homeText = "tech cycling dadops learning"
     dateFormat = "January 2, 2006"
-    description = "The personal website and blog of Dylan Thomas"
+    description = "The personal website of Dylan Thomas"
     images = ["/about/me-2025.png"]
     githubRepo = "https://github.com/dvhthomas/blog"
+      # Default format for image conversion (e.g., "webp", "jpeg", "png"). Leave empty to disable conversion.
+    defaultImageFormat = "webp"
 
     [params.d2]
         theme = "3"  # https://d2lang.com/tour/themes/

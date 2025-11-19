@@ -1,9 +1,36 @@
+{{- $defaultFormat := .Page.Site.Params.defaultImageFormat -}}
 <figure{{ with .Get "class" }} class="{{ . }}"{{ end }}>
  {{- $u := urls.Parse (.Get "src") -}}
  {{- $src := $u.String -}}
+ {{- $imgWidth := "" -}}
+ {{- $imgHeight := "" -}}
  {{- if not $u.IsAbs -}}
+ {{- if or ($.Get "w") ($.Get "h") -}}
+ {{- with or (.Page.Resources.Get $u.Path) (resources.Get $u.Path) -}}
+ {{- $img := . -}}
+ {{- $spec := "" -}}
+ {{- if $.Get "w" -}}
+ {{- if $defaultFormat -}}
+ {{- $spec = printf "%sx %s" ($.Get "w") $defaultFormat -}}
+ {{- else -}}
+ {{- $spec = printf "%sx" ($.Get "w") -}}
+ {{- end -}}
+ {{- else if $.Get "h" -}}
+ {{- if $defaultFormat -}}
+ {{- $spec = printf "x%s %s" ($.Get "h") $defaultFormat -}}
+ {{- else -}}
+ {{- $spec = printf "x%s" ($.Get "h") -}}
+ {{- end -}}
+ {{- end -}}
+ {{- $img = $img.Resize $spec -}}
+ {{- $src = $img.RelPermalink -}}
+ {{- $imgWidth = $img.Width -}}
+ {{- $imgHeight = $img.Height -}}
+ {{- end -}}
+ {{- else -}}
  {{- with or (.Page.Resources.Get $u.Path) (resources.Get $u.Path) -}}
  {{- $src = .RelPermalink -}}
+ {{- end -}}
  {{- end -}}
  {{- end -}}
 
@@ -12,8 +39,8 @@
  {{- if or (.Get "alt") (.Get "caption") }}
  alt="{{ with .Get "alt" }}{{ . }}{{ else }}{{ .Get "caption" | markdownify| plainify }}{{ end }}"
  {{- end -}}
- {{- with .Get "width" }} width="{{ . }}"{{ end -}}
- {{- with .Get "height" }} height="{{ . }}"{{ end -}}
+ {{- with $imgWidth }} width="{{ . }}"{{ end -}}
+ {{- with $imgHeight }} height="{{ . }}"{{ end -}}
  {{- with .Get "loading" }} loading="{{ . }}"{{ end -}}
  ><!-- Closing img tag -->
  </a>
