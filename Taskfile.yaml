@@ -35,7 +35,7 @@ tasks:
     env:
       TITLE: ""
   today-i-learned:
-    desc: Create a new Today I Learned post, TITLE="the title" task til
+    desc: Create a new Today I Learned post, TITLE="my-post" task til
     aliases: [til]
     cmds:
       - |
@@ -43,8 +43,6 @@ tasks:
         MONTH=$(echo {{.DATE}} | cut -d'-' -f2)
         DAY=$(echo {{.DATE}} | cut -d'-' -f3)
         hugo new til/${YEAR}/${MONTH}/${DAY}/$TITLE/index.md
-        sed -i.bak "2s/title.*/title: $TITLE/" content/til/${YEAR}/${MONTH}/${DAY}/$TITLE/index.md
-        rm content/til/${YEAR}/${MONTH}/${DAY}/$TITLE/index.md.bak
     env:
       TITLE: ""
 
@@ -53,4 +51,4 @@ tasks:
     deps: [render-d2]
     cmds:
       - hugo --gc --minify
-      - go run blog.go  # Generate resume PDF from built HTML
+      - go run blog.go # Generate resume PDF from built HTML

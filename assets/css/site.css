@@ -377,6 +377,9 @@ pre {
     /* Force scrollbar to always be visible */
     scrollbar-width: thin; /* Firefox */
     -webkit-overflow-scrolling: touch; /* iOS momentum scrolling */
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
 }
 
 /* Force scrollbar visibility on WebKit browsers (Safari, Chrome) */
