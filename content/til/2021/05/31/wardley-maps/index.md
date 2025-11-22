@@ -50,7 +50,7 @@ Think about what _is_ (current situation) and what _should be_ by using doctrine
 * Know your users. There could be more than one type.
 * Focus on user needs.
 * Know the details. Dependencies are important because that's what poor investment allocation can show up.
-* Understand what is being considered. Elemtns that are mapped, and the importance of the X axes (you can change the X axes to match your needs)
+* Understand what is being considered. What is the state of each of the elements of the system?
 * Challenge Assumptions. We are trained to think in stories, but stories can be misleading.
 
 ### Movement or Evolution is the Point
