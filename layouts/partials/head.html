@@ -11,6 +11,9 @@
     {{ hugo.Generator }} {{ $title := print .Title " | " .Site.Title }} {{ if
     .IsHome }}{{ $title = .Site.Title }}{{ end }}
     <title>{{ $title }}</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@600&display=swap" rel="stylesheet" />
     {{ $bootstrap := resources.Get "css/bootstrap.min.css" | fingerprint }}
     {{ $siteCss := resources.Get "css/site.css" | fingerprint }}
     <link rel="stylesheet" href="{{ $bootstrap.RelPermalink }}" />
