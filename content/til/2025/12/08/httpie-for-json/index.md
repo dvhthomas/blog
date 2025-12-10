@@ -4,7 +4,7 @@ date: 2025-12-08T21:48:56-07:00
 tags: [json, shell]
 toc: true
 series: []
-summary:
+summary: Using a slightly nicer `curl`
 draft: false
 images: []
 ---
