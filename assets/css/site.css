@@ -800,12 +800,6 @@ h6:hover .heading-anchor {
     flex-wrap: wrap;
 }
 
-/* Hide empty taxonomy container */
-.recipe-taxonomies:empty {
-    display: none;
-    margin: 0;
-}
-
 .recipe-tag {
     display: inline-block;
     padding: 0.2rem 0.6rem;
@@ -1016,10 +1010,10 @@ h6:hover .heading-anchor {
         font-size: 0.875rem;
     }
 
-    /* More compact metadata grid */
+    /* More compact metadata grid - fit all 5 in one row */
     .recipe-meta-grid {
-        grid-template-columns: repeat(3, 1fr);
-        gap: 0.3rem;
+        grid-template-columns: repeat(5, 1fr);
+        gap: 0.25rem;
     }
 
     .meta-item {

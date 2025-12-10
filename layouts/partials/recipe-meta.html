@@ -38,6 +38,7 @@
     </div>
 
     {{/* Recipe taxonomies - compact single line */}}
+    {{ if or .Params.cuisines .Params.categories .Params.diets }}
     <div class="recipe-taxonomies">
         {{ range .Params.cuisines }}
         <a href="/cuisines/{{ . | urlize }}/" class="recipe-tag recipe-tag-cuisine">{{ . }}</a>
@@ -49,4 +50,5 @@
         <a href="/diets/{{ . | urlize }}/" class="recipe-tag recipe-tag-diet">{{ . }}</a>
         {{ end }}
     </div>
+    {{ end }}
 </div>
