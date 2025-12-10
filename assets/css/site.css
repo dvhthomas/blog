@@ -1012,20 +1012,22 @@ h6:hover .heading-anchor {
 
     /* More compact metadata grid */
     .recipe-meta-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 0.75rem;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 0.4rem;
     }
 
     .meta-item {
-        padding: 0.5rem;
+        padding: 0.3rem 0.25rem;
     }
 
     .meta-label {
-        font-size: 0.75rem;
+        font-size: 0.65rem;
+        margin-bottom: 0;
     }
 
     .meta-value {
-        font-size: 1rem;
+        font-size: 0.9rem;
+        margin-top: 0.05rem;
     }
 
     /* Compact tags on mobile */
