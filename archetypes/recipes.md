@@ -20,20 +20,20 @@ difficulty: "Easy"   # Easy, Intermediate, Advanced
 
 Brief introduction or story about this recipe. What makes it special? Where did you learn it?
 
-{{</* recipe */>}}
+{{< recipe >}}
 
 ### Ingredients
 
-{{</* ingredients */>}}
+{{< ingredients >}}
 - 2 cups ingredient one
 - 1 cup ingredient two
 - 1 tsp seasoning or spice
 - Salt and pepper to taste
-{{</* /ingredients */>}}
+{{< /ingredients >}}
 
 ### Instructions
 
-{{</* instructions */>}}
+{{< instructions >}}
 
 **Prep your ingredients:** Get everything ready before you start cooking. This includes chopping vegetables, measuring ingredients, and preheating your oven if needed.
 
@@ -41,7 +41,7 @@ Brief introduction or story about this recipe. What makes it special? Where did 
 
 **Combine and finish:** Bring everything together. Add final seasonings, adjust consistency, and plate or serve as desired.
 
-{{</* /instructions */>}}
+{{< /instructions >}}
 
 ### Notes
 
@@ -51,4 +51,4 @@ Brief introduction or story about this recipe. What makes it special? Where did 
 
 **Tips:** Any helpful tricks or things to watch out for.
 
-{{</* /recipe */>}}
+{{< /recipe >}}
