@@ -17,18 +17,18 @@
     </div>
 
     {{ partial "recipe-meta.html" . }}
-</header>
 
-{{/* Quick Actions - only show on actual recipe pages, not static pages like units */}}
-{{ if ne .File.BaseFileName "units" }}
-<aside class="recipe-actions no-print">
-    <a href="#recipe">Jump to Recipe</a>
-    <span class="action-separator">•</span>
-    <a href="/recipes/units/">Unit Conversions</a>
-    <span class="action-separator">•</span>
-    <a href="javascript:window.print()">Print</a>
-</aside>
-{{ end }}
+    {{/* Quick Actions - only show on actual recipe pages, not static pages like units */}}
+    {{ if ne .File.BaseFileName "units" }}
+    <aside class="recipe-actions no-print">
+        <a href="#recipe">Jump to Recipe</a>
+        <span class="action-separator">•</span>
+        <a href="/recipes/units/">Unit Conversions</a>
+        <span class="action-separator">•</span>
+        <a href="javascript:window.print()">Print</a>
+    </aside>
+    {{ end }}
+</header>
 {{ partial "toc.html" . }}
 {{/* Recipe Introduction */}}
 <article class="section-{{ .Type }}">
