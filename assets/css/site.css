@@ -740,22 +740,22 @@ h6:hover .heading-anchor {
 }
 
 .recipe-header {
-    margin-bottom: 2rem;
-    padding-bottom: 1rem;
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
     border-bottom: 2px solid var(--brand-color);
 }
 
 .recipe-summary {
-    font-size: 1.25rem;
+    font-size: 1.125rem;
     color: #666;
     font-style: italic;
     margin-top: 0.5rem;
 }
 
 .recipe-author-date {
-    font-size: 0.95rem;
+    font-size: 0.875rem;
     color: #6c757d;
-    margin-top: 0.75rem;
+    margin-top: 0.5rem;
     margin-bottom: 0.5rem;
 }
 
@@ -767,20 +767,20 @@ h6:hover .heading-anchor {
 .recipe-meta-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-    gap: 1rem;
-    margin-bottom: 1rem;
+    gap: 0.5rem;
+    margin-bottom: 0.75rem;
 }
 
 .meta-item {
     background: #f8f9fa;
-    padding: 0.75rem;
+    padding: 0.5rem;
     border-radius: 4px;
     text-align: center;
 }
 
 .meta-label {
     display: block;
-    font-size: 0.875rem;
+    font-size: 0.75rem;
     text-transform: uppercase;
     color: #6c757d;
     letter-spacing: 0.05em;
@@ -788,15 +788,15 @@ h6:hover .heading-anchor {
 
 .meta-value {
     display: block;
-    font-size: 1.125rem;
+    font-size: 1rem;
     font-weight: 600;
     color: #212529;
-    margin-top: 0.25rem;
+    margin-top: 0.125rem;
 }
 
 /* Recipe taxonomies - compact single line */
 .recipe-taxonomies {
-    margin-top: 0.75rem;
+    margin-top: 0.5rem;
     display: flex;
     gap: 0.5rem;
     flex-wrap: wrap;
@@ -848,7 +848,7 @@ h6:hover .heading-anchor {
 
 /* Recipe actions - simple text links */
 .recipe-actions {
-    margin: 1rem 0;
+    margin: 0.5rem 0 1rem 0;
     font-size: 0.9rem;
     color: #6c757d;
 }
