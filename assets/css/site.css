@@ -24,6 +24,16 @@
     --info-bg-color: hsl(var(--info-hue), 45%, 95%);
     --info-border-color: hsl(var(--info-hue), 80%, 55%);
     --info-text-color: hsl(var(--info-hue), 80%, 45%);
+
+    /* Recipe taxonomy colors based on hue rotations */
+    --cuisine-hue: calc(var(--base-hue) - 170); /* warm yellow */
+    --cuisine-color: hsl(var(--cuisine-hue), 85%, 50%);
+
+    --category-hue: var(--base-hue); /* same as brand but desaturated */
+    --category-color: hsl(var(--category-hue), 10%, 50%); /* gray */
+
+    --diet-hue: calc(var(--base-hue) + 145); /* green */
+    --diet-color: hsl(var(--diet-hue), 60%, 42%);
 }
 body {
     font-family:
@@ -717,4 +727,342 @@ h4:hover .heading-anchor,
 h5:hover .heading-anchor,
 h6:hover .heading-anchor {
     opacity: 1;
+}
+
+/* ====================================
+   Recipe Styles
+   ==================================== */
+
+/* Recipe page base styles - larger font for kitchen readability */
+.section-recipes {
+    font-size: 1.125rem;
+    line-height: 1.7;
+}
+
+.recipe-header {
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 2px solid var(--brand-color);
+}
+
+.recipe-summary {
+    font-size: 1.25rem;
+    color: #666;
+    font-style: italic;
+    margin-top: 0.5rem;
+}
+
+.recipe-author-date {
+    font-size: 0.95rem;
+    color: #6c757d;
+    margin-top: 0.75rem;
+    margin-bottom: 0.5rem;
+}
+
+/* Recipe metadata grid */
+.recipe-meta {
+    margin: 1.5rem 0;
+}
+
+.recipe-meta-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.meta-item {
+    background: #f8f9fa;
+    padding: 0.75rem;
+    border-radius: 4px;
+    text-align: center;
+}
+
+.meta-label {
+    display: block;
+    font-size: 0.875rem;
+    text-transform: uppercase;
+    color: #6c757d;
+    letter-spacing: 0.05em;
+}
+
+.meta-value {
+    display: block;
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: #212529;
+    margin-top: 0.25rem;
+}
+
+/* Recipe taxonomies - compact single line */
+.recipe-taxonomies {
+    margin-top: 0.75rem;
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+}
+
+.recipe-tag {
+    display: inline-block;
+    padding: 0.2rem 0.6rem;
+    font-size: 0.8rem;
+    border-radius: 3px;
+    text-decoration: none;
+    transition: filter 0.2s ease;
+}
+
+.recipe-tag:hover {
+    text-decoration: none;
+}
+
+/* Color coding for taxonomy types */
+.recipe-tag-cuisine {
+    background-color: var(--cuisine-color);
+    color: #000;
+}
+
+.recipe-tag-cuisine:hover {
+    background-color: hsl(var(--cuisine-hue), 85%, 40%);
+    color: #000; /* Keep black text on hover */
+}
+
+.recipe-tag-category {
+    background-color: var(--category-color);
+    color: white;
+}
+
+.recipe-tag-category:hover {
+    background-color: hsl(var(--category-hue), 10%, 35%);
+    color: white; /* Keep white text on hover */
+}
+
+.recipe-tag-diet {
+    background-color: var(--diet-color);
+    color: white;
+}
+
+.recipe-tag-diet:hover {
+    background-color: hsl(var(--diet-hue), 60%, 32%);
+    color: white; /* Keep white text on hover */
+}
+
+/* Recipe actions - simple text links */
+.recipe-actions {
+    margin: 1rem 0;
+    font-size: 0.9rem;
+    color: #6c757d;
+}
+
+.recipe-actions a {
+    color: var(--brand-color);
+    text-decoration: none;
+}
+
+.recipe-actions a:hover {
+    text-decoration: underline;
+}
+
+.action-separator {
+    margin: 0 0.5rem;
+    color: #6c757d;
+}
+
+/* Recipe content (from shortcode) */
+.recipe-content {
+    background: white;
+    border: 2px solid var(--brand-color);
+    border-radius: 8px;
+    padding: 2rem;
+    margin: 2rem 0;
+}
+
+.recipe-content h3 {
+    color: var(--brand-color);
+    border-bottom: 2px solid var(--brand-color);
+    padding-bottom: 0.5rem;
+    margin-bottom: 1rem;
+    margin-top: 1.5rem;
+}
+
+.recipe-content h3:first-child {
+    margin-top: 0;
+}
+
+/* Ingredient list - structured format */
+.recipe-content ul {
+    list-style: none;
+    padding: 0;
+}
+
+.recipe-content ul li {
+    padding: 0.75rem 0;
+    border-bottom: 1px solid #e9ecef;
+    display: flex;
+    gap: 0.5rem;
+}
+
+.recipe-content ul li:last-child {
+    border-bottom: none;
+}
+
+/* Instructions - keep flexible for prose */
+.recipe-content ol {
+    padding-left: 0;
+    margin-left: 0;
+}
+
+.recipe-content ol li {
+    margin-bottom: 1rem;
+}
+
+/* Instructions can contain paragraphs, figures, etc */
+.recipe-content p {
+    margin-bottom: 1rem;
+}
+
+/* Print-only content - hidden by default */
+.print-only {
+    display: none;
+}
+
+/* Print styles */
+@media print {
+    .no-print,
+    .recipe-actions,
+    nav,
+    footer,
+    .content-type-badge,
+    .skip-to-main,
+    .recipe-author-date {
+        display: none !important;
+    }
+
+    .print-only {
+        display: block !important;
+    }
+
+    .recipe-header {
+        border-bottom: 1px solid #000;
+        margin-bottom: 1rem;
+    }
+
+    .recipe-meta-grid {
+        border: 1px solid #000;
+        padding: 0.5rem;
+        margin-bottom: 1rem;
+    }
+
+    .recipe-content {
+        border: none;
+        padding: 0;
+        margin: 1rem 0;
+        page-break-inside: avoid;
+    }
+
+    .recipe-content h3 {
+        page-break-after: avoid;
+    }
+
+    .recipe-content ul li {
+        page-break-inside: avoid;
+    }
+
+    .recipe-content p,
+    .recipe-content figure {
+        page-break-inside: avoid;
+    }
+
+    body {
+        font-size: 11pt;
+    }
+
+    h1 {
+        font-size: 20pt;
+    }
+
+    h2, h3 {
+        font-size: 16pt;
+    }
+
+    /* Hide figures when printing to save ink/paper */
+    figure {
+        display: none;
+    }
+}
+
+/* Mobile optimization for recipes - KITCHEN FIRST */
+@media (max-width: 768px) {
+    /* Larger base font for readability in kitchen */
+    .section-recipes {
+        font-size: 1.25rem;
+        line-height: 1.8;
+    }
+
+    /* Compact header on mobile */
+    .recipe-header {
+        margin-bottom: 1rem;
+        padding-bottom: 0.75rem;
+    }
+
+    .recipe-summary {
+        font-size: 1.125rem;
+    }
+
+    .recipe-author-date {
+        font-size: 0.875rem;
+    }
+
+    /* More compact metadata grid */
+    .recipe-meta-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.75rem;
+    }
+
+    .meta-item {
+        padding: 0.5rem;
+    }
+
+    .meta-label {
+        font-size: 0.75rem;
+    }
+
+    .meta-value {
+        font-size: 1rem;
+    }
+
+    /* Compact tags on mobile */
+    .recipe-tag {
+        font-size: 0.75rem;
+        padding: 0.15rem 0.5rem;
+    }
+
+    /* Simple links work fine on mobile */
+    .recipe-actions {
+        font-size: 1rem;
+        margin: 0.75rem 0;
+    }
+
+    /* Recipe content - less padding, more room */
+    .recipe-content {
+        padding: 1rem;
+        margin: 1rem 0;
+    }
+
+    .recipe-content h3 {
+        font-size: 1.5rem;
+        margin-top: 1.25rem;
+    }
+
+    /* Ingredient list - larger for easy reading */
+    .recipe-content ul li {
+        padding: 1rem 0;
+        font-size: 1.125rem;
+    }
+
+    /* Instructions text - comfortable reading */
+    .recipe-content p,
+    .recipe-content ol li {
+        font-size: 1.125rem;
+        line-height: 1.7;
+    }
 }

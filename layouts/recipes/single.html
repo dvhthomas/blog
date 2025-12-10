@@ -1,0 +1,53 @@
+{{ define "main" }}
+
+<div class="content-type-badge">{{ .Section }}</div>
+
+<header class="recipe-header">
+    <h1>{{ .Title }}</h1>
+    {{ if .Params.summary }}
+    <p class="recipe-summary">{{ .Params.summary }}</p>
+    {{ end }}
+
+    <div class="recipe-author-date">
+        <span>By {{ .Site.Title }}</span>
+        <span class="text-muted"> • </span>
+        <time datetime="{{ .PublishDate.Format "2006-01-02" }}">
+            {{ .PublishDate.Format "January 2, 2006" }}
+        </time>
+    </div>
+
+    {{ partial "recipe-meta.html" . }}
+</header>
+
+{{/* Quick Actions - only show on actual recipe pages, not static pages like units */}}
+{{ if ne .File.BaseFileName "units" }}
+<aside class="recipe-actions no-print">
+    <a href="#recipe">Jump to Recipe</a>
+    <span class="action-separator">•</span>
+    <a href="/recipes/units/">Unit Conversions</a>
+    <span class="action-separator">•</span>
+    <a href="javascript:window.print()">Print</a>
+</aside>
+{{ end }}
+{{ partial "toc.html" . }}
+{{/* Recipe Introduction */}}
+<article class="section-{{ .Type }}">
+    {{ .Content }}
+    <br />
+    {{- if and .File .Site.Params.githubRepo -}}
+    <p class="no-print" style="margin-top: 2rem; font-size: 0.9rem">
+        <a
+            href="{{ .Site.Params.githubRepo }}/blob/main/content/{{ .File.Path }}"
+            target="_blank"
+            rel="noopener"
+        >
+            View page source
+        </a>
+    </p>
+    {{- end -}}
+    <p class="print-only" style="margin-top: 2rem; font-size: 0.9rem; color: #666;">
+        Recipe URL: {{ .Permalink }}
+    </p>
+</article>
+
+{{ end }}

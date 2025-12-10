@@ -1,0 +1,20 @@
+{{/*
+    Recipe shortcode - wraps recipe content in semantic HTML with data attributes for JavaScript interaction
+
+    Usage:
+    {{<recipe>}}
+    ### Ingredients
+    - 2 cups flour
+    - 1 tsp salt
+
+    ### Instructions
+    1. Mix ingredients
+    2. Bake at 350°F
+    {{</recipe>}}
+*/}}
+
+{{- $content := .Inner | markdownify -}}
+
+<div class="recipe-content" id="recipe">
+    {{ $content | safeHTML }}
+</div>

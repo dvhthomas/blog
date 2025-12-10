@@ -1,0 +1,19 @@
+{{ define "main" }}
+
+<div class="content-type-badge">{{ .Section }}</div>
+
+<header>
+    <h1>{{ .Title }}</h1>
+</header>
+
+{{/* Section description from _index.md */}}
+{{ if .Content }}
+<div>{{ .Content }}</div>
+{{ end }}
+
+{{/* List all recipes */}}
+{{ range .Pages }}
+    {{ partial "article-listing.html" . }}
+{{ end }}
+
+{{ end }}

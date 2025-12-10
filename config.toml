@@ -55,6 +55,11 @@ ignoreErrors = ["error-remote-getjson"]
         url = "/series/"
         weight = 4
     [[menu.main]]
+        name = "Recipes"
+        pre = "coffee"
+        url = "/recipes/"
+        weight = 5
+    [[menu.main]]
         name = "About"
         pre = "user"
         url = "/about/"
@@ -64,11 +69,15 @@ ignoreErrors = ["error-remote-getjson"]
   tag = "tags"
   series = "series"
   capability = "capabilities"
+  cuisine = "cuisines"
+  category = "categories"
+  diet = "diets"
 
 [permalinks]
   blog = "/:year/:month/:title"
   til = "til/:year-:month-:day/:slug"
   resume = "work/:title"
+  recipes = "/recipes/:slug"
 
 [markup]
   [markup.highlight]

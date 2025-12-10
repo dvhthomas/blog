@@ -37,6 +37,39 @@ TITLE="something-i-learned" task today-i-learned
 
 Each post is put into a folder like `blog/1971/01/01/my-post-title/index.md` or `til/1971/01/01/my-til-title/index.md`. This gives you a spot to drop post-specific content next to the post itself. For example, if you want an image for a post you can drop it in that folder and reference it in the post thus:
 
+Recipes work similarly - provide a `TITLE`:
+
+```sh
+TITLE="chocolate-chip-cookies" task recipe
+```
+
+Recipe pages include:
+- Kitchen-optimized layout (large text, mobile-friendly)
+- Schema.org Recipe structured data for SEO
+- Unit conversion reference at `/recipes/units/`
+- Print-friendly layout
+- Color-coded taxonomy tags (cuisines, categories, diets)
+
+Recipe markdown uses nested shortcodes to extract ingredients and instructions for schema.org:
+
+```markdown
+{{< recipe >}}
+
+### Ingredients
+{{< ingredients >}}
+- 2 cups flour
+- 1 cup sugar
+{{< /ingredients >}}
+
+### Instructions
+{{< instructions >}}
+**Prep:** Mix dry ingredients...
+**Bake:** Pour into pan and bake at 350°F...
+{{< /instructions >}}
+
+{{< /recipe >}}
+```
+
 ## Hosting
 
 The blog itself is hosting on GitHub Pages.

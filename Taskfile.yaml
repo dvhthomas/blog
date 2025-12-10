@@ -46,6 +46,13 @@ tasks:
     env:
       TITLE: ""
 
+  recipe:
+    desc: Create a new recipe, TITLE="my-recipe" task recipe
+    cmds:
+      - hugo new recipes/$TITLE/index.md
+    env:
+      TITLE: ""
+
   build:
     desc: Build the site for production
     deps: [render-d2]
