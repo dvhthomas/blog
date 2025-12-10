@@ -1007,7 +1007,11 @@ h6:hover .heading-anchor {
     }
 
     .recipe-meta {
-        margin: 0.75rem 0 0.5rem 0;
+        margin: 0.5rem 0 0.25rem 0;
+    }
+
+    .recipe-meta-grid {
+        margin-bottom: 0.25rem;
     }
 
     .recipe-summary {
