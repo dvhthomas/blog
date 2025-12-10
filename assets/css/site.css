@@ -1002,6 +1002,10 @@ h6:hover .heading-anchor {
         padding-bottom: 0.75rem;
     }
 
+    .recipe-meta {
+        margin: 0.75rem 0 0.5rem 0;
+    }
+
     .recipe-summary {
         font-size: 1.125rem;
     }
