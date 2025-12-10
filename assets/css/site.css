@@ -849,6 +849,7 @@ h6:hover .heading-anchor {
     margin: 0 0 0.75rem 0;
     font-size: 0.8rem;
     color: #6c757d;
+    text-align: center;
 }
 
 .recipe-actions a {
