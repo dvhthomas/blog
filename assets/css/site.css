@@ -762,6 +762,12 @@ h6:hover .heading-anchor {
     margin: 1.5rem 0;
 }
 
+.recipe-meta-wrapper {
+    display: flex;
+    gap: 1.5rem;
+    align-items: flex-start;
+}
+
 .recipe-meta-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
@@ -846,9 +852,13 @@ h6:hover .heading-anchor {
 
 /* Recipe actions - simple text links */
 .recipe-actions {
-    margin: 0.5rem 0 1rem 0;
-    font-size: 0.9rem;
+    flex-shrink: 0;
+    font-size: 0.85rem;
     color: #6c757d;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    align-items: flex-start;
 }
 
 .recipe-actions a {
@@ -861,8 +871,7 @@ h6:hover .heading-anchor {
 }
 
 .action-separator {
-    margin: 0 0.5rem;
-    color: #6c757d;
+    display: none;
 }
 
 /* Recipe content (from shortcode) */
@@ -1034,10 +1043,15 @@ h6:hover .heading-anchor {
         padding: 0.15rem 0.5rem;
     }
 
+    /* Stack meta wrapper on mobile */
+    .recipe-meta-wrapper {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
     /* Simple links work fine on mobile */
     .recipe-actions {
-        font-size: 1rem;
-        margin: 0.75rem 0;
+        font-size: 0.9rem;
     }
 
     /* Recipe content - less padding, more room */
