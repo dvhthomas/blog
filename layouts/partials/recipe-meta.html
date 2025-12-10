@@ -4,32 +4,35 @@
         {{ with .Params.prepTime }}
         <div class="meta-item">
             <span class="meta-label">Prep:</span>
-            <span class="meta-value">{{ . | replaceRE "^PT" "" | replaceRE "H" " hr " | replaceRE "M" " min" | strings.TrimSpace }}</span>
+            <span class="meta-value"
+                >{{ . | replaceRE "^PT" "" | replaceRE "H" " hr " | replaceRE
+                "M" " min" | strings.TrimSpace }}</span
+            >
         </div>
-        {{ end }}
-
-        {{ with .Params.cookTime }}
+        {{ end }} {{ with .Params.cookTime }}
         <div class="meta-item">
             <span class="meta-label">Cook:</span>
-            <span class="meta-value">{{ . | replaceRE "^PT" "" | replaceRE "H" " hr " | replaceRE "M" " min" | strings.TrimSpace }}</span>
+            <span class="meta-value"
+                >{{ . | replaceRE "^PT" "" | replaceRE "H" " hr " | replaceRE
+                "M" " min" | strings.TrimSpace }}</span
+            >
         </div>
-        {{ end }}
-
-        {{ with .Params.totalTime }}
+        {{ end }} {{ with .Params.totalTime }}
         <div class="meta-item">
             <span class="meta-label">Total:</span>
-            <span class="meta-value">{{ . | replaceRE "^PT" "" | replaceRE "H" " hr " | replaceRE "M" " min" | strings.TrimSpace }}</span>
+            <span class="meta-value"
+                >{{ . | replaceRE "^PT" "" | replaceRE "H" " hr " | replaceRE
+                "M" " min" | strings.TrimSpace }}</span
+            >
         </div>
-        {{ end }}
-
-        {{ if and .Params.yield .Params.yieldUnit }}
+        {{ end }} {{ if and .Params.yield .Params.yieldUnit }}
         <div class="meta-item">
             <span class="meta-label">Yield:</span>
-            <span class="meta-value" id="recipe-yield-display">{{ .Params.yield }} {{ .Params.yieldUnit }}</span>
+            <span class="meta-value" id="recipe-yield-display"
+                >{{ .Params.yield }} {{ .Params.yieldUnit }}</span
+            >
         </div>
-        {{ end }}
-
-        {{ with .Params.difficulty }}
+        {{ end }} {{ with .Params.difficulty }}
         <div class="meta-item">
             <span class="meta-label">Difficulty:</span>
             <span class="meta-value">{{ . }}</span>
@@ -37,17 +40,25 @@
         {{ end }}
     </div>
 
-    {{/* Recipe taxonomies - compact single line */}}
-    {{ if or .Params.cuisines .Params.categories .Params.diets }}
+    {{/* Recipe taxonomies - compact single line */}} {{ if or .Params.cuisines
+    .Params.categories .Params.diets }}
     <div class="recipe-taxonomies">
         {{ range .Params.cuisines }}
-        <a href="/cuisines/{{ . | urlize }}/" class="recipe-tag recipe-tag-cuisine">{{ . }}</a>
-        {{ end }}
-        {{ range .Params.categories }}
-        <a href="/categories/{{ . | urlize }}/" class="recipe-tag recipe-tag-category">{{ . }}</a>
-        {{ end }}
-        {{ range .Params.diets }}
-        <a href="/diets/{{ . | urlize }}/" class="recipe-tag recipe-tag-diet">{{ . }}</a>
+        <a
+            href="/cuisines/{{ . | urlize }}/"
+            class="recipe-tag recipe-tag-cuisine"
+            >{{ . }}</a
+        >
+        {{ end }} {{ range .Params.categories }}
+        <a
+            href="/categories/{{ . | urlize }}/"
+            class="recipe-tag recipe-tag-category"
+            >{{ . }}</a
+        >
+        {{ end }} {{ range .Params.diets }}
+        <a href="/diets/{{ . | urlize }}/" class="recipe-tag recipe-tag-diet"
+            >{{ . }}</a
+        >
         {{ end }}
     </div>
     {{ end }}

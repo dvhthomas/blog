@@ -5,7 +5,7 @@
 <header class="recipe-header">
     <h1>{{ .Title }}</h1>
     {{ if .Params.summary }}
-    <p class="recipe-summary">{{ .Params.summary }}</p>
+    <p class="recipe-summary">{{ .Params.summary | markdownify }}</p>
     {{ end }}
 
     <div class="recipe-author-date">
@@ -15,9 +15,6 @@
             {{ .PublishDate.Format "January 2, 2006" }}
         </time>
     </div>
-
-    {{ partial "recipe-meta.html" . }}
-
     {{/* Quick Actions - only show on actual recipe pages, not static pages like units */}}
     {{ if ne .File.BaseFileName "units" }}
     <aside class="recipe-actions no-print">
@@ -28,8 +25,10 @@
         <a href="javascript:window.print()">Print</a>
     </aside>
     {{ end }}
+    {{ partial "recipe-meta.html" . }}
+
+
 </header>
-{{ partial "toc.html" . }}
 {{/* Recipe Introduction */}}
 <article class="section-{{ .Type }}">
     {{ .Content }}

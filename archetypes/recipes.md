@@ -1,8 +1,8 @@
 ---
 title: {{ replace .Name "-" " " | title }}
 date: {{ .Date }}
-summary: ""
-toc: true
+summary: |-
+  Markdown!
 draft: true
 images: []
 # Recipe taxonomies
