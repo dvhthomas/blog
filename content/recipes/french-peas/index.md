@@ -7,6 +7,9 @@ summary: |-
   Learning how to make and use a [cartouche](https://www.theculinarypro.com/cartouche) or 'paper lid' is a nice touch.
 draft: false
 images: [peas.png]
+# Recipe author
+author:
+  name: "Dylan Thomas"
 # Recipe taxonomies
 cuisines: [French]    # e.g., ["Italian"], ["Thai", "Asian"]
 categories: [Side Dishes]  # e.g., ["Dinner"], ["Dessert", "Baking"]

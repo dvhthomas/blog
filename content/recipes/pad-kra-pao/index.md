@@ -7,6 +7,9 @@ summary: |-
 toc: true
 draft: false
 images: [padkrapao.png]
+# Recipe author
+author:
+  name: "Dylan Thomas"
 # Recipe taxonomies
 cuisines: ["Thai"]    # e.g., ["Italian"], ["Thai", "Asian"]
 categories: ["Dinner", "Lunch", "Quick"]  # e.g., ["Dinner"], ["Dessert", "Baking"]

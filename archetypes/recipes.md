@@ -5,6 +5,10 @@ summary: |-
   Markdown!
 draft: true
 images: []
+# Recipe author (for structured data)
+author:
+  name: ""           # Recipe author's name
+  url: ""            # Author's website or profile URL (optional)
 # Recipe taxonomies
 cuisines: []    # e.g., ["Italian"], ["Thai", "Asian"]
 categories: []  # e.g., ["Dinner"], ["Dessert", "Baking"]

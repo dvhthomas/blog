@@ -6,6 +6,9 @@ summary: |-
   A low-sided [crepe pan or griddle](https://www.lodgecastiron.com/products/cast-iron-griddle) is essential for easy releasing and flipping.
 draft: false
 images: []
+# Recipe author
+author:
+  name: "Dylan Thomas"
 # Recipe taxonomies
 cuisines: []    # e.g., ["Italian"], ["Thai", "Asian"]
 categories: [Breakfast, Savory]  # e.g., ["Dinner"], ["Dessert", "Baking"]

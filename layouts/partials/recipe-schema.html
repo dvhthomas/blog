@@ -1,65 +1,70 @@
 {{/* Schema.org Recipe structured data for SEO and AI agents */}}
 <script type="application/ld+json">
-{
-  "@context": "https://schema.org/",
-  "@type": "Recipe",
-  "name": "{{ .Title }}",
-  {{- if .Params.images -}}
-  "image": [
-    {{- range $i, $img := .Params.images -}}
-    {{- if $i -}}, {{- end -}}
-    "{{ $img | absURL }}"
-    {{- end -}}
-  ],
-  {{- end -}}
-  "author": {
-    "@type": "Person",
-    "name": "{{ .Site.Title }}",
-    "url": "{{ .Site.BaseURL }}"
-  },
-  "datePublished": "{{ .PublishDate.Format "2006-01-02" }}",
-  {{- with .Params.summary -}}
-  "description": "{{ . }}",
-  {{- end -}}
-  {{- with .Params.prepTime -}}
-  "prepTime": "{{ . }}",
-  {{- end -}}
-  {{- with .Params.cookTime -}}
-  "cookTime": "{{ . }}",
-  {{- end -}}
-  {{- with .Params.totalTime -}}
-  "totalTime": "{{ . }}",
-  {{- end -}}
-  {{- if and .Params.yield .Params.yieldUnit -}}
-  "recipeYield": "{{ .Params.yield }} {{ .Params.yieldUnit }}",
-  {{- end -}}
-  {{- with .Params.cuisines -}}
-  "recipeCuisine": [{{ range $i, $cuisine := . }}{{ if $i }}, {{ end }}"{{ $cuisine }}"{{ end }}],
-  {{- end -}}
-  {{- with .Params.categories -}}
-  "recipeCategory": [{{ range $i, $cat := . }}{{ if $i }}, {{ end }}"{{ $cat }}"{{ end }}],
-  {{- end -}}
-  {{- $ingredients := .Scratch.Get "ingredients" -}}
-  {{- if $ingredients -}}
-  "recipeIngredient": [
-    {{- range $i, $ing := $ingredients -}}
-    {{- if $i -}}, {{- end -}}
-    "{{ $ing | plainify }}"
-    {{- end -}}
-  ],
-  {{- end -}}
-  {{- $instructions := .Scratch.Get "instructions" -}}
-  {{- if $instructions -}}
-  "recipeInstructions": [
-    {{- range $i, $inst := $instructions -}}
-    {{- if $i -}}, {{- end -}}
     {
-      "@type": "HowToStep",
-      "text": "{{ $inst | plainify }}"
+      "@context": "https://schema.org/",
+      "@type": "Recipe",
+      "name": "{{ .Title }}",
+      {{- if .Params.images -}}
+      "image": [
+        {{- range $i, $img := .Params.images -}}
+        {{- if $i -}}, {{- end -}}
+        "{{ $img | absURL }}"
+        {{- end -}}
+      ],
+      {{- end -}}
+      "author": {
+        "@type": "Person",
+        {{- if .Params.author.name -}}
+        "name": "{{ .Params.author.name }}"{{ with .Params.author.url }},
+        "url": "{{ . }}"{{ end }}
+        {{- else -}}
+        "name": "{{ .Site.Title }}",
+        "url": "{{ .Site.BaseURL }}"
+        {{- end -}}
+      },
+      "datePublished": "{{ .PublishDate.Format "2006-01-02" }}",
+      {{- with .Params.summary -}}
+      "description": "{{ . }}",
+      {{- end -}}
+      {{- with .Params.prepTime -}}
+      "prepTime": "{{ . }}",
+      {{- end -}}
+      {{- with .Params.cookTime -}}
+      "cookTime": "{{ . }}",
+      {{- end -}}
+      {{- with .Params.totalTime -}}
+      "totalTime": "{{ . }}",
+      {{- end -}}
+      {{- if and .Params.yield .Params.yieldUnit -}}
+      "recipeYield": "{{ .Params.yield }} {{ .Params.yieldUnit }}",
+      {{- end -}}
+      {{- with .Params.cuisines -}}
+      "recipeCuisine": [{{ range $i, $cuisine := . }}{{ if $i }}, {{ end }}"{{ $cuisine }}"{{ end }}],
+      {{- end -}}
+      {{- with .Params.categories -}}
+      "recipeCategory": [{{ range $i, $cat := . }}{{ if $i }}, {{ end }}"{{ $cat }}"{{ end }}],
+      {{- end -}}
+      {{- $ingredients := .Scratch.Get "ingredients" -}}
+      {{- if $ingredients -}}
+      "recipeIngredient": [
+        {{- range $i, $ing := $ingredients -}}
+        {{- if $i -}}, {{- end -}}
+        "{{ $ing | plainify }}"
+        {{- end -}}
+      ],
+      {{- end -}}
+      {{- $instructions := .Scratch.Get "instructions" -}}
+      {{- if $instructions -}}
+      "recipeInstructions": [
+        {{- range $i, $inst := $instructions -}}
+        {{- if $i -}}, {{- end -}}
+        {
+          "@type": "HowToStep",
+          "text": "{{ $inst | plainify }}"
+        }
+        {{- end -}}
+      ],
+      {{- end -}}
+      "keywords": "{{ delimit (union .Params.cuisines .Params.categories) ", " }}"
     }
-    {{- end -}}
-  ],
-  {{- end -}}
-  "keywords": "{{ delimit (union .Params.cuisines .Params.categories) ", " }}"
-}
 </script>

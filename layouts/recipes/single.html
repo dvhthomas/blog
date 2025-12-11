@@ -9,7 +9,7 @@
     {{ end }}
 
     <div class="recipe-author-date">
-        <span>By {{ .Site.Title }}</span>
+        <span>By {{ with .Params.author.name }}<a href="{{ $.Params.author.url | default $.Site.BaseURL }}">{{ . }}</a>{{ else }}{{ .Site.Title }}{{ end }}</span>
         <span class="text-muted"> • </span>
         <time datetime="{{ .PublishDate.Format "2006-01-02" }}">
             {{ .PublishDate.Format "January 2, 2006" }}
