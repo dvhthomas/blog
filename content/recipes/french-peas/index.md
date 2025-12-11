@@ -6,7 +6,7 @@ summary: |-
   This was the my first time using _beurre manie_ as a way to create and thicken sauces, and sticking two entire lettuces in the dish was counter-intuitive, to say the least!
   Learning how to make and use a [cartouche](https://www.theculinarypro.com/cartouche) or 'paper lid' is a nice touch.
 draft: false
-images: []
+images: [peas.png]
 # Recipe taxonomies
 cuisines: [French]    # e.g., ["Italian"], ["Thai", "Asian"]
 categories: [Side Dishes]  # e.g., ["Dinner"], ["Dessert", "Baking"]
@@ -19,6 +19,8 @@ yield: 8
 yieldUnit: "servings"
 difficulty: "Easy"   # Easy, Intermediate, Advanced
 ---
+
+![Peas](peas.png?w=800)
 
 {{< recipe >}}
 

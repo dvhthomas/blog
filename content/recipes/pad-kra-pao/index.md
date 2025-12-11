@@ -6,7 +6,7 @@ summary: |-
   I got this recipe from [The Woks of Life](https://thewoksoflife.com/pad-kra-pao/) and it's incredibly easy.
 toc: true
 draft: false
-images: []
+images: [padkrapao.png]
 # Recipe taxonomies
 cuisines: ["Thai"]    # e.g., ["Italian"], ["Thai", "Asian"]
 categories: ["Dinner", "Lunch", "Quick"]  # e.g., ["Dinner"], ["Dessert", "Baking"]
@@ -21,9 +21,9 @@ difficulty: "Easy"   # Easy, Intermediate, Advanced
 ---
 
 I get the key ingredient---Thai Holy Basic---at my [local international grocery store](https://www.parkhillmarket.com), along with nice Thai peppers.
-I've learn to slice those pepper wearing a rubber glove because it makes my fingertips feel spicy!
-It's good warmed up and I almost always make a double recipe.
 I also usually just 2.5 tablespoons of whatever soy sauce I have because I typically don't have both light **and** dark soy sauce.
+
+![Pad Kra Pao](padkrapao.png?w=800)
 
 {{< recipe >}}
 
@@ -71,6 +71,10 @@ Add the chilies and cook for another minute.
 **Variations:** If you can't get Thai Holy Basil, it's OK to use regular basil instead.
 It *definitely* tastes different, but I'd rather eat the dish and not cook it because I don't have the right basil.
 
-**Tips:** I can't get my wimpy gas stove to rage like a wok so I usually don't need to add the chicken stock to deglaze the pan.
+**Tips:**
+- I can't get my wimpy gas stove to rage like a wok so I usually don't need to add the chicken stock to deglaze the pan.
+- Wear gloves to slice peppers because it makes my fingertips feel spicy!
+
+
 
 {{< /recipe >}}
