@@ -7,7 +7,7 @@ summary: |-
   This is another [Adam Byatt](https://www.youtube.com/shorts/Cp5HWFYXafk) recipe.
   There are many variations of this dish, but I like how he arranges the potatoes almost vertically and in a tight spiral.
 
-draft: true
+draft: false
 images: [dish.png]
 # Recipe author (for structured data)
 author:
