@@ -1,29 +1,11 @@
-{{/*
-    Ingredients shortcode - extracts list items for schema.org and outputs normal HTML
-
-    Usage:
-    {{< ingredients >}}
-    - 2 cups flour
-    - 1 cup sugar
-    {{< /ingredients >}}
-*/}}
-
-{{- $content := .Inner | strings.TrimSpace -}}
-{{- $lines := split $content "\n" -}}
-{{- $ingredients := slice -}}
-
-{{/* Parse list items */}}
-{{- range $lines -}}
-    {{- $line := strings.TrimSpace . -}}
-    {{- if hasPrefix $line "- " -}}
-        {{/* Extract text after "- " */}}
-        {{- $ingredient := strings.TrimPrefix "- " $line -}}
-        {{- $ingredients = $ingredients | append $ingredient -}}
-    {{- end -}}
-{{- end -}}
-
-{{/* Store in Page.Scratch for schema.html to read */}}
-{{- .Page.Scratch.Set "ingredients" $ingredients -}}
-
-{{/* Output normal HTML */}}
-{{- .Inner | markdownify -}}
+{{/* Ingredients shortcode - extracts list items for schema.org and outputs
+normal HTML Usage: {{< ingredients >}} - 2 cups flour - 1 cup sugar {{<
+/ingredients >}} */}} {{- $content := .Inner | strings.TrimSpace -}} {{- $lines
+:= split $content "\n" -}} {{- $ingredients := slice -}} {{/* Parse list items
+*/}} {{- range $lines -}} {{- $line := strings.TrimSpace . -}} {{- if hasPrefix
+$line "- " -}} {{/* Extract text after "- " */}} {{- $ingredient :=
+strings.TrimPrefix "- " $line -}} {{- $ingredients = $ingredients | append
+$ingredient -}} {{- end -}} {{- end -}} {{/* Store in Page.Scratch for
+schema.html to read */}} {{- .Page.Scratch.Set "ingredients" $ingredients -}}
+{{/* Output normal HTML wrapped in ingredients class */}}
+<div class="ingredients-list">{{- .Inner | markdownify -}}</div>
