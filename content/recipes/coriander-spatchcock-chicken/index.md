@@ -4,7 +4,7 @@ date: 2025-12-14T12:27:05-07:00
 summary: |-
   Roast chicken that has been spatchcocked (splayed) and liberally marinaded with red chilli, coriander, mint, and more.
   In the USA coriander leaves are called cilantro: this recipe calls for  coriander leaves and not the seeds.
-draft: true
+draft: false
 images: [chicken.png]
 # Recipe author (for structured data)
 author:
