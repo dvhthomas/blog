@@ -3,7 +3,7 @@ title: Clotted Cream
 date: 2025-12-19T11:31:08-07:00
 summary: |-
   A stovetop alternative with 30 minutes of active work compared to hours of low oven temperatures.
-draft: true
+draft: false
 images: [finished.jpg, chilled.jpg]
 # Recipe author (for structured data)
 author:
