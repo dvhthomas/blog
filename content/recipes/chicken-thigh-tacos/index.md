@@ -49,7 +49,7 @@ Marinate the chicken thighs for 15 to 20 minutes or overnight in the fridge.
 Once hot, add the olive oil and distribute it around to coat.
 Place the chicken thighs on the pan, allowing some room between them, and cook for about 7 minutes per side. You know chicken thighs are ready when the internal temperature measured with a meat thermometer reaches 175F.
 
-**:** Remove the chicken thighs from the pan onto a cutting board.
+**Slice and serve:** Remove the chicken thighs from the pan onto a cutting board.
 Let the chicken rest for 5 minutes before slicing.
 Slice the thighs diagonally and again into small pieces.
 
