@@ -56,7 +56,7 @@ In a small bowl, whisk to combine the milk and egg.
 Save 2 tbsp of it for the egg wash later, and pour the rest into the mixing bowl with the dry ingredients.
 Stir to combine with a spatula, until a rough dough forms.
 
-**Form the dough and cut the scones:**Transfer to a lightly floured countertop and knead about 10 times until the dough comes together into a relatively smooth ball.
+**Form the dough and cut the scones:** Transfer to a lightly floured countertop and knead about 10 times until the dough comes together into a relatively smooth ball.
 Take care not to knead too much, or the dough will be tougher and not rise as high.
 Roll the dough about an inch thick and use a 2.5 inch cutter to cut about 7 circles.
 Re-roll the scraps and cut out another 2.
