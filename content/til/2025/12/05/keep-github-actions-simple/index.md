@@ -100,6 +100,6 @@ Here's the relevant part of the workflow YAML:
     path: ./public
 ```
 
-And [read the `blog.go` script]() to understand how I use the exact same script for local development and build as I do in the GitHub Action.
+And [read the `blog.go` script](https://github.com/dvhthomas/blog/blob/main/blog.go) to understand how I use the exact same script for local development and build as I do in the GitHub Action.
 You'll see that it generates by resume PDF based on content in my [resume page]({{< ref "resume/index.md">}}), and generates SVG diagrams for articles using the [D2](https://d2lang.com/) language.
 Putting all that stuff in an Action YAML would be a total pain.
