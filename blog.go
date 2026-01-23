@@ -529,7 +529,7 @@ func runServeMode(contentDir, configFile string, config *Config, verbose bool) {
 
 	// Start Hugo server
 	log.Println("Starting Hugo dev server...")
-	hugoCmd := exec.CommandContext(ctx, "hugo", "server", "--buildDrafts", "--noHTTPCache", "--cleanDestinationDir", "--gc", "--disableFastRender")
+	hugoCmd := exec.CommandContext(ctx, "hugo", "server", "--bind", "0.0.0.0", "--baseURL", "http://localhost:1313", "--buildDrafts", "--noHTTPCache", "--cleanDestinationDir", "--gc", "--disableFastRender")
 	hugoCmd.Stdout = os.Stdout
 	hugoCmd.Stderr = os.Stderr
 	hugoCmd.Stdin = os.Stdin

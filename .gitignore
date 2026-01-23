@@ -32,3 +32,4 @@ notebooks/*.*
 .hugo_build.lock
 git-sim_media
 .tool-versions
+.claude

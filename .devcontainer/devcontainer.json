@@ -1,26 +1,39 @@
 {
-  "hostRequirements": {
-    "cpus": 2
-  },
-  "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
-  "features": {
-    "ghcr.io/devcontainers/features/git:1": {},
-    "ghcr.io/devcontainers/features/go:1": {},
-    "ghcr.io/devcontainers/features/hugo:1": {
-      "extended": "true"
+    "name": "Hugo Blog with D2 and PDF Generation",
+    "hostRequirements": {
+        "cpus": 2
     },
-    "ghcr.io/devcontainers/features/github-cli:1": {},
-    "ghcr.io/eitsupi/devcontainer-features/go-task:1": {}
-  },
-  "postCreateCommand": "hugo server -D --renderToMemory",
-  "forwardPorts": [1313],
-  "customizations": {
-    "vscode": {
-      "extensions": [
-        "GitHub.codespaces",
-        "mutantdino.resourcemonitor",
-        "jasonnutter.vscode-codeowners"
-      ]
+    "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
+    "features": {
+        "ghcr.io/devcontainers/features/git:1": {},
+        "ghcr.io/devcontainers/features/go:1": {},
+        "ghcr.io/devcontainers/features/hugo:1": {
+            "extended": true
+        },
+        "ghcr.io/devcontainers/features/github-cli:1": {},
+        "ghcr.io/eitsupi/devcontainer-features/go-task:1": {},
+        "ghcr.io/devcontainers/features/rust:1": {}
+    },
+    "postCreateCommand": "curl -fsSL https://d2lang.com/install.sh | sudo sh -s -- --prefix /usr/local && sudo apt-get update && sudo apt-get install -y bc chromium pngquant && cargo install oxipng",
+    "forwardPorts": [1313],
+    "portsAttributes": {
+        "1313": {
+            "label": "Hugo Dev Server",
+            "onAutoForward": "openBrowser"
+        }
+    },
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "GitHub.codespaces",
+                "mutantdino.resourcemonitor",
+                "jasonnutter.vscode-codeowners",
+                "golang.go",
+                "budparr.language-hugo-vscode"
+            ],
+            "settings": {
+                "terminal.integrated.defaultProfile.linux": "bash"
+            }
+        }
     }
-  }
 }
