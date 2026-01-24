@@ -5,6 +5,7 @@
 // This tool automatically:
 //   - Renders D2 diagram files (.d2) to SVG format for use in Hugo sites
 //   - Generates a PDF version of your resume from content/resume/index.md
+//
 // It integrates with Hugo's build and development workflow to provide live reloading of diagrams.
 //
 // # D2 Integration
@@ -50,9 +51,9 @@
 //   - public/ directory is git-ignored, including the generated PDF
 //
 // Build workflow:
-//   1. go run blog.go          # Renders D2 files
-//   2. hugo --gc --minify      # Builds site including resume HTML
-//   3. go run blog.go          # Generates PDF from built HTML
+//  1. go run blog.go          # Renders D2 files
+//  2. hugo --gc --minify      # Builds site including resume HTML
+//  3. go run blog.go          # Generates PDF from built HTML
 //
 // # Configuration
 //
@@ -119,12 +120,28 @@ type Config struct {
 	} `toml:"params"`
 }
 
+// getDefaultBaseURL returns the appropriate base URL for the current environment.
+// In GitHub Codespaces, it constructs the forwarded URL. Otherwise, it returns localhost.
+func getDefaultBaseURL() string {
+	if codespace := os.Getenv("CODESPACE_NAME"); codespace != "" {
+		// GitHub Codespaces environment detected
+		return fmt.Sprintf("https://%s-1313.app.github.dev", codespace)
+	}
+	return "http://localhost:1313"
+}
+
 func main() {
 	// Define flags
 	serve := flag.Bool("serve", false, "Run Hugo dev server with D2 watching")
 	watch := flag.Bool("watch", false, "Watch D2 files only (no Hugo server)")
 	verbose := flag.Bool("verbose", false, "Show detailed output")
+	baseURL := flag.String("baseURL", "", "Base URL for Hugo server (auto-detects Codespaces if empty)")
 	flag.Parse()
+
+	// Resolve baseURL with auto-detection
+	if *baseURL == "" {
+		*baseURL = getDefaultBaseURL()
+	}
 
 	// Ensure d2 is installed
 	if !commandExists("d2") {
@@ -150,7 +167,7 @@ func main() {
 	// Start appropriate mode
 	switch {
 	case *serve:
-		runServeMode("content", "config.toml", config, *verbose)
+		runServeMode("content", "config.toml", config, *verbose, *baseURL)
 	case *watch:
 		runWatchMode("content", "config.toml", config, *verbose)
 	}
@@ -501,7 +518,7 @@ func watchResumeHTML(ctx context.Context, verbose bool) {
 // the context is cancelled, signaling all goroutines to shutdown cleanly.
 //
 // Hugo automatically detects when SVG files and PDFs change and triggers browser reload.
-func runServeMode(contentDir, configFile string, config *Config, verbose bool) {
+func runServeMode(contentDir, configFile string, config *Config, verbose bool, baseURL string) {
 	if !commandExists("hugo") {
 		log.Fatal("hugo is not installed. Install from https://gohugo.io/installation/")
 	}
@@ -528,8 +545,8 @@ func runServeMode(contentDir, configFile string, config *Config, verbose bool) {
 	time.Sleep(500 * time.Millisecond) // Let watchers start
 
 	// Start Hugo server
-	log.Println("Starting Hugo dev server...")
-	hugoCmd := exec.CommandContext(ctx, "hugo", "server", "--bind", "0.0.0.0", "--baseURL", "http://localhost:1313", "--buildDrafts", "--noHTTPCache", "--cleanDestinationDir", "--gc", "--disableFastRender")
+	log.Printf("Starting Hugo dev server at %s", baseURL)
+	hugoCmd := exec.CommandContext(ctx, "hugo", "server", "--bind", "0.0.0.0", "--baseURL", baseURL, "--buildDrafts", "--noHTTPCache", "--cleanDestinationDir", "--gc", "--disableFastRender")
 	hugoCmd.Stdout = os.Stdout
 	hugoCmd.Stderr = os.Stderr
 	hugoCmd.Stdin = os.Stdin

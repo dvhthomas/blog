@@ -11,7 +11,7 @@ tasks:
     desc: Start dev server with D2 diagram watching
     deps: [render-d2]
     cmds:
-      - go run blog.go --serve
+      - go run blog.go --serve {{if .BASE_URL}}--baseURL {{.BASE_URL}}{{end}}
     interactive: true
 
   render-d2:
