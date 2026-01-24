@@ -1,7 +1,17 @@
 # Alpine-based devcontainer for Hugo blog development
-# Uses official golang:alpine as base for current Go version
+# Uses multi-stage build to avoid including Rust toolchain in final image
 
+# Stage 1: Build oxipng from source
+FROM rust:alpine AS oxipng-builder
+RUN apk add --no-cache musl-dev
+RUN cargo install oxipng --locked
+# Binary will be at /usr/local/cargo/bin/oxipng
+
+# Stage 2: Final development container
 FROM golang:alpine
+
+# Copy oxipng binary from builder stage
+COPY --from=oxipng-builder /usr/local/cargo/bin/oxipng /usr/local/bin/oxipng
 
 # Install base packages and development tools
 RUN apk add --no-cache \
@@ -19,9 +29,6 @@ RUN apk add --no-cache \
     bc \
     chromium \
     pngquant \
-    # Rust for oxipng
-    rust \
-    cargo \
     # Hugo extended
     hugo \
     # GitHub CLI
@@ -48,11 +55,6 @@ RUN curl -fsSL https://d2lang.com/install.sh | sh -s -- --prefix /usr/local
 
 # Symlink go-task to task (Alpine package installs as go-task)
 RUN ln -sf /usr/bin/go-task /usr/local/bin/task
-
-# Install oxipng via cargo, then clean up
-RUN cargo install oxipng && \
-    mv /root/.cargo/bin/oxipng /usr/local/bin/ && \
-    rm -rf /root/.cargo /root/.rustup
 
 # Create non-root user (devcontainer convention)
 ARG USERNAME=dev
