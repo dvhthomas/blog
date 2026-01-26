@@ -1,7 +1,7 @@
 ---
 title: 2021-05-15
 date: 2021-05-15T11:15:47-06:00
-tags: [python, spatialite, sqlite, icu]
+tags: [python, spatialite, sqlite, icu, sql]
 toc: true
 series: []
 summary: ICU for Python head-scratcher solved

@@ -1,7 +1,7 @@
 ---
 title: SQLite and Go App
 date: 2023-02-01T16:51:08-07:00
-tags: [go, yaml, sqlite, program-management]
+tags: [go, yaml, sqlite, program-management, sql]
 toc: true
 series:
     - SQLite and Go

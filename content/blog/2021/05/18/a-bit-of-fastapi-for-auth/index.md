@@ -1,7 +1,7 @@
 ---
 title: A Bit of Fastapi for Auth
 date: 2021-05-18T13:54:13-06:00
-tags: [python, auth, fastapi]
+tags: [python, auth, fastapi, sql]
 toc: true
 series: []
 summary: |-

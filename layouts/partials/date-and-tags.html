@@ -3,7 +3,7 @@
 {{ $lastMod := .Lastmod }}
 {{ $daysDiff := div (sub $lastMod.Unix $publishDate.Unix) 86400 }}
 
-{{ if gt $daysDiff 1 }}<time class="summary" datetime="{{ $lastMod.Format "2006-01-02" }}">{{ $lastMod.Format $dateFormat }}</time><span class="summary"> (originally published {{ $publishDate.Format $dateFormat }})</span>{{ else }}<time class="summary" datetime="{{ $publishDate.Format "2006-01-02" }}">{{ $publishDate.Format $dateFormat }}</time>{{ end }}
+<time class="summary" datetime="{{ $publishDate.Format "2006-01-02" }}">{{ $publishDate.Format $dateFormat }}</time>
 {{ $taxonomies := slice (dict "name" "tags" "label" "Tags" "singular" "Tag")
 (dict "name" "capabilities" "label" "Capabilities" "singular" "Capability") }}
 {{ range $taxonomies }} {{ $taxonomy := . }} {{ $terms := index $.Params .name

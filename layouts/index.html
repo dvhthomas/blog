@@ -9,17 +9,21 @@
 </div>
 
 <p>
-    Hi 👋 <a href="/about">I'm Dylan</a>. Most content is in
-    <a href="/blog/">blog posts</a> or little notes to my future self called
+    Hi 👋 <a href="/about">I'm Dylan</a>. Check out my
+    <a href="/blog/">blog</a> and shorter notes called
     <a href="/til/">Today I Learned&hellip;</a>
+    My <a href="/resume">resume</a> describes my professional journey.
     Follow the links up top☝️to explore. Social links are in the footer👇
 </p>
 
-<hr />
+<p>
+    Here's some recent content:
+</p>
+<hr/>
 
-{{ $allContent := where .Site.RegularPages "Section" "in" (slice "blog" "til")
-}} {{ range first 10 $allContent }} {{ partial "article-listing.html" . }} {{
-end }}
+{{ $allContent := where .Site.RegularPages "Section" "in"
+(slice "blog" "til") }} {{ range first 5 $allContent }} {{ partial
+"article-listing.html" . }} {{ end }}
 
 <script>
     document.addEventListener("keydown", function (e) {

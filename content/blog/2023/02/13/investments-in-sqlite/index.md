@@ -1,7 +1,7 @@
 ---
 title: Tracking program investments in SQLite
 date: 2023-02-13T18:19:47-07:00
-tags: [sqlite, cte, hierarchical, data, go]
+tags: [sqlite, cte, hierarchical, data, go, sql]
 toc: true
 series:
   - SQLite and Go

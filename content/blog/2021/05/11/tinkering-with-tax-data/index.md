@@ -1,7 +1,7 @@
 ---
 title: Tinkering With Tax Data
 date: 2021-05-11T12:45:06-06:00
-tags: [datasette, data]
+tags: [datasette, data, sql]
 toc: true
 series: []
 summary: |-

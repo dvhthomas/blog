@@ -13,14 +13,14 @@ location: "Remote"
 
 Email: **dylant@hey.com** | Website: **[Bits By Me](https://bitsby.me)** | LinkedIn: [Dylan Thomas](https://www.linkedin.com/in/dylan-thomas/)
 
-> I am a highly experienced technical leader and builder of remote teams with deep expertise in technical program management.
-> I balance open communication and team harmony with a strong focus on customer value.
-> Nothing makes me happier than getting things shipped to customers with an appropriately high quality bar.
+> I am a highly experienced technical leader with deep expertise in **technical program management**, **partner ecosystems**, and **SaaS delivery**.
+> I balance open communication and (remote) team harmony with a strong **focus on customer value**.
+> Nothing makes me happier than **getting things shipped** to customers with an appropriately **high quality bar**.
 
 ## Skills
 
 - **Core:** [Technical Program Management]({{< ref "blog/2024/10/20/tpm-journey-at-github/index.md">}}), Agile Delivery, Technical Partnerships, [Balanced Leadership]({{< ref "blog/2019/01/29/core-skills-ge-tech-skills/index.md" >}}), [Remote Leadership]({{< ref "blog/2021/06/15/how-we-work/index.md" >}}), [Growing teams]({{< ref "blog/2021/03/24/transforming-the-team/index.md" >}}),  Organizational Development
-- **Technical:** [Geospatial]({{< ref "/tags/geospatial" >}}), [AI Engineering]({{< ref "/series/ai-engineering-course" >}}), [Python]({{< ref "/tags/python" >}}), [Go]({{< ref "/tags/go">}}), [Google Cloud]({{< ref "/tags/gcp" >}}), Ruby on Rails, [Terraform]({{< ref "/tags/terraform" >}}), PostgreSQL
+- **Technical:** [Geospatial]({{< ref "/tags/geospatial" >}}), [AI Engineering]({{< ref "/series/ai-engineering-course" >}}), [Python]({{< ref "/tags/python" >}}), [Go]({{< ref "/tags/go">}}), [Google Cloud]({{< ref "/tags/gcp" >}}), [some infrastructure]({{< ref "/tags/terraform" >}}), and [SQL]({{< ref "/tags/sql" >}}).
 
 ## Work Experience
 

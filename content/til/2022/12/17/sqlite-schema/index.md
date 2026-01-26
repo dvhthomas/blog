@@ -1,7 +1,7 @@
 ---
 title: SQLite schema
 date: 2022-12-17T09:26:35-07:00
-tags: [sqlite]
+tags: [sqlite, sql]
 toc: true
 series: []
 summary: Learning a few bits about SQLite that are worth noting.
@@ -183,4 +183,3 @@ QUERY PLAN
 ```
 
 This helped me spot a couple of full table scans without indexes that I could fix. Nice!
-

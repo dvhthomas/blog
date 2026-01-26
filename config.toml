@@ -13,7 +13,7 @@ ignoreErrors = ["error-remote-getjson"]
     homeText = "tech cycling dadops learning"
     dateFormat = "January 2, 2006"
     description = "The personal website of Dylan Thomas"
-    images = ["/about/me-2025.png"]
+    images = ["/about/headshot.png"]
     githubRepo = "https://github.com/dvhthomas/blog"
       # Default format for image conversion (e.g., "webp", "jpeg", "png"). Leave empty to disable conversion.
     defaultImageFormat = "webp"
