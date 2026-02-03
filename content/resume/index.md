@@ -11,31 +11,36 @@ linkedin: "https://www.linkedin.com/in/dylan-thomas/"
 location: "Remote"
 ---
 
-Email: **dylant@hey.com** | Website: **[Bits By Me](https://bitsby.me)** | LinkedIn: [Dylan Thomas](https://www.linkedin.com/in/dylan-thomas/)
+dylant@hey.com | [Website](https://bitsby.me) | [Consulting](https://alwaysmap.com) | [LinkedIn](https://www.linkedin.com/in/dylan-thomas/)
 
-> I am a highly experienced technical leader with deep expertise in **technical program management**, **partner ecosystems**, and **SaaS delivery**.
-> I balance open communication and (remote) team harmony with a strong **focus on customer value**.
+> I am a leader with deep expertise in **technical program management**, **partner ecosystems**, and **SaaS delivery**.
 > Nothing makes me happier than **getting things shipped** to customers with an appropriately **high quality bar**.
+> I achieve that through clear goals, timely decisions, and scaled operations.
 
 ## Skills
 
 - **Core:** [Technical Program Management]({{< ref "blog/2024/10/20/tpm-journey-at-github/index.md">}}), Agile Delivery, Technical Partnerships, [Balanced Leadership]({{< ref "blog/2019/01/29/core-skills-ge-tech-skills/index.md" >}}), [Remote Leadership]({{< ref "blog/2021/06/15/how-we-work/index.md" >}}), [Growing teams]({{< ref "blog/2021/03/24/transforming-the-team/index.md" >}}),  Organizational Development
-- **Technical:** [Geospatial]({{< ref "/tags/geospatial" >}}), [AI Engineering]({{< ref "/series/ai-engineering-course" >}}), [Python]({{< ref "/tags/python" >}}), [Go]({{< ref "/tags/go">}}), [Google Cloud]({{< ref "/tags/gcp" >}}), [some infrastructure]({{< ref "/tags/terraform" >}}), and [SQL]({{< ref "/tags/sql" >}}).
+- **Technical:** [Geospatial]({{< ref "/tags/geospatial" >}}), [AI Engineering]({{< ref "/series/ai-engineering-course" >}}), and get-it-done levels of [Python]({{< ref "/tags/python" >}}), [Go]({{< ref "/tags/go">}}), [Google Cloud]({{< ref "/tags/gcp" >}}), [some infrastructure]({{< ref "/tags/terraform" >}}), and [SQL]({{< ref "/tags/sql" >}}).
 
 ## Work Experience
 
-### Sabbatical
+### Consulting & Sabbatical
 
-_Remote_
+#### Founder of AlwaysMap
+
+_December 2023 to [Present](https://alwaysmap.com)_
+
+- Contracted with the Head of People at SaaS company to improve Engineering hiring outcomes.
+- Building a digital-to-physical Life Journey web app to create beautiful wall maps of life's milestones.
 
 #### Head of DadOps
 
 _June 2025 to Present_
 
-- University tours, a structured approach to high school, and ensuring that the home network is up to the rigors of both gaming and the home office.
-- I'm also learning more about AI fundamentals in the [ByteByteGo AI Engineering course]({{< ref "/series/ai-engineering-course" >}}).
-  [Agentic patterns, too](https://github.com/dvhthomas/agent-learn).
-- DadOps is a play on [DevOps](https://en.wikipedia.org/wiki/DevOps), with a focus on smooth and agile operations.
+- My voluntary DadOps sabbatical is a play on [DevOps](https://en.wikipedia.org/wiki/DevOps), with a focus on smooth and agile family operations.
+  University tours, a structured approach to high school, and ensuring that the home network is up to the rigors of both gaming and the home office.
+- Diving into AI fundamentals in the [ByteByteGo AI Engineering course]({{< ref "/series/ai-engineering-course" >}}).
+- Coding up [agentic patterns](https://github.com/dvhthomas/agent-learn), and teaming up [with coding agents](https://github.com/alwaysmap/mvp/commits/main/) on [experimental work](https://github.com/CalcMark/go-calcmark/commits/main/).
 
 ### GitHub
 
@@ -45,20 +50,21 @@ _Remote_
 
 _Jan 2022 to June 2025_
 
-- **GHES releases are higher quality and on time.** [GitHub Enterprise Server](https://docs.github.com/en/enterprise-server@3.18/admin/overview/about-github-enterprise-server) (GHES) is responsible for a sizable percentage of GitHub's revenue.
-  In early 2022 each release was stressful and at risk of being late to demanding customers.
+- **Mission critical projects staffed and running within hours.**
+  For example, I staffed a project within 60 minutes of getting an urgent CTO text message about an active security concern. TPMs were actively coordinating the response with 2 hours and seeing measurable improvements in key metrics (secret count) within single-digit days.
+ I accomplished this my creating [the Flex Team](http://localhost:1313/work/flex-team/)---a dedicated squad of 3 TPMs---to handle urgent, high-impact projects without disrupting ongoing programs.
+- **100% of GitHub Enterprise Server (GHES) releases are on time, with high quality.** [GHES](https://docs.github.com/en/enterprise-server@3.18/admin/overview/about-github-enterprise-server) accounts for a sizable percentage of GitHub's revenue.
+  In early 2022 releases were not hitting release deadlines.
   I led a small team of TPMs to provide clear expectations and repeatable processes for all GitHub feature teams: timeframes, quality bar, and communication channels.
-  By mid-2023 most [releases](https://docs.github.com/en/enterprise-server@3.18/admin/all-releases) were on time and contained few regressions, enabling the GHES team to focus more on net new features for customers.
-  There was no clear ownership so I took responsibility to get product buy-in, engineering funding, and budget approval for certification testing.
+  Since mid-2023 100% of [releases](https://docs.github.com/en/enterprise-server@3.18/admin/all-releases) were on time and contained few regressions, enabling the GHES team to focus more on net new features for customers.
 - **GitHub products are compliant to sell in China (PRC).** GitHub's certification to sell in the People's Republic of China (PRC) hinged on [compliance with a country-specific UTF encoding](https://en.wikipedia.org/wiki/GB_18030).
-  I recognized the gap in compliance coverage and spun up a program in conjunction with Microsoft.
-  As a result, GitHub achieved GB18030 compliance each year my team ran the program, thus protecting our revenue stream in the PRC.
-- **Narrowed the focus from 20+ to just 5 key programs.**
+  I recognized the gap in compliance coverage and spun up a program in conjunction with Microsoft, including budget and resource commitments across EPDa and Revenue.
+  GitHub achieved GB18030 compliance each year my team ran the program, thus protecting our revenue stream in the PRC.
+- **Narrowed the focus from 20+ to just 5 business critical programs.**
+  By early 2025 GitHub TPM was running 5 major programs with ~30 TPMs focused _solely_ on major company goals including [security](https://www.microsoft.com/en-us/security/blog/2024/05/03/security-above-all-else-expanding-microsofts-secure-future-initiative/), [Copilot AI](https://techcrunch.com/2024/12/18/github-launches-a-free-version-of-its-copilot/), and [enterprise data residency](https://github.com/enterprise/data-residency).
   When I joined GitHub, a team of 30+ TPMs was working on 20+ programs and projects.
   I introduced a regular review of strategic need against investments made, thus putting more TPM investment into programs with the biggest business impact.
-  The [cut line](https://docs.google.com/presentation/d/e/2PACX-1vQcpNhOQvyvVCIwSSiIrUr58PcaTftCpXzjePcV4mw7n-omPv6a-7j_NMqwGHt-Q-_-Hi0OAakXKeTJ/pub?start=false&loop=false&delayms=5000&slide=id.g2f82f98138f_0_15) was painful, necessary, and agreed upon by VP+ stakeholders.
-  By early 2025 GitHub TPM was running 5 major programs with ~30 TPMs focused _solely_ on major company goals including [security](https://www.microsoft.com/en-us/security/blog/2024/05/03/security-above-all-else-expanding-microsofts-secure-future-initiative/), [Copilot AI](https://techcrunch.com/2024/12/18/github-launches-a-free-version-of-its-copilot/), and [enterprise data residency](https://github.com/enterprise/data-residency).
-- **Rapid response team.** Created the Flex Team---a dedicated squad of 3 TPMs---to handle urgent, high-impact projects without disrupting ongoing programs. Critical projects were staffed within minutes-to-hours, with systems and processes measurably improved within days-to-weeks. For example, I staffed a project within 60 minutes of getting an urgent text message about an active security concern, our small team was actively coordinating the response with 2 hours.
+  The [cut line](https://docs.google.com/presentation/d/e/2PACX-1vQcpNhOQvyvVCIwSSiIrUr58PcaTftCpXzjePcV4mw7n-omPv6a-7j_NMqwGHt-Q-_-Hi0OAakXKeTJ/pub?start=false&loop=false&delayms=5000&slide=id.g2f82f98138f_0_15) was painful, necessary, and agreed upon by VP+ stakeholders cross Engineering and Product.
 
 ### Woolpert
 
