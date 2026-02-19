@@ -8,10 +8,10 @@ layout: "single"
 # Structured data for ATS systems
 email: "dylant@hey.com"
 linkedin: "https://www.linkedin.com/in/dylan-thomas/"
-location: "Remote"
+location: "Remote, Denver Colorado USA"
 ---
 
-dylant@hey.com | [Website](https://bitsby.me) | [Consulting](https://alwaysmap.com) | [LinkedIn](https://www.linkedin.com/in/dylan-thomas/) | 415-657-6589
+dylant@hey.com | [Website](https://bitsby.me) | [Consulting](https://alwaysmap.com) | [LinkedIn](https://www.linkedin.com/in/dylan-thomas/) | 415-657-6589 | Colorado, USA
 
 > I am a leader with deep expertise in **technical program management**, **partner ecosystems**, and **SaaS delivery**.
 > Nothing makes me happier than **getting things shipped** to customers with an appropriately **high quality bar**.
