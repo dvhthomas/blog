@@ -28,14 +28,14 @@ dylant@hey.com | [Website](https://bitsby.me) | [Consulting](https://alwaysmap.c
 
 #### Founder of AlwaysMap
 
-_December 2023 to [Present](https://alwaysmap.com)_
+_December 2025 to [Present](https://alwaysmap.com)_
 
-- Contracted with the Head of People at SaaS company to improve Engineering hiring outcomes.
-- Building a digital-to-physical Life Journey web app to create beautiful wall maps of life's milestones.
+- Contracted with the Head of People at SaaS company to [improve Engineering hiring outcomes]({{< ref "work/ai-hiring-pipeline/index.md" >}}): reduce 1,000 inbound to 40 well qualified candidates. Reimagine their interview process with structured interviews and calibration.
+- [CalcMark](https://calcmark.org) open source tool to support structure decision making. For system design, work planning, and general purpose calculations that benefit from version control.
 
 #### Head of DadOps
 
-_June 2025 to Present_
+_June 2025 to December 2025_
 
 - My voluntary DadOps sabbatical is a play on [DevOps](https://en.wikipedia.org/wiki/DevOps), with a focus on smooth and agile family operations.
   University tours, a structured approach to high school, and ensuring that the home network is up to the rigors of both gaming and the home office.
@@ -141,12 +141,10 @@ _Remote and Mountain View, California_
 ## Education
 
 **University of North Carolina**
-: _1993-1996_
 : **Masters of Arts in Geography**
 : Charlotte, North Carolina
 
 **University of Reading**
-: _1989-1991_
 : **Bachelor of Science in Geography**
 : Reading, United Kingdom
 

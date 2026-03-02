@@ -33,3 +33,5 @@ notebooks/*.*
 git-sim_media
 .tool-versions
 .claude
+# Compound Engineering extensions
+docs/
