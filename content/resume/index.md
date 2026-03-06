@@ -40,7 +40,7 @@ _June 2025 to December 2025_
 - My voluntary DadOps sabbatical is a play on [DevOps](https://en.wikipedia.org/wiki/DevOps), with a focus on smooth and agile family operations.
   University tours, a structured approach to high school, and ensuring that the home network is up to the rigors of both gaming and the home office.
 - Diving into AI fundamentals in the [ByteByteGo AI Engineering course]({{< ref "/series/ai-engineering-course" >}}).
-- Coding up [agentic patterns](https://github.com/dvhthomas/agent-learn), and teaming up [with coding agents](https://github.com/alwaysmap/mvp/commits/main/) on [experimental work](https://github.com/CalcMark/go-calcmark/commits/main/).
+- Coding up [agentic patterns](https://github.com/dvhthomas/agent-learn) to understand the new world.
 
 ### GitHub
 
@@ -52,7 +52,7 @@ _Jan 2022 to June 2025_
 
 - **Mission critical projects staffed and running within hours.**
   For example, I staffed a project within 60 minutes of getting an urgent CTO text message about an active security concern. TPMs were actively coordinating the response with 2 hours and seeing measurable improvements in key metrics (secret count) within single-digit days.
- I accomplished this my creating [the Flex Team](http://localhost:1313/work/flex-team/)---a dedicated squad of 3 TPMs---to handle urgent, high-impact projects without disrupting ongoing programs.
+ I accomplished this my creating [the Flex Team]({{< ref "work/flex-team/index.md" >}})---a dedicated squad of 3 TPMs---to handle urgent, high-impact projects without disrupting ongoing programs.
 - **100% of GitHub Enterprise Server (GHES) releases are on time, with high quality.** [GHES](https://docs.github.com/en/enterprise-server@3.18/admin/overview/about-github-enterprise-server) accounts for a sizable percentage of GitHub's revenue.
   In early 2022 releases were not hitting release deadlines.
   I led a small team of TPMs to provide clear expectations and repeatable processes for all GitHub feature teams: timeframes, quality bar, and communication channels.
