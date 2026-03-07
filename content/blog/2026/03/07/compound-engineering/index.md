@@ -168,9 +168,7 @@ My data isn't clean. I didn't start with a measurement strategy---I started buil
 
 ### Issue lead time
 
-Lead time is the clock time from issue *created* to *closed*. This is the metric I trust most---hard to game, easy to extract.
-
-{{% code file="issue-lead-time.sh" lang="sh" %}}
+Lead time is the clock time from issue *created* to *closed*. This is the metric I trust most---hard to game, [easy to extract](issue-lead-time.sh).
 
 Here's go-calcmark:
 
@@ -205,9 +203,7 @@ Most issues close in under 2 hours. The high SD comes from a few outliers (durat
 
 ### PR cycle time
 
-PR cycle time---created to merged---is trickier for a solo developer. If your team opens draft PRs when work starts, it's a decent velocity proxy.
-
-{{% code file="pr-cycle-time-summary.sh" lang="sh" %}}
+PR cycle time---created to merged---is trickier for a solo developer. If your team opens draft PRs when work starts, it's a [decent velocity proxy](pr-cycle-time-summary.sh).
 
 {{< vega id="cycle-time" spec="pr-cycle-time-chart.json" >}}
 
@@ -224,9 +220,7 @@ PR cycle time---created to merged---is trickier for a solo developer. If your te
 
 ### Bug escape rate and recovery time
 
-How often do bugs slip into a release, and how fast do I catch them?
-
-{{% code file="release-fix-rate.sh" lang="sh" %}}
+How often do bugs slip into a release, and [how fast do I catch them](release-fix-rate.sh)?
 
 After v1.1.0---the first major public release---I shipped 5 consecutive fix-only releases over 12 hours:
 
