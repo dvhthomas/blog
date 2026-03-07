@@ -1,0 +1,56 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "PR cycle time for calcmark/go-calcmark",
+  "width": 500,
+  "height": 350,
+  "title": "PR cycle time (created \u2192 merged)",
+  "data": {
+    "values": [
+      {"pr": "#17", "title": "Distinguish multiplier suffixes from unit prefixes", "minutes": 0.2},
+      {"pr": "#29", "title": "Repo-file shortcode for example links", "minutes": 0.2},
+      {"pr": "#19", "title": "Currency + plain number arithmetic", "minutes": 0.3},
+      {"pr": "#22", "title": "Duration conversion with as and in", "minutes": 0.3},
+      {"pr": "#34", "title": "Compassionate lamport (worktree branch)", "minutes": 0.4},
+      {"pr": "#7", "title": "Formatter indexing and bracketed paste fixes", "minutes": 0.8},
+      {"pr": "#9", "title": "Fix unitless quantity multiplication", "minutes": 1.1},
+      {"pr": "#18", "title": "Multi-byte UTF-8 character support", "minutes": 1.2},
+      {"pr": "#25", "title": "Fix piped stdin detection", "minutes": 1.8},
+      {"pr": "#3", "title": "Solution doc for TUI editor display bugs", "minutes": 2.4},
+      {"pr": "#28", "title": "Consolidate release docs into single source", "minutes": 2.5},
+      {"pr": "#6", "title": "File content validation for binary files", "minutes": 2.7},
+      {"pr": "#13", "title": "Fix variable reference detection (whole words)", "minutes": 3.2},
+      {"pr": "#24", "title": "Support piped stdin evaluation", "minutes": 3.6},
+      {"pr": "#20", "title": "Record autocomplete acceptance on undo stack", "minutes": 8.1},
+      {"pr": "#4", "title": "Align Globals panel with frontmatter", "minutes": 20.0}
+    ]
+  },
+  "mark": {
+    "type": "bar",
+    "cornerRadiusEnd": 3
+  },
+  "encoding": {
+    "y": {
+      "field": "title",
+      "type": "nominal",
+      "sort": {"field": "minutes", "order": "ascending"},
+      "axis": {"title": null, "labelLimit": 250}
+    },
+    "x": {
+      "field": "minutes",
+      "type": "quantitative",
+      "axis": {"title": "Minutes"},
+      "scale": {"type": "sqrt"}
+    },
+    "color": {
+      "field": "minutes",
+      "type": "quantitative",
+      "scale": {"scheme": "blues", "reverse": true},
+      "legend": null
+    },
+    "tooltip": [
+      {"field": "pr", "title": "PR"},
+      {"field": "title", "title": "Title"},
+      {"field": "minutes", "title": "Cycle time (minutes)"}
+    ]
+  }
+}

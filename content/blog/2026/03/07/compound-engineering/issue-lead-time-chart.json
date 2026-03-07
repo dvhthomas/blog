@@ -1,0 +1,55 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Issue lead time for calcmark/go-calcmark",
+  "width": 500,
+  "height": 350,
+  "title": "Issue lead time (created → closed)",
+  "data": {
+    "values": [
+      {"issue": "#8", "title": "Rate multiplication fails", "hours": 0.3},
+      {"issue": "#5", "title": "Fail on invalid file types", "hours": 0.4},
+      {"issue": "#31", "title": "ms not a millisecond unit", "hours": 0.7},
+      {"issue": "#30", "title": "Missing autosuggest help", "hours": 0.7},
+      {"issue": "#23", "title": "IO broken on piped eval", "hours": 0.9},
+      {"issue": "#27", "title": "Make examples linkable", "hours": 1.0},
+      {"issue": "#33", "title": "CommonMark/GFM coverage", "hours": 1.2},
+      {"issue": "#14", "title": "Space before kg unit", "hours": 1.3},
+      {"issue": "#16", "title": "Currency + number fails", "hours": 1.4},
+      {"issue": "#15", "title": "Autosuggest not on undo stack", "hours": 2.0},
+      {"issue": "#26", "title": "Wrapped preview pane styling", "hours": 3.1},
+      {"issue": "#12", "title": "Multi-byte character support", "hours": 4.3},
+      {"issue": "#21", "title": "Duration conversion (as/in)", "hours": 16.1},
+      {"issue": "#10", "title": "Status line wrong value", "hours": 18.2},
+      {"issue": "#11", "title": "JSON output structure", "hours": 21.3}
+    ]
+  },
+  "mark": {
+    "type": "bar",
+    "cornerRadiusEnd": 3
+  },
+  "encoding": {
+    "y": {
+      "field": "title",
+      "type": "nominal",
+      "sort": {"field": "hours", "order": "ascending"},
+      "axis": {"title": null, "labelLimit": 250}
+    },
+    "x": {
+      "field": "hours",
+      "type": "quantitative",
+      "axis": {"title": "Hours"},
+      "scale": {"type": "sqrt"}
+    },
+    "color": {
+      "field": "hours",
+      "type": "quantitative",
+      "scale": {"scheme": "orangered", "reverse": true},
+      "legend": null
+    },
+    "tooltip": [
+      {"field": "issue", "title": "Issue"},
+      {"field": "title", "title": "Title"},
+      {"field": "hours", "title": "Lead time (hours)"}
+    ]
+  }
+}
