@@ -8,7 +8,7 @@ summary: |-
   How I used compound engineering to build a real product as a solo developer.
   Not "look how many commits I made" but "look at the quality and speed of
   issue resolution." The data tells the story.
-draft: true
+draft: false
 images: [calcmark-og.png]
 ---
 
