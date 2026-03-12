@@ -259,6 +259,9 @@ Will Larson [predicts](https://lethain.com/everyinc-compound-engineering/) that 
 
 ## Getting started
 
+> TIP: The `/compound:*` commands below have been deprecated in March 2026 in favor of the [shorter `/ce:*` commands](https://github.com/EveryInc/compound-engineering-plugin?tab=readme-ov-file#workflow).
+> So if you see `/compound:brainstorm My big idea` then just replace the `compound:` part with `ce:` to get `/ce:brainstorm My big idea`.
+
 If you want to try this yourself:
 
 1. Install the [Compound Engineering plugin](https://github.com/EveryInc/compound-engineering-plugin) for Claude Code.
