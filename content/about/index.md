@@ -6,6 +6,7 @@ draft: false
 
 Hi, I'm Dylan Thomas 👋 [^poetry].
 I'm a geographer by training, a technologist by profession, and a (slow) cyclist by nature.
+I enjoy working on my open source projects [CalcMark](https://calcmark.org) and [GitHub Velocity](https://github.com/dvhthomas/gh-velocity).
 
 {{< figure alt="a headshot showing Dylan in an office environment" src="headshot.png" w="400" >}}
 
