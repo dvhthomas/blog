@@ -32,7 +32,7 @@ _December 2025 to [Present](https://alwaysmap.com)_
 
 - Contracted with the Head of People at SaaS company to [improve Engineering hiring outcomes]({{< ref "work/ai-hiring-pipeline/index.md" >}}): reduce 1,000 inbound to 40 well qualified candidates. Reimagine their interview process with structured interviews and calibration.
 - Created [CalcMark](https://calcmark.org) for structured decision making. [Business planning](https://calcmark.org/docs/examples/services-pl/full/), [system design](https://calcmark.org/docs/examples/system-sizing/full/), [project planning](https://calcmark.org/docs/examples/datacenter-cost/full/), and [fun](https://calcmark.org/docs/examples/recipe-scaling/full/) calculations that also benefit from version control.
-- Created the [gh-velocity insights tool](https://github.com/dvhthomas/gh-velocity) to help teams understand and improve their engineering velocity and quality using GitHub data.
+- Created the [gh-velocity insights tool](https://dvhthomas.github.io/gh-velocity/) to help teams understand and improve their engineering velocity and quality using GitHub data.
 
 #### Head of DadOps
 
