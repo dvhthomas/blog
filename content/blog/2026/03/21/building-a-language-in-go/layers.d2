@@ -1,0 +1,25 @@
+direction: down
+
+clients: Clients {
+    style.fill: "#E8F5E9"
+    CLI; TUI; VS Code; Web
+}
+
+library: Go Library {
+    style.fill: "#FFF9C4"
+}
+
+spec: "spec/\nLanguage Specification" {
+    style.fill: "#E8F4FD"
+    style.font-size: 16
+}
+
+impl: "impl/\nInterpreter" {
+    style.fill: "#FFF3E0"
+    style.font-size: 16
+}
+
+clients -> library: "Eval(), Convert(), NewSession()"
+library -> spec: language definition
+library -> impl: execution
+impl -> spec: imports

@@ -1,0 +1,35 @@
+direction: down
+
+classes: {
+    spec: {
+        style.fill: "#E8F4FD"
+    }
+    impl: {
+        style.fill: "#FFF3E0"
+    }
+    output: {
+        style.fill: "#F3E5F5"
+        shape: parallelogram
+    }
+}
+
+Source Text -> Lexer
+Lexer: "Lexer\n70+ token types" { class: spec }
+Lexer -> tokens
+tokens: "[]Token" { class: output }
+
+tokens -> Parser
+Parser: "Parser\nrecursive descent" { class: spec }
+Parser -> ast
+ast: "[]ast.Node" { class: output }
+
+ast -> Semantic
+ast -> Interpreter
+
+Semantic: "Semantic Checker\ntypes & scope" { class: spec }
+Semantic -> diagnostics
+diagnostics: "[]Diagnostic" { class: output }
+
+Interpreter: "Interpreter\ntree-walking" { class: impl }
+Interpreter -> results
+results: "[]types.Type" { class: output }
