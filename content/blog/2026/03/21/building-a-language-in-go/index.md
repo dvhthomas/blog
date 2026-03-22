@@ -281,7 +281,11 @@ One registry drives help text, autocomplete, documentation, and parity tests. Th
 
 > TIP: For stateful components, use pass-by-reference so there's one source of truth. If your app "forgets" cursor position or user input, value-based state passing is the first place to look.
 
-CalcMark's TUI editor has autocomplete---start typing a variable name and it suggests matches. The suggestions should be scope-aware: if you're on line 5, you should only see variables defined on lines 1 through 5. But the autocomplete was always suggesting variables as if the cursor was on line 0. Write a 30-line document, scroll to the bottom, start typing, and the suggestions showed nothing---because no variables are defined before line 0.
+CalcMark's TUI editor has autocomplete---start typing a variable name and it suggests matches. The suggestions should be scope-aware: if you're on line 5, you should only see variables defined on lines 1 through 5.
+
+{{< figure src="autosuggest.png" title="Autosuggest must know exactly where the cursor is on every keystroke" >}}
+
+But the autocomplete was always suggesting variables as if the cursor was on line 0. Write a 30-line document, scroll to the bottom, start typing, and the suggestions showed nothing---because no variables are defined before line 0.
 
 The root cause in [`cmd/calcmark/tui/editor/model.go`](https://github.com/calcmark/go-calcmark/blob/main/cmd/calcmark/tui/editor/model.go): the editor's `Model` struct holds all state---cursor position, variables, evaluation results. In Go, structs are value types. The constructor created a `Model`, wired up components that referenced it, then returned a copy:
 
