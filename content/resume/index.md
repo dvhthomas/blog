@@ -13,59 +13,39 @@ location: "Remote, Denver Colorado USA"
 
 dylant@hey.com | [Website](https://bitsby.me) | [Consulting](https://alwaysmap.com) | [LinkedIn](https://www.linkedin.com/in/dylan-thomas/) | 415-657-6589 | Colorado, USA
 
-> I am a leader with deep expertise in **technical program management**, **partner ecosystems**, and **SaaS delivery**.
-> Nothing makes me happier than **getting things shipped** to customers with an appropriately **high quality bar**.
-> I achieve that through clear goals, timely decisions, and scaled operations.
+> I build the teams and environments that make audacious business goals possible---PMOs, TPM teams,
+> partner engineering teams, and professional services practices.
+> I walk into ambiguity, bring the right amount of structure, and stay focused on impact.
 
 ## Skills
 
-- **Core:** [Technical Program Management]({{< ref "blog/2024/10/20/tpm-journey-at-github/index.md">}}), Agile Delivery, Technical Partnerships, [Balanced Leadership]({{< ref "blog/2019/01/29/core-skills-ge-tech-skills/index.md" >}}), [Remote Leadership]({{< ref "blog/2021/06/15/how-we-work/index.md" >}}), [Growing teams]({{< ref "blog/2021/03/24/transforming-the-team/index.md" >}}),  Organizational Development
+- **Core:** [Operations](https://alwaysmap.com), [Technical Program Management]({{< ref "blog/2024/10/20/tpm-journey-at-github/index.md">}}), [Agile Service Delivery]({{< ref "work/woolpert-cloud-practice/index.md" >}}), [Technical Partnerships]({{< ref "work/android-auto-partner-engineering/index.md" >}}), [Balanced Leadership]({{< ref "blog/2019/01/29/core-skills-ge-tech-skills/index.md" >}}), [Remote Leadership]({{< ref "blog/2021/06/15/how-we-work/index.md" >}}), [Growing Teams]({{< ref "blog/2021/03/24/transforming-the-team/index.md" >}}), [Organizational Development]({{< ref "work/github-tpm-transformation/index.md" >}})
 - **Technical:** [Geospatial]({{< ref "/tags/geospatial" >}}), [AI Engineering]({{< ref "/series/ai-engineering-course" >}}), and get-it-done levels of [Python]({{< ref "/tags/python" >}}), [Go]({{< ref "/tags/go">}}), [Google Cloud]({{< ref "/tags/gcp" >}}), [some infrastructure]({{< ref "/tags/terraform" >}}), and [SQL]({{< ref "/tags/sql" >}}).
 
 ## Work Experience
 
-### Consulting & Sabbatical
+### AlwaysMap — Consulting and Open Source
 
-#### Founder of AlwaysMap
+_June 2025 to Present_
 
-_December 2025 to [Present](https://alwaysmap.com)_
+[AlwaysMap](https://alwaysmap.com) helps tech-centric organizations shift from operational friction to scalable, clearer ways of working — across operations, programs, and teams. Brief sabbatical on family logistics, followed by:
 
-- Contracted with the Head of People at SaaS company to [improve Engineering hiring outcomes]({{< ref "work/ai-hiring-pipeline/index.md" >}}): reduce 1,000 inbound to 40 well qualified candidates. Reimagine their interview process with structured interviews and calibration.
-- Created [CalcMark](https://calcmark.org) for structured decision making. [Business planning](https://calcmark.org/docs/examples/services-pl/full/), [system design](https://calcmark.org/docs/examples/system-sizing/full/), [project planning](https://calcmark.org/docs/examples/datacenter-cost/full/), and [fun](https://calcmark.org/docs/examples/recipe-scaling/full/) calculations that also benefit from version control.
-- Created the [gh-velocity insights tool](https://dvhthomas.github.io/gh-velocity/) to help teams understand and improve their engineering velocity and quality using GitHub data.
-
-#### Head of DadOps
-
-_June 2025 to December 2025_
-
-- My voluntary DadOps sabbatical is a play on [DevOps](https://en.wikipedia.org/wiki/DevOps), with a focus on smooth and agile family operations.
-  University tours, a structured approach to high school, and ensuring that the home network is up to the rigors of both gaming and the home office.
-- Diving into AI fundamentals in the [ByteByteGo AI Engineering course]({{< ref "/series/ai-engineering-course" >}}).
-- Coding up [agentic patterns](https://github.com/dvhthomas/agent-learn) to understand the new world.
+- **[AI-assisted engineering hiring]({{< ref "work/ai-hiring-pipeline/index.md" >}}).** Contracted by a SaaS company to overhaul engineering recruiting end-to-end: built an AI-powered screening pipeline that reduced 1,000+ inbound candidates to fewer than 40 requiring manual review, redesigned structured interviews and calibration, rebuilt the technical assessment process.
+- **[gh-velocity](https://gh-velocity.org).** CLI tool to surface engineering delivery signals from GitHub data — helps teams act on patterns, not intuition.
+- **[CalcMark](https://calcmark.org).** Open-source language and interpreter for structured calculations inside Markdown. CLI, VS Code extension, and AI agent integration — fills the gap between spreadsheets (opaque) and notebooks (heavyweight) for decision-making and planning documents.
 
 ### GitHub
 
 _Remote_
 
-#### Head of Technical Program Management (TPM)
+#### Head of Technical Program Management
 
-_Jan 2022 to June 2025_
+_January 2022 – June 2025_
 
-- **Mission critical projects staffed and running within hours.**
-  For example, I staffed a project within 60 minutes of getting an urgent CTO text message about an active security concern. TPMs were actively coordinating the response with 2 hours and seeing measurable improvements in key metrics (secret count) within single-digit days.
- I accomplished this my creating [the Flex Team]({{< ref "work/flex-team/index.md" >}})---a dedicated squad of 3 TPMs---to handle urgent, high-impact projects without disrupting ongoing programs.
-- **100% of GitHub Enterprise Server (GHES) releases are on time, with high quality.** [GHES](https://docs.github.com/en/enterprise-server@3.18/admin/overview/about-github-enterprise-server) accounts for a sizable percentage of GitHub's revenue.
-  In early 2022 releases were not hitting release deadlines.
-  I led a small team of TPMs to provide clear expectations and repeatable processes for all GitHub feature teams: timeframes, quality bar, and communication channels.
-  Since mid-2023 100% of [releases](https://docs.github.com/en/enterprise-server@3.18/admin/all-releases) were on time and contained few regressions, enabling the GHES team to focus more on net new features for customers.
-- **GitHub products are compliant to sell in China (PRC).** GitHub's certification to sell in the People's Republic of China (PRC) hinged on [compliance with a country-specific UTF encoding](https://en.wikipedia.org/wiki/GB_18030).
-  I recognized the gap in compliance coverage and spun up a program in conjunction with Microsoft, including budget and resource commitments across EPDa and Revenue.
-  GitHub achieved GB18030 compliance each year my team ran the program, thus protecting our revenue stream in the PRC.
-- **Narrowed the focus from 20+ to just 5 business critical programs.**
-  By early 2025 GitHub TPM was running 5 major programs with ~30 TPMs focused _solely_ on major company goals including [security](https://www.microsoft.com/en-us/security/blog/2024/05/03/security-above-all-else-expanding-microsofts-secure-future-initiative/), [Copilot AI](https://techcrunch.com/2024/12/18/github-launches-a-free-version-of-its-copilot/), and [enterprise data residency](https://github.com/enterprise/data-residency).
-  When I joined GitHub, a team of 30+ TPMs was working on 20+ programs and projects.
-  I introduced a regular review of strategic need against investments made, thus putting more TPM investment into programs with the biggest business impact.
-  The [cut line](https://docs.google.com/presentation/d/e/2PACX-1vQcpNhOQvyvVCIwSSiIrUr58PcaTftCpXzjePcV4mw7n-omPv6a-7j_NMqwGHt-Q-_-Hi0OAakXKeTJ/pub?start=false&loop=false&delayms=5000&slide=id.g2f82f98138f_0_15) was painful, necessary, and agreed upon by VP+ stakeholders cross Engineering and Product.
+- **[Transformed]({{< ref "work/github-tpm-transformation/index.md" >}}) a ~30-person org into a lean team of force-multipliers focused on critical programs.** I defined and raised the technical bar, set consistent program standards, and [cut the portfolio from 20+ programs to 5](https://docs.google.com/presentation/d/e/2PACX-1vQcpNhOQvyvVCIwSSiIrUr58PcaTftCpXzjePcV4mw7n-omPv6a-7j_NMqwGHt-Q-_-Hi0OAakXKeTJ/pub?start=false&loop=false&delayms=5000&slide=id.g2f82f98138f_0_15)---each aligned to company-level goals with VP+ agreement across Engineering and Product. The result: TPMs that partners actively pulled into their hardest problems.
+- **[100% of GitHub Enterprise Server releases shipped on time.]({{< ref "work/ghes-release-health/index.md" >}})** [GHES](https://docs.github.com/en/enterprise-server@3.18/admin/overview/about-github-enterprise-server) accounts for a significant share of GitHub revenue. In early 2022, releases were missing deadlines. Led a TPM team to establish clear expectations, quality bars, and communication channels for all feature teams. Every release since mid-2023 shipped on time with minimal regressions — freeing the GHES engineering team to invest in net-new features for customers.
+- **Mission-critical response in under two hours.** Staffed a high-urgency security program within 60 minutes of a CTO escalation. TPMs were actively coordinating the response within two hours; the number of exposed secrets showed measurable improvement within days. Made possible by the [Flex Team]({{< ref "work/flex-team/index.md" >}}) — a dedicated squad of 3 TPMs I created to absorb urgent work without disrupting ongoing programs.
+- **Protected GitHub's PRC revenue stream.** GitHub's certification to sell in China required annual [GB18030 compliance](https://en.wikipedia.org/wiki/GB_18030). I identified the gap, built the cross-functional program (Engineering, Product, Legal, Revenue, Microsoft), secured budget and resource commitments, and achieved compliance every year the program ran.
 
 ### Woolpert
 
@@ -73,81 +53,52 @@ _Remote_
 
 #### Cloud Solutions Director
 
-_Jan 2019 to Jan 2022_
+_January 2019 – January 2022_
 
-- **Technical delivery.** Closed and delivered consulting engineering work worth $450,000.
-  Established pre-award R&D goals, work estimation, co-authored the technical proposal, and led agile project delivery with Google as my client.
-- **Customer support from zero to scale.** Pitched, budgeted, designed, and implemented a [scalable customer support system](https://support.woolpert.io) with [SLAs that customers could rely on](https://support.woolpert.io/hc/en-us/articles/4412102606743-Woolpert-support-service-level-agreement-SLA).
-  The guiding principle: the answer to every question is a [public URL](https://support.woolpert.io/hc/en-us/articles/10071914793495-Places-API-place-at-trick).
-- **Product.** Formed and led the team that defined, built, and sold our [first SaaS product](https://woolpert.com/stream-raster/).
-  As product owner I defined the features, pricing, SLOs and [SLAs](https://support.woolpert.io/hc/en-us/articles/360042964933-STREAM-RASTER-Service-Level), directed the engineering team daily, and landed the first customer.
-- **Establish and nurture a new team.**
-  Hired a team of 12 engineers in both team leader and individual contributor roles.
-  Defined net new remote-first roles and [ways of working]({{< ref "blog/2021/06/15/how-we-work/index.md" >}}) within a traditional corporate environment.
-  Established a repeatable hiring process with [core and technical skill components]({{< ref "blog/2019/01/29/core-skills-ge-tech-skills/index.md" >}}) and a high bar.
-  Established a functional org chart that scaled.
-- **Acquisitions.** Technical reviewer for two potential acquisitions.
-  I provided key input related to technical risk, technical staff, and product roadmap feasibility.
-  Key questions I asked: how quickly can you add another customer and how quickly can a fix be deployed?
-- **Open source mindset.** Led the release of our [first open source solution](https://woolpert.com/news/press-releases/woolpert-launches-geoawareness-solution-for-curbside-pickup-upon-arrival/), GeoAwareness, which represented a very different mindset from the closed-source, pay-to-play model.
-  [Writing](https://opencamadata.org/docs/0.9/) and promoting [open data standards](https://opencamadata.org) in an industry that is not known for openness.
-
+- **[Founded a technical practice from scratch.]({{< ref "work/woolpert-cloud-practice/index.md" >}})** Joined a pure-reseller organization with no technical pre-sale or post-sale capability. Built three new functions: Customer Engineering (pre-sale), Customer Success Engineering (post-sale), and consulting. Defined the roles, wrote the job descriptions, hired 12 engineers, established remote-first ways of working, and built the proposal and delivery motion from zero.
+- **Won and delivered a $450K Google engagement.** Wrote the proposal, led agile delivery, and shipped the official reference application for Google's brand-new logistics API — built from scratch, with Google as the client. First engagement of its kind for the practice; proof the team could perform at Google's standards.
+- **Customer support from zero to scale.** Designed and shipped a scalable support system with [published SLAs](https://support.woolpert.io/hc/en-us/articles/4412102606743-Woolpert-support-service-level-agreement-SLA). The guiding principle: [every answer is a URL](https://support.woolpert.io) — every support response lives at a permanent, shareable link so the team scales without re-answering the same question twice.
+- **Built and shipped the organization's first SaaS product.** As product owner for [STREAM Raster](https://woolpert.com/stream-raster/): defined features, pricing, SLOs, and [SLAs](https://support.woolpert.io/hc/en-us/articles/360042964933-STREAM-RASTER-Service-Level), directed engineering daily, landed the first paying customer.
 
 ### Google
 
 _Remote and Mountain View, California_
 
-#### Head of Partner Engineering, Android Automotive --- _2014-2018_
+#### Head of Partner Engineering, Android Automotive
 
-- **From zero to 70 million cars in 24 months.**
-  Founding partner engineering team member 2014, and it's global lead from 2015.
-  I built and led a global hybrid remote team of 15+ technical staff.
-  We got [Android Auto](https://www.android.com/auto/) embedded and jointly [shipped](https://www.hyundainews.com/assets/documents/original/23958-HYUNDAIISTHEFIRSTAUTOMAKERTOLAUNCHANDROIDAUTO.pdf) with 75+ industry partners in 130+ head unit variants in the first 24 months.
--  **Technical clarity for implementors.**
-   Implementing the Android Auto Protocol (AAP) in a car left many open questions for automotive suppliers.
-   I led the effort to codify requirements and guidelines via clear written documentation and testing procedures.
-   Third party (supplier) engineering teams could now validate correctness on their own before attempting certification.
-   Google's own codebase also improved as a result, notably around [audio management](https://source.android.com/docs/automotive/audio/audio-focus).
--  **Launch 3rd Party Labs testing for automotive.**
-   My team was the limiting factor in certifying and launching new Android Auto project (AAP) head units.
-   First I established a reproducible certification process applicable to all partners and internal teams (learn and do)
-   This enabled my team to outsource certifcation through a 3rd Party Labs ("3PL") program to dramatically increase the reach of the product.
--  **Corporate citizenship.** Sat on TPM hiring committee reviewing 50+ candidate packages for hire/no hire decisions, and personally interviewed 70+ technical and non-technical candidates.
+_2014 – 2018_
 
-#### Google Maps Program Manager --- _2012-2014_
+- **[From zero to 70 million cars — and the global team that got it there.]({{< ref "work/android-auto-partner-engineering/index.md" >}})** Started as an IC partner engineer on Google Maps API automotive integrations. Led the first two Android Auto OEM launches: [Hyundai (first to market)](https://www.hyundainews.com/assets/documents/original/23958-HYUNDAIISTHEFIRSTAUTOMAKERTOLAUNCHANDROIDAUTO.pdf) and Audi (fast-follow). Took on global team leadership from 2015: built and led 15 technical staff across 5 countries (Japan, South Korea, Germany, UK, USA), accountable for every OEM and Tier 1 supplier integration. Shipped with 75+ partners in 130+ head unit variants in the first 24 months.
+- **Turned implementation ambiguity into a self-service certification path.** OEM suppliers integrating the Android Auto Protocol faced unresolved technical questions that blocked them without Google intervention. I led documentation of requirements and testing procedures so third-party engineering teams could validate correctness independently before certification — eliminating a bottleneck, improving Google's own [audio management](https://source.android.com/docs/automotive/audio/audio-focus) codebase, and enabling a 3rd Party Labs program that dramatically scaled certification throughput.
+- **Corporate citizenship.** TPM hiring committee: reviewed 50+ candidate packages, personally interviewed 70+ technical and non-technical candidates.
 
-- **Program Leadership.** Founder of Geo Customer Success Services; I provided leadership for the practice, including program management and project execution. On a day-to-day basis I served as a technical advisor and advocate for strategic Google Maps OEMs, touching 27% of Geo revenue and key name brands.
-- **2013 Enterprise Operations Chief of Staff.** As a successful program manager I was selected for one of four global spots on the OCS leadership rotation in Singapore. Covered six countries in six weeks with great international business exposure alongside Google's regional leadership team.
+#### Google Maps Program Manager
+
+_2012 – 2014_
+
+- **Founded Geo Customer Success Services.** Established and ran the practice covering strategic Maps OEM accounts — 27% of Geo revenue and key named brands. Day-to-day: technical advisor, advocate, and program lead across a complex partner landscape.
+- **2013 Operations Chief of Staff.** Selected for one of four global spots on the OCS leadership rotation in Singapore. Six countries in six weeks alongside Google's regional leadership team.
 
 ## Other Experience
 
-**Stay at Home Dad** --- _2018-2019 (Denver, Colorado)_
+**Stay at Home Dad** — _2018–2019 · Denver, Colorado_
 
-- Took 5 wonderful months away from corporate life to settle the family into Denver after a move from San Francisco.
-- Did a lot of school-related activities, and finally got both of them confidently riding bikes.
-- Learned to cook better, and about the benefit of mise en place a.k.a. prep!
+Took five months away from corporate life to relocate the family from San Francisco to Denver.
 
-**Microsoft** --- _2010-2012 (Mountain View, California)_
+**Microsoft** — _Senior Program Manager, Bing & MSN · 2010–2012 · Mountain View, CA_
 
-- Senior Program Manager on Bing. Defined and executed the plan by leading large (20+) teams across Eng and QA.
-- I defined, scoped, and planned feature releases, and ran stand-up meetings.
--   [Prototyped](https://github.com/dvhthomas/socks), owned the product backlog, and was accountable for final delivery on user-facing features on MSN.com.
+IC Technical PM with lead-by-influence accountability for EPD delivery: owned social data integration features on MSN.com and platform-scale identity features on Bing, coordinating across engineering and QA teams of 20+. Formative experience in big-company platform complexity, large-scale data integrations, and shipping at Microsoft velocity.
 
-**Woolpert** --- _2004–2010 (Denver and Seattle remote)_
+**Woolpert** — _Consulting Software Engineer → Technical Leader · 2004–2010 · Denver and Seattle_
 
-- As Consulting Software Engineer I provided technical leadership and coaching to 20 software engineers and system analysts.
-- Delivered core business objects and persistence tier for $8M suite of applications and data at a major U.S. airport.
-- As Project Manager I opened a new remote office in Seattle, Washington; I pitched, won, and delivered technical contracts in the $20K-$250K range.
+Started as IC system integrator on complex on-premises ArcGIS enterprise deployments for local governments and public utilities — direct accountability for utilization, earned value, and % complete. Promoted to Technical Leader, providing coaching to 20 engineers and analysts. Opened the Seattle remote office; pitched, won, and delivered technical contracts in the $20K–$250K range.
 
 ## Education
 
-**University of North Carolina**
-: **Masters of Arts in Geography**
-: Charlotte, North Carolina
-
-**University of Reading**
-: **Bachelor of Science in Geography**
-: Reading, United Kingdom
+- **ByteByteGo** — [AI Engineering](/series/ai-engineering-course/)
+- **Cornell University** — Leadership Excellence
+- **University of North Carolina** — Master of Arts in Geography · Charlotte, NC
+- **University of Reading** — Bachelor of Science in Geography · Reading, UK
 
 ## Other
 

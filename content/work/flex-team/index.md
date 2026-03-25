@@ -1,5 +1,5 @@
 ---
-title: Flex Team
+title: "Rapid Response: The Flex Team"
 date: 2024-03-14T20:11:21-06:00
 toc: false
 series: []
@@ -13,6 +13,8 @@ capabilities:
 ---
 
 ## Situation
+
+> INFO: This case study covers one piece of a broader [transformation of GitHub's TPM function]({{< ref "work/github-tpm-transformation/index.md" >}}).
 
 The entire TPM team at GitHub was fully committed to a portfolio of existing programs.
 At the same time, GitHub leadership [kept asking for rapid TPM support](https://docs.google.com/presentation/d/e/2PACX-1vQcpNhOQvyvVCIwSSiIrUr58PcaTftCpXzjePcV4mw7n-omPv6a-7j_NMqwGHt-Q-_-Hi0OAakXKeTJ/pub?start=false&loop=false&delayms=5000&slide=id.g2f7ef622387_0_51) to address specific, urgent problems.
