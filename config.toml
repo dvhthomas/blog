@@ -55,15 +55,10 @@ ignoreErrors = ["error-remote-getjson"]
         url = "/series/"
         weight = 4
     [[menu.main]]
-        name = "Recipes"
-        pre = "coffee"
-        url = "/recipes/"
-        weight = 5
-    [[menu.main]]
         name = "About"
         pre = "user"
         url = "/about/"
-        weight = 6
+        weight = 5
 
 [taxonomies]
   tag = "tags"

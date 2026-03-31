@@ -170,9 +170,18 @@ h2 {
 }
 
 #home-jumbotron {
-    background-color: inherit;
-    padding: 2rem 2rem;
-    margin-bottom: 2rem;
+    background:
+        url("/images/hero-cropped.jpg") right center/contain no-repeat,
+        hsl(var(--base-hue), 25%, 18%);
+    color: #fff;
+    padding: 4rem 2rem;
+    margin-top: -1px;
+}
+
+#home-jumbotron h1,
+#home-jumbotron p {
+    color: #fff;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
 }
 
 /* Search form styling */
@@ -710,6 +719,8 @@ article.section-resume h4::before {
     /* Reduce jumbotron padding on mobile */
     #home-jumbotron {
         padding: 1rem 0.5rem;
+        background-position: right 20%;
+        background-size: auto 100%;
     }
 }
 
