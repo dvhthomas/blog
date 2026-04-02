@@ -3,7 +3,7 @@ title: Audaciously deciding to write a new language
 date: 2025-11-11T00:41:58-07:00
 tags: [language, parsers, lexers, calculations]
 toc: true
-series: []
+series: [CalcMark]
 summary: |-
     I really wanted a tiny little version of Jupyter notebooks but for personal calculations that can also
     have Markdown in them. So I started chatting with my buddy, Claude, who gave me an inflated sense

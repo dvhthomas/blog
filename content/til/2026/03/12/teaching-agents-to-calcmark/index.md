@@ -3,7 +3,7 @@ title: Teaching agents to use CalcMark
 date: 2026-03-12T19:20:48-06:00
 tags: [calcmark, agents, skills]
 toc: true
-series: []
+series: [CalcMark]
 summary: I wrote an agent skill so Claude Code can use CalcMark for calculations. Then I asked Claude what was hard, and it taught me a few things about building tools for agents.
 draft: false
 images: []

@@ -3,7 +3,7 @@ title: Shrinking output from Go WebAssembly
 date: 2025-11-17T21:51:27-07:00
 tags: [go, wasm, tinygo, crosscompilation, optimization, compression]
 toc: true
-series: []
+series: [CalcMark]
 summary: |
   Cross-compiling Go code to WebAssembly (WASM) is really powerful.
   It also produces massive files to download.

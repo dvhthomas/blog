@@ -3,7 +3,7 @@ title: "Building a language in Go"
 date: 2026-03-21T10:00:00-06:00
 tags: [go, language-design, calcmark, parsing]
 toc: true
-series: []
+series: [CalcMark]
 summary: |-
   What I learned building CalcMark — a calculation language embedded in markdown — in Go.
   Lexers, parsers, type systems, and the tradeoffs that bit me.
