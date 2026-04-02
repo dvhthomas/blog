@@ -14,30 +14,7 @@ Hugo static site for [bitsby.me](https://bitsby.me), a personal blog by Dylan Th
 
 ## Creating Content
 
-Content lives in `content/` as Hugo page bundles (directory with `index.md`). Always scaffold with `task`, where the slug is kebab-cased like `my-cool-recipe`.
-
-| Type | Command | Path pattern |
-|------|---------|-------------|
-| Blog | `TITLE="slug" task blog` | `content/blog/YYYY/MM/DD/slug/index.md` |
-| TIL | `TITLE="slug" task til` | `content/til/YYYY/MM/DD/slug/index.md` |
-| Recipe | `TITLE="slug" task recipe` | `content/recipes/slug/index.md` |
-
-The archetype handles front matter. Update generated fields (title, tags, summary, images, series) as needed. Recipes use `{{< recipe >}}`, `{{< ingredients >}}`, and `{{< instructions >}}` shortcodes (see `archetypes/recipes.md`).
-
-## Images
-
-Place images in the page bundle alongside `index.md`.
-
-**Figure shortcode** (preferred for captioned images):
-```markdown
-{{</* figure src="image.png" title="Caption" */>}}
-{{</* figure src="image.png" w="400" title="Resized" */>}}
-```
-
-**Markdown images** with query string resizing via `render-image.html`:
-```markdown
-![Alt text](image.png?w=600)
-```
+See the [new-content](.agents/skills/new-content.md) skill for scaffolding, front matter, images, and diagrams.
 
 ## Shortcodes
 

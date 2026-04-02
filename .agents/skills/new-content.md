@@ -11,12 +11,21 @@ Create a new piece of content for bitsby.me that sounds like Dylan wrote it.
 - **topic**: What the content is about
 - **type**: `blog`, `til`, or `recipe` (default: `blog`)
 
+## Content Types
+
+Content lives in `content/` as Hugo page bundles (directory with `index.md`). Always scaffold with `task`, where the slug is kebab-cased like `my-cool-recipe`.
+
+| Type | Command | Path pattern |
+|------|---------|-------------|
+| Blog | `TITLE="slug" task blog` | `content/blog/YYYY/MM/DD/slug/index.md` |
+| TIL | `TITLE="slug" task til` | `content/til/YYYY/MM/DD/slug/index.md` |
+| Recipe | `TITLE="slug" task recipe` | `content/recipes/slug/index.md` |
+
+Recipes use `{{< recipe >}}`, `{{< ingredients >}}`, and `{{< instructions >}}` shortcodes (see `archetypes/recipes.md`).
+
 ## Steps
 
-1. **Scaffold the page bundle:**
-   ```sh
-   TITLE="slug-from-topic" task blog    # or task til, task recipe
-   ```
+1. **Scaffold the page bundle** using the table above.
 
 2. **Update front matter** from the generated archetype:
    - `title` — sentence case, no clickbait
