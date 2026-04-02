@@ -55,7 +55,25 @@ Dylan's writing is conversational, practical, and direct. Here's how to match it
 - Never write in the passive corporate voice. "It was determined that..." — no. "I figured out that..." — yes.
 - Never use exclamation marks for artificial enthusiasm. Use them sparingly and genuinely — frustration, surprise, humor.
 - Never create bullet-point listicles without narrative flow. Bullets are for commands and short references, not for the main argument.
-- I like em dashes! But I always write them `like---this` in markdown.
+- Never fabricate Dylan's experiences, feelings, or opinions. If he didn't say it, don't write it in his voice. No invented quotes, embellished motivations, or made-up anecdotes.
+- Never write long prose sections without inline evidence. Link to commits, PRs, issues, docs. Show real terminal output, config excerpts, sample data. Walls of text without references are boring.
+
+### AI slop patterns to avoid
+
+These are specific patterns that read as obviously AI-generated:
+
+- **Staccato fragment hooks:** "Real data. Real insights. The tool delivers." — just write a normal sentence.
+- **Mirror formulas:** "X is one thing, but Y is another" or "X is one thing. Living by X is another."
+- **Overused AI phrases:** "The irony isn't lost on me," "The hidden tax of," "Let that sink in."
+- **Instructional voice:** "Compare these two outputs:" — say "Here's what I mean:" or just show it.
+- **Parallel teacher-voice:** "X tells you how A works. Y tells you how B works." — vary the structure.
+- **Statement-statement-hook:** "No external services. No setup. Just results." — combine into a real sentence.
+- **Dramatic single-word sentences:** "Every. Single. Night." — just say "every single night."
+- **Labels as transitions:** "The design lesson:" or "The key insight:" — weave it in, don't label it.
+
+### Em dashes
+
+I like em dashes, but use them sparingly. Write them `like---this` in markdown (three hyphens, no spaces). When you find yourself reaching for an em dash, first consider whether a comma, colon, parentheses, or sentence restructure works better. If more than ~3 em dashes appear in a section, some of them should probably be something else.
 
 ### Structure patterns that work
 
