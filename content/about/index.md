@@ -36,6 +36,10 @@ The **ability and desire to learn** got me from being a geographer in both [the 
 * [Building]({{< relRef "series/woolpert-cloud-journey/" >}}) a Cloud consulting product and practice
 * [Leading]({{< ref "blog/2024/10/20/tpm-journey-at-github/index.md" >}}) the TPM team at GitHub through major product and platform shifts.
 * Having a life by taking two sabbaticals as **Head of DadOps** for my family.
+* Creating repeatable solutions to recurring operational and team friction:
+  * [Calculations in Markdown](https://calcmark.org)
+  * [Agentic job searches](https://jobs4me.org)
+  * [Team flow metrics for actionable insights](https://gh-velocity.org).
 
 Again, my [resume / C.V.]({{< ref "resume/index.md" >}}) has all the details.
 
