@@ -1,52 +1,14 @@
-{{ define "main" }}
-
-<div class="content-type-badge">{{ .Section }}</div>
-
-<header class="recipe-header">
-    <h1>{{ .Title }}</h1>
-    {{ if .Params.summary }}
-    <p class="recipe-summary">{{ .Params.summary | markdownify }}</p>
-    {{ end }}
-
-    <div class="recipe-author-date">
-        <span>By {{ with .Params.author.name }}<a href="{{ $.Params.author.url | default $.Site.BaseURL }}">{{ . }}</a>{{ else }}{{ .Site.Title }}{{ end }}</span>
-        <span class="text-muted"> • </span>
-        <time datetime="{{ .PublishDate.Format "2006-01-02" }}">
-            {{ .PublishDate.Format "January 2, 2006" }}
-        </time>
-    </div>
-    {{/* Quick Actions - only show on actual recipe pages, not static pages like units */}}
-    {{ if ne .File.BaseFileName "units" }}
-    <aside class="recipe-actions no-print">
-        <a href="#recipe">Jump to Recipe</a>
-        <span class="action-separator">•</span>
-        <a href="/recipes/units/">Unit Conversions</a>
-        <span class="action-separator">•</span>
-        <a href="javascript:window.print()">Print</a>
-    </aside>
-    {{ end }}
-    {{ partial "recipe-meta.html" . }}
-
-
-</header>
-{{/* Recipe Introduction */}}
-<article class="section-{{ .Type }}">
-    {{ .Content }}
-    <br />
-    {{- if and .File .Site.Params.githubRepo -}}
-    <p class="no-print" style="margin-top: 2rem; font-size: 0.9rem">
-        <a
-            href="{{ .Site.Params.githubRepo }}/blob/main/content/{{ .File.Path }}"
-            target="_blank"
-            rel="noopener"
-        >
-            View page source
-        </a>
-    </p>
-    {{- end -}}
-    <p class="print-only" style="margin-top: 2rem; font-size: 0.9rem; color: #666;">
-        Recipe URL: {{ .Permalink }}
-    </p>
-</article>
-
-{{ end }}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>{{ .Title }} — Moved</title>
+    {{- $target := printf "https://recipes4.me%s" .RelPermalink -}}
+    <link rel="canonical" href="{{ $target }}">
+    <meta http-equiv="refresh" content="0; url={{ $target }}">
+    <meta name="robots" content="noindex">
+</head>
+<body>
+    <p>This page has moved to <a href="{{ $target }}">{{ $target }}</a>.</p>
+</body>
+</html>

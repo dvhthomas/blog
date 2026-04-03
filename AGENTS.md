@@ -27,7 +27,6 @@ See the [new-content](.agents/skills/new-content.md) skill for scaffolding, fron
 | `code` | `{{% code file="hello.py" lang="python" %}}` |
 | `github` | `{{</* github path="blog.go" */>}}` (defaults to `main` branch) |
 | `gist` | `{{</* gist dvhthomas 239909 */>}}` |
-| `recipe` | Wrapper with `ingredients` and `instructions` sub-shortcodes |
 
 D2 site-wide config is in `config.toml` under `[params.d2]`.
 
@@ -44,5 +43,5 @@ task render-d2    # Render D2 diagrams only
 ## Skills
 
 - **[voice-guide](.agents/skills/voice-guide.md)** — The authority on Dylan's writing style. Load for any writing task.
-- **[new-content](.agents/skills/new-content.md)** — Scaffold and write a new blog post, TIL, or recipe.
+- **[new-content](.agents/skills/new-content.md)** — Scaffold and write a new blog post or TIL.
 - **[edit-content](.agents/skills/edit-content.md)** — Editorial review pass before committing. Checks purpose, clarity, tone, grammar, assumptions, and voice compliance.

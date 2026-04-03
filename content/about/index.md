@@ -45,7 +45,7 @@ Again, my [resume / C.V.]({{< ref "resume/index.md" >}}) has all the details.
 
 ## Other Stuff
 
-I love to cook and have a semi-secret stash of [recipes](/recipes/) 🍳. You're welcome.
+I love to cook and have a collection of [recipes](https://recipes4.me/recipes/) 🍳. You're welcome.
 
 ## Get In Touch
 

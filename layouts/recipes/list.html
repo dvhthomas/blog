@@ -1,19 +1,13 @@
-{{ define "main" }}
-
-<div class="content-type-badge">{{ .Section }}</div>
-
-<header>
-    <h1>{{ .Title }}</h1>
-</header>
-
-{{/* Section description from _index.md */}}
-{{ if .Content }}
-<div>{{ .Content }}</div>
-{{ end }}
-
-{{/* List all recipes */}}
-{{ range .Pages }}
-    {{ partial "article-listing.html" . }}
-{{ end }}
-
-{{ end }}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Recipes — Moved</title>
+    <link rel="canonical" href="https://recipes4.me/recipes/">
+    <meta http-equiv="refresh" content="0; url=https://recipes4.me/recipes/">
+    <meta name="robots" content="noindex">
+</head>
+<body>
+    <p>This page has moved to <a href="https://recipes4.me/recipes/">https://recipes4.me/recipes/</a>.</p>
+</body>
+</html>

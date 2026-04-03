@@ -1,5 +1,5 @@
 ---
-description: Create a new blog post, TIL, or recipe for bitsby.me. Scaffolds the page bundle, sets up front matter, and writes content in Dylan's voice.
+description: Create a new blog post or TIL for bitsby.me. Scaffolds the page bundle, sets up front matter, and writes content in Dylan's voice.
 ---
 
 # Skill: New Content
@@ -9,19 +9,16 @@ Create a new piece of content for bitsby.me that sounds like Dylan wrote it.
 ## Inputs
 
 - **topic**: What the content is about
-- **type**: `blog`, `til`, or `recipe` (default: `blog`)
+- **type**: `blog` or `til` (default: `blog`)
 
 ## Content Types
 
-Content lives in `content/` as Hugo page bundles (directory with `index.md`). Always scaffold with `task`, where the slug is kebab-cased like `my-cool-recipe`.
+Content lives in `content/` as Hugo page bundles (directory with `index.md`). Always scaffold with `task`, where the slug is kebab-cased like `my-cool-post`.
 
 | Type | Command | Path pattern |
 |------|---------|-------------|
 | Blog | `TITLE="slug" task blog` | `content/blog/YYYY/MM/DD/slug/index.md` |
 | TIL | `TITLE="slug" task til` | `content/til/YYYY/MM/DD/slug/index.md` |
-| Recipe | `TITLE="slug" task recipe` | `content/recipes/slug/index.md` |
-
-Recipes use `{{< recipe >}}`, `{{< ingredients >}}`, and `{{< instructions >}}` shortcodes (see `archetypes/recipes.md`).
 
 ## Steps
 

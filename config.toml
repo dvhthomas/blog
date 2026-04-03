@@ -64,9 +64,6 @@ ignoreErrors = ["error-remote-getjson"]
   tag = "tags"
   series = "series"
   capability = "capabilities"
-  cuisine = "cuisines"
-  category = "categories"
-  diet = "diets"
 
 [permalinks]
   blog = "/:year/:month/:title"
