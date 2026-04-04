@@ -1,0 +1,59 @@
+# Global options — apply to all sites
+{
+	# Only log warnings and errors; skip per-request access logs
+	log default {
+		level WARN
+	}
+}
+
+# Direct local access to the kanban board on port 8080.
+# No Tailscale involved — just http://localhost:8080
+:8080 {
+	root * "/Users/bitsbyme/Library/CloudStorage/GoogleDrive-dvhthomas@gmail.com/My Drive/Career/Job Search/Kanban"
+	file_server
+}
+
+# Tailscale points here via: tailscale serve --bg 8777
+#
+# Why so many handlers instead of just /argus*?
+#   The Vite build hardcodes asset paths at the root: /assets/index-xxx.js,
+#   not /argus/assets/index-xxx.js. Same for /api/* and /socket.io/*.
+#   So when the browser loads /argus and gets index.html, every subsequent
+#   request (JS, CSS, API, WebSocket) arrives at a root-level path.
+#   Each needs its own handler. The only way around this would be building
+#   Vite with base: '/argus/', but that breaks local dev.
+:8777 {
+	# /jobs — static kanban board files.
+	# handle_path strips /jobs so the file server sees / as root.
+	handle_path /jobs* {
+		root * "/Users/bitsbyme/Library/CloudStorage/GoogleDrive-dvhthomas@gmail.com/My Drive/Career/Job Search/Kanban"
+		file_server
+	}
+
+	# /argus — entry point for the Argus dashboard.
+	# Strips /argus prefix, then tries to serve the requested file
+	# from the Vite build. Falls back to index.html for client-side
+	# routing (React SPA).
+	handle_path /argus* {
+		root * /Users/bitsbyme/projects/code-orchestrator/client/dist
+		try_files {path} /index.html
+		file_server
+	}
+
+	# /assets — Vite's hashed build output (JS, CSS).
+	# The built index.html references these at root level, e.g.
+	# /assets/index-CB3iNx55.js, so they bypass the /argus handler.
+	handle /assets/* {
+		root * /Users/bitsbyme/projects/code-orchestrator/client/dist
+		file_server
+	}
+
+	# /api and /socket.io — proxy to the Express server on port 5400.
+	# The Argus client fetches these at root level, not under /argus.
+	handle /api/* {
+		reverse_proxy localhost:5400
+	}
+	handle /socket.io/* {
+		reverse_proxy localhost:5400
+	}
+}
