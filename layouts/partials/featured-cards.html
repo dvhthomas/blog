@@ -11,7 +11,7 @@
             {{- with .Params.images -}}
                 {{- with index . 0 -}}
                     {{- with $page.Resources.GetMatch . -}}
-                        {{- if reflect.IsImageResourceProcessable . -}}
+                        {{- if ne .MediaType.SubType "svg+xml" -}}
                             {{- $spec := "72x48 smart" -}}
                             {{- if $defaultFormat -}}
                                 {{- $spec = printf "72x48 smart %s" $defaultFormat -}}
