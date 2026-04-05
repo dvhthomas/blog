@@ -5,8 +5,8 @@ draft: false
 ---
 
 Hi, I'm Dylan Thomas 👋 [^poetry].
-I'm a geographer by training, a technologist by profession, and a (slow) cyclist by nature.
-I enjoy working on my open source projects [CalcMark](https://calcmark.org) and [GitHub Velocity](https://github.com/dvhthomas/gh-velocity).
+I'm a geographer by training, a technologist and program leader by profession, and a (slow) cyclist by nature.
+I enjoy working on my open source projects [CalcMark](https://calcmark.org), [GitHub Velocity](https://gh-velocity.org), and [Recipes4.me](https://recipes4.me).
 
 {{< figure alt="a headshot showing Dylan in an office environment" src="headshot.png" w="400" >}}
 
@@ -46,6 +46,10 @@ Again, my [resume / C.V.]({{< ref "resume/index.md" >}}) has all the details.
 ## Other Stuff
 
 I love to cook and have a collection of [recipes](https://recipes4.me/recipes/) 🍳. You're welcome.
+
+## Selected Writing
+
+{{< selected-writing >}}
 
 ## Get In Touch
 

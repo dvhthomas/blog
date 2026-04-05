@@ -2,16 +2,14 @@
 
 <h1>{{ .Title }}</h1>
 
-<!--
-  The .Content here is the magic bit that also
-  renders the text on the _index.md page in each
-  of the content folders, e.g., the content in
-  content/blog/_index.md.
--->
-<div style="margin-bottom: 2rem; padding-bottom: 1.5rem; border-bottom: 1px solid rgba(0, 0, 0, 0.1);">
+<div class="list-intro">
 {{ .Content }}
 </div>
 
-{{ range .Paginator.Pages.ByPublishDate.Reverse }} {{ partial
-"article-listing.html" . }} {{ end }} {{- partial "pagination.html" . -}} {{ end
-}}
+{{ range .Paginator.Pages.ByPublishDate.Reverse }}
+    {{ partial "article-listing.html" . }}
+{{ end }}
+
+{{- partial "pagination.html" . -}}
+
+{{ end }}

@@ -1,19 +1,14 @@
-{{/* Reusable article listing partial - shows title with inline date and summary, tags below */}}
-<p>
-    {{ $dateFormat := .Site.Params.dateFormat | default "Jan 2, 2006" }}
-
-    <a class="font-125" href="{{ .RelPermalink }}">{{ .Title }}</a> <span class="badge badge-secondary">{{ .Section }}</span>
-    &mdash; <time datetime="{{ .PublishDate.Format "2006-01-02" }}"><em>{{ .PublishDate.Format $dateFormat }}</em></time>
-    {{ if .Params.summary }}
-    &mdash; {{ .Params.summary | markdownify | truncate 200 }}
-    {{ end }}
-    <br>
-    {{ with .Params.tags }}
-    <div role="list" aria-label="Tags">
-    {{ range . }}
-    {{ $href := print (absURL "tags/") (urlize .) }}
-    <a class="btn btn-sm btn-outline-dark tag-btn summary" href="{{ $href }}" role="listitem" aria-label="Tag: {{ . }}">{{ . }}</a>
-    {{ end }}
+{{/* Reusable article listing partial */}}
+{{- $dateFormat := .Site.Params.dateFormat | default "Jan 2, 2006" -}}
+<div class="article-listing">
+    <div>
+        <a class="article-listing-title" href="{{ .RelPermalink }}">{{ .Title }}</a>
+        <a class="article-listing-section" href="{{ .Section | printf "/%s/" }}">{{ .Section }}</a>
+        <span class="article-listing-date">
+            &mdash; <time datetime="{{ .PublishDate.Format "2006-01-02" }}">{{ .PublishDate.Format $dateFormat }}</time>
+        </span>
     </div>
+    {{ if .Params.summary }}
+    <span class="article-listing-summary">{{ .Params.summary | markdownify | truncate 200 }}</span>
     {{ end }}
-</p>
+</div>

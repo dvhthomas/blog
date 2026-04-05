@@ -3,12 +3,10 @@
 <h1>{{ .Title }}</h1>
 
 {{ range .Data.Terms.Alphabetical }}
-<p>
-    <a
-        class="btn btn-sm btn-outline-dark tag-btn font-125"
-        href="{{ .Page.RelPermalink }}"
-    >
-        <span class="badge badge-dark">{{ .Count }}</span> {{ .Page.Title }}
-    </a>
-</p>
-{{ end }} {{ end }}
+<div class="article-listing">
+    <a class="article-listing-title" href="{{ .Page.RelPermalink }}">{{ .Page.Title }}</a>
+    <span class="article-listing-section">{{ .Count }}</span>
+</div>
+{{ end }}
+
+{{ end }}

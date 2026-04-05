@@ -9,6 +9,7 @@ summary: |-
   Not "look how many commits I made" but "look at the quality and speed of
   issue resolution." The data tells the story.
 draft: false
+featured: true
 images: [calcmark-og.png]
 ---
 

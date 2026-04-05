@@ -5,14 +5,15 @@ title = "Bits By Me"
 enableGitInfo = true
 
 [pagination]
-  pagerSize = 10
+  pagerSize = 50
 
 ignoreErrors = ["error-remote-getjson"]
 
 [params]
-    homeText = "tech cycling dadops learning"
+    author = "Dylan Thomas"
+    homeText = "I [write about](/writing/) operations, teams, engineering, tools, and things [I'm learning](/til/)."
     dateFormat = "January 2, 2006"
-    description = "The personal website of Dylan Thomas"
+    description = "Dylan Thomas writes about operations, teams, engineering, tools, and things he's learning."
     images = ["/about/headshot.png"]
     githubRepo = "https://github.com/dvhthomas/blog"
       # Default format for image conversion (e.g., "webp", "jpeg", "png"). Leave empty to disable conversion.
@@ -40,20 +41,15 @@ ignoreErrors = ["error-remote-getjson"]
         url = "/"
         weight = 1
     [[menu.main]]
-        name = "Blog"
+        name = "Writing"
         pre = "edit"
-        url = "/blog/"
+        url = "/writing/"
         weight = 2
-    [[menu.main]]
-        name = "TIL"
-        pre = "award"
-        url = "/til/"
-        weight = 3
     [[menu.main]]
         name = "Series"
         pre = "book"
         url = "/series/"
-        weight = 4
+        weight = 3
     [[menu.main]]
         name = "About"
         pre = "user"

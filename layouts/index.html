@@ -1,26 +1,23 @@
 {{ define "main" }}
 
-<div id="home-jumbotron" class="jumbotron text-center">
-    <h1>{{ .Title }}</h1>
-    <p class="font-125">{{ .Site.Params.homeText | markdownify }}</p>
-    <div class="d-flex justify-content-center">
+<div class="home-intro">
+    <h1>{{ .Site.Params.author | default .Title }}</h1>
+    <p>{{ .Site.Params.homeText | markdownify }}</p>
+    <div class="search-inline">
         {{ partial "search_form.html" . }}
     </div>
 </div>
 
-<p>
-    Hi 👋 <a href="/about">I'm Dylan</a>. Check out my
-    <a href="/blog/">blog</a> and shorter notes called
-    <a href="/til/">Today I Learned&hellip;</a>
-    My <a href="/resume">resume</a> describes my professional journey.
-    Follow the links up top☝️to explore. Social links are in the footer👇
-</p>
+{{ partial "featured-cards.html" . }}
 
-<hr/>
-
-{{ $allContent := where .Site.RegularPages "Section" "in"
-(slice "blog" "til") }} {{ range first 5 $allContent }} {{ partial
-"article-listing.html" . }} {{ end }}
+<div class="recent-section">
+<h2>Recent</h2>
+{{ $allContent := where (where .Site.RegularPages "Section" "in" (slice "blog" "til")) ".Params.featured" "ne" true }}
+{{ range first 10 $allContent }}
+    {{ partial "article-listing.html" . }}
+{{ end }}
+<a class="all-writing-link" href="/writing/">All writing &rarr;</a>
+</div>
 
 <script>
     document.addEventListener("keydown", function (e) {

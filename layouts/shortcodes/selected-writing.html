@@ -1,0 +1,15 @@
+{{- $featured := where (where .Site.RegularPages "Section" "in" (slice "blog" "til")) ".Params.featured" true -}}
+{{- with $featured -}}
+<ul class="selected-writing">
+    {{- range . }}
+    <li>
+        <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+        {{- if .Params.summary }}
+        &mdash; {{ .Params.summary | markdownify | truncate 200 }}
+        {{- else }}
+        &mdash; {{ .Summary }}
+        {{- end }}
+    </li>
+    {{- end }}
+</ul>
+{{- end -}}

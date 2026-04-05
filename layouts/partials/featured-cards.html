@@ -1,0 +1,36 @@
+{{- $defaultFormat := .Site.Params.defaultImageFormat -}}
+{{- $dateFormat := .Site.Params.dateFormat | default "Jan 2, 2006" -}}
+{{- $featured := where (where .Site.RegularPages "Section" "in" (slice "blog" "til")) ".Params.featured" true -}}
+{{- with $featured -}}
+<section class="featured-section">
+    <h2>Featured</h2>
+    <div class="featured-grid">
+        {{- range . -}}
+        {{- $page := . -}}
+        <a href="{{ .RelPermalink }}" class="featured-item">
+            {{- with .Params.images -}}
+                {{- with index . 0 -}}
+                    {{- with $page.Resources.GetMatch . -}}
+                        {{- if reflect.IsImageResourceProcessable . -}}
+                            {{- $spec := "72x48 smart" -}}
+                            {{- if $defaultFormat -}}
+                                {{- $spec = printf "72x48 smart %s" $defaultFormat -}}
+                            {{- end -}}
+                            {{- $thumb := .Fill $spec -}}
+                            <img class="featured-thumb" src="{{ $thumb.RelPermalink }}" alt="" width="{{ $thumb.Width }}" height="{{ $thumb.Height }}" loading="lazy">
+                        {{- end -}}
+                    {{- end -}}
+                {{- end -}}
+            {{- end -}}
+            <span class="featured-text">
+                <span class="featured-title">{{ .Title }}</span>
+                <span class="featured-date">{{ .PublishDate.Format $dateFormat }}</span>
+                {{- if .Params.summary }}
+                <span class="featured-summary">{{ .Params.summary | markdownify | truncate 80 }}</span>
+                {{- end }}
+            </span>
+        </a>
+        {{- end }}
+    </div>
+</section>
+{{- end -}}

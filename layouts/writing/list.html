@@ -1,0 +1,18 @@
+{{ define "main" }}
+
+<h1>{{ .Title }}</h1>
+
+{{ $allContent := union
+    (where .Site.RegularPages "Section" "blog")
+    (where .Site.RegularPages "Section" "til")
+}}
+{{ $sorted := sort $allContent "PublishDate" "desc" }}
+
+{{ $paginator := .Paginate $sorted }}
+{{ range $paginator.Pages }}
+    {{ partial "article-listing.html" . }}
+{{ end }}
+
+{{- partial "pagination.html" . -}}
+
+{{ end }}

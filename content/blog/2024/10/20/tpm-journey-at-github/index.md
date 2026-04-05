@@ -11,6 +11,7 @@ summary: Slides and recording of my presentation about how technical program man
 mermaid: false
 mathjax: false
 draft: false
+featured: true
 images:
 - speaker-photo.jpg
 ---

@@ -2,12 +2,11 @@
 
 <h1>{{ .Title }}</h1>
 
-<div>
 {{ range .Data.Terms.Alphabetical }}
-    <a class="btn btn-outline-dark tag-btn" href="{{ .Page.RelPermalink }}">
-        <span class="badge badge-dark">{{ .Count }}</span> {{ .Page.Title }}
-    </a>
-{{ end }}
+<div class="article-listing">
+    <a class="article-listing-title" href="{{ .Page.RelPermalink }}">{{ .Page.Title }}</a>
+    <span class="article-listing-section">{{ .Count }}</span>
 </div>
+{{ end }}
 
 {{ end }}

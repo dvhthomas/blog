@@ -1,24 +1,15 @@
 {{ $dateFormat := .Site.Params.dateFormat | default "Jan 2, 2006" }}
 {{ $publishDate := .PublishDate }}
-{{ $lastMod := .Lastmod }}
-{{ $daysDiff := div (sub $lastMod.Unix $publishDate.Unix) 86400 }}
 
-<time class="summary" datetime="{{ $publishDate.Format "2006-01-02" }}">{{ $publishDate.Format $dateFormat }}</time>
+<time datetime="{{ $publishDate.Format "2006-01-02" }}">{{ $publishDate.Format $dateFormat }}</time>
 {{ $taxonomies := slice (dict "name" "tags" "label" "Tags" "singular" "Tag")
 (dict "name" "capabilities" "label" "Capabilities" "singular" "Capability") }}
 {{ range $taxonomies }} {{ $taxonomy := . }} {{ $terms := index $.Params .name
 }} {{ with $terms }}
-<br />
-<div role="list" aria-label="{{ $taxonomy.label }}" style="margin-top: 0.5rem;">
+<div class="tag-list" role="list" aria-label="{{ $taxonomy.label }}">
     {{ range . }} {{ $href := print (relURL (printf "%s/" $taxonomy.name))
     (urlize .) }}
-    <a
-        class="btn btn-sm btn-outline-dark tag-btn summary"
-        href="{{ $href }}"
-        role="listitem"
-        aria-label="{{ $taxonomy.singular }}: {{ . }}"
-        >{{ . }}</a
-    >
+    <a href="{{ $href }}" role="listitem" aria-label="{{ $taxonomy.singular }}: {{ . }}">{{ . }}</a>
     {{ end }}
 </div>
 {{ end }} {{ end }}
