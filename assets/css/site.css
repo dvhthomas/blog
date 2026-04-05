@@ -1,113 +1,85 @@
+/* ── Variables ─────────────────────────────────────────────── */
 :root {
-    --base-hue: 215; /* ink blue */
-    --brand-color: hsl(
-        var(--base-hue),
-        80%,
-        65%
-    ); /* lighter blue - default link color */
-    --highlight-color: hsl(calc(var(--base-hue) + 180), 84%, 40%);
-    --action-color: hsl(
-        var(--base-hue),
-        70%,
-        45%
-    ); /* darker blue - hover color */
+    --base-hue: 215;
+    --brand-color: hsl(var(--base-hue), 65%, 40%);
+    --action-color: hsl(var(--base-hue), 75%, 30%);
+    --highlight-color: hsl(25, 65%, 30%);
 
-    /* Callout colors based on brand hue rotations */
-    --tip-hue: calc(
-        var(--base-hue) + 60
-    ); /* 60° rotation for distinct but harmonious color */
-    --tip-bg-color: hsl(var(--tip-hue), 45%, 95%);
-    --tip-border-color: hsl(var(--tip-hue), 60%, 50%);
-    --tip-text-color: hsl(var(--tip-hue), 60%, 40%);
+    --text-color: hsl(30, 5%, 15%);
+    --text-secondary: hsl(30, 3%, 38%);
+    --muted-color: hsl(30, 3%, 45%);
+    --border-color: hsl(30, 5%, 85%);
 
-    --info-hue: calc(var(--base-hue) - 30); /* analogous: 30° rotation */
-    --info-bg-color: hsl(var(--info-hue), 45%, 95%);
-    --info-border-color: hsl(var(--info-hue), 80%, 55%);
-    --info-text-color: hsl(var(--info-hue), 80%, 45%);
+    --tip-hue: 145;
+    --tip-bg-color: hsl(var(--tip-hue), 30%, 95%);
+    --tip-border-color: hsl(var(--tip-hue), 40%, 40%);
+    --tip-text-color: hsl(var(--tip-hue), 40%, 28%);
 
-    /* Recipe taxonomy colors based on hue rotations */
-    --cuisine-hue: calc(var(--base-hue) - 170); /* warm yellow */
-    --cuisine-color: hsl(var(--cuisine-hue), 85%, 50%);
+    --info-hue: 200;
+    --info-bg-color: hsl(var(--info-hue), 35%, 95%);
+    --info-border-color: hsl(var(--info-hue), 55%, 40%);
+    --info-text-color: hsl(var(--info-hue), 55%, 30%);
 
-    --category-hue: var(--base-hue); /* same as brand but desaturated */
-    --category-color: hsl(var(--category-hue), 10%, 50%); /* gray */
-
-    --diet-hue: calc(var(--base-hue) + 145); /* green */
-    --diet-color: hsl(var(--diet-hue), 60%, 42%);
+    --cuisine-hue: 45;
+    --cuisine-color: hsl(var(--cuisine-hue), 80%, 38%);
+    --category-hue: 0;
+    --category-color: hsl(var(--category-hue), 0%, 45%);
+    --diet-hue: 130;
+    --diet-color: hsl(var(--diet-hue), 45%, 30%);
 }
+
+/* ── Base ──────────────────────────────────────────────────── */
 body {
-    font-family:
-        -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial,
-        sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    font-family: "Source Serif 4", "Iowan Old Style", Charter, Georgia, serif;
+    color: var(--text-color);
 }
-/* https://stackoverflow.com/questions/2436749/how-to-add-multiple-font-files-for-the-same-font */
+
 @font-face {
     font-family: "BerkeleyMono";
-    src:
-        url("../fonts/BerkeleyMono-Regular.woff2"),
-        url("../fonts/BerkeleyMono-Regular.woff");
+    src: url("../fonts/BerkeleyMono-Regular.woff2"),
+         url("../fonts/BerkeleyMono-Regular.woff");
     font-weight: bold;
     font-style: italic, oblique;
 }
 @font-face {
     font-family: "BerkeleyMono";
-    src:
-        url("../fonts/BerkeleyMono-Italic.woff2"),
-        url("../fonts/BerkeleyMono-Italic.woff");
+    src: url("../fonts/BerkeleyMono-Italic.woff2"),
+         url("../fonts/BerkeleyMono-Italic.woff");
     font-style: italic, oblique;
 }
 @font-face {
     font-family: "BerkeleyMono";
-    src:
-        url("../fonts/BerkeleyMono-Bold.woff2"),
-        url("../fonts/BerkeleyMono-Bold.woff");
+    src: url("../fonts/BerkeleyMono-Bold.woff2"),
+         url("../fonts/BerkeleyMono-Bold.woff");
     font-weight: bold;
 }
 @font-face {
     font-family: "BerkeleyMono";
-    src:
-        url("../fonts/BerkeleyMono-Regular.woff2"),
-        url("../fonts/BerkeleyMono-Regular.woff");
+    src: url("../fonts/BerkeleyMono-Regular.woff2"),
+         url("../fonts/BerkeleyMono-Regular.woff");
 }
+
 .container {
     max-width: 700px;
 }
 
-#nav {
-    padding: 0.5rem 0.5rem;
-    color: var(--brand-color);
-    gap: 1.5rem;
+img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 4px;
 }
 
-nav a {
-    padding: 0.3rem 0.5rem;
+strong {
+    font-weight: 700;
 }
 
-#nav a {
-    color: var(--brand-color);
-    text-decoration: none;
-}
-
-#nav a:hover {
-    color: var(--action-color);
-}
-
-#nav a.active {
-    color: var(--tip-text-color);
-}
-
+/* ── Links ─────────────────────────────────────────────────── */
 a {
     color: var(--brand-color);
     text-decoration: underline;
 }
 
-/* Remove underline from links in headings */
-h1 a,
-h2 a,
-h3 a,
-h4 a,
-h5 a,
-h6 a {
+h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
     text-decoration: none;
 }
 
@@ -116,612 +88,67 @@ a:hover {
     text-decoration: underline;
 }
 
-a.tag-btn:hover {
-    background-color: var(--brand-color);
-    color: white;
-    filter: brightness(1);
-}
-
-.icon {
-    width: 24px;
-    height: 24px;
-    margin-right: 5px;
-}
-
+/* ── Navigation ────────────────────────────────────────────── */
 #nav-border {
-    border-bottom: 1px solid var(--brand-color);
+    border-bottom: none;
 }
 
-strong {
-    font-weight: 700;
+#nav {
+    padding: 0.5rem 0;
+    gap: 1.25rem;
+    flex-wrap: nowrap;
 }
 
+#nav a {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    color: var(--muted-color);
+    text-decoration: none;
+    font-size: 0.9rem;
+    line-height: 1;
+    padding: 0.15rem 0;
+    transition: color 0.15s ease;
+}
+
+#nav a:hover {
+    color: var(--action-color);
+}
+
+#nav a:visited,
+#nav a.active {
+    color: var(--muted-color);
+}
+
+/* ── Typography ────────────────────────────────────────────── */
 #main {
     font-weight: 400;
-    font-size: 1rem;
-    margin-top: 1em;
-    margin-bottom: 4em;
+    font-size: 1.1rem;
+    margin-top: 1.5rem;
+    margin-bottom: 2rem;
 }
 
 #main p {
-    line-height: 1.7rem;
+    line-height: 1.75;
 }
 
-#main h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
+#main :is(h1, h2, h3, h4, h5, h6) {
     font-family: "Rubik", sans-serif;
     font-weight: 600;
-    padding-bottom: 1rem;
+    padding-bottom: 0.75rem;
     padding-top: 1.3rem;
 }
 
-/* Reduce top spacing for first h1 on pages */
 #main > h1:first-child,
 #main > header > h1:first-child {
     padding-top: 0.5rem;
 }
 
-h2 {
+#main h2 {
     font-size: 1.9rem;
-}
-
-#home-jumbotron {
-    background:
-        url("/images/hero-cropped.jpg") right center/contain no-repeat,
-        hsl(var(--base-hue), 25%, 18%);
-    color: #fff;
-    padding: 4rem 2rem;
-    margin-top: -1px;
-}
-
-#home-jumbotron h1,
-#home-jumbotron p {
-    color: #fff;
-    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
-}
-
-/* Search form styling */
-.form-inline #search-query {
-    margin-right: 0.5rem;
-}
-
-.search-button {
-    background-color: var(--action-color);
-    color: white;
-    border: 1px solid var(--action-color);
-    padding: 0.375rem 1rem;
-}
-
-.search-button:hover {
-    background-color: var(--brand-color);
-    border-color: var(--brand-color);
-    color: white;
 }
 
 header h1 {
     padding-bottom: 0.25rem;
     margin-bottom: 0;
-}
-
-.article-meta {
-    margin-bottom: 1.5rem;
-}
-
-.article-meta time {
-    display: inline;
-}
-
-#main blockquote {
-    font-weight: 300;
-    font-style: italic;
-    padding-left: 1rem;
-    margin-left: 1rem;
-    border-left: solid hsla(237, 0%, 90%, 1) 5px;
-}
-
-/* TIP and INFO blockquote styling */
-#main blockquote.tip,
-#main blockquote.info {
-    font-style: normal;
-    font-weight: 400;
-    padding: 1rem 1rem 1rem 1rem;
-    margin: 1.5rem 0;
-    border-radius: 4px;
-    position: relative;
-}
-
-#main blockquote.tip {
-    background-color: var(--tip-bg-color);
-    border-left: solid var(--tip-border-color) 5px;
-}
-
-#main blockquote.info {
-    background-color: var(--info-bg-color);
-    border-left: solid var(--info-border-color) 5px;
-}
-
-#main blockquote.tip::before,
-#main blockquote.info::before {
-    content: "";
-    font-weight: 700;
-    font-style: normal;
-    font-size: 0.9rem;
-    display: block;
-    margin-bottom: 0.5rem;
-    letter-spacing: 0.05em;
-}
-
-#main blockquote.tip::before {
-    content: "💡 TIP";
-    color: var(--tip-text-color);
-}
-
-#main blockquote.info::before {
-    content: "ℹ️ INFO";
-    color: var(--info-text-color);
-}
-
-#main blockquote.tip p,
-#main blockquote.info p {
-    margin: 0;
-}
-
-.font-125 {
-    font-size: 125%;
-}
-
-.tag-btn {
-    margin-bottom: 0.5rem;
-    margin-right: 0.5rem;
-    text-decoration: none;
-    background-color: hsl(var(--base-hue), 30%, 95%);
-    border-color: hsl(var(--base-hue), 30%, 85%);
-}
-
-.btn {
-    text-decoration: none;
-}
-
-.btn:hover {
-    text-decoration: none;
-}
-
-img {
-    max-width: 100%;
-    height: auto;
-}
-
-.summary {
-    color: hsla(237, 0%, 25%, 1);
-    font-size: 0.9rem;
-}
-
-#abstract {
-    border-radius: 10px;
-    background-color: hsla(237, 0%, 90%, 1);
-    padding: 1rem 1.2rem;
-    margin-bottom: 1rem;
-}
-
-aside.toc ul > li {
-    list-style-type: none;
-    padding-left: 1.5rem;
-}
-aside.toc ul {
-    padding-left: 0;
-}
-
-figure img {
-    /*box-shadow: 0rem 0rem 1rem hsl(0, 0%, 80%);*/
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-figcaption h4 {
-    font-size: 1.1rem;
-    text-align: center;
-    font-style: italic;
-    padding-top: 1.5em;
-    padding-bottom: 2em;
-}
-
-/* Side-by-side figures container */
-.figures-side-by-side {
-    display: flex;
-    gap: 2rem;
-    margin: 0 0 2rem 0;
-    align-items: flex-start;
-}
-
-.figures-side-by-side figure {
-    flex: 0 1 auto;
-    margin: 0;
-    display: flex;
-    flex-direction: column;
-    position: relative;
-}
-
-.figures-side-by-side figure img {
-    width: auto;
-    height: 400px;
-    object-fit: contain;
-    filter: sepia(0.4) hue-rotate(215deg) saturate(1);
-}
-
-.figures-side-by-side figure::after {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 400px;
-    pointer-events: none;
-}
-
-.figures-side-by-side figcaption {
-    margin-top: 0.5rem;
-}
-
-.figures-side-by-side figcaption h4 {
-    padding-top: 0.5rem;
-    padding-bottom: 0;
-}
-
-article ol,
-article ul {
-    margin-left: 0.5rem;
-    margin-top: 0;
-    margin-bottom: 1rem;
-    padding-left: 1.6rem;
-}
-
-article ol li,
-article ul li {
-    padding-top: 0.6rem;
-    margin-left: 0;
-    padding-left: 0;
-}
-
-code,
-pre {
-    font-family: "BerkeleyMono", monospace;
-}
-
-pre {
-    overflow-x: auto;
-    max-width: 100%;
-    font-size: 0.9em;
-    /* Force scrollbar to always be visible */
-    scrollbar-width: thin; /* Firefox */
-    -webkit-overflow-scrolling: touch; /* iOS momentum scrolling */
-    white-space: pre-wrap;
-    word-wrap: break-word;
-    overflow-wrap: break-word;
-}
-
-/* Force scrollbar visibility on WebKit browsers (Safari, Chrome) */
-pre::-webkit-scrollbar {
-    height: 12px;
-    -webkit-appearance: none;
-}
-
-pre::-webkit-scrollbar-track {
-    background-color: rgba(0, 0, 0, 0.1);
-    border-radius: 3px;
-}
-
-pre::-webkit-scrollbar-thumb {
-    background-color: rgba(0, 0, 0, 0.3);
-    border-radius: 3px;
-}
-
-pre::-webkit-scrollbar-thumb:hover {
-    background-color: rgba(0, 0, 0, 0.5);
-}
-
-code {
-    color: var(--highlight-color);
-}
-
-.highlight {
-    overflow-x: auto;
-    max-width: 100%;
-    margin-bottom: 1.5rem;
-    /* Force scrollbar to always be visible */
-    scrollbar-width: thin; /* Firefox */
-}
-
-/* Force scrollbar visibility on .highlight for WebKit browsers */
-.highlight::-webkit-scrollbar {
-    height: 12px;
-    -webkit-appearance: none;
-}
-
-.highlight::-webkit-scrollbar-track {
-    background-color: rgba(0, 0, 0, 0.1);
-    border-radius: 3px;
-}
-
-.highlight::-webkit-scrollbar-thumb {
-    background-color: rgba(0, 0, 0, 0.3);
-    border-radius: 3px;
-}
-
-.highlight::-webkit-scrollbar-thumb:hover {
-    background-color: rgba(0, 0, 0, 0.5);
-}
-
-.highlight code {
-    font-size: 1em;
-}
-
-p code {
-    font-size: 0.95em;
-}
-
-article > dl > dd {
-    padding-left: 2rem;
-}
-
-code.has-jax {
-    -webkit-font-smoothing: antialiased;
-    background: inherit !important;
-    border: none !important;
-    font-size: 100%;
-}
-
-article table {
-    margin: 2rem 0 2rem 0;
-    padding: 2rem;
-    border: 2px solid hsl(0, 0%, 40%);
-}
-
-article table td,
-article table th {
-    padding: 0.2rem 1rem;
-    border: 1px solid hsl(0, 0%, 80%);
-}
-
-article table th {
-    text-align: center;
-}
-/* Footer styling */
-footer {
-    margin-top: 4rem;
-    padding: 2rem 0;
-    border-top: 1px solid var(--brand-color);
-}
-
-.footer-links nav {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 2rem;
-}
-
-.footer-links a {
-    color: var(--brand-color);
-    text-decoration: none;
-    display: inline-flex;
-    align-items: center;
-    padding: 0.5rem;
-}
-
-.footer-links a:hover {
-    color: var(--action-color);
-}
-
-.footer-links .icon {
-    width: 20px;
-    height: 20px;
-    margin-right: 0.5rem;
-}
-
-@media print {
-    .no-print {
-        display: none;
-    }
-}
-
-/* Accessibility improvements */
-
-/* Screen reader only class */
-.sr-only {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    padding: 0;
-    margin: -1px;
-    overflow: hidden;
-    clip: rect(0, 0, 0, 0);
-    white-space: nowrap;
-    border: 0;
-}
-
-/* Skip to main content link */
-.skip-to-main {
-    position: absolute;
-    top: -40px;
-    left: 0;
-    background: var(--brand-color);
-    color: white;
-    padding: 8px 16px;
-    text-decoration: none;
-    z-index: 100;
-    border-radius: 0 0 4px 0;
-}
-
-.skip-to-main:focus {
-    top: 0;
-    color: white;
-    outline: 3px solid var(--action-color);
-    outline-offset: 2px;
-}
-
-/* Improved focus states for keyboard navigation */
-a:focus-visible,
-button:focus-visible,
-input:focus-visible,
-select:focus-visible,
-textarea:focus-visible {
-    outline: 3px solid var(--action-color);
-    outline-offset: 2px;
-}
-
-/* Remove focus outline for mouse users but keep for keyboard */
-a:focus:not(:focus-visible),
-button:focus:not(:focus-visible),
-input:focus:not(:focus-visible) {
-    outline: none;
-}
-
-/* Ensure sufficient color contrast for tag buttons */
-.tag-btn:focus-visible,
-.btn:focus-visible {
-    outline: 3px solid var(--action-color);
-    outline-offset: 2px;
-}
-
-/* Improve nav icon accessibility */
-nav a:focus-visible {
-    outline: 3px solid var(--action-color);
-    outline-offset: 2px;
-    border-radius: 4px;
-}
-
-/* Content type badge styling */
-.badge.badge-secondary {
-    background-color: var(--brand-color);
-    color: white;
-    vertical-align: baseline;
-    position: relative;
-    top: -0.15em;
-    margin-right: 0.5rem;
-}
-
-/* Content type indicator at top of single pages */
-.content-type-badge {
-    font-size: 0.75rem;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    color: var(--brand-color);
-    font-weight: 600;
-    margin-bottom: 0.5rem;
-}
-
-/* Home page horizontal rule spacing */
-#main hr {
-    margin-top: 2rem;
-    margin-bottom: 2rem;
-}
-
-/* D2 diagram styling */
-figure.d2-diagram {
-    margin: 2rem 0;
-}
-
-figure.d2-diagram img {
-    max-width: 100%;
-    height: auto;
-    width: 90%; /* Default scale for diagrams (can be overridden with width parameter) */
-}
-
-figure.d2-diagram figcaption {
-    font-size: 0.9rem;
-    text-align: center;
-    font-style: italic;
-    padding-top: 0.5rem;
-}
-
-/* Search result highlighting (mark.js) */
-mark {
-    background-color: var(--tip-bg-color);
-    color: var(--tip-text-color);
-    font-weight: 600;
-    padding: 0.1em 0.2em;
-    border-radius: 2px;
-}
-
-/* Resume-specific H3 styling - company names with office/building icon */
-article.section-resume h3 {
-    position: relative;
-}
-
-article.section-resume h3::before {
-    content: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="hsl(215, 80%25, 65%25)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"%3E%3Cpath d="M3 21h18"/%3E%3Cpath d="M5 21V7l8-4v18"/%3E%3Cpath d="M19 21V10l-6-3"/%3E%3Cpath d="M9 9v.01"/%3E%3Cpath d="M9 12v.01"/%3E%3Cpath d="M9 15v.01"/%3E%3C/svg%3E');
-    position: absolute;
-    left: -28px;
-    top: 1.35rem;
-    display: block;
-}
-
-/* Resume-specific H4 styling - job titles with badge icon */
-article.section-resume h4 {
-    position: relative;
-}
-
-article.section-resume h4::before {
-    content: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="hsl(215, 80%25, 65%25)" stroke-width="2"%3E%3Crect x="5" y="2" width="14" height="20" rx="2"/%3E%3Ccircle cx="12" cy="8" r="3"/%3E%3Cpath d="M8 15h8"/%3E%3Cpath d="M8 18h8"/%3E%3C/svg%3E');
-    position: absolute;
-    left: -25px;
-    top: 1.4rem;
-    display: block;
-}
-
-/* Mobile responsive fixes - prevent wrapping, allow shrinking */
-@media (max-width: 576px) {
-    /* Hide resume icons on mobile */
-    article.section-resume h3::before,
-    article.section-resume h4::before {
-        display: none;
-    }
-
-    /* Search form: prevent wrapping on mobile */
-    .form-inline {
-        flex-wrap: nowrap !important;
-        gap: 0.25rem;
-    }
-
-    .form-inline #search-query {
-        margin-right: 0.25rem;
-        flex: 1 1 auto;
-        min-width: 0;
-        font-size: 0.9rem;
-    }
-
-    .search-button {
-        flex: 0 0 auto;
-        padding: 0.375rem 0.75rem;
-        font-size: 0.9rem;
-        white-space: nowrap;
-    }
-
-    /* Navigation: prevent wrapping and reduce spacing */
-    #nav {
-        flex-wrap: nowrap !important;
-        gap: 0.5rem;
-        padding: 0.5rem 0.25rem;
-    }
-
-    #nav a {
-        padding: 0.2rem 0.4rem;
-        font-size: 0.9rem;
-        white-space: nowrap;
-        flex: 0 1 auto;
-        min-width: 0;
-    }
-
-    /* Reduce jumbotron padding on mobile */
-    #home-jumbotron {
-        padding: 1rem 0.5rem;
-        background-position: right 20%;
-        background-size: auto 100%;
-    }
 }
 
 /* Heading anchor links */
@@ -749,18 +176,659 @@ h6:hover .heading-anchor {
     opacity: 1;
 }
 
-/* Print-only content - hidden by default */
+/* ── Homepage intro ────────────────────────────────────────── */
+.home-intro {
+    margin-bottom: 1.5rem;
+}
+
+.home-intro h1 {
+    font-family: "Rubik", sans-serif;
+    font-weight: 600;
+    font-size: 2rem;
+    margin-bottom: 0.25rem;
+    padding: 0;
+}
+
+.home-intro p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: var(--text-secondary);
+    margin-bottom: 0;
+}
+
+.home-intro a {
+    color: var(--brand-color);
+}
+
+/* ── Section labels (shared) ──────────────────────────────── */
+.section-label,
+.featured-section h2,
+.recent-section h2 {
+    font-family: inherit;
+    font-size: 0.7rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--muted-color);
+    margin-bottom: 0.75rem;
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+/* ── Featured writing ──────────────────────────────────────── */
+.featured-section {
+    margin-bottom: 3rem;
+}
+
+.featured-grid {
+    display: grid;
+    gap: 1rem;
+}
+
+.featured-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    text-decoration: none;
+    color: inherit;
+}
+
+.featured-item:hover {
+    text-decoration: none;
+    color: inherit;
+}
+
+.featured-item:hover .featured-title {
+    color: var(--brand-color);
+}
+
+.featured-thumb {
+    width: 72px;
+    height: 48px;
+    object-fit: cover;
+    border-radius: 4px;
+    flex-shrink: 0;
+}
+
+.featured-text {
+    min-width: 0;
+    padding-top: 0.1rem;
+}
+
+.featured-title {
+    display: block;
+    font-family: "Rubik", sans-serif;
+    font-weight: 600;
+    font-size: 0.95rem;
+    color: var(--text-color);
+    transition: color 0.15s ease;
+    line-height: 1.3;
+}
+
+.featured-date {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    font-size: 0.75rem;
+    color: var(--muted-color);
+}
+
+.featured-summary {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    font-size: 0.85rem;
+    line-height: 1.4;
+    color: var(--text-secondary);
+    margin-top: 0.2rem;
+}
+
+/* ── Article listings ──────────────────────────────────────── */
+.article-listing {
+    margin-bottom: 1.5rem;
+}
+
+.article-listing-title {
+    font-size: 1.05rem;
+    font-weight: 600;
+}
+
+.article-listing-section {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--muted-color);
+    margin-left: 0.5rem;
+    text-decoration: none;
+}
+
+.article-listing-section:hover {
+    color: var(--action-color);
+    text-decoration: none;
+}
+
+.article-listing-date {
+    color: var(--muted-color);
+    font-size: 0.85rem;
+}
+
+.article-listing-summary {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    font-size: 0.9rem;
+    line-height: 1.5;
+    color: var(--text-secondary);
+    margin-top: 0.2rem;
+}
+
+/* Recent section on homepage */
+.recent-section {
+    margin-top: 0;
+}
+
+.all-writing-link {
+    display: inline-block;
+    margin-top: 0.5rem;
+    font-size: 0.85rem;
+    color: var(--muted-color);
+    text-decoration: none;
+}
+
+.all-writing-link:hover {
+    color: var(--action-color);
+}
+
+/* ── Article meta on single pages ──────────────────────────── */
+.article-meta {
+    margin-bottom: 1.5rem;
+}
+
+.article-meta time {
+    display: inline;
+    color: var(--muted-color);
+    font-size: 0.9rem;
+}
+
+.article-meta .tag-list {
+    margin-top: 0.5rem;
+}
+
+.article-meta .tag-list a {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    font-size: 0.8rem;
+    color: var(--muted-color);
+    text-decoration: none;
+    margin-right: 0.5rem;
+}
+
+.article-meta .tag-list a:hover {
+    color: var(--action-color);
+    text-decoration: underline;
+}
+
+/* Content type badge on single pages */
+.content-type-badge {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--muted-color);
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+/* Section badge in related posts */
+.badge.badge-secondary {
+    background-color: transparent;
+    color: var(--muted-color);
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-weight: 400;
+    vertical-align: baseline;
+    padding: 0;
+}
+
+/* ── Abstract/summary box ──────────────────────────────────── */
+#abstract {
+    border-radius: 3px;
+    background-color: hsl(30, 10%, 97%);
+    border-left: 3px solid var(--border-color);
+    padding: 1rem 1.2rem;
+    margin-bottom: 1.5rem;
+    color: var(--text-secondary);
+}
+
+/* ── Blockquotes ───────────────────────────────────────────── */
+#main blockquote {
+    font-weight: 300;
+    font-style: italic;
+    padding-left: 1rem;
+    margin-left: 1rem;
+    border-left: 3px solid var(--border-color);
+}
+
+#main blockquote.tip,
+#main blockquote.info {
+    font-style: normal;
+    font-weight: 400;
+    padding: 1rem;
+    margin: 1.5rem 0;
+    border-radius: 3px;
+    position: relative;
+}
+
+#main blockquote.tip {
+    background-color: var(--tip-bg-color);
+    border-left: 3px solid var(--tip-border-color);
+}
+
+#main blockquote.info {
+    background-color: var(--info-bg-color);
+    border-left: 3px solid var(--info-border-color);
+}
+
+#main blockquote.tip::before,
+#main blockquote.info::before {
+    content: "";
+    font-weight: 700;
+    font-style: normal;
+    font-size: 0.9rem;
+    display: block;
+    margin-bottom: 0.5rem;
+    letter-spacing: 0.05em;
+}
+
+#main blockquote.tip::before {
+    content: "TIP";
+    color: var(--tip-text-color);
+}
+
+#main blockquote.info::before {
+    content: "INFO";
+    color: var(--info-text-color);
+}
+
+#main blockquote.tip p,
+#main blockquote.info p {
+    margin: 0;
+}
+
+/* ── Code ──────────────────────────────────────────────────── */
+code, pre {
+    font-family: "BerkeleyMono", monospace;
+}
+
+pre {
+    overflow-x: scroll;
+    max-width: 100%;
+    font-size: 0.85em;
+    scrollbar-width: thin;
+    -webkit-overflow-scrolling: touch;
+    white-space: pre;
+}
+
+pre::-webkit-scrollbar {
+    height: 12px;
+    -webkit-appearance: none;
+}
+
+pre::-webkit-scrollbar-track {
+    background-color: rgba(0, 0, 0, 0.1);
+    border-radius: 3px;
+}
+
+pre::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 0, 0.3);
+    border-radius: 3px;
+}
+
+pre::-webkit-scrollbar-thumb:hover {
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+code {
+    color: var(--highlight-color);
+}
+
+.highlight {
+    overflow: hidden;
+    max-width: 100%;
+    margin-bottom: 1.5rem;
+}
+
+.highlight::-webkit-scrollbar {
+    height: 12px;
+    -webkit-appearance: none;
+}
+
+.highlight::-webkit-scrollbar-track {
+    background-color: rgba(0, 0, 0, 0.1);
+    border-radius: 3px;
+}
+
+.highlight::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 0, 0.3);
+    border-radius: 3px;
+}
+
+.highlight::-webkit-scrollbar-thumb:hover {
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.highlight code {
+    font-size: 1em;
+}
+
+p code,
+li code {
+    font-size: 0.85em;
+}
+
+code.has-jax {
+    -webkit-font-smoothing: antialiased;
+    background: inherit !important;
+    border: none !important;
+    font-size: 100%;
+}
+
+/* ── Lists ─────────────────────────────────────────────────── */
+article ol,
+article ul {
+    margin-left: 0.5rem;
+    margin-top: 0;
+    margin-bottom: 1rem;
+    padding-left: 1.6rem;
+}
+
+article ol li,
+article ul li {
+    padding-top: 0.6rem;
+    margin-left: 0;
+    padding-left: 0;
+}
+
+article > dl > dd {
+    padding-left: 2rem;
+}
+
+/* ── Tables ────────────────────────────────────────────────── */
+article table {
+    margin: 2rem 0;
+    border: 1px solid var(--border-color);
+    border-collapse: collapse;
+}
+
+article table td,
+article table th {
+    padding: 0.4rem 1rem;
+    border: 1px solid var(--border-color);
+}
+
+article table th {
+    text-align: center;
+}
+
+/* ── Images & figures ──────────────────────────────────────── */
+figure img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+figcaption h4 {
+    font-family: inherit;
+    font-weight: 400;
+    font-size: 0.9rem;
+    text-align: center;
+    font-style: italic;
+    padding-top: 0.75rem;
+    padding-bottom: 1rem;
+    color: var(--muted-color);
+}
+
+.figures-side-by-side {
+    display: flex;
+    gap: 2rem;
+    margin: 0 0 2rem 0;
+    align-items: flex-start;
+}
+
+.figures-side-by-side figure {
+    flex: 0 1 auto;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.figures-side-by-side figure img {
+    width: auto;
+    max-height: 400px;
+    object-fit: contain;
+}
+
+.figures-side-by-side figure::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    pointer-events: none;
+}
+
+.figures-side-by-side figcaption {
+    margin-top: 0.5rem;
+}
+
+.figures-side-by-side figcaption h4 {
+    padding-top: 0.5rem;
+    padding-bottom: 0;
+}
+
+/* ── D2 diagrams ───────────────────────────────────────────── */
+figure.d2-diagram {
+    margin: 2rem 0;
+}
+
+figure.d2-diagram img {
+    max-width: 100%;
+    height: auto;
+    width: 90%;
+}
+
+figure.d2-diagram figcaption {
+    font-size: 0.9rem;
+    text-align: center;
+    font-style: italic;
+    padding-top: 0.5rem;
+}
+
+/* ── TOC ───────────────────────────────────────────────────── */
+aside.toc ul > li {
+    list-style-type: none;
+    padding-left: 1.5rem;
+}
+
+aside.toc ul {
+    padding-left: 0;
+}
+
+/* ── Search ────────────────────────────────────────────────── */
+.search-inline {
+    margin-top: 1rem;
+}
+
+.form-inline #search-query {
+    margin-right: 0.5rem;
+    border: 1px solid var(--border-color);
+}
+
+.search-button {
+    background-color: var(--brand-color);
+    color: white;
+    border: 1px solid var(--brand-color);
+    padding: 0.375rem 1rem;
+}
+
+.search-button:hover {
+    background-color: var(--action-color);
+    border-color: var(--action-color);
+    color: white;
+}
+
+mark {
+    background-color: var(--tip-bg-color);
+    color: var(--tip-text-color);
+    font-weight: 600;
+    padding: 0.1em 0.2em;
+    border-radius: 2px;
+}
+
+/* ── Home page hr ──────────────────────────────────────────── */
+#main hr {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    border-color: var(--border-color);
+}
+
+/* ── View source link ──────────────────────────────────────── */
+.view-source {
+    margin-top: 2rem;
+    font-size: 0.9rem;
+}
+
+/* ── Footer ────────────────────────────────────────────────── */
+footer {
+    margin-top: 2rem;
+    padding: 1.5rem 0;
+    border-top: 1px solid var(--border-color);
+}
+
+.footer-links nav {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+}
+
+.footer-links a {
+    color: var(--muted-color);
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    font-size: 0.85rem;
+}
+
+.footer-links a:hover {
+    color: var(--action-color);
+}
+
+.footer-links .icon {
+    width: 16px;
+    height: 16px;
+    margin-right: 0.4rem;
+}
+
+.icon {
+    width: 24px;
+    height: 24px;
+    margin-right: 5px;
+}
+
+/* ── Resume ────────────────────────────────────────────────── */
+article.section-resume h3 {
+    position: relative;
+}
+
+article.section-resume h3::before {
+    content: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="hsl(215, 65%25, 40%25)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"%3E%3Cpath d="M3 21h18"/%3E%3Cpath d="M5 21V7l8-4v18"/%3E%3Cpath d="M19 21V10l-6-3"/%3E%3Cpath d="M9 9v.01"/%3E%3Cpath d="M9 12v.01"/%3E%3Cpath d="M9 15v.01"/%3E%3C/svg%3E');
+    position: absolute;
+    left: -28px;
+    top: 1.35rem;
+    display: block;
+}
+
+article.section-resume h4 {
+    position: relative;
+}
+
+article.section-resume h4::before {
+    content: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="hsl(215, 65%25, 40%25)" stroke-width="2"%3E%3Crect x="5" y="2" width="14" height="20" rx="2"/%3E%3Ccircle cx="12" cy="8" r="3"/%3E%3Cpath d="M8 15h8"/%3E%3Cpath d="M8 18h8"/%3E%3C/svg%3E');
+    position: absolute;
+    left: -25px;
+    top: 1.4rem;
+    display: block;
+}
+
+/* ── List page content separator ───────────────────────────── */
+.list-intro {
+    margin-bottom: 2rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid var(--border-color);
+}
+
+/* ── Accessibility ─────────────────────────────────────────── */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+.skip-to-main {
+    position: absolute;
+    top: -40px;
+    left: 0;
+    background: var(--brand-color);
+    color: white;
+    padding: 8px 16px;
+    text-decoration: none;
+    z-index: 100;
+    border-radius: 0 0 4px 0;
+}
+
+.skip-to-main:focus {
+    top: 0;
+    color: white;
+    outline: 3px solid var(--action-color);
+    outline-offset: 2px;
+}
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+    outline: 3px solid var(--action-color);
+    outline-offset: 2px;
+}
+
+a:focus:not(:focus-visible),
+button:focus:not(:focus-visible),
+input:focus:not(:focus-visible) {
+    outline: none;
+}
+
+nav a:focus-visible {
+    outline: 3px solid var(--action-color);
+    outline-offset: 2px;
+    border-radius: 2px;
+}
+
+/* ── Print ─────────────────────────────────────────────────── */
 .print-only {
     display: none;
 }
 
-/* Print styles */
 @media print {
-    .no-print,
-    nav,
-    footer,
-    .content-type-badge,
-    .skip-to-main {
+    .no-print, nav, footer, .content-type-badge, .skip-to-main {
         display: none !important;
     }
 
@@ -772,17 +840,69 @@ h6:hover .heading-anchor {
         font-size: 11pt;
     }
 
-    h1 {
-        font-size: 20pt;
-    }
+    h1 { font-size: 20pt; }
+    h2, h3 { font-size: 16pt; }
 
-    h2,
-    h3 {
-        font-size: 16pt;
-    }
-
-    /* Hide figures when printing to save ink/paper */
     figure {
         display: none;
+    }
+}
+
+/* ── Mobile ────────────────────────────────────────────────── */
+@media (max-width: 576px) {
+    article.section-resume h3::before,
+    article.section-resume h4::before {
+        display: none;
+    }
+
+    .form-inline {
+        flex-wrap: nowrap !important;
+        gap: 0.25rem;
+    }
+
+    .form-inline #search-query {
+        margin-right: 0.25rem;
+        flex: 1 1 auto;
+        min-width: 0;
+        font-size: 0.9rem;
+    }
+
+    .search-button {
+        flex: 0 0 auto;
+        padding: 0.375rem 0.75rem;
+        font-size: 0.9rem;
+        white-space: nowrap;
+    }
+
+    #nav {
+        gap: 0.75rem;
+        padding: 0.4rem 0;
+    }
+
+    #nav a {
+        font-size: 0.85rem;
+        white-space: nowrap;
+    }
+
+    .home-intro h1 {
+        font-size: 1.6rem;
+    }
+
+    .home-intro p {
+        font-size: 1rem;
+    }
+
+    .figures-side-by-side {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .figures-side-by-side figure img {
+        max-height: 250px;
+        width: 100%;
+    }
+
+    .footer-links nav {
+        gap: 1rem;
     }
 }

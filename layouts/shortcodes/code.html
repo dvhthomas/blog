@@ -1,5 +1,5 @@
 {{ $file := .Get "file" }}
-{{ $content := readFile (printf "%s%s" .Page.File.Dir $file) | safeHTML }}
+{{ $content := readFile (printf "%s%s" .Page.File.Dir $file) }}
 {{ $lang := .Get "lang" }}
-{{ print "\n**" $file "**\n"}}
-{{ (print "```" $lang "\n" $content "\n```") | safeHTML }}
+{{ printf "\n**%s**\n" $file | safeHTML }}
+{{ highlight $content $lang "" }}

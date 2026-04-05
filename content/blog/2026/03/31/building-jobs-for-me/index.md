@@ -8,6 +8,7 @@ summary: |-
   What I learned building an AI job search agent as a Claude Work plugin
   in three days---and why I open-sourced it instead of selling it.
 draft: false
+featured: true
 images: [og.png]
 ---
 

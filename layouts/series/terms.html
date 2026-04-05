@@ -2,11 +2,11 @@
 
 <h1>{{ .Title }}</h1>
 
-{{/* Show series in alphabetical order */}}
 {{ range .Data.Terms.Alphabetical }}
-<p>
-    <a href="{{ .Page.RelPermalink }}">{{ .Page.Title }}</a> ({{ .Count }} articles)
-</p>
+<div class="article-listing">
+    <a class="article-listing-title" href="{{ .Page.RelPermalink }}">{{ .Page.Title }}</a>
+    <span class="article-listing-section">{{ .Count }} articles</span>
+</div>
 {{ end }}
 
 {{ end }}

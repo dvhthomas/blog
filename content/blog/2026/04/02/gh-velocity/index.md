@@ -8,6 +8,7 @@ summary: |-
   I built a GitHub CLI extension for engineering flow metrics. Here's
   the philosophy behind it, and two stories about what went wrong.
 draft: false
+featured: true
 images: [shelly.png]
 ---
 
