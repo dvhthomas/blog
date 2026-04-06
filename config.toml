@@ -11,7 +11,7 @@ ignoreErrors = ["error-remote-getjson"]
 
 [params]
     author = "Dylan Thomas"
-    homeText = "I [write about](/writing/) operations, teams, engineering, tools, and things [I'm learning](/til/)."
+    homeText = "Hi, I'm [Dylan](/about/). I write about operations, engineering, tools, and things I'm learning."
     dateFormat = "January 2, 2006"
     description = "Dylan Thomas writes about operations, teams, engineering, tools, and things he's learning."
     images = ["/about/headshot.png"]
