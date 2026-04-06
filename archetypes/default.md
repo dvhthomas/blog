@@ -7,5 +7,6 @@ series: []
 summary:
 draft: true
 images: []
+hero_alt:
 ---
 

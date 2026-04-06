@@ -8,9 +8,8 @@ summary: |-
   I like Hugo for static web sites but I *always* forget how to start from from scratch without a template. This is my short guide with some handy tips and reminders.
 draft: false
 images: [home.png]
+hero_alt: "The finished Hugo site homepage"
 ---
-
-{{< figure src="home.png?w=500" title="In which we make a stunning new website" >}}
 
 ## Create the site
 
@@ -110,7 +109,7 @@ The bit in the double curly braces is a Go template describing a placeholder cal
 
 ## Home page
 
-Hugo has a layout system where it matches the type of content you write *based on it's name and directory* within the `content` directory.
+Hugo has a layout system where it matches the type of content you write *based on its name and directory* within the `content` directory.
 `_index.md` is one of those special files: it's like a home page for the directory, and the `_index.md` file in the root of the `content` directory is the home page for the whole Hugo site.
 
 Let's create it:
@@ -180,7 +179,7 @@ You control the default data and structure of an archetype by adding a file in t
 For example, if you want special control over the front matter or some default values for all content in a `content/blog` folder, you can create an `archetypes/blog.md` file.
 The name is the key, so the matching archetype file for `content/posts` is `archetypes/posts.md`: the plural of the folder name is significant.
 
-As with all things, Hubo has a default for archetypes: that's the `default.md` file in the `archetypes` directory.
+As with all things, Hugo has a default for archetypes: that's the `default.md` file in the `archetypes` directory.
 
 ### Default Archetype and Front matter
 
@@ -489,7 +488,7 @@ Change `.Title` to `.Site.Title` in your `layouts/home.html` and see Flying Otte
 
 ## Summary
 
-Hugo is a very powerful static site generator and the focus of this post is just covering that absolute basics of getting started.
+Hugo is a very powerful static site generator and the focus of this post is just covering the absolute basics of getting started.
 
-[The code for this website](https://github.com/dvhthomas/blog) has evolved over time to include many features like shortcodes, taxonomies, diagramming, rendering pipeline tweaks, menus, RSS feels, and different content sections.
+[The code for this website](https://github.com/dvhthomas/blog) has evolved over time to include many features like shortcodes, taxonomies, diagramming, rendering pipeline tweaks, menus, RSS feeds, and different content sections.
 Poke around and see what else you can do!

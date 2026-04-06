@@ -34,13 +34,13 @@ The hypothesis: it was better for GitHub to have experienced TPMs sitting on the
 We created a dedicated comms channel with our CTO (`#flex-team`) and established a rule: anyone could _ask_ for help from this dedication team, but only the CTO had the ability to say "Do it!"
 
 The Flex Team handled several high urgency, high importance projects in the 6 months that it was fully funded.
-The projects included responding to an urgent security issue involving a large number of team at GitHub.
+The projects included responding to an urgent security issue involving a large number of teams at GitHub.
 The issue was resolved rapidly due to TPM coordination across hundreds of Hubbers across tens of Engineering and Product teams.
 
 {{< figure src="flex-team.png" title="How the Flex Team was formed" >}}
 
 ## Impact
 
-* **Immediate success.** Critical projects were staffed withing minutes-to-hours, with systems and processes being in _measurably_ better shape within days-to-single digit weeks.
+* **Immediate success.** Critical projects were staffed within minutes-to-hours, with systems and processes being in _measurably_ better shape within days-to-single digit weeks.
 * **Long-term sustainability.** We learned something: the types of issues that came up repeatedly turned out to be areas of underinvestment.
   So over time I spun up dedicated programs for those areas---security, availability, scalability---and the Flex Team TPMs transitioned to full-time leaders of those programs.

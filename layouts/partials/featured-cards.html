@@ -17,7 +17,7 @@
                                 {{- $spec = printf "72x48 smart %s" $defaultFormat -}}
                             {{- end -}}
                             {{- $thumb := .Fill $spec -}}
-                            <img class="featured-thumb" src="{{ $thumb.RelPermalink }}" alt="" width="{{ $thumb.Width }}" height="{{ $thumb.Height }}" loading="lazy">
+                            <img class="featured-thumb" src="{{ $thumb.RelPermalink }}" alt="{{ $page.Title }}" width="{{ $thumb.Width }}" height="{{ $thumb.Height }}" loading="lazy">
                         {{- end -}}
                     {{- end -}}
                 {{- end -}}

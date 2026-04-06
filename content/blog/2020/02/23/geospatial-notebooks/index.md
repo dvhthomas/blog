@@ -9,7 +9,7 @@ draft: false
 
 ## Modern for exploration and analysis
 
-'_The modern geospatial stack_' isn't really a helpful thing to say when trying to describe a whole field. But it mostly means _'not a typical commercial package'_. At least that's my take. It means thinking about geospatial analysis as more like a slightly specialized case of typical data science, and that means a assembling a toolkit from thee array of open source and commerical tools out there.
+'_The modern geospatial stack_' isn't really a helpful thing to say when trying to describe a whole field. But it mostly means _'not a typical commercial package'_. At least that's my take. It means thinking about geospatial analysis as more like a slightly specialized case of typical data science, and that means a assembling a toolkit from the array of open source and commercial tools out there.
 
 I've been wanting to dip my toe in this arena for a while, and getting back to [Woolpert](https://www.woolpert.com) has afforded me that opportunity. Rather than learn in isolation, I decided to poke at a small question that came up at work, namely: how can one more easily source data from the U.S. Federal Aviation Administration to understand and visualize ground-based obstruction in airspace.
 
@@ -56,7 +56,7 @@ It's not all roses: for those libraries that aren't just a `pip install ...` you
 
 ### Not entirely Python
 
-The format of a notebook (*.ipynb) file is not Python, then. But it does provide an execution environemnt for Python. To make this clear, here are the first lines of the notebook I'll write for this post:
+The format of a notebook (*.ipynb) file is not Python, then. But it does provide an execution environment for Python. To make this clear, here are the first lines of the notebook I'll write for this post:
 
 {{<highlight html>}}
 {
@@ -88,7 +88,7 @@ Back to the matter at hand. I want to:
 1. Export the data into a common geospatial format.
 1. View it in a web page.
 
-To do that I'll write a Jupyter Notebook to access, validate, and export the data. Then I'll switch to a webpage for a snazzier vizualization.
+To do that I'll write a Jupyter Notebook to access, validate, and export the data. Then I'll switch to a webpage for a snazzier visualization.
 
 ### Using Geopandas
 
@@ -175,7 +175,7 @@ gdf.crs
 gdf.head()
 {{</highlight>}}
 
-And after a few seconds, geopandas has done it's magic on all 480K+ records:
+And after a few seconds, geopandas has done its magic on all 480K+ records:
 
 {{<figure src="geopandas-geometry.png" title="The head operation shows a new geometry column">}}
 
@@ -183,7 +183,7 @@ Nice!
 
 ### Preview on a map
 
-The table view is nice, but like I said: I want a map.  Geopandas depends on a ton of other native and Python libraries to work it's magic, including `matplotlib`, `shapely`, and `descartes`. Here's what it takes to render a map:
+The table view is nice, but like I said: I want a map.  Geopandas depends on a ton of other native and Python libraries to work its magic, including `matplotlib`, `shapely`, and `descartes`. Here's what it takes to render a map:
 
 {{<highlight python>}}
 base = countries.plot(figsize=(15,10), color='lightsteelblue', edgecolor='white')
@@ -201,7 +201,7 @@ I'm not going to lie; that took a while to render on my MacBook Air (~15-20 seco
 
 ### Export for further use
 
-The last step in my notebook is to export the data into a useful geospatial data format. CSVs are nice and transportable but they don't immediately lend themselves to further use by may geo libraries.
+The last step in my notebook is to export the data into a useful geospatial data format. CSVs are nice and transportable but they don't immediately lend themselves to further use by many geo libraries.
 
 There are **lots** of options but I'm going with the massively verbose but _lingua franca_ GeoJSON format. It's JSON...with geo!
 
@@ -210,7 +210,7 @@ gdf.query("STATE=='MN'").to_file("mn.geojson", driver="GeoJSON")
 gdf.to_file("dof.geojson", driver="GeoJSON")
 {{</highlight>}}
 
-The full ~500K records are dumped into a 230MB text file called `dof.geojson`. But because that takes so darn long to open, I also used the pandas `query` function to filter down the massive dataset into something more manageable: the obstructions in the State of Minnessota. Here's one feature courtesy of `cat mn.geojson | jq '.features[0]'`:
+The full ~500K records are dumped into a 230MB text file called `dof.geojson`. But because that takes so darn long to open, I also used the pandas `query` function to filter down the massive dataset into something more manageable: the obstructions in the State of Minnesota. Here's one feature courtesy of `cat mn.geojson | jq '.features[0]'`:
 
 {{<highlight json>}}
 {

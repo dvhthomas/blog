@@ -16,7 +16,7 @@ aliases: ["/til/2021-05-29/"]
 Whenever I approach front end development these days I honestly get pretty discouraged.
 Not that I don't understand CSS, HTML, and JavaScript.
 It's more that the modern stack is sooooo complicated and seemingly built on a shaky foundation of dependencies.
-Someone updates a library and before I know it, my CSS doesn't work for reasons take me ages to diagnose.
+Someone updates a library and before I know it, my CSS doesn't work for reasons that take me ages to diagnose.
 
 So while I'm sitting an home recovering from nasal surgery (!) I decided to poke around at a toy project using new-ish comers [Svelte Kit](http://kit.svelte.dev) and [Tailwind CSS](https://tailwindcss.com/).
 

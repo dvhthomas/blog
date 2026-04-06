@@ -4,11 +4,12 @@ date: 2025-10-23T12:51:07-06:00
 tags: [llm, agents]
 toc: true
 series: [AI Engineering Course]
-summary: Week 3 is all about agents. Workflows, tools, multi-step agents, and the protcols and frameworks involved.
+summary: Week 3 is all about agents. Workflows, tools, multi-step agents, and the protocols and frameworks involved.
 mermaid: true
 mathjax: false
 draft: false
 images: [router.svg]
+hero_alt: "Router agent architecture diagram showing query classification and specialized model routing"
 ---
 
 ## Defining Agents
@@ -23,7 +24,7 @@ They don't have autonomy or agency to plan, perform actions.
 For a next token predictor answering something like _'Write an email to my boss to take one day off'_ might return a good result. But _'Write a full report on the housing marketing and share existing opportunities'_ is going to miss expectations.
 
 We can use [RAG]({{< ref "/blog/2025/10/14/rag/index.md#retrieval-augmented-generation-rag" >}}) to augment content, and fine-tuning to make them more domain-specific.
-The there are limits to the complexity of task that even a fine-tuned, RAG-augmented model can handle on their owfn.
+The there are limits to the complexity of task that even a fine-tuned, RAG-augmented model can handle on their own.
 
 Our goal is **to make LLMs more capable**.
 
@@ -60,7 +61,7 @@ Let's talk a little more about each of those 5 agent levels.
 
 #### Simple Processor Agents
 
-This is seen less as an agent than a simple piece of sofware.
+This is seen less as an agent than a simple piece of software.
 Even thought it may be 'simple' in the agentic sense, there are typically many back-and-forth calls between software and LLM.
 And there's more happening in the loops like tokenizations, response templating, and prompt engineering in general.
 
@@ -96,7 +97,7 @@ Prompt chaining is where a task can be **easily decomposed**.
 It's a tradeoff between accuracy and latency.
 Good examples might be:
 
-- **Content generation** (writing a docuemnt outline -> checking the outline -> write the document).
+- **Content generation** (writing a document outline -> checking the outline -> write the document).
 - **Data extraction** like converting unstructured text into a structured format.
 - **Information processing** with transform1, transform2, transform3, etc.
 
@@ -134,9 +135,9 @@ This is also called Evaluator-Optimizer.
 The Evaluation is also called **a Critic**.
 There's no way that a Router could figure this out: we're entering a loop until the Critic is satisfied.
 
-In practice, it's ofter more effective for a specialized LLM so that you avoid feedback bias in the Critic.
+In practice, it's often more effective for a specialized LLM so that you avoid feedback bias in the Critic.
 
-Reflection is good when there are **clear evalution criteria** and where **iterative refinement helps**.
+Reflection is good when there are **clear evaluation criteria** and where **iterative refinement helps**.
 Code generation is a great example.
 The Critic could write tests to assess and then ask the Generator to iterate on the code.
 
@@ -273,7 +274,7 @@ When evaluating whether to use multi-step agents:
 #### Multi-agent system
 
 Single agent may not be capable or the problem is too complex for a single agent.
-On agent may fail or move in an incorrect direction, so multi-agent systems can self correct.
+One agent may fail or move in an incorrect direction, so multi-agent systems can self correct.
 
 This is not easy!
 Common challenges include:
@@ -291,7 +292,7 @@ A2A is to inter-agent communication what MCP is to tool sharing.
 
 **How do you evaluate agents?**
 
-Things to thing about:
+Things to think about:
 
 * Accuracy: How well does the agent achieve its goal?
 * Efficiency: How quickly does the agent achieve its goal?

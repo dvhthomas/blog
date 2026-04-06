@@ -48,9 +48,9 @@ I’m using zsh so getting it working involves the [asdf zsh plugin][1].
 You basically just need to add `plugins=(asdf)` to your `.zshrc` file, after
 which source can `source ~/.zshrc` to get things running.
 
-Before you start installing frameworks, remove any existings tools that are doing 
+Before you start installing frameworks, remove any existing tools that are doing 
 the same thing.
-For example, I'm using `pyenv` so I followed the instructions to completely removed it from my system **before** attempting to install any asdf plugins:
+For example, I'm using `pyenv` so I followed the instructions to completely remove it from my system **before** attempting to install any asdf plugins:
 
 ```shell
 rm -rf $(pyenv root)
@@ -60,7 +60,7 @@ brew clean
 
 ## Install plugins
 
-[asdf] uses the concept of plugins to isolate you different languages.
+[asdf] uses the concept of plugins to isolate your different languages.
 Plugins are all hosted on Github, so adding a plugin involves pointing the asdf tool to the canonical location of each plugin and installing it.
 For some plugins that are widely used, providing the name of the plugin alone is enough.
 For example, getting the Python plugin is as simple as:

@@ -10,9 +10,8 @@ summary: |-
 draft: false
 featured: true
 images: [architecture-hero.png]
+hero_alt: "CalcMark's architecture — ASCII art on GitHub, D2 diagrams in this post"
 ---
-
-{{< figure src="architecture-hero.png" title="CalcMark's architecture — ASCII art on GitHub, D2 diagrams in this post" >}}
 
 ## Introduction
 

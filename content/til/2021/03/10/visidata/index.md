@@ -16,7 +16,7 @@ aliases: ["/til/2021-03-10/"]
 It comes with a bunch of standard data format support like CSV.
 Just looking at the [file types](https://jsvine.github.io/intro-to-visidata/basics/opening-files/#compatible-filetypes) makes me happy, because it includes geospatial too.
 
-Get started with python is easy.
+Getting started with Python is easy.
 
 ```shell
 pip3 install visidata

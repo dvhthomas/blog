@@ -10,10 +10,11 @@ summary: |-
     of my capabilities.
 draft: false
 images: [demo.png]
+hero_alt: "CalcMark web app with syntax highlighting and live calculation results"
 aliases: ["/til/2025-11-11/"]
 ---
 
-I'll have more to say about this later, but something I've longed for is a little calculator that let's me do calculations like I'm in a spreadsheet, but in the context of something like a markdown document.
+I'll have more to say about this later, but something I've longed for is a little calculator that lets me do calculations like I'm in a spreadsheet, but in the context of something like a markdown document.
 If I was smarter I'd figure out how to add the `calc` language like this:
 
 ````md
@@ -44,15 +45,13 @@ Oh, and frustrated, and giddy, too.
 
 Here's what I've got:
 
-![A web application showing a syntax highlighted calculator using a little language I wrote](demo.png)
-
 Dunno if you can see this, but on the left is a text editor with plain text (UTF-8 to be precise), and on the right is the result of my new CalcMark language parsing, tokenizing, lexing, and then ultimately evaluating the expressions.
 
 I have learned **a lot** in the past 36 hours about how to actually implement a small language.
 It started in Python then I got frustrated with the lack of decent compiler errors and switched to Go.
 That really ratcheted up the number of errors, but in a good way.
 
-Along the way I've been helped by Claude and immense amount but I've already remembered just how much I('ve forgotten that I) know.
+Along the way I've been helped by Claude an immense amount but I've already remembered just how much I('ve forgotten that I) know.
 Enough to forcely---and sometimes sternly---tell Claude who's boss and to stop winging it and _"Write the tests first you idiot! Just make them fail to test our hypothesis and stop writing stupid one off shell scripts!!!!"_ (then I wrote a polite version in the CLAUDE.md file!)
 
 Here's mid-session how it's looked for a few days:
@@ -62,10 +61,10 @@ Here's mid-session how it's looked for a few days:
 You can find the code at [CalcMark/go-calcmark](https://github.com/CalcMark/go-calcmark).
 Probably the biggest areas of learning have been:
 
-- How to thing logically about a grammar for a DSL.
+- How to think logically about a grammar for a DSL.
   For example, how does `20%` play nice with the `%` modulo operator?
 - How to [build bindings](https://github.com/CalcMark/go-calcmark/tree/main/impl/wasm) for ECMAScript and TypeScript.
-  The web assembly (WASM) capabilities are Go are kind of mind blowing.
+  The web assembly (WASM) capabilities of Go are kind of mind blowing.
   I'm [using them](https://github.com/CalcMark/go-calcmark/tree/main/impl/wasm) in a demo Svelte app written in TypeScript and it's shockingly easy.
 - How to guide a coding agent on a very non-trivial task.
   Once again the lesson of 'write it down' has become more formalized with memoized knowledge like `# Always write failing tests and run them before touching the lexer.`

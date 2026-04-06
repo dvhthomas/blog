@@ -15,7 +15,7 @@ draft: false
 
 Make is a tool use to build and transform source code.
 It excels at keeping track of input files and output files from build steps, and over time it's been used (by me!) as more of a general purpose task tool.
-A seminar read for me, coming from the geospatial side, was [Mike Bostock's 2013 article][1] wherein he showed how to benefit from the dependency graph of 'tasks' to get stuff done.
+A seminal read for me, coming from the geospatial side, was [Mike Bostock's 2013 article][1] wherein he showed how to benefit from the dependency graph of 'tasks' to get stuff done.
 That was a game changer.
 
 But over the years it has also felt like a hassle in terms of the special syntax for handling variables and the Bash-like-but-exactly-bash syntax for strings.

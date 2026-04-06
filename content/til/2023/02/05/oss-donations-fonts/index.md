@@ -27,6 +27,6 @@ I treated myself to a nice monospaced font for Christmas but I'm just sharing th
 
 ![](font-sample.png)
 
-Really happy to support an excellent typeface, given that I'm a quiet lover of a good font. And  they just shipped their beta version of ligatures so now iTerms and my various other text interfaces look even nice.
+Really happy to support an excellent typeface, given that I'm a quiet lover of a good font. And  they just shipped their beta version of ligatures so now iTerms and my various other text interfaces look even nicer.
 
 I will update this personal website with the new look. Someday ;-)

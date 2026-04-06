@@ -9,9 +9,10 @@ mermaid: false
 mathjax: false
 draft: false
 images: [scaling-laws.png]
+hero_alt: "Scaling laws for language models from Stanford CS229"
 ---
 
-I'm taking a an AI Engineering course and capturing some notes and resources as a go.
+I'm taking a an AI Engineering course and capturing some notes and resources as I go.
 This week I was trying to understand how tokenizers handle multi-byte characters, like emojis and Chinese characters.
 
 ## Tokenizers

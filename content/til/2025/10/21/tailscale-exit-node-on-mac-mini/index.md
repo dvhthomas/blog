@@ -9,6 +9,7 @@ mermaid: false
 mathjax: true
 draft: false
 images: [exit-node.png]
+hero_alt: "Tailscale dashboard showing exit node configuration"
 aliases: ["/til/2025-10-21/"]
 ---
 
@@ -17,7 +18,7 @@ aliases: ["/til/2025-10-21/"]
 **Goals**:
 
 * Enable family members to VPN into my home network so that traffic appears to be coming my home location.
-* Enable family members print to our home printer, even though that printer does not---and cannot---have Tailscale installed.
+* Enable family members to print to our home printer, even though that printer does not---and cannot---have Tailscale installed.
 
 **Contraints**:
 

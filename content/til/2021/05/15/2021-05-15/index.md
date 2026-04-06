@@ -17,12 +17,12 @@ My least favorite activity.
 ## Python and ICU
 
 I'm trying to use [`csvkit`](https://csvkit.readthedocs.io/en/latest/) and `numpy` for some tinkering.
-But getting them installed on my Mac was giving me fits because one of the core dependencies, ICU ([Internal Components for Unicode](http://site.icu-project.org/home)), just would link properly.
+But getting them installed on my Mac was giving me fits because one of the core dependencies, ICU ([Internal Components for Unicode](http://site.icu-project.org/home)), just wouldn't link properly.
 
 I know that this is all related to the use of Homebrew to install libraries and dependencies, and then ensuring that various `setup.py` scripts and can find the correct versions.
 But it was really escaping me how to fix it.
 
-After a lot of trial and error and landed on this recipe.
+After a lot of trial and error I landed on this recipe.
 The first two steps of that absolutely fixed my frustrations: `libicu-dev` and `PyICU` are now happily installed, which paved the way for a flawless `pip3 install csvkit`.
 Whew!
 

@@ -2,9 +2,9 @@
 .Paginator.HasPrev }}
 <div class="paginator">
     {{ if .Paginator.HasNext }}
-    <a href="{{ .Paginator.Next.URL }}" class="older">&laquo; Older</a>
+    <a href="{{ .Paginator.Next.URL }}" class="older" aria-label="Go to older articles">&laquo; Older</a>
     {{ end }} {{ if .Paginator.HasPrev }}
-    <a href="{{ .Paginator.Prev.URL }}" class="newer">Newer &raquo;</a>
+    <a href="{{ .Paginator.Prev.URL }}" class="newer" aria-label="Go to newer articles">Newer &raquo;</a>
     {{ end }}
 </div>
 {{ end }} {{ end }}

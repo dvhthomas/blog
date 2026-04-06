@@ -69,7 +69,7 @@ wg.Wait()
 
 ## And in bash for fun
 
-Marc on my team responded to this snippet with a fun little implementation in bash. It totally works, which just goes to show that there are many ways to tacklet a problem. And rarely just one right tool:
+Marc on my team responded to this snippet with a fun little implementation in bash. It totally works, which just goes to show that there are many ways to tackle a problem. And rarely just one right tool:
 
 Both Marc and I are big fans of [jq](https://stedolan.github.io/jq/) for slicing and dicing JSON.
 And it makes short work of this task.

@@ -28,7 +28,7 @@ All in a few sentences or a couple of paragraphs.
 That is surprisingly hard.
 
 GitHub TPMs have Altitude, Brevity, Contrast, and Directness (ABCD) guidance for writing status updates to our senior leadership team (SLT) to help us with that.
-Here is that writing guidance in it's entirety:
+Here is that writing guidance in its entirety:
 
 ## Guidance
 

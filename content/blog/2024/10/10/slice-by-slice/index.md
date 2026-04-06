@@ -7,7 +7,7 @@ toc: true
 series: []
 summary: |
   How two German automotive engineers got inside my head.
-  Or: how I learning to stop stressing out and to start solving problems.
+  Or: how I learned to stop stressing out and to start solving problems.
 mermaid: false
 mathjax: false
 draft: false

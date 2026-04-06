@@ -24,7 +24,7 @@ I was dreading the usual song-and-dance around getting that file using various a
 ### Where is the file?
 
 Step one is to consult the GitHub API to figure out the correct name of the file.
-Because the API refers to things differently that the path you see in the URL for repo browsing.
+Because the API refers to things differently than the path you see in the URL for repo browsing.
 Here's what I ended up with:
 
 ```

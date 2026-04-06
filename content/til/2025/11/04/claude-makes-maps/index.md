@@ -7,6 +7,7 @@ series: []
 summary: I decided to vibe code, truly putting Anthropic's Claude CLI in the driver's seat. It was instructive!
 draft: false
 images: [desktop.png]
+hero_alt: "Mapsicle web app showing places with photos on a map"
 aliases: ["/til/2025-11-04/"]
 ---
 
@@ -22,17 +23,15 @@ Instead, I created an empty directory, `git init`-d a place to keep things, and 
 
 First, [here's the resulting app](https://dvhthomas.github.io/mapsicle/), which I called Mapsicle (like popsicle). [Source code is available on GitHub](https://github.com/dvhthomas/mapsicle/).
 
-![desktop sized view of a web app showing places with photos](desktop.png)
-
 ## Things I Learned
 
-I'm poking around `~/.claude/` JSON files to see how the conversaion actually went, but what did I learn?
+I'm poking around `~/.claude/` JSON files to see how the conversation actually went, but what did I learn?
 
 **First**, it really helps to force Claude to **keep track of decisions** in documents like a README.md. At some point pretty quickly, the token limit causes Claude (and really any agentic system) to compress the conversation and ultimately to lose context.
 So my pattern was to start telling Claude to 'clearly document the decisions and knowledge that we've created in the README.md'.
 
 **Second**, make **small changes and commit them** to Git as you go.
-This is soooooo obvious but somehow in all the excitement of seeing rapid interative improvement, I kept getting bitten by not have a good checkout to roll back to.
+This is soooooo obvious but somehow in all the excitement of seeing rapid iterative improvement, I kept getting bitten by not have a good checkout to roll back to.
 Rookie mistake!
 You can see here just how few commits I actually made, and just how gigantic the diffs were.
 Eek!

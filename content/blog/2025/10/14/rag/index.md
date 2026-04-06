@@ -4,14 +4,13 @@ date: 2025-10-14T13:01:07-06:00
 tags: [rag, llm]
 toc: true
 series: [AI Engineering Course]
-summary: Part two of the AI Engineering Course, focusing on adapting exsiting LLMs with post training work. It covers Retrieval Augmented Generation (RAG) and Fine Tuning.
+summary: Part two of the AI Engineering Course, focusing on adapting existing LLMs with post training work. It covers Retrieval Augmented Generation (RAG) and Fine Tuning.
 mermaid: true
 mathjax: false
 draft: false
 images: [lora-paper.png]
+hero_alt: "Title and abstract of the low rank adaptation (LoRA) paper"
 ---
-
-{{< figure src="lora-paper.png" title="Title and abstract of the low rank adaptation (LoRA) paper" >}}
 
 ## Adaptation Options
 
@@ -40,7 +39,7 @@ Let's go through each of these approaches in turn, starting with fine-tuning.
 ### Fine-tuning
 
 This is where you train the LLM on domain specific data to improve its performance on a specific task.
-Remember: the LLM has been trained on most of the Internet text but it doesn't know you're business or use case!
+Remember: the LLM has been trained on most of the Internet text but it doesn't know your business or use case!
 
 {{<mermaid>}}
 graph LR
@@ -63,7 +62,7 @@ There are really two choices here:
 This is not at all practical because LLMs have billions of parameters, which can take days or weeks to train, just to include our extra context data.
 As such, it's not something an AI Engineer would consider unless you work for a large organization with significant resources.
 
-[**Parameter Efficient Fine Turning (PEFT) Model adaptation**](https://arxiv.org/abs/1902.00751) is what most modern LLMs do because it only retrains a tiny percentage of the model, thus being faster, using less compute, and being cheaper.
+[**Parameter Efficient Fine Tuning (PEFT) Model adaptation**](https://arxiv.org/abs/1902.00751) is what most modern LLMs do because it only retrains a tiny percentage of the model, thus being faster, using less compute, and being cheaper.
 
 There are several types of PEFT available to us:
 
@@ -138,7 +137,7 @@ The red **Adapter** modules are small, trainable layers added to each block. Dur
 
 ##### LoRA
 
-[LoRA (Low-Rank Adaptation of Large Language Models)](https://arxiv.org/abs/2106.09685) is a PEFT method that works by **adding** small trainable adapter layers to these transformer blocks, typically targeting the liner layers within the Feed Forward mechanism of transformer blocks.
+[LoRA (Low-Rank Adaptation of Large Language Models)](https://arxiv.org/abs/2106.09685) is a PEFT method that works by **adding** small trainable adapter layers to these transformer blocks, typically targeting the linear layers within the Feed Forward mechanism of transformer blocks.
 This is different from Adapters, which adapt a subset of existing parameters.
 
 As a refresher, here's what the FFN / MLP for each transformer looks like.
@@ -258,13 +257,13 @@ Retrieval is a search problem:
 
 #### Build the searchable index
 
-* **Document parsing.** From structured or unstructed to the text that the LLM can understand.
+* **Document parsing.** From structured or unstructured to the text that the LLM can understand.
   Parsing is mostly done using AI these days.
   [dedoc](https://github.com/ispras/dedoc) is a popular tool for document parsing.
-* **Document Chunking.** If one source is a book, it will exceed the context window of LLMs (max tokens) and will be too complicate.
+* **Document Chunking.** If one source is a book, it will exceed the context window of LLMs (max tokens) and will be too complicated.
   By chunking using length, regex, or HTML/Markdown splitting, can get more manageable and even intelligent splitting of long documents.
   HTML/Markdown splitters tend to preserve the semantic structure of the document, like headers, etc.
-  Check out [text spliters by LangChain](https://python.langchain.com/docs/concepts/text_splitters/).
+  Check out [text splitters by LangChain](https://python.langchain.com/docs/concepts/text_splitters/).
 * **Indexing.** Vector-based is the most common way today.
   KB-based indexing is specific some certain domains.
   Text-based methods - they are simple and easy to implement using something like ElasticSearch. However, they lose the semantic meaning and synonyms.

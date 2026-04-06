@@ -24,6 +24,6 @@ side of things other than the [odd tweak to my dot files](https://github.com/dvh
 ## I'm blogging again
 
 In short, I have things to share again--possibly mostly for my future self
-if I'm being honest--so I'm restarting my blog. That'd be the one you reading now. Very exciting for you, I'm sure!
+if I'm being honest--so I'm restarting my blog. That'd be the one you're reading now. Very exciting for you, I'm sure!
 
 See you soon. And hopefully a little more frequently.

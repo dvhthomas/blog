@@ -81,7 +81,7 @@ You can use your favorite tool or just `sqlite3 test.db` to examine this databas
 
 The API is authenticated so you'll need a user.
 Use curl or [HTTPie](https://httpie.io/).
-HTTPie is included in the `dev-requirements.txt` so the follow should just work.
+HTTPie is included in the `dev-requirements.txt` so the following should just work.
 
 ```sh
 $ http POST :8000/auth/register email=first@user.com password=blurp
