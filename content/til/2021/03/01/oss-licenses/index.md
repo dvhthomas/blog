@@ -1,5 +1,5 @@
 ---
-title: OSS Licenses and Richard Feynmann
+title: OSS Licenses and Richard Feynman
 date: 2021-03-01T11:07:02-07:00
 tags: ["leadership", "architecture", "opensource"]
 toc: true
@@ -23,7 +23,7 @@ aliases: ["/til/2021-03-01/"]
   Kellan was mentioned in the boring technology post as an influential manager and technology leader.
   Followed the links and found some [absolute gold](https://kellanem.com/notes/) _Notes On Engineering Leadership_.
 
-- **Feynmann Method**. https://fs.blog/2021/02/feynman-learning-technique/.
+- **Feynman Method**. https://fs.blog/2021/02/feynman-learning-technique/.
   I was thinking how to get up to speed on Google Cloud Identity quickly, from a perspective of being able to educate people on it.
   Like magic, the Farnam Street weekly newsletter landed in my inbox and gave me a tool.
   The short version goes like this:

@@ -10,7 +10,22 @@
 </header>
 {{ if .Params.summary }}
 <div id="abstract">{{ .Params.summary | markdownify }}</div>
-{{ end }} {{ partial "series.html" . }} {{ partial "toc.html" . }}
+{{ end }}
+{{- with .Params.images -}}
+    {{- $imgName := index . 0 -}}
+    {{- $alt := $.Params.hero_alt | default $.Title -}}
+    {{- with $.Resources.GetMatch $imgName -}}
+        {{- if strings.HasSuffix $imgName ".svg" -}}
+<div class="hero-image">
+    <img src="{{ .RelPermalink }}" alt="{{ $alt }}">
+</div>
+        {{- else -}}
+<div class="hero-image">
+    <img src="{{ .RelPermalink }}" alt="{{ $alt }}" width="{{ .Width }}" height="{{ .Height }}">
+</div>
+        {{- end -}}
+    {{- end -}}
+{{- end -}} {{ partial "series.html" . }} {{ partial "toc.html" . }}
 <article class="section-{{ .Type }}">
     {{ .Content }}
     <br />

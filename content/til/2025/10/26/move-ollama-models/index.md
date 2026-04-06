@@ -9,6 +9,7 @@ mermaid: false
 mathjax: false
 draft: false
 images: [ollama.png]
+hero_alt: "Ollama startup showing the custom model storage location"
 aliases: ["/til/2025-10-26/"]
 ---
 

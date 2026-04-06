@@ -27,7 +27,7 @@ The team was pretty good at the first, but struggled with the second: reusable a
 
 ## Behavior
 
-I set up a small project in Basecamp and defined the hypotheses based on the customer's needs: can Google Cloud Storage (GCS) be used to store static geospatial data such that a regular [GIS][^1] analyst can use in their live Web-based and desktop GIS software?
+I set up a small project in Basecamp and defined the hypotheses based on the customer's needs: can Google Cloud Storage (GCS) be used to store static geospatial data such that a regular [GIS][^1] analyst can use it in their live Web-based and desktop GIS software?
 
 I limited the experiment to 5 calendar days to focus on figuring it out over making a production implementation happen.
 The experiment needed to show that contour data for a single county in Ohio could be ingested and hosted in GCS, and then used in ArcGIS Desktop from Esri, and ArcGIS Online from Esri, and QGIS from Open Source GIS.

@@ -37,9 +37,9 @@ I learned a couple of things doing this so let's break it down:
 - Ignore the first line. The `FNR > 1` tells `awk` to only process lines with a linenumber greater than 1.
   I guess this is 1-based rather than zero based.
 - Single-quote the output. The SQL `IN` statement expects strings to be inside single-quotes like `'THIS'`.
-  There was plenty of advance on Stack Overflow but ultimately I liked the approach of [adding quotes to `awk` output](https://unix.stackexchange.com/a/222717) using hexadecimal instead of escaping the quotes needed to type a quote as the special character.
+  There was plenty of advice on Stack Overflow but ultimately I liked the approach of [adding quotes to `awk` output](https://unix.stackexchange.com/a/222717) using hexadecimal instead of escaping the quotes needed to type a quote as the special character.
 - `paste`. Never came across this before but it ["merges lines of files"](https://linux.die.net/man/1/paste).
-  So where `cat` and `awk` emit on line per result, `paste` will squish them all into a single line and give me the chance
+  So where `cat` and `awk` emit one line per result, `paste` will squish them all into a single line and give me the chance
   to insert my own separator `--delimeter` or `-d ","`.
 
 Output:

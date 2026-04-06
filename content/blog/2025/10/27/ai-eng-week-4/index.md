@@ -279,7 +279,7 @@ The idea with RL is to continue training based on these best answers: it require
 > And for an _incredibly_ detailed technical view of how the team building SmolLM3 made many of their decisions, there's a [HuggingFace article](https://huggingface.co/spaces/HuggingFaceTB/smol-training-playbook).
 > This is more of a just-in-case reference because most of the details are way beyond my understanding (at this point) involving the internals of GPUs, for example.
 >
-> HuggingFace's [guid for LLM Evaluation](https://github.com/huggingface/evaluation-guidebook) seems much more pratical.
+> HuggingFace's [guide for LLM Evaluation](https://github.com/huggingface/evaluation-guidebook) seems much more pratical.
 
 {{< d2 src="rl.d2" />}}
 
@@ -295,12 +295,12 @@ At a high level:
 
 ```txt
 Input = (question, "thought, ... thought, answer")
-Label = human score for every thorugh (or a
+Label = human score for every thought (or a
         comparison of two traces)
 Loss = cross-entropy on step-level preferences
 ```
 
-Where `loss` is the difference between the score that the the answer from the LLM achieved and the perfect score at each step, i.e., the difference.
+Where `loss` is the difference between the score that the answer from the LLM achieved and the perfect score at each step, i.e., the difference.
 
 - The **primary benefit** is to feed back the best answers and even interim thoughts into the LLM that is being trained so that it generates output that a human would score as 'better' in future.
 - But there's a **second benefit** of PRM algorithms, and that's at inference time!
@@ -309,7 +309,7 @@ Well, a good PRM model can be used by the ToT.
 
 ### Self Correction
 
-LLM detects and revises it's own responses in order to eventually arrive at the best possible final response.
+LLM detects and revises its own responses in order to eventually arrive at the best possible final response.
 This depends on sequential revision.
 
 Two dimensions:
@@ -322,10 +322,10 @@ Two dimensions:
 
 Focus on training-time compute: we need to **train the LLM for better response revisions**.
 We need **revision data** to train the LLM to generate better responses.
-That owuld be data in the form a trajectories, typically a set of incorrect answers moving towards the correct answer.
+That would be data in the form a trajectories, typically a set of incorrect answers moving towards the correct answer.
 
 As of 2024 [self-correction through reinforcement learning][self-correct-rl] (Google Brain) uses an approach called 'SCoRe'.
-The details are pretty complicatione, i.e., beyond me, but here's the basic idea _after training_:
+The details are pretty complicated, i.e., beyond me, but here's the basic idea _after training_:
 
 {{< d2 src="score.d2" />}}
 
@@ -358,7 +358,7 @@ Deep research is agentic and tool-calling
 {{</ d2 >}}
 
 The `Web Search Agent` may in fact be different agent types, but you get the point.
-Here's an example of Claude Opus 4.1 taking a difficult task and doing prompt rewriting, stating the objective, and starting to spin up sub-agents for reseearch tasks.
+Here's an example of Claude Opus 4.1 taking a difficult task and doing prompt rewriting, stating the objective, and starting to spin up sub-agents for research tasks.
 
 {{< figure src="dr-in-claude.png" title="Deep Research in Claude Opus 4.1" >}}
 

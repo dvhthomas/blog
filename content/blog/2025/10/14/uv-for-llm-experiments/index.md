@@ -9,9 +9,8 @@ mermaid: false
 mathjax: false
 draft: false
 images: [pyproject.png]
+hero_alt: "pyproject.toml for an LLM project"
 ---
-
-{{< figure src="pyproject.png" title="pyproject.toml for an LLM project" >}}
 
 I'm a `uv` convert.
 It's a much faster way to set up isolated virtual environments for Python than other methods that I've used, including Anaconda and the `venv` + `pip` combination.
@@ -31,7 +30,7 @@ And I've started using uv for my Python projects.
 ### Using the right Python
 
 First I use `asdf` to install the right Python version.
-I decided to use a more recent version of Python that the Anaconda baseline.
+I decided to use a more recent version of Python than the Anaconda baseline.
 
 {{< highlight bash "hl_lines=4" >}}
 asdf install python 3.14.0
@@ -71,7 +70,7 @@ rust
 
 ## Adding `uv` Support
 
-I working in an [existing git repository](https://github.com/bytebyteai/ai-eng-projects/tree/main/project_2) that I don't want to litter with all kinds of `uv`-isms, like a new README.md or a dedicated directory.
+I'm working in an [existing git repository](https://github.com/bytebyteai/ai-eng-projects/tree/main/project_2) that I don't want to litter with all kinds of `uv`-isms, like a new README.md or a dedicated directory.
 I just want to use `uv` alongside my `asdf`-managed Python versions.
 
 ### Basic Configuration
@@ -83,7 +82,7 @@ $ uv init . --bare
 Initialized project `project-2` at `/Users/bitsbyme/projects/ai-eng-projects/project_2`
 ```
 
-This does exactly one thing: it creates a basic project file in the _current_ directory (`.`) rather the the typical behaviour of creating a new directory:
+This does exactly one thing: it creates a basic project file in the _current_ directory (`.`) rather than the typical behaviour of creating a new directory:
 
 {{% code file="toml-bare.toml" lang="toml" %}}
 

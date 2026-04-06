@@ -35,7 +35,7 @@ Piece of cake on Mac: `brew install direnv` then [integrate into your shell](htt
 #### Setup
 
 I'm using `tmux` so I created a session where I have two project directories open, one per pane.
-My goal is to be able to simple switch between panes in the same `tmux` session and have the `gcloud` configuration change automatically.
+My goal is to be able to simply switch between panes in the same `tmux` session and have the `gcloud` configuration change automatically.
 
 Pane #1 - I'm in a directory called `traintrack`:
 

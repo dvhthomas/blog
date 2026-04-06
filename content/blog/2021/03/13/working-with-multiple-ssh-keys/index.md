@@ -56,7 +56,7 @@ ssh-ed25519 AAAAblahblahblahC3MgZ/UF dylan.thomas@woolpert.com
 ```
 
 Copy that key and follow your provider's advice for setting up the public key.
-For example, in Clouse Source Repositories it looks like this:
+For example, in Cloud Source Repositories it looks like this:
 
 {{< figure src="create-key-gcp.png" title="Creating the public key in Google Cloud Platform" >}}
 

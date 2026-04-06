@@ -19,7 +19,7 @@ images:
 {{< figure src="speaker-photo.jpg" title="Dylan Thomas presenting slides on stage at the TPM Summit" >}}
 
 I presented at the TPM Summit in October 2024.
-I shared GitHub's journey building a technical program management (TPM) function from zero in 2020 to well definited and well functioning in mid-2024.
+I shared GitHub's journey building a technical program management (TPM) function from zero in 2020 to well defined and well functioning in mid-2024.
 Tuckman's model helps me to put that journey into context: forming, storming, norming, performing.
 There are some handy diagrams in the slide deck and hopefully the short stories give you a sense of what it's like to build a team and a discipline within a particular kind of tech company.
 

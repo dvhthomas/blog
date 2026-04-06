@@ -25,7 +25,7 @@ I read a boatload of docs and watched a great introductory video from 2018.
 
 Problems it solves are:
 
-- Common data model for accessing data science-y/geosciene-y data like netCDF, GeoTIFF, and more.
+- Common data model for accessing data science-y/geoscience-y data like netCDF, GeoTIFF, and more.
   The use of [Zarr](https://zarr.readthedocs.io/en/stable/#) is interesting here as a R/W option for [`$X$array`](http://xarray.pydata.org/en/stable/).
 - Moving compute and simulation (the running of numerical models) closer to the data, which at this point is too big to move.
 - Ties to the existing data science toolkit, e.g., Python, NumPy, Dask.
@@ -40,7 +40,7 @@ Turns out that the Pangeo team have a [new project roadmap](https://medium.com/p
 It takes the guesswork out of ETL for earth science data using an approach similar to 'recipes' used in [Conda Forge](https://conda-forge.org).
 This diagram really says it all ([source](https://github.com/pangeo-forge/roadmap/blob/master/pangeo-forge-diagram.png)):
 
-{{< figure src="pangeo-forge-diagram-fs8.png" title="Earth science data reciples with Pangeo Forge " >}}
+{{< figure src="pangeo-forge-diagram-fs8.png" title="Earth science data recipes with Pangeo Forge " >}}
 
 ## Prefect
 

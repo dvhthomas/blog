@@ -12,7 +12,7 @@ draft: false
 ---
 
 As part of learning more about [common table expressions (CTEs)][cte] in SQLite I chose to look at some complex queries I needed to make for a hierarchical data set of employees.
-See the the first article in this series for the setup.
+See the first article in this series for the setup.
 
 > NOTE: I recommend checking out my [Today I Learned][til] on SQLite schema work to learn more.
 
@@ -350,7 +350,7 @@ AS
 */
 WITH RECURSIVE subordinate AS (
     /*
-      Get the root note for our hierarch.
+      Get the root node for our hierarchy.
       This where clause is only true for one person: the CEO.
     */
     SELECT  *,

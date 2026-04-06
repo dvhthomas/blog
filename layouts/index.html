@@ -1,7 +1,7 @@
 {{ define "main" }}
 
 <div class="home-intro">
-    <h1>{{ .Site.Params.author | default .Title }}</h1>
+    <h1>{{ .Title }}</h1>
     <p>{{ .Site.Params.homeText | markdownify }}</p>
     <div class="search-inline">
         {{ partial "search_form.html" . }}

@@ -36,7 +36,7 @@ At each one the definition of
 
 ### Seek the risk
 
-### Handle the suprises
+### Handle the surprises
 
 ### Continuously improve
 

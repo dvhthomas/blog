@@ -19,7 +19,7 @@ First, I was wondering what type of investments we were making in programs at wo
 I'm a technical program manager (TPM) so this is not idle speculation.
 More specifically, I wanted to know how many _people_ were working on certain things.
 Or what did people _say_ they were working on.
-And since I work at GitHub and since we use Git repos to manage just about everything, I though it would be neat to approach this as a learning opportunity to try and use `git` for data storage and update.
+And since I work at GitHub and since we use Git repos to manage just about everything, I thought it would be neat to approach this as a learning opportunity to try and use `git` for data storage and update.
 
 > NOTE: I just stress very strenuously that this work **is not** used within GitHub.
 > It's something I dreamed up because I was actually wondering about the problem.
@@ -46,7 +46,7 @@ So I sat down with a notebook and jotted down the following things:
 
 Why this topic?
 Because I work in a role where the investment that an organization is willingly or unwillingly making in a program, project, initiative, or whatever else you call it, is relevant to the business.
-Chosing (or letting) an investment to happen in one area inherently means that another area will receive less investment.
+Choosing (or letting) an investment to happen in one area inherently means that another area will receive less investment.
 
 Further, I'd like to be able to slice investments up by organization, by investment category, and maybe other ways in future.
 For example, it'd be neat to see how much we're 'spending' from the product management discipline across each investment, or see how much we're spending on investments tagged with `enterprise`.
@@ -54,7 +54,7 @@ For example, it'd be neat to see how much we're 'spending' from the product mana
 Plus...I just needed a real problem to solve so that I stay focused while tapping away at the code in the relatively quiet part of
 December.
 
-The part that was already making me scratch my head was the hierarchical nature of th employee data, and how to correctly assign investment data as a percentage of team size for managers (_'50% of Dylan's team is assigned'_ means I need to know Dylan's total aggregate team size first...and the same recursively for every manager in the org).
+The part that was already making me scratch my head was the hierarchical nature of the employee data, and how to correctly assign investment data as a percentage of team size for managers (_'50% of Dylan's team is assigned'_ means I need to know Dylan's total aggregate team size first...and the same recursively for every manager in the org).
 
 ## The approach
 
@@ -126,6 +126,6 @@ super-secret:
 
 ## Getting busy
 
-Next up we'll look at how this YAML data makes it's way into a SQLite database.
+Next up we'll look at how this YAML data makes its way into a SQLite database.
 
 [htmx]: http://htmx.org

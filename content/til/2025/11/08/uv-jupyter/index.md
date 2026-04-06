@@ -12,7 +12,7 @@ aliases: ["/til/2025-11-08/"]
 
 Literally before I forget!
 How to make uv and Jupyter [play nicely together](https://docs.astral.sh/uv/guides/integration/jupyter/).
-This assumes you've already got a new uv proejcts (maybe with `uv init --bare`):
+This assumes you've already got a new uv project (maybe with `uv init --bare`):
 
 ```sh
 uv add --dev ipykernel

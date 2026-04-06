@@ -6,7 +6,8 @@ toc: true
 series: []
 summary: Using Caddy as a web server for a local file system.
 draft: false
-images: []
+images: [listing.png]
+hero_alt: "Caddy file server showing a directory listing"
 ---
 
 There's a good Python one-liner to start a web server in a directory:
@@ -26,8 +27,6 @@ caddy file-server --browse --listen :8080
 
 Now open `http://localhost:8080` in your browser to see the directory listing.
 If you had an index.html file in the directory, it would be served automatically.
-
-![web page listing the directory contents](listing.png)
 
 And clicking on the HTML file does exactly what you expect: it renders the page correctly:
 

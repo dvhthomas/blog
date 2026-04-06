@@ -10,10 +10,11 @@ summary: |
   So how can we shrink this down?
 draft: false
 images: [calcdown-app.png]
+hero_alt: "Calcdown web app powered by Go WebAssembly"
 ---
 
 For [go-calcmark](https://github.com/calcmark/go-calcmark) I decided that I would keep an implementation of the spec in the same Git repository as the spec itself.
-In other words, I would write the reference specification for my little 'Markdown plus calcluations' grammar in Go.
+In other words, I would write the reference specification for my little 'Markdown plus calculations' grammar in Go.
 
 Crucially, I didn't want to then have to re-write an implementation to power my web editor [calcdown.app](https://calcdown.app) ([source](https://github.com/calcmark/calcdown-web)) in TypeScript.
 I decided instead to use the built-in cross-compilation of the Go language to WebAssembly (WASM).
@@ -115,7 +116,7 @@ So `npm run build` does this for us, among other things:
    To force re-download, run: npm run wasm:clean
 ```
 
-The theory is that by shipping not just the calcmark.wasm, but also pre-compressed gzip and brotli versions of that file, clients would have to downalod a lot less data.
+The theory is that by shipping not just the calcmark.wasm, but also pre-compressed gzip and brotli versions of that file, clients would have to download a lot less data.
 
 But how much less?
 A lot, and this is basically free because (pretty much) every browser supports both gzip and brotli compression.
@@ -131,12 +132,10 @@ total 11648
 
 This is what is used in the live [calcdown.app](https://calcdown.app/) for all of the syntax highlighting and evaluation of the actual calculations:
 
-{{< figure src="calcdown-app.png" title="The web based caldown app showing syntax highlighting and live calculation evaluation using the Go WASM library" >}}
-
 ## Step 3: TinyGo
 
 I just couldn't stop there though.
-As I was investigation cross-compilation to WASM in go, I came across [TinyGo](https://tinygo.org/).
+As I was investigating cross-compilation to WASM in go, I came across [TinyGo](https://tinygo.org/).
 This is an alternative to the Go compiler that can target WASM, and 'Small Places' in general.
 So I thought: could it do better?
 My go-calcmark implementation doesn't do anything fancy with concurrency so it's a good candidate for the simple expectations that TinyGo can meet.

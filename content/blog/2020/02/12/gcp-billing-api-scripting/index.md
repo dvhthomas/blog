@@ -81,7 +81,7 @@ This is where I found it had been useful to _first_ look at the JSON output, bec
 
 * Get the value of `name`.
 * Get the `billing_account_id` value.
-* Extract only the second part after the forward slash (zero-based is segement 1)
+* Extract only the second part after the forward slash (zero-based is segment 1)
 
 Throw in a filter, and I have exactly what I need: a list of billing account IDs. I drop these in a text file for further use.
 
@@ -100,7 +100,7 @@ done <accounts.txt
 
 Now, this may be blindingly obvious to you, but I didn't know before this how to do a `while...do...done` loop through lines in a text file to execute a command for each line. `sed`, `wc`, and others, yes, with pipes. But explicit looping was new to me.
 
-I've highlight line 5 because we see a handy new `--format` to export CSV data. `gcloud` CSV export does append a trailing comma to each line--which feels unecessary--and I'll deal with that later. But for scripting this is a great approach. So now I've got a text file `$ACCOUNT_PROJECTS` containing a comman-delimeted row for each project in each billing account containing: the billing ID and the project ID.
+I've highlight line 5 because we see a handy new `--format` to export CSV data. `gcloud` CSV export does append a trailing comma to each line--which feels unnecessary--and I'll deal with that later. But for scripting this is a great approach. So now I've got a text file `$ACCOUNT_PROJECTS` containing a comma-delimited row for each project in each billing account containing: the billing ID and the project ID.
 
 Next I need to get that friendly name, like "my cool cloud project" vs. "my-cool-project-04329834". Unfortunately, the `gcloud beta billing projects list` command cannot access that; it's an [attribute of the project itself](https://cloud.google.com/resource-manager/reference/rest/v1/projects#Project) called `name`. So, time to loop again and ask each project for that final bit of data, this time using  the `gcloud projects describe` command:
 
@@ -172,6 +172,6 @@ while read row; do
 done <$ACCOUNT_PROJECTS
 {{</ highlight >}}
 
-Probably the only thing worth calling out that is new is the `getProjectId` function. There's a(n un)suprising number of answers on StackOverflow about how to pull a specific 'column' or field out of a CSV file. You probably immediately thought of [`cut`](https://linux.die.net/man/1/cut) with various options; me too. But getting that to function on a single string vs. a line from a file led to a lot of gymnastics in approach. Instead I went with the elegant solution proposed [here](https://stackoverflow.com/a/19482148/3074) which did the trick nicely.
+Probably the only thing worth calling out that is new is the `getProjectId` function. There's a(n un)surprising number of answers on StackOverflow about how to pull a specific 'column' or field out of a CSV file. You probably immediately thought of [`cut`](https://linux.die.net/man/1/cut) with various options; me too. But getting that to function on a single string vs. a line from a file led to a lot of gymnastics in approach. Instead I went with the elegant solution proposed [here](https://stackoverflow.com/a/19482148/3074) which did the trick nicely.
 
 So there you have it: a few new tidbits to learn, and a couple of csv files that are ready on a monthly cron basis to enrich customer bills via the Cloud Billing API.

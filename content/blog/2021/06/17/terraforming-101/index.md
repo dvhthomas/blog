@@ -56,8 +56,8 @@ And of course, if I goof up, I have to carefully back out of every step I've mad
 It's a really drag, this procedural approach.
 
 Infrastructure as Code (IaC) takes a mindset that evolved in ecosystems like Kubernetes.
-Instead of saying _how to build_ the infrastructure up, instead you simple _declare what the end result should look like_.
-That's why it's called a **declative** approach over a more traditional procedural approach.
+Instead of saying _how to build_ the infrastructure up, instead you simply _declare what the end result should look like_.
+That's why it's called a **declarative** approach over a more traditional procedural approach.
 
 On its own, that is neat but not very compelling.
 Where the idea of declarative ("what not how") infrastructure becomes a great tool is in the execution.
@@ -161,18 +161,18 @@ The real fun begins in the `main.tf` where the infrastructure is actually define
 
 Picking a few interesting sections...
 
-- **Line 2.** [`state`](https://www.terraform.io/docs/language/state/index.html) is where tf stores it's understanding of which infrastructure it has created and whether what is declared in the `main.tf` file has changed.
+- **Line 2.** [`state`](https://www.terraform.io/docs/language/state/index.html) is where tf stores its understanding of which infrastructure it has created and whether what is declared in the `main.tf` file has changed.
   In other words, does it need to make any updates?
 - **Line 6.** The Google [provider](https://www.terraform.io/docs/language/providers/index.html).
   HashiCorp or the cloud provider--Google in this case--write providers that wrap their specific APIs up into a series of creatable and destroyable _resources_.
 - **Line 24.** Here we see an Artifact Repository being defined. Remember, it's not _created_ here but it is _defined_ here.
   We never have to worry about _how_ it's going to be created or managed or destroyed.
-  We just say we want it, and TF will figure ou the rest.
+  We just say we want it, and TF will figure out the rest.
   This and many other resources have parameters. One is the provider.
   Others are properties like the `repository_id` which are required by the underlying Google API.
   What's interesting is the use of the variable `var.artifact-repo`; that's defined in the `variables.tf` file and has a value plugged into the `terraform.tfvars` file.
 - **Line 53.** Terraform manages a graph of connected resources it needs to create.
-  Dependencies (edges) on that graph are created by have a property of one resource point to a property of another resource.
+  Dependencies (edges) on that graph are created by having a property of one resource point to a property of another resource.
   In this case, the `backend.group` property of the backend service needs to know about ('depends on') the ID of the network endpoint group (NEG): `google_compute_region_network_endpoint_group.cloudrun_neg.id`.
   That means the NEG must be created before the Backend, so that the Backend can refer to the ID of the NEG.
   It's a directed acyclic graph (DAG) of resources.

@@ -10,9 +10,8 @@ summary: |-
 draft: false
 featured: true
 images: [og.png]
+hero_alt: "Jobs For Me — a Claude Work plugin that searches for jobs, assesses fit, and tracks your pipeline"
 ---
-
-{{< figure src="og.png" title="Jobs For Me — a Claude Work plugin that searches for jobs, assesses fit, and tracks your pipeline" >}}
 
 ## The problem
 

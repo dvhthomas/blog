@@ -15,7 +15,7 @@ aliases: ["/til/2021-03-16/"]
 Google's Tech Infrastructure team (think SRE) released [Practical Guide to Cloud Migration](https://sre.google/resources/practices-and-processes/practical-guide-to-cloud-migration/).
 
   _"75% of the application development team realized that they now had valuable new skills, and they didn’t feel like Company A provided a supportive environment.
-  They took their newfound skills and found profitable work elsewhere.Company A had transformed its technological stack without transforming its company culture, and the employees that did the work and made the change weren’t given a voice."_
+  They took their newfound skills and found profitable work elsewhere. Company A had transformed its technological stack without transforming its company culture, and the employees that did the work and made the change weren’t given a voice."_
 
   _"But it didn’t have to happen like that.
   What if Company A had proactively maintained a positive and supportive culture while undergoing its cloud transformation?
@@ -24,7 +24,7 @@ Google's Tech Infrastructure team (think SRE) released [Practical Guide to Cloud
 
 ## Exporting GCP infra to terraform
 
-Since I just got on the Terrafrom bandwagon as a user vs. a reader, this piqued my interest:
+Since I just got on the Terraform bandwagon as a user vs. a reader, this piqued my interest:
 
 {{< x user="vicnastea" id="1370166601991868419" >}}
 

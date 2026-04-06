@@ -17,7 +17,7 @@ I came across this nice collection of leadership and learning links.
 
 {{< x user="shreyas" id="1378334295962443783" >}}
 
-The [Notable memos in tech](https://sriramk.com/memos.html) list has a a bunch of really good reads around high level corporate strategy.
+The [Notable memos in tech](https://sriramk.com/memos.html) list has a bunch of really good reads around high level corporate strategy.
 
 ### PM vs Eng Manager
 
@@ -39,11 +39,11 @@ Some really good nuggets in here. For example:
 And [this article](https://avc.com/2011/10/vp-engineering-vs-cto/) comparing VP Engineering to CTO talks about the relative strengths required for each.
 It does take a decidedly tech-startup angle, for which reason I like the preceding definition of a CTO better.
 
-> A VP Engineering is ideally a great manager and a great team builder. He or she will be an excellent recruiter, a great communicator, and a great issue resolver. The VP Eng's job is the make everyone in the engineering organization successful and he or she needs to fix the issues sthat are getting in the way of succcess.
+> A VP Engineering is ideally a great manager and a great team builder. He or she will be an excellent recruiter, a great communicator, and a great issue resolver. The VP Eng's job is the make everyone in the engineering organization successful and he or she needs to fix the issues that are getting in the way of success.
 >
-> A CTO is ideally the strongest technologist in the organization. He or she will be an architect, and thinker, a researcher, a tester, and a tickerer. The CTO is often the technical co-founder if there is one...
+> A CTO is ideally the strongest technologist in the organization. He or she will be an architect, and thinker, a researcher, a tester, and a tinkerer. The CTO is often the technical co-founder if there is one...
 
-[Elain Chen's 2014 LinkedIn article is more helpful, IMO](https://www.linkedin.com/pulse/20140615184118-4928723-the-differences-between-a-cto-and-a-vp-engineering/).
+[Elaine Chen's 2014 LinkedIn article is more helpful, IMO](https://www.linkedin.com/pulse/20140615184118-4928723-the-differences-between-a-cto-and-a-vp-engineering/).
 
 First, the CTO:
 

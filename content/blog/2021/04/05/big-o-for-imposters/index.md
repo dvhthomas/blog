@@ -71,5 +71,5 @@ So if you had a collection of, say, 20 people then you're looking at `$T = 2^{20
 ## To be continued...
 
 I'm just capturing a few things I'm learning here, expect more over time.
-This may be better a as a Today I Learned.
+This may be better as a Today I Learned.
 I may do that.

@@ -37,12 +37,12 @@ I wonder why...
 1. Notice that `cdn.mxpnl.com` and similar subdomains are being blocked.
 
     {{< figure src="ssh.png" title="tailing the pihole log" >}}
-1. Add `*.mxpnl.com` and all it's subdomains** to the whitelist.
+1. Add `*.mxpnl.com` and all its subdomains** to the whitelist.
 
     {{< figure src="whitelist.png" title="regex-based whitelisting subdomains" >}}
 
 
-After clearing the browser cache for the last hour on my wifes computer and refreshing a few times we have success! Mixpanel now loads just fine.
+After clearing the browser cache for the last hour on my wife's computer and refreshing a few times we have success! Mixpanel now loads just fine.
 
 I followed the same process to get search working on my AndroidTV.
 

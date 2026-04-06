@@ -31,7 +31,7 @@ It's implemented as a series of linear layers (neural network).
   * We don't need the inference part; we just need the Decoder.
     The input is just a random vector (sampled from a multi-variate Gaussian distribution).
     Then the decoder samples the data based on the training data.
-  * [How VAE can be implmented][vae-implementation] and [a helpful visualizer][vae-latent-space] to help you develop some intuition of how VAEs work.
+  * [How VAE can be implemented][vae-implementation] and [a helpful visualizer][vae-latent-space] to help you develop some intuition of how VAEs work.
 
 
 [Interesting article](https://johnthuma.medium.com/python-vae-and-generating-x-ray-data-215c8f7b7072) that shows how someone generated X-ray data using a VAE.

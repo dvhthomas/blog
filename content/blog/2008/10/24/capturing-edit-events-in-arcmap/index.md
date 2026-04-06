@@ -8,7 +8,7 @@ draft: false
 ---
 ## Issue
 
-You are trying to capture the Save Edits and Stop Editing toolbar actions in [ArcMap](http://www.esri.com/arcgis) through code so that different actions can be performed for each event. Unfortunately the underlying events associated with the actions (saving and stopping editing) fire for both actions so figuring out if the use Saved or Stopped Editing is a chore.
+You are trying to capture the Save Edits and Stop Editing toolbar actions in [ArcMap](http://www.esri.com/arcgis) through code so that different actions can be performed for each event. Unfortunately the underlying events associated with the actions (saving and stopping editing) fire for both actions so figuring out if the user Saved or Stopped Editing is a chore.
 
 ## Resolution
 

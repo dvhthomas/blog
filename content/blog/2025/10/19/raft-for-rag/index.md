@@ -75,7 +75,7 @@ You:
 
 1. Create training data with questions, relevant docs, and distractors (the unhelpful ones)
 2. Fine-tune your _retrieval_ model on this data.
-   This is where I kept getting confusing.
+   This is where I kept getting confused.
    You're **not** training the main LLM; are **are** training a special retrieval model that is strictly limited to the task of retrieving relevant documents.
 3. Save the fine-tuned model
 
@@ -338,4 +338,4 @@ Here's why RAFT could make sense for something like a wiki:
 
 1. Wiki content changes frequently → RAG updates easily without retraining
 2. Attribution matters → You can cite which article the answer came from
-3. Scalability → Adding new articles is trivial because you don't have the retain (adjust weights) in the main LLM.
+3. Scalability → Adding new articles is trivial because you don't have to retrain (adjust weights) in the main LLM.

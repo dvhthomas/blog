@@ -40,13 +40,13 @@ I ended up writing this (it's a tiny bit SRE-specific):
 > #### Core Skills
 > * **Clarity** in verbal and written communications. You use a communications style that is appropriate to the context. You respect the time of recipients of your communications, whatever the form.
 > * **Empathy** for the customer and for the team. You ask lots of questions to understand how to make an amazing end-user experience. You dig for deeper meaning behind motivations, and act in the best interests of the customer and the user.
-> * **Active listener.** You listen more that you talk, and ask a lot of questions. You know when NOT to share your thoughts.
+> * **Active listener.** You listen more than you talk, and ask a lot of questions. You know when NOT to share your thoughts.
 > * **Embrace diversity.** New and different perspectives strengthen just about any relationship, solution, or engagement.
 > * **Have a life.** Life is not solely defined by work, and you recharge your batteries by stepping back from work. You know that creativity and inspiration often comes when you’re not thinking about your day job.
 > #### Technical Skill
 > * **Effective learner.** You don’t know everything and that’s OK. But you do approach new technical subject matter systematically, with an open mind. Figuring out infrastructure automation tool, learning a new CLI, or jumping into a codebase in a new language are just things you do.
 > * **Solution oriented.** You focus intently on the problem at hand, and deliver the simplest possible solution (but not too simple!). You think like system architect, and understand the customers have to be able to maintain what you deliver.
-> * **DevOps mindset.** You know that shipping anything once is easy. Shipping it repeatedly in production is requires discipline. You think about service level objectives and the impact on site reliability at during deployment, not after go-live. Infrastructure is code!
+> * **DevOps mindset.** You know that shipping anything once is easy. Shipping it repeatedly in production requires discipline. You think about service level objectives and the impact on site reliability during deployment, not after go-live. Infrastructure is code!
 
 I actually had one in there about "No Jerks" as well, but that was just a little too confrontational! But can you see that even the Technical Skills are about flexibility, focusing on solutions not problems, and being in it for a long game: **no drama!**
 

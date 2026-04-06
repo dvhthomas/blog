@@ -9,10 +9,9 @@ summary: |-
   the philosophy behind it, and two stories about what went wrong.
 draft: false
 featured: true
-images: [shelly.png]
+images: [hero.png]
+hero_alt: "gh-velocity logo — Shelly the pixel-art turtle mascot with the tagline Measure what matters"
 ---
-
-{{< figure src="shelly.png" w="400" title="Shelly, the gh-velocity mascot" >}}
 
 I've spent most of my career as a leader inside technical organizations thinking about how teams ship software. Not just whether they ship, but how smoothly work flows from idea to production and what gets in the way. I care about operational efficiency, and I think the best way to improve it is through data and insights, not gut feel.
 

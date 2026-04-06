@@ -7,6 +7,7 @@ series: []
 summary: In which I finally read some docs on what a JavaScript module is and how it made my Hugo shortcodes self contained.
 draft: false
 images: [network.png]
+hero_alt: "Browser network tab showing ES module loading with efficient caching"
 aliases: ["/til/2025-10-29/"]
 ---
 
@@ -101,7 +102,7 @@ Mermaid is smart enough not to initialize more than once per page, so we're good
 
 ## Optimized Builds
 
-While looking at the browser console I notices that there were *many* more networking requests that I expected.
+While looking at the browser console I noticed that there were *many* more networking requests that I expected.
 Yes, the main ES module file was only being requested once, but what are all these 'chunks'?
 
 {{< figure src="network.png" title="Module loading with option build-time chunks being loaded as static dependencies (sub-imports)">}}

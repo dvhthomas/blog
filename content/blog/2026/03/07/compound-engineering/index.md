@@ -10,10 +10,9 @@ summary: |-
   issue resolution." The data tells the story.
 draft: false
 featured: true
-images: [calcmark-og.png]
+images: [calcmark-hero.gif]
+hero_alt: "CalcMark's side-by-side TUI — source on the left, live results on the right"
 ---
-
-{{< figure src="calcmark-og.png" title="CalcMark — calculations embedded in markdown" >}}
 
 I've been building [CalcMark](https://calcmark.org)---a terminal-based calculation notepad written in Go---as a solo developer since November 2025.
 Four months later I have a real product: 23 releases, a Homebrew tap, multi-platform binaries, a TUI editor with live preview, undo/redo, GitHub Gist sharing, theming, and a whole lot more.

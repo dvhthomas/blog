@@ -7,12 +7,11 @@ series: []
 summary: Using git worktrees for the first time in local development requires some new muscle memory.
 draft: false
 images: [git-butler.png]
+hero_alt: "GitButler in-app message about git worktrees"
 ---
 
 I learned about [git worktrees](https://git-scm.com/docs/git-worktree) from a non-obvious place: [GitButler](https://gitbutler.com/).
 GitButler [has a concept](https://docs.gitbutler.com/features/branch-management/integration-branch) of lightweight integration branches managed as a 'workspace' and they are---as far as I can tell---implemented using git worktrees.
-
-{{< figure src="git-butler.png" alt="git butler in-app message about " >}}
 
 I'm so used to my typical local workflow that the benefits of git worktrees took a while to sink in.
 

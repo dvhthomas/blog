@@ -7,11 +7,11 @@ series: []
 summary: I made a warm, earthy theme for Zed. It took exactly a month to get merged.
 draft: false
 images: [pearish-dark.png]
+hero_alt: "Pearish Dark theme for Zed editor"
 ---
 
 I built a [theme for Zed](https://github.com/dvhthomas/pearish-theme) called Pearish. It has a dark and a light variant, both built around warm earth tones and a pear green accent color. I've been using [Zed](https://zed.dev) as my daily editor for a while now and wanted something that felt comfortable for long sessions.
 
-{{< figure src="pearish-dark.png" title="Pearish Dark" >}}
 {{< figure src="pearish-light.png" title="Pearish Light" >}}
 
 I [submitted a PR](https://github.com/zed-industries/extensions/pull/5067) to the Zed extensions registry on March 2nd. It got merged on April 2nd. Exactly one month. The Zed team has a lot of extensions to review so I'm not complaining, but if you're thinking about contributing a theme, set your expectations accordingly. You can search for "Pearish" in Zed's extensions panel (`cmd+shift+x`) now that it's live.

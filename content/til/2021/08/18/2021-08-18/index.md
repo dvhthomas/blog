@@ -98,7 +98,7 @@ Genius!
 
 
 Except in practice I find a more common need is to change the length (Duration) of a session rather than shift it around.
-And for that I typically find find it easier to change the length (Duration) in minutes rather than do simple but (for me) error-prone clock math.
+And for that I typically find it easier to change the length (Duration) in minutes rather than do simple but (for me) error-prone clock math.
 
 And even if that weren't the case, dragging rows around to switch sessions is a problem because _Google Sheets magically (and annoyingly in this particular case) remembers which End Time cell you session **was** pointing to_.
 Instead, we want each agenda item row to _always point back to the row just before it_ and stop doing magic.

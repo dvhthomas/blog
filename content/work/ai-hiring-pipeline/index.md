@@ -39,7 +39,7 @@ I designed a three-tier decision framework (reject, manual review, approve to ph
 Role-specific dealbreakers are checked first, then application responses are validated, and only then does Claude evaluate the candidate against job requirements with a high evidence bar.
 Every decision must cite specific resume evidence, not generic impressions.
 
-This was an interative process: fine-tune the system, talk through the sample results with the Head of HR, update the prompts. Then we were ready to work through 1K+ candidates.
+This was an iterative process: fine-tune the system, talk through the sample results with the Head of HR, update the prompts. Then we were ready to work through 1K+ candidates.
 
 {{< figure src="bamboo.png" title="Reducing the size of the hiring funnel" >}}
 

@@ -21,7 +21,7 @@ There are probably exceptions to that principle, but I find it's a good place to
 
 I've also learned that **working in the open by default** is a superpower both individually and collectively.
 Working at GitHub---the home of open source software---was a revelation in that regard (hat tip to [Ben](https://github.com/benbalter)).
-It confirmed by fundamental belief that writing things down _as publicly as possible_ is [a game changer](https://ben.balter.com/2015/11/12/why-urls/).
+It confirmed my fundamental belief that writing things down _as publicly as possible_ is [a game changer](https://ben.balter.com/2015/11/12/why-urls/).
 
 ## Learning My Way Through a Career
 

@@ -8,7 +8,7 @@ summary: |-
 draft: false
 tags: [mcp, numpy, python, redis]
 images: [sensors.png]
-
+hero_alt: "Sensor analytics dashboard driven by data in Redis"
 ---
 
 Two distinct topics for this TIL: processing data using NumPy and wiring up a basic MCP server.
@@ -23,12 +23,10 @@ At first I was just curious how NumPy was doing vectorized operations, but then 
 The result is [a codebase and Docker Compose setup](https://github.com/dvhthomas/sensor-analytics) demonstrating real-time sensor data collection, storage, and analysis using NumPy and modern data tools.
 The [dashboard](https://github.com/dvhthomas/sensor-analytics/blob/main/dashboard/dashboard.py) is showing data in Redis:
 
-![a dashboard driven by data in Redis](sensors.png)
-
 ## MCP
 
 Part of my [AI Engineering course](/series/ai-engineering-course) was about tool-calling.
-Since model context prototocol (MCP) is one key way that this can be implemented, I wanted to explore how to do this in the simples possible way.
+Since model context protocol (MCP) is one key way that this can be implemented, I wanted to explore how to do this in the simplest possible way.
 
 Go and get the code at [dvhthomas/mcp_demo](https://github.com/dvhthomas/mcp_demo).
 

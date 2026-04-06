@@ -14,7 +14,7 @@ draft: false
 
 ## Why JSON Schema?
 
-The most basic reason for defining a schema is to created a shared understanding of what is considered acceptable between two systems.
+The most basic reason for defining a schema is to create a shared understanding of what is considered acceptable between two systems.
 If I am calling an API or making a remote procedure call (RPC) then it saves everyone a whole lot of hassle if we agree on what the remote system is equipped to handle.
 
 ### An aside on Data vs. API
@@ -79,7 +79,7 @@ But...the strong opinion in the entire ServiceStack framework is that of 'messag
 And if you read even the slightest bit of their [ethos around using data transfer objects (DTOs)](https://docs.servicestack.net/why-remote-services-use-dtos), you quickly see the Martin Fowler influence.
 And I personally like that influence for the clarity it brings to system integration.
 
-In addition, they have a similar approach to Protocol Buffers for generating [client libraries](https://docs.servicestack.net/clients-overview) for mutiple languages.
+In addition, they have a similar approach to Protocol Buffers for generating [client libraries](https://docs.servicestack.net/clients-overview) for multiple languages.
 So while this is not a good fit for my current team based on using stuff they already use, Service Stack is one to keep an eye on.
 
 Now where was I...?
@@ -243,7 +243,7 @@ But there's a fair bit going on in here.
 That last one was really not obvious to me at first.
 I mean, it's self evident when you read it, but until I saw the HTML docs it did not quite compute.
 To whit: in JSON Schema by default you **can add any random property you like onto any specified object in the schema**.
-In other words, you can throw random data into your carefully craft JSON Schema and WHOOSH! there goes your easily parse data file.
+In other words, you can throw random data into your carefully crafted JSON Schema and WHOOSH! there goes your easily parsed data file.
 
 I quickly got into the habit of setting `additionalProperties: false` by default just to avoid hiccups like that.
 

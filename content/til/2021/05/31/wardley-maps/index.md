@@ -41,7 +41,7 @@ It's OK to rename axes to better reflect the context of the map, but user centri
 
 ### Doctrine Informs Map Location
 
-User centricity is part of the overall doctrin.
+User centricity is part of the overall doctrine.
 This is how you decide where things are on the map and where they should go.
 Which means being deliberate in choosing the axes of the map.
 Where do you put _Item X_ on the map?
@@ -49,7 +49,7 @@ Think about what _is_ (current situation) and what _should be_ by using doctrine
 
 * Know your users. There could be more than one type.
 * Focus on user needs.
-* Know the details. Dependencies are important because that's what poor investment allocation can show up.
+* Know the details. Dependencies are important because that's where poor investment allocation can show up.
 * Understand what is being considered. What is the state of each of the elements of the system?
 * Challenge Assumptions. We are trained to think in stories, but stories can be misleading.
 
@@ -77,7 +77,7 @@ I've seen this in companies that invest heavily in their own infrastructure for 
 * Six Sigma and similar. Outsource with quality controls
 
 And if you're building a contract or project that encompasses different working styles, expect delays!
-For exmaple, if an outsourcing contract includes innovation aspects, it's hard to avoid disruptive change across the whole contract.
+For example, if an outsourcing contract includes innovation aspects, it's hard to avoid disruptive change across the whole contract.
 
 ### Tools
 
@@ -107,4 +107,4 @@ For exmaple, if an outsourcing contract includes innovation aspects, it's hard t
   It's OK because you can paste the exact same DSL text into the online mapping tool and get the same result.
   But that's kind of a drag in the longer term.
 
-[^1]: This was first written in 2021 when that what a thing.
+[^1]: This was first written in 2021 when that was a thing.
