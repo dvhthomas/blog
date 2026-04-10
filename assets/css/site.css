@@ -1013,3 +1013,48 @@ nav a:focus-visible {
         gap: 1rem;
     }
 }
+
+/* ── Career path ───────────────────────────────────────────── */
+.career-path {
+    margin: 2.5rem auto;
+    max-width: 34rem;
+}
+
+.career-path ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.career-path li {
+    position: relative;
+    padding: 1.1rem 1.25rem;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    background: hsl(var(--base-hue), 20%, 99%);
+    font-size: 1rem;
+    line-height: 1.45;
+    text-align: center;
+    transition: border-color 0.15s ease, background-color 0.15s ease;
+}
+
+.career-path li:hover {
+    border-color: hsl(var(--base-hue), 30%, 70%);
+    background: hsl(var(--base-hue), 25%, 97%);
+}
+
+.career-path li + li {
+    margin-top: 1.5rem;
+}
+
+.career-path li + li::before {
+    content: "↓";
+    position: absolute;
+    top: -1.25rem;
+    left: 50%;
+    transform: translateX(-50%);
+    color: var(--muted-color);
+    font-size: 0.9rem;
+    line-height: 1;
+    opacity: 0.55;
+}

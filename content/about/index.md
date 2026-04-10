@@ -25,23 +25,21 @@ It confirmed my fundamental belief that writing things down _as publicly as poss
 
 ## Learning My Way Through a Career
 
-I am an incurable and curious tinkerer, which I believe is a strength in my work.
-The **ability and desire to learn** got me from being a geographer in both [the UK](http://www.reading.ac.uk/ges) and [the USA](https://geoearth.charlotte.edu) to things as varied as:
+I am an incurable and curious tinkerer, which I believe is a strength in [my work]({{< ref "work/_index.md" >}}).
+The **ability and desire to learn** got me from being a geographer in both the UK and the USA to things as varied as:
 
-* Sales engineering with [Esri](https://www.esri.com)
-* [Consulting software developer](https://woolpert.com) with municipal utilities
-* Building social features into [MSN](https://www.msn.com) and [Bing](https://www.bing.com)
-* Starting [Google Maps](https://maps.google.com) customer success
-* Launching [Android Auto](https://www.android.com/auto/) in 70M vehicles
-* [Building]({{< relRef "series/woolpert-cloud-journey/" >}}) a Cloud consulting product and practice
-* [Leading]({{< ref "blog/2024/10/20/tpm-journey-at-github/index.md" >}}) the TPM team at GitHub through major product and platform shifts.
-* Having a life by taking two sabbaticals as **Head of DadOps** for my family.
-* Creating repeatable solutions to recurring operational and team friction:
-  * [Calculations in Markdown](https://calcmark.org)
-  * [Agentic job searches](https://jobs4me.org)
-  * [Team flow metrics for actionable insights](https://gh-velocity.org).
+{{% career-path %}}
+- Sales engineering with [Esri](https://www.esri.com)
+- Consulting software developer with [municipal utilities](https://woolpert.com)
+- Building social features into [MSN](https://www.msn.com) and [Bing](https://www.bing.com)
+- Starting [Google Maps](https://maps.google.com) customer success
+- Launching [Android Auto](https://www.android.com/auto/) in 70M vehicles
+- [Building]({{< relRef "series/woolpert-cloud-journey/" >}}) a Cloud consulting product and practice
+- [Leading]({{< ref "blog/2024/10/20/tpm-journey-at-github/index.md" >}}) the TPM team at GitHub through major product and platform shifts
+- Founded [AlwaysMap LLC](https://alwaysmap.com) to create repeatable solutions to recurring operational and team friction
+{{% /career-path %}}
 
-Again, my [resume / C.V.]({{< ref "resume/index.md" >}}) has all the details.
+Along the way, I've also taken two sabbaticals as **Head of DadOps** for my family and built open source tools aligned with my interests---[CalcMark](https://calcmark.org), [Jobs4Me](https://jobs4me.org), and [GH Velocity](https://gh-velocity.org). Again, my [resume / C.V.]({{< ref "resume/index.md" >}}) and [my work]({{< ref "work/_index.md" >}}) have all the details.
 
 ## Other Stuff
 
