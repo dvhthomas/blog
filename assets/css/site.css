@@ -571,6 +571,12 @@ li code {
     font-size: 0.85em;
 }
 
+/* Headings use display:flex for anchor layout, which collapses whitespace
+   around inline <code> children. Restore breathing room explicitly. */
+h1 > code, h2 > code, h3 > code, h4 > code, h5 > code, h6 > code {
+    margin: 0 0.2em;
+}
+
 code.has-jax {
     -webkit-font-smoothing: antialiased;
     background: inherit !important;
