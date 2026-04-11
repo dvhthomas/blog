@@ -1,5 +1,6 @@
 {{ $file := .Get "file" }}
 {{ $content := readFile (printf "%s%s" .Page.File.Dir $file) }}
 {{ $lang := .Get "lang" }}
+{{ $options := .Get "options" | default "" }}
 {{ printf "\n**%s**\n" $file | safeHTML }}
-{{ highlight $content $lang "" }}
+{{ highlight $content $lang $options }}
