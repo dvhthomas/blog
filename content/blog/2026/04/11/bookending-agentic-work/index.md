@@ -6,9 +6,9 @@ toc: true
 series: [CalcMark, "Agentic Operations"]
 summary: |-
   Claude kept apologizing for skipping my expectation-based testing rules...and then skipping then again 2 minutes later.
-  This is how I replaced the prose with two deterministic
-  gates---a PreToolUse hook and a pre-commit hook---that I call bookends because they surround
-  the agent with boundaries to work that cannot be ignored.
+  This is how I replaced best-effort written instructions with two deterministic
+  gates that I call bookends because they surround
+  the agent with boundaries that cannot be ignored.
 draft: false
 featured: true
 images: [cmw-editor.png]
