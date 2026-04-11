@@ -1,0 +1,29 @@
+direction: down
+
+claude: "Local work" {
+  style.fill: "#fefaf0"
+
+  front: "Front bookend\n(PreToolUse hook: tdd-gate.sh)" {
+    style.fill: "#fde68a"
+    style.stroke: "#b45309"
+  }
+  chaos: "Agentic fun, chaos, and rewards\n(compound engineering)"
+  back: "Back bookend\n(pre-commit: task check)" {
+    style.fill: "#fde68a"
+    style.stroke: "#b45309"
+  }
+
+  front -> chaos: "edits allowed" { style.animated: true }
+  chaos -> back: "git commit" { style.animated: true }
+}
+
+github: "GitHub" {
+  style.fill: "#f0f4fe"
+
+  ci: "CI"
+  deploy: "Deploy to Fly.io"
+
+  ci -> deploy: "workflow_run\non success" { style.animated: true }
+}
+
+claude.back -> github.ci: "git push" { style.animated: true }

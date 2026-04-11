@@ -1,0 +1,19 @@
+TDD gate blocked Edit/Write on web/handlers_docs.go
+
+1. What's missing
+   No test file found at: web/handlers_docs_test.go
+
+2. Where to learn the shape
+   Read docs/testing/go-exemplar.md before writing the test.
+   It shows how to assert on expectations, not implementation.
+
+3. Anti-pattern warning
+   Do not write a test that asserts on function call counts,
+   struct internals, CSS class names, component internals,
+   or mocks of the unit under test. Test observable behavior.
+
+4. Override (user-only)
+   If this edit is a spike or exploration, ask the user to
+   run '/spike <reason>' or set 'CALCMARK_TDD_OFF=1' in the
+   shell. Do NOT attempt to bypass this hook on your own
+   initiative [...]
