@@ -8,7 +8,7 @@ summary: |-
   What I learned building CalcMark — a calculation language embedded in markdown — in Go.
   Lexers, parsers, type systems, and the tradeoffs that bit me.
 draft: false
-featured: true
+featured: false
 images: [architecture-hero.png]
 hero_alt: "CalcMark's architecture — ASCII art on GitHub, D2 diagrams in this post"
 ---
