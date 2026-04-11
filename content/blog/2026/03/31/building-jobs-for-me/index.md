@@ -3,7 +3,7 @@ title: "Building the 'Jobs For Me' Agent"
 date: 2026-03-31T10:00:00-06:00
 tags: [ai, claude, plugins, open-source]
 toc: true
-series: []
+series: ["Agentic Operations"]
 summary: |-
   What I learned building an AI job search agent as a Claude Work plugin
   in three days---and why I open-sourced it instead of selling it.

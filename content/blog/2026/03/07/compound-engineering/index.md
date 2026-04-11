@@ -3,7 +3,7 @@ title: Compound engineering
 date: 2026-03-07T09:52:58-07:00
 tags: [ai, learning, knowledge, velocity, quality]
 toc: true
-series: [CalcMark]
+series: ["Agentic Operations"]
 summary: |-
   How I used compound engineering to build a real product as a solo developer.
   Not "look how many commits I made" but "look at the quality and speed of
