@@ -1,5 +1,5 @@
 ---
-title: "gh-velocity: flow metrics for work in GitHub"
+title: "Flow metrics for work in GitHub"
 date: 2026-04-02T11:29:15-06:00
 tags: [github, cli, metrics, velocity, lean]
 toc: true
