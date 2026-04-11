@@ -66,6 +66,9 @@ That script doesn't read instructions; **it refuses to proceed**.
 So I stopped trying to *instruct* the rule and started trying to *enforce* it.
 What I ended up with is a pattern I'm calling **bookending**: two deterministic gates around every code change, with Claude working freely between them.
 
+> When quality is paramount, don't trust agents to do what you intend.
+> Take the decision out of their hands.
+
 The **front bookend** fires whenever Claude tries to `Edit`, `Write`, or `MultiEdit` a watched source file.
 It checks exactly one thing---whether a sibling test file for that source already exists on disk---and blocks the tool call if it doesn't.
 One filesystem call to check for the existence of a test file, invisible during normal work.
