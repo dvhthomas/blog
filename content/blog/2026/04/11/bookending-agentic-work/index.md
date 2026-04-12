@@ -1,5 +1,5 @@
 ---
-title: Bookending for agents that keep asking for forgiveness.
+title: Bookends for agents that keep asking for forgiveness
 date: 2026-04-11T10:58:17-06:00
 tags: [ai, agents, claude, guardrails, tdd]
 toc: true
