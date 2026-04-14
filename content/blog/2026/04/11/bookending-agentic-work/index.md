@@ -1,5 +1,5 @@
 ---
-title: Bookends for agents that keep asking for forgiveness
+title: Bookend agents for product quality
 date: 2026-04-11T10:58:17-06:00
 tags: [ai, agents, claude, guardrails, tdd]
 toc: true
