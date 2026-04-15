@@ -6,6 +6,9 @@
 <div class="article-listing">
     <a class="article-listing-title" href="{{ .Page.RelPermalink }}">{{ .Page.Title }}</a>
     <span class="article-listing-section">{{ .Count }} articles</span>
+    {{ with .Page.Params.summary }}
+    <p class="article-listing-summary">{{ . }}</p>
+    {{ end }}
 </div>
 {{ end }}
 

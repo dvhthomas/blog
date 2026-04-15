@@ -595,13 +595,60 @@ article ul {
 
 article ol li,
 article ul li {
-    padding-top: 0.3rem;
+    padding-top: 0.1rem;
     margin-left: 0;
     padding-left: 0;
 }
 
+article ol li + li,
+article ul li + li {
+    margin-top: 0.4rem;
+}
+
+article li > p {
+    margin-bottom: 0.4rem;
+}
+
+article li > p:last-child {
+    margin-bottom: 0;
+}
+
 article > dl > dd {
     padding-left: 2rem;
+}
+
+/* ── Footnotes ─────────────────────────────────────────────── */
+.footnotes {
+    margin-top: 3rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--border-color);
+    font-size: 0.9em;
+}
+
+.footnotes hr {
+    display: none;
+}
+
+.footnotes::before {
+    content: "Footnotes";
+    display: block;
+    font-family: "Rubik", sans-serif;
+    font-weight: 600;
+    font-size: 1.15rem;
+    margin-bottom: 0.75rem;
+}
+
+.footnotes ol {
+    margin-bottom: 0;
+}
+
+article .footnotes ol li {
+    padding-top: 0;
+    margin-bottom: 0.35rem;
+}
+
+.footnotes ol li p {
+    margin-bottom: 0.25rem;
 }
 
 /* ── Tables ────────────────────────────────────────────────── */
