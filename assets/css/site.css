@@ -444,6 +444,12 @@ h6:hover .heading-anchor, h6:focus-within .heading-anchor {
     line-height: 1.6;
 }
 
+#abstract code,
+#abstract pre {
+    color: hsl(var(--base-hue), 20%, 92%);
+    background-color: hsl(var(--base-hue), 45%, 18%);
+}
+
 /* ── Blockquotes ───────────────────────────────────────────── */
 #main blockquote {
     font-weight: 400;
