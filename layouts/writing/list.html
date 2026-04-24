@@ -2,10 +2,12 @@
 
 <h1>{{ .Title }}</h1>
 
-{{ $allContent := union
+{{ $base := union
     (where .Site.RegularPages "Section" "blog")
     (where .Site.RegularPages "Section" "til")
 }}
+{{ $aiEssays := where $base "Params.series" "intersect" (slice "Essays with AI") }}
+{{ $allContent := $base | complement $aiEssays }}
 {{ $sorted := sort $allContent "PublishDate" "desc" }}
 
 {{ $paginator := .Paginate $sorted }}

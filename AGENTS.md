@@ -9,7 +9,7 @@ Hugo static site for [bitsby.me](https://bitsby.me), a personal blog by Dylan Th
 - **Never fabricate the author's experiences or opinions.** Only write what Dylan actually told you. No invented quotes, embellished motivations, or made-up anecdotes.
 - **All writing follows the [voice guide](.agents/skills/voice-guide.md).** This is the authority on tone, banned words, structure, and AI slop patterns to avoid.
 - Posts default to `draft: true`. Only publish when the user says to.
-- Compress PNGs before committing: `./squish <path> --now` then `mv image-fs8.png image.png` (the `--clean` flag prompts interactively, so just `mv`).
+- Compress images before committing: `./squish <path> --now`. PNGs become `*-fs8.png`; JPEGs become `*-squished.{jpg,jpeg}`. Then either `mv` the compressed file over the original, or run `./squish <path> --clean` (prompts interactively).
 - Generated SVGs from D2 are gitignored. Only commit `.d2` source files.
 
 ## Creating Content

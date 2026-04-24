@@ -192,9 +192,9 @@ go run blog.go --verbose
 - Verify the `src` path in your shortcode matches the actual file name
 - Try manually running: `task render-d2`
 
-### Compress PNG Images
+### Compress Images
 
-Following [this advice](https://til.simonwillison.net/macos/shrinking-pngs-with-pngquant-and-oxipng) it's a good idea to compress PNG images before adding to Git. Typical results: 480KB → 70KB (85% reduction).
+Following [this advice](https://til.simonwillison.net/macos/shrinking-pngs-with-pngquant-and-oxipng) it's a good idea to compress images before adding to Git. Typical PNG results: 480KB → 70KB (85% reduction). JPEGs also shrink meaningfully at quality 80 with metadata stripped.
 
 #### Prerequisites
 
@@ -202,40 +202,49 @@ Install the compression tools once:
 
 ```sh
 # macOS
-brew install pngquant oxipng
+brew install pngquant oxipng jpegoptim
 
 # Linux (Ubuntu/Debian)
-sudo apt install pngquant
+sudo apt install pngquant jpegoptim
 cargo install oxipng
 ```
 
+| Tool       | Purpose                                          |
+|------------|--------------------------------------------------|
+| `pngquant` | Lossy PNG palette reduction (first PNG pass)     |
+| `oxipng`   | Lossless PNG re-encoding (second PNG pass)       |
+| `jpegoptim`| JPEG quality capping + metadata stripping        |
+
 #### Using the squish script
 
-The `squish` script recursively finds and compresses all PNG images in a directory:
+The `squish` script recursively finds PNG and JPEG images under a directory and compresses them:
 
 ```sh
 # Preview what will be compressed (dry-run, safe)
 ./squish content/blog/2021/05/11
 
-# Actually compress images (creates -fs8.png versions)
+# Actually compress (creates -fs8.png / -squished.jpg siblings)
 ./squish content/blog/2021/05/11 --now
 
-# Replace original images with compressed versions (destructive!)
-./squish content/blog/2021/05/11 --now --clean
+# Replace originals with the compressed versions (destructive, prompts to confirm)
+./squish content/blog/2021/05/11 --clean
 ```
 
-
 **Features:**
-- Recursively finds all PNG files in a directory
+- Recursively finds PNG, JPG, and JPEG files
 - Handles filenames with spaces
 - Shows before/after sizes and compression ratios
 - Safe by default (dry-run mode)
-- Intermediate `-fs8.png` files are git-ignored
+- Intermediate `-fs8.png` and `-squished.{jpg,jpeg}` files are git-ignored
+
+**Output suffixes:**
+- PNGs → `name-fs8.png` (via pngquant + oxipng)
+- JPEGs → `name-squished.jpg` / `name-squished.jpeg` (via jpegoptim, `--max=80 --strip-all`)
 
 **Workflow:**
 1. Add images to your post directory
 2. Run `./squish <path>` to preview
 3. Run `./squish <path> --now` to compress
-4. Review the `-fs8.png` files
-5. Run `./squish <path> --now --clean` to replace originals
+4. Review the `-fs8.png` / `-squished.*` files
+5. Run `./squish <path> --clean` to replace originals
 6. Commit the compressed images

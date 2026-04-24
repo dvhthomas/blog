@@ -12,7 +12,9 @@
 
 <div class="recent-section">
 <h2>Recent</h2>
-{{ $allContent := where (where .Site.RegularPages "Section" "in" (slice "blog" "til")) ".Params.featured" "ne" true }}
+{{ $base := where (where .Site.RegularPages "Section" "in" (slice "blog" "til")) ".Params.featured" "ne" true }}
+{{ $aiEssays := where $base "Params.series" "intersect" (slice "Essays with AI") }}
+{{ $allContent := $base | complement $aiEssays }}
 {{ range first 10 $allContent }}
     {{ partial "article-listing.html" . }}
 {{ end }}

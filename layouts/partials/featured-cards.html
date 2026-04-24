@@ -1,6 +1,8 @@
 {{- $defaultFormat := .Site.Params.defaultImageFormat -}}
 {{- $dateFormat := .Site.Params.dateFormat | default "Jan 2, 2006" -}}
-{{- $featured := where (where .Site.RegularPages "Section" "in" (slice "blog" "til")) ".Params.featured" true -}}
+{{- $featuredBase := where (where .Site.RegularPages "Section" "in" (slice "blog" "til")) ".Params.featured" true -}}
+{{- $aiEssays := where $featuredBase "Params.series" "intersect" (slice "Essays with AI") -}}
+{{- $featured := $featuredBase | complement $aiEssays -}}
 {{- with $featured -}}
 <section class="featured-section">
     <h2>Featured</h2>
