@@ -135,7 +135,7 @@ In practice: export [cycle time](https://en.wikipedia.org/wiki/Cycle_time) data 
 
 - [Monte Carlo Simulation for backlog prognosis in Google Sheets](https://www.marcusoft.net/2024/03/monte-carlo-simulation.html) --- the whole thing in roughly one function.
 - [Introduction to Monte Carlo simulation in Excel](https://support.microsoft.com/en-us/office/introduction-to-monte-carlo-simulation-in-excel-64c0ba99-752a-4fa8-bbd3-4450d8db16f1) --- Microsoft's own walkthrough.
-- [Focused Objective's forecasting spreadsheets](https://www.focusedobjective.com/courses/using-the-monte-carlo-forecasting-spreadsheets) --- free, battle-tested templates from Troy Magennis.
+- [Focused Objective's](https://www.focusedobjective.com) [Monte Carlo explainer](https://observablehq.com/@troymagennis/introduction-to-monte-carlo-forecasting?collection=@troymagennis/agile-software-development) --- free, battle-tested templates from Troy Magennis.
 - [gh-velocity](https://gh-velocity.org) --- a CLI tool I built for teams working in GitHub; turns issues, pull requests, and releases into flow metrics without leaving the terminal.
 
 #### A worked example
