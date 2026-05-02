@@ -12,7 +12,9 @@ hero_alt: A Train My Brain curriculum on building traditional wood arrows
 
 I learn best when I can poke at a focused, self-contained micro-site about whatever I'm trying to understand. So I built [`train-my-brain`](https://github.com/alwaysmap/train-my-brain), a [Claude Code](https://docs.claude.com/en/docs/claude-code/overview) plugin that does exactly that.
 
-You run `/tmb:create`, it asks seven questions, then it spends about 30 minutes building the site---which surprised me until I watched what it was actually doing. Coming up with a sensible curriculum as a whole thing takes a lot of research, and then each module gets its own subagent doing more research in parallel before any prose gets written. At the end you get a Hugo site running at `localhost:1313`. The screenshot above is one I built for [making traditional wood arrows](https://dvhthomas.github.io/arrow-building/).
+You run `/tmb:create`, it asks seven questions, then it spends about 30 minutes building the site---and that long session surprised me until I watched what it was actually doing.
+Coming up with a sensible curriculum as a whole thing takes a lot of research, and then each module gets its own subagent doing more research in parallel before any prose gets written.
+At the end you get a Hugo site running at `localhost:1313`. The screenshot above is one I built for [making traditional wood arrows](https://dvhthomas.github.io/arrow-building/).
 
 A few things I learned along the way:
 
