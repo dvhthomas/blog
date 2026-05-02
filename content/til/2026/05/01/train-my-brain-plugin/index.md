@@ -1,5 +1,5 @@
 ---
-title: A Claude plugin that builds learning micro-sites
+title: Tooling to build learning micro-sites
 date: 2026-05-01T22:13:14-06:00
 tags: [agents, skills, plugins, education]
 toc: false
