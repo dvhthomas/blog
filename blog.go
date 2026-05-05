@@ -89,6 +89,7 @@ package main
 
 import (
 	"context"
+	"errors"
 	"flag"
 	"fmt"
 	"log"
@@ -106,6 +107,12 @@ import (
 	"github.com/chromedp/chromedp"
 	"github.com/fsnotify/fsnotify"
 )
+
+// errResumeHTMLMissing is returned by generateResumePDF when Hugo hasn't
+// produced public/resume/index.html yet. Callers can use errors.Is to
+// distinguish this expected pre-build state from genuine failures
+// (Chrome missing, render errors, etc.) that should always be surfaced.
+var errResumeHTMLMissing = errors.New("resume HTML not found")
 
 // Config represents the Hugo config.toml structure containing D2 rendering settings.
 // Only the [params.d2] section is parsed; other Hugo settings are ignored.
@@ -135,8 +142,19 @@ func main() {
 	serve := flag.Bool("serve", false, "Run Hugo dev server with D2 watching")
 	watch := flag.Bool("watch", false, "Watch D2 files only (no Hugo server)")
 	verbose := flag.Bool("verbose", false, "Show detailed output")
+	pdfOnly := flag.Bool("pdf-only", false, "Generate resume PDF only (skip D2 rendering and watchers)")
 	baseURL := flag.String("baseURL", "", "Base URL for Hugo server (auto-detects Codespaces if empty)")
 	flag.Parse()
+
+	// --pdf-only: just generate the PDF and exit. Used by `task build` and
+	// CI after Hugo has produced public/resume/index.html, so we avoid
+	// re-walking the D2 tree on the way to a PDF.
+	if *pdfOnly {
+		if err := generateResumePDF(*verbose); err != nil {
+			log.Fatalf("Failed to generate resume PDF: %v", err)
+		}
+		return
+	}
 
 	// Resolve baseURL with auto-detection
 	if *baseURL == "" {
@@ -148,19 +166,38 @@ func main() {
 		log.Fatal("d2 is not installed. Install: curl -fsSL https://d2lang.com/install.sh | sh -s --")
 	}
 
+	// Chrome is required for resume PDF generation. Warn (don't fatal) so
+	// D2-only workflows still run when Chrome isn't installed.
+	if path, ok := findChrome(); !ok {
+		log.Println("Warning: Chrome/Chromium not found — resume PDF generation will fail.")
+		log.Println("  macOS: brew install --cask google-chrome")
+		log.Println("  Linux: apt-get install google-chrome-stable")
+	} else if *verbose {
+		log.Printf("Found Chrome: %s", path)
+	}
+
 	// Load Hugo config to get D2 settings
 	config := loadConfig("config.toml")
 
-	// Render all D2 files initially
-	if err := renderAll("content", config, *verbose); err != nil {
+	// Render all D2 files initially (idempotent — skips up-to-date SVGs)
+	if err := renderAll("content", config, *verbose, false); err != nil {
 		log.Fatalf("Failed to render D2 files: %v", err)
 	}
 
 	// Try to generate resume PDF if public/resume/index.html exists
-	// (This handles the case where Hugo has already been run)
-	if err := generateResumePDF(*verbose); err != nil {
-		if *verbose {
-			log.Printf("Note: %v", err)
+	// (handles the case where Hugo has already been run). Skip in --serve
+	// mode: the watcher's initial-gen-if-exists check covers stale state,
+	// and Hugo's first build will trigger fsnotify regardless. Doing it
+	// here too would just produce a duplicate PDF before Hugo even starts.
+	if !*serve {
+		if err := generateResumePDF(*verbose); err != nil {
+			if errors.Is(err, errResumeHTMLMissing) {
+				if *verbose {
+					log.Printf("Note: %v", err)
+				}
+			} else {
+				log.Printf("Warning: %v", err)
+			}
 		}
 	}
 
@@ -177,6 +214,29 @@ func main() {
 func commandExists(cmd string) bool {
 	_, err := exec.LookPath(cmd)
 	return err == nil
+}
+
+// findChrome locates a Chrome/Chromium binary using the same set of names
+// and paths chromedp searches internally. Returns the resolved path and
+// whether one was found. Used to warn users early if PDF generation will
+// fail, rather than failing inside chromedp with a less obvious error.
+func findChrome() (string, bool) {
+	locations := []string{
+		"headless_shell", "headless-shell",
+		"chrome", "chrome-browser",
+		"google-chrome", "google-chrome-stable",
+		"google-chrome-beta", "google-chrome-unstable",
+		"chromium", "chromium-browser",
+		"/usr/bin/google-chrome",
+		"/snap/bin/chromium",
+		"/Applications/Google Chrome.app/Contents/MacOS/Google Chrome",
+	}
+	for _, loc := range locations {
+		if path, err := exec.LookPath(loc); err == nil {
+			return path, true
+		}
+	}
+	return "", false
 }
 
 // loadConfig reads Hugo's config.toml and extracts D2 rendering settings.
@@ -246,15 +306,18 @@ func renderFile(d2File string, config *Config, verbose bool) error {
 	return nil
 }
 
-// renderAll finds and renders all D2 files in the content directory.
+// renderAll finds and renders D2 files in the content directory. By default
+// it skips files whose .svg is already newer than the .d2 source (and newer
+// than config.toml), making repeat invocations cheap — important because the
+// Taskfile's render-d2 dep and `go run blog.go --serve` both call this.
 //
 // Files are rendered concurrently for performance. Any errors are collected
 // and reported after all renders complete. Returns an error if any renders fail.
 //
-// This is called:
-//   - Once at startup (all modes)
-//   - When config.toml changes (watch/serve modes)
-func renderAll(contentDir string, config *Config, verbose bool) error {
+// Pass force=true to re-render every file regardless of mtime. Used when
+// config.toml changes during a running session, since options like theme
+// affect output without changing any .d2 source.
+func renderAll(contentDir string, config *Config, verbose, force bool) error {
 	d2Files, err := findD2Files(contentDir)
 	if err != nil {
 		return err
@@ -265,13 +328,36 @@ func renderAll(contentDir string, config *Config, verbose bool) error {
 		return nil
 	}
 
-	log.Printf("Found %d D2 file(s)", len(d2Files))
+	var configMTime time.Time
+	if cfgInfo, err := os.Stat("config.toml"); err == nil {
+		configMTime = cfgInfo.ModTime()
+	}
 
-	// Render all files concurrently
+	var stale []string
+	if force {
+		stale = d2Files
+	} else {
+		for _, f := range d2Files {
+			if isStale(f, configMTime) {
+				stale = append(stale, f)
+			}
+		}
+	}
+
+	if len(stale) == 0 {
+		if verbose {
+			log.Printf("All %d D2 SVG(s) up-to-date", len(d2Files))
+		}
+		return nil
+	}
+
+	log.Printf("Rendering %d of %d D2 file(s)", len(stale), len(d2Files))
+
+	// Render stale files concurrently
 	var wg sync.WaitGroup
-	errChan := make(chan error, len(d2Files))
+	errChan := make(chan error, len(stale))
 
-	for _, file := range d2Files {
+	for _, file := range stale {
 		wg.Add(1)
 		go func(f string) {
 			defer wg.Done()
@@ -297,6 +383,25 @@ func renderAll(contentDir string, config *Config, verbose bool) error {
 
 	log.Println("✓ D2 rendering complete")
 	return nil
+}
+
+// isStale reports whether a .d2 file's corresponding .svg needs re-rendering.
+// True when the SVG is missing, older than the source, or older than
+// config.toml (since theme/layout changes affect output).
+func isStale(d2File string, configMTime time.Time) bool {
+	svgFile := strings.TrimSuffix(d2File, ".d2") + ".svg"
+	svgInfo, err := os.Stat(svgFile)
+	if err != nil {
+		return true
+	}
+	if !configMTime.IsZero() && svgInfo.ModTime().Before(configMTime) {
+		return true
+	}
+	d2Info, err := os.Stat(d2File)
+	if err != nil {
+		return true
+	}
+	return svgInfo.ModTime().Before(d2Info.ModTime())
 }
 
 // findD2Files recursively walks a directory tree and returns all .d2 file paths.
@@ -334,7 +439,14 @@ func generateResumePDF(verbose bool) error {
 
 	// Check if Hugo has generated the resume HTML
 	if _, err := os.Stat(resumeHTML); os.IsNotExist(err) {
-		return fmt.Errorf("resume HTML not found at %s (run Hugo first)", resumeHTML)
+		return fmt.Errorf("%w at %s (run Hugo first)", errResumeHTMLMissing, resumeHTML)
+	}
+
+	// Chrome is only needed once we know we have HTML to convert. Fail
+	// loudly with install hints rather than letting chromedp produce a
+	// cryptic exec error.
+	if _, ok := findChrome(); !ok {
+		return fmt.Errorf("Chrome/Chromium not found — install Chrome (macOS: brew install --cask google-chrome; Linux: apt-get install google-chrome-stable)")
 	}
 
 	if verbose {
@@ -368,6 +480,16 @@ func generateResumePDF(verbose bool) error {
 	// Generate PDF with print-friendly settings
 	var pdfBuf []byte
 	fileURL := "file://" + absPath
+
+	// Re-check that the file still exists right before chromedp navigates.
+	// Hugo's dev server with --cleanDestinationDir briefly deletes
+	// public/resume/index.html while rewriting it; if our debounce timer
+	// expires inside that delete-recreate gap, chromedp would otherwise
+	// fail with net::ERR_FILE_NOT_FOUND. Treat this as transient — the
+	// next file write will trigger another regen.
+	if _, err := os.Stat(resumeHTML); os.IsNotExist(err) {
+		return fmt.Errorf("%w at %s (file vanished mid-rebuild)", errResumeHTMLMissing, resumeHTML)
+	}
 
 	err = chromedp.Run(pdfCtx,
 		chromedp.Navigate(fileURL),
@@ -471,13 +593,20 @@ func watchResumeHTML(ctx context.Context, verbose bool) {
 	var debounceTimer *time.Timer
 	var debounceMu sync.Mutex
 
-	// Generate initial PDF if the HTML already exists (handles case where Hugo
-	// finished building before we started watching). This ensures PDF generation
-	// happens at least once after Hugo creates the resume HTML.
-	// Note: If Hugo creates the file between adding the watcher and this check,
-	// we'll generate the PDF both here AND from the Create event, which is safe.
-	if _, err := os.Stat(filepath.Join(resumeDir, "index.html")); err == nil {
-		generateResumePDF(verbose)
+	// Generate initial PDF only if the existing one is stale relative to
+	// the HTML. This skips redundant work on warm starts where a prior
+	// `task build` left a fresh PDF on disk, but still covers the
+	// cold-start race where Hugo wrote the HTML before fsnotify attached
+	// (in which case we'd otherwise miss the Write event entirely).
+	htmlPath := filepath.Join(resumeDir, "index.html")
+	pdfPath := filepath.Join("public", "resume.pdf")
+	if htmlInfo, err := os.Stat(htmlPath); err == nil {
+		pdfInfo, pdfErr := os.Stat(pdfPath)
+		if pdfErr != nil || pdfInfo.ModTime().Before(htmlInfo.ModTime()) {
+			if err := generateResumePDF(verbose); err != nil && !errors.Is(err, errResumeHTMLMissing) {
+				log.Printf("Warning: Failed to generate resume PDF: %v", err)
+			}
+		}
 	}
 
 	// Watch for Create and Write events to regenerate PDF when resume changes
@@ -494,7 +623,7 @@ func watchResumeHTML(ctx context.Context, verbose bool) {
 						debounceTimer.Stop()
 					}
 					debounceTimer = time.AfterFunc(300*time.Millisecond, func() {
-						if err := generateResumePDF(verbose); err != nil {
+						if err := generateResumePDF(verbose); err != nil && !errors.Is(err, errResumeHTMLMissing) {
 							log.Printf("Warning: Failed to regenerate PDF: %v", err)
 						}
 					})
@@ -548,7 +677,13 @@ func runServeMode(contentDir, configFile string, config *Config, verbose bool, b
 
 	// Start Hugo server
 	log.Printf("Starting Hugo dev server at %s", baseURL)
-	hugoCmd := exec.CommandContext(ctx, "hugo", "server", "--bind", "0.0.0.0", "--baseURL", baseURL, "--buildDrafts", "--noHTTPCache", "--cleanDestinationDir", "--gc", "--disableFastRender")
+	// --cleanDestinationDir is intentionally omitted: Hugo's dev server uses
+	// it to delete files in public/ that aren't in its source set, which
+	// (a) wipes out our resume.pdf and (b) removes public/resume/ during
+	// rebuilds, invalidating the fsnotify watcher's dir registration. The
+	// flag is for production-build hygiene; in serve mode it just breaks
+	// the live-reload loop for our generated PDF.
+	hugoCmd := exec.CommandContext(ctx, "hugo", "server", "--bind", "0.0.0.0", "--baseURL", baseURL, "--buildDrafts", "--noHTTPCache", "--gc", "--disableFastRender")
 	hugoCmd.Stdout = os.Stdout
 	hugoCmd.Stderr = os.Stderr
 	hugoCmd.Stdin = os.Stdin
@@ -619,11 +754,12 @@ func watchD2Files(ctx context.Context, contentDir, configFile string, config *Co
 			return
 
 		case event := <-watcher.Events:
-			// Config changed - re-render everything
+			// Config changed - re-render everything (force, since D2
+			// sources didn't change but theme/layout options may have)
 			if event.Name == configFile && event.Op&fsnotify.Write != 0 {
 				log.Println("Config changed - re-rendering all")
 				config = loadConfig(configFile)
-				renderAll(contentDir, config, verbose)
+				renderAll(contentDir, config, verbose, true)
 				continue
 			}
 

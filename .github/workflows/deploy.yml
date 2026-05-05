@@ -32,7 +32,7 @@ jobs:
     build:
         runs-on: ubuntu-latest
         env:
-            HUGO_VERSION: 0.147.8 # Locked version to ensure consistent builds
+            HUGO_VERSION: 0.161.1 # Locked version to ensure consistent builds
         steps:
             - name: Checkout
               uses: actions/checkout@v4
@@ -68,7 +68,7 @@ jobs:
                     --minify \
                     --baseURL "${{ steps.pages.outputs.base_url }}/"
             - name: Generate resume PDF
-              run: go run blog.go
+              run: go run blog.go --pdf-only
             - name: Upload artifact
               uses: actions/upload-pages-artifact@v3
               with:

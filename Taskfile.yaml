@@ -52,4 +52,4 @@ tasks:
     deps: [render-d2]
     cmds:
       - hugo --gc --minify
-      - go run blog.go # Generate resume PDF from built HTML
+      - go run blog.go --pdf-only # Generate resume PDF from built HTML

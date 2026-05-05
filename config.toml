@@ -1,5 +1,5 @@
 baseURL = "https://bitsby.me/"
-languageCode = "en-us"
+locale = "en-us"
 title = "Bits By Me"
 
 enableGitInfo = true
@@ -64,7 +64,6 @@ ignoreErrors = ["error-remote-getjson"]
 [permalinks]
   blog = "/:year/:month/:title"
   til = "til/:year-:month-:day/:slug"
-  resume = "work/:title"
   recipes = "/recipes/:slug"
 
 [markup]
