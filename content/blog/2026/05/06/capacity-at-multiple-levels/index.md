@@ -229,6 +229,8 @@ A directory-level inventory is more actionable than any roadmap: for each likely
 
 {{< figure src="choke-point-inventory.svg" alt="Choke-point inventory for one week, showing seven stages where work waits with bar charts of 85th-percentile wait time vs. target SLE. Architecture review (9 days vs 5 day target) and security review (7 days vs 5 day target) are red, with 4 and 5 items waiting respectively — the active constraints. In-team stages and external SLE are green or within target." >}}
 
+A note on where these targets come from. A **Service Level Expectation (SLE)**[^10] isn't an industry benchmark or a published guideline. It's an internal commitment a team or org makes to itself, derived from its own cycle-time data: typically something like "85% of items in this state will clear in N days or fewer," where N is set by looking at the team's actual distribution and picking a target that's slightly tighter than today's reality. The "5 day target" for security review in the example above isn't an external rule; it's what the security team committed to maintaining, based on what they've actually been able to do. SLEs only have force when the team that owns the stage signs up to them.
+
 The diagnostic question every week is the same: which stages are over their target SLE, and how many items are queued behind them? In the example above, architecture review and security review are both blocking, with 9 items stuck behind them combined. Adding capacity to either stage, or finding a way to subordinate work that doesn't need them, will move more throughput than any individual team's effort. The constraint is outside the team.
 
 ### Specialization mapping at the org level
