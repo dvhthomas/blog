@@ -33,9 +33,13 @@ Change management addresses what project management doesn't: the human side of g
 
 The discipline has several frameworks operating at different layers. [Lewin's three-step model](https://journals.sagepub.com/doi/10.1177/001872674700100103)---unfreeze, change, refreeze---frames change at the organizational level as a shift between equilibria.[^9] [Kotter's eight-step model](https://www.kotterinc.com/methodology/8-steps/) is broader, treating change as a leadership problem from establishing urgency through anchoring change in culture.[^8] Prosci's ADKAR is narrower and individual: how single people move through a change. The frameworks aren't competing; they operate at different scales, and serious programs use them together---Kotter for the organizational story, ADKAR for the individual diagnosis.
 
+{{< youtube id="SGYmPMcgDPg" title="Kotter's 8 Steps for Leading Change (Kotter International)" >}}
+
 ## ADKAR as a specific framework
 
 ADKAR comes out of [Prosci's research](https://www.prosci.com/methodology/adkar) into what determines whether organizational change takes hold.[^1] The premise: organizational change is the sum of individual changes, and individuals move through five gates in a fixed order. A blocked gate stops the change there regardless of how good the next one looks---you can't train someone into wanting something, and you can't reinforce a behavior they don't yet have. The model's value is diagnostic: it tells you which gate is actually blocked, so you can apply the right intervention rather than the most familiar one.[^2]
+
+{{< youtube id="4Ok2BKSuAew" title="ADKAR: What is Prosci's ADKAR Model of Change? (Mike Clayton, Online PM Courses)" >}}
 
 The five gates:
 
@@ -180,6 +184,9 @@ What ADKAR does is give you a model for the part of the work that doesn't show u
 The same reasoning applies to whatever technology change comes next. The immediate one is AI. The hardest part of an AI rollout will not be the technology---vendors will compete to make that easier. It will be the systems-and-behaviors layer underneath, where workflows have to change, decisions have to be made differently, and the temporary capability dip of real ability-building has to be absorbed. Organizations that have done that work well before will do it well again, faster than the technology can deliver. Organizations that have not will discover that the technology amplifies what's already there, and that the gates are the same ones they didn't clear last time.
 
 ## References
+
+> **A note on sources.** ADKAR® is a registered trademark of Prosci, Inc., and Kotter's eight-step model is the published work of Kotter International. Everything here is drawn from publicly available material---Hiatt's 2006 book, Prosci's methodology pages and research blog, Kotter's and Lewin's published work, and the third-party explanations linked above---and discussed as commentary under fair use. No proprietary materials are reproduced; the diagram is hand-authored for this post.
+
 
 [^1]: Hiatt, Jeffrey M. *ADKAR: A Model for Change in Business, Government, and Our Community* (2006), Prosci Learning Center Publications. The foundational text introducing the five-element model and the premise that organizational change is the sum of individual changes. [https://www.prosci.com/resources/articles/what-is-the-adkar-model](https://www.prosci.com/resources/articles/what-is-the-adkar-model)
 
