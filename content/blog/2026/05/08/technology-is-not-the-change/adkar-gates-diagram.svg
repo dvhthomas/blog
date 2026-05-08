@@ -1,0 +1,150 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 580" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Inter, Helvetica, Arial, sans-serif">
+  <defs>
+    <style>
+      .bg { fill: #FAF7F2; }
+      .title { font-size: 22px; font-weight: 700; fill: #1F2937; letter-spacing: -0.2px; }
+      .subtitle { font-size: 13px; fill: #6B7280; }
+      .gate-bg { fill: #FFFFFF; stroke: #E5E0D6; stroke-width: 1; }
+      .letter-circle { fill: #C0392B; }
+      .letter-text { font-size: 36px; font-weight: 700; fill: white; }
+      .gate-name { font-size: 14px; font-weight: 700; fill: #1F2937; letter-spacing: 1.5px; }
+      .question { font-size: 12.5px; fill: #4B5563; font-style: italic; }
+      .divider { stroke: #E5E0D6; stroke-width: 1; }
+      .label-reflex { font-size: 10px; font-weight: 700; fill: #C0392B; letter-spacing: 1.2px; }
+      .label-works { font-size: 10px; font-weight: 700; fill: #047857; letter-spacing: 1.2px; }
+      .body-text { font-size: 11.5px; fill: #1F2937; }
+      .arrow-line { stroke: #C0BFB8; stroke-width: 1.5; fill: none; }
+      .footer { font-size: 11px; fill: #6B7280; font-style: italic; }
+    </style>
+  </defs>
+
+  <rect class="bg" width="1100" height="580"/>
+
+  <!-- Title -->
+  <text x="40" y="38" class="title">ADKAR — the five gates, and where teams reach for the wrong tool</text>
+  <text x="40" y="58" class="subtitle">Each gate is a different question. The wrong intervention at the wrong gate makes resistance worse, not better.</text>
+
+  <!-- Gate columns: 5 columns of width 196, gap 12, x starts at 40 -->
+  <!-- Positions: 40, 248, 456, 664, 872 -->
+
+  <!-- Connecting arrow line behind columns -->
+  <line x1="100" y1="135" x2="1040" y2="135" class="arrow-line" stroke-dasharray="4 4"/>
+
+  <!-- ============ AWARENESS ============ -->
+  <g transform="translate(40, 90)">
+    <rect width="196" height="450" rx="8" class="gate-bg"/>
+    <circle cx="98" cy="46" r="32" class="letter-circle"/>
+    <text x="98" y="58" text-anchor="middle" class="letter-text">A</text>
+    <text x="98" y="105" text-anchor="middle" class="gate-name">AWARENESS</text>
+    <text x="98" y="128" text-anchor="middle" class="question">"Why is this happening?"</text>
+    <line x1="20" y1="150" x2="176" y2="150" class="divider"/>
+
+    <text x="20" y="178" class="label-reflex">THE REFLEX</text>
+    <text x="20" y="200" class="body-text">More all-hands.</text>
+    <text x="20" y="218" class="body-text">Bigger decks.</text>
+    <text x="20" y="236" class="body-text">Repeat the rationale</text>
+    <text x="20" y="254" class="body-text">at higher volume.</text>
+
+    <text x="20" y="298" class="label-works">WHAT WORKS</text>
+    <text x="20" y="320" class="body-text">Make the cost of</text>
+    <text x="20" y="338" class="body-text">not changing real.</text>
+    <text x="20" y="356" class="body-text">Specific personal</text>
+    <text x="20" y="374" class="body-text">impact, not generic</text>
+    <text x="20" y="392" class="body-text">strategic prose.</text>
+  </g>
+
+  <!-- ============ DESIRE ============ -->
+  <g transform="translate(248, 90)">
+    <rect width="196" height="450" rx="8" class="gate-bg"/>
+    <circle cx="98" cy="46" r="32" class="letter-circle"/>
+    <text x="98" y="58" text-anchor="middle" class="letter-text">D</text>
+    <text x="98" y="105" text-anchor="middle" class="gate-name">DESIRE</text>
+    <text x="98" y="128" text-anchor="middle" class="question">"Do I want this?"</text>
+    <line x1="20" y1="150" x2="176" y2="150" class="divider"/>
+
+    <text x="20" y="178" class="label-reflex">THE REFLEX</text>
+    <text x="20" y="200" class="body-text">More rationale</text>
+    <text x="20" y="218" class="body-text">aimed at skeptics.</text>
+    <text x="20" y="236" class="body-text">Treat resistance as</text>
+    <text x="20" y="254" class="body-text">a comprehension gap.</text>
+
+    <text x="20" y="298" class="label-works">WHAT WORKS</text>
+    <text x="20" y="320" class="body-text">Trusted managers</text>
+    <text x="20" y="338" class="body-text">doing the asking.</text>
+    <text x="20" y="356" class="body-text">Real career</text>
+    <text x="20" y="374" class="body-text">conversations, with</text>
+    <text x="20" y="392" class="body-text">budgets attached.</text>
+  </g>
+
+  <!-- ============ KNOWLEDGE ============ -->
+  <g transform="translate(456, 90)">
+    <rect width="196" height="450" rx="8" class="gate-bg"/>
+    <circle cx="98" cy="46" r="32" class="letter-circle"/>
+    <text x="98" y="58" text-anchor="middle" class="letter-text">K</text>
+    <text x="98" y="105" text-anchor="middle" class="gate-name">KNOWLEDGE</text>
+    <text x="98" y="128" text-anchor="middle" class="question">"How do I do this?"</text>
+    <line x1="20" y1="150" x2="176" y2="150" class="divider"/>
+
+    <text x="20" y="178" class="label-reflex">THE REFLEX</text>
+    <text x="20" y="200" class="body-text">Buy a curriculum.</text>
+    <text x="20" y="218" class="body-text">Track completions.</text>
+    <text x="20" y="236" class="body-text">Treat certification</text>
+    <text x="20" y="254" class="body-text">as competence.</text>
+
+    <text x="20" y="298" class="label-works">WHAT WORKS</text>
+    <text x="20" y="320" class="body-text">Pairing with teams</text>
+    <text x="20" y="338" class="body-text">that already moved.</text>
+    <text x="20" y="356" class="body-text">Sandboxes that look</text>
+    <text x="20" y="374" class="body-text">like production.</text>
+    <text x="20" y="392" class="body-text">Edge-case runbooks.</text>
+  </g>
+
+  <!-- ============ ABILITY ============ -->
+  <g transform="translate(664, 90)">
+    <rect width="196" height="450" rx="8" class="gate-bg"/>
+    <circle cx="98" cy="46" r="32" class="letter-circle"/>
+    <text x="98" y="58" text-anchor="middle" class="letter-text">A</text>
+    <text x="98" y="105" text-anchor="middle" class="gate-name">ABILITY</text>
+    <text x="98" y="128" text-anchor="middle" class="question">"Can I do it for real?"</text>
+    <line x1="20" y1="150" x2="176" y2="150" class="divider"/>
+
+    <text x="20" y="178" class="label-reflex">THE REFLEX</text>
+    <text x="20" y="200" class="body-text">Measure new-platform</text>
+    <text x="20" y="218" class="body-text">output against old-</text>
+    <text x="20" y="236" class="body-text">platform peak. Read</text>
+    <text x="20" y="254" class="body-text">the dip as failure.</text>
+
+    <text x="20" y="298" class="label-works">WHAT WORKS</text>
+    <text x="20" y="320" class="body-text">Coaches embedded</text>
+    <text x="20" y="338" class="body-text">on real incidents.</text>
+    <text x="20" y="356" class="body-text">Air cover for the</text>
+    <text x="20" y="374" class="body-text">temporary capability</text>
+    <text x="20" y="392" class="body-text">dip.</text>
+  </g>
+
+  <!-- ============ REINFORCEMENT ============ -->
+  <g transform="translate(872, 90)">
+    <rect width="196" height="450" rx="8" class="gate-bg"/>
+    <circle cx="98" cy="46" r="32" class="letter-circle"/>
+    <text x="98" y="58" text-anchor="middle" class="letter-text">R</text>
+    <text x="98" y="105" text-anchor="middle" class="gate-name">REINFORCEMENT</text>
+    <text x="98" y="128" text-anchor="middle" class="question">"Will I keep doing it?"</text>
+    <line x1="20" y1="150" x2="176" y2="150" class="divider"/>
+
+    <text x="20" y="178" class="label-reflex">THE REFLEX</text>
+    <text x="20" y="200" class="body-text">Declare victory at</text>
+    <text x="20" y="218" class="body-text">cutover. Disband the</text>
+    <text x="20" y="236" class="body-text">program. Move on to</text>
+    <text x="20" y="254" class="body-text">the next initiative.</text>
+
+    <text x="20" y="298" class="label-works">WHAT WORKS</text>
+    <text x="20" y="320" class="body-text">Decommissioning as</text>
+    <text x="20" y="338" class="body-text">the real milestone.</text>
+    <text x="20" y="356" class="body-text">Operating cadences</text>
+    <text x="20" y="374" class="body-text">that watch for drift</text>
+    <text x="20" y="392" class="body-text">back to old patterns.</text>
+  </g>
+
+  <!-- Footer -->
+  <text x="40" y="565" class="footer">Sequencing matters: a gate that hasn't been cleared blocks every gate after it, regardless of how well those are run.</text>
+</svg>
