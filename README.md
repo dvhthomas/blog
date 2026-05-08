@@ -42,6 +42,10 @@ Each post is put into a folder like `blog/1971/01/01/my-post-title/index.md` or 
 The blog itself is hosting on GitHub Pages.
 The DNS configuration is in [Squarespace Domains](https://domains.squarespace.com) accessible using my personal Google account.
 
+## Analytics
+
+Analytics in [bitsby.goatcounter.com](https://bitsby.goatcounter.com).
+
 ## Development Workflow
 
 **Start the dev server (recommended):**

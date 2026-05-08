@@ -18,6 +18,9 @@ ignoreErrors = ["error-remote-getjson"]
     githubRepo = "https://github.com/dvhthomas/blog"
       # Default format for image conversion (e.g., "webp", "jpeg", "png"). Leave empty to disable conversion.
     defaultImageFormat = "webp"
+      # GoatCounter subdomain (without .goatcounter.com). Comment out to disable analytics.
+      # Snippet is only injected when hugo.IsProduction is true, so dev runs never count.
+    goatcounter = "bitsby"
 
     [params.d2]
         theme = "3"  # https://d2lang.com/tour/themes/
