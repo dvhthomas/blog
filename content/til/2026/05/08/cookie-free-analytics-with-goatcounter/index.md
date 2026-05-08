@@ -1,5 +1,6 @@
 ---
 title: Cookie-free analytics with GoatCounter on Hugo
+slug: goatcounter-on-hugo
 date: 2026-05-08T11:46:03-06:00
 tags: [hugo, analytics, goatcounter]
 toc: true
