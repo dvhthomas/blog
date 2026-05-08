@@ -5,7 +5,7 @@ tags: [hugo, analytics, goatcounter]
 toc: true
 series: []
 summary: The two Hugo template gates that keep dev-server pageviews out of production analytics.
-draft: true
+draft: false
 images: []
 hero_alt:
 ---
