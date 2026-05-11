@@ -16,7 +16,6 @@ images:
 - speaker-photo.jpg
 ---
 
-{{< figure src="speaker-photo.jpg" title="Dylan Thomas presenting slides on stage at the TPM Summit" >}}
 
 I presented at the TPM Summit in October 2024.
 I shared GitHub's journey building a technical program management (TPM) function from zero in 2020 to well defined and well functioning in mid-2024.
