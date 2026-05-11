@@ -1,0 +1,25 @@
+{{/*
+    Popular section renderer.
+
+    Fetches data from popular-data.html (cached site-wide via partialCached
+    so the GoatCounter call happens once per build), then renders the top 5
+    inside <div class="recent-section"> using article-listing.html per row.
+
+    Context: always called with a dict. Pass `(dict)` for the default
+    (renders <h2>Popular</h2>); pass `(dict "noHeading" true)` to suppress
+    the heading (used by the standalone /popular/ page, which renders its
+    own <h1>).
+*/}}
+
+{{- $noHeading := .noHeading | default false -}}
+{{- $top := partialCached "popular-data" . "all" -}}
+
+{{- with $top -}}
+<div class="recent-section">
+{{ if not $noHeading }}<h2>Popular</h2>{{ end }}
+    {{- range . -}}
+        {{ partial "article-listing.html" .page }}
+    {{- end }}
+{{ if not $noHeading }}<a class="all-writing-link" href="/popular/">All popular &rarr;</a>{{ end }}
+</div>
+{{- end -}}

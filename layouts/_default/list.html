@@ -6,8 +6,9 @@
 {{ .Content }}
 </div>
 
+{{ $popularPaths := partialCached "popular-paths" . "all" }}
 {{ range .Paginator.Pages.ByPublishDate.Reverse }}
-    {{ partial "article-listing.html" . }}
+    {{ partial "article-listing.html" (dict "page" . "showIcons" true "popularPaths" $popularPaths) }}
 {{ end }}
 
 {{- partial "pagination.html" . -}}

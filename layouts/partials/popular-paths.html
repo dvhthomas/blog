@@ -1,0 +1,14 @@
+{{/*
+    popular-paths.html — returns just the RelPermalink strings for the
+    currently-popular pages, as a slice. Useful for list templates that
+    want to decorate rows with a popular icon without re-doing the full
+    join in popular-data.
+
+    Call via partialCached so it's computed once site-wide:
+        {{ $paths := partialCached "popular-paths" . "all" }}
+*/}}
+{{- $paths := slice -}}
+{{- range partialCached "popular-data" . "all" -}}
+    {{- $paths = $paths | append .page.RelPermalink -}}
+{{- end -}}
+{{- return $paths -}}

@@ -10,7 +10,7 @@ summary: |-
   gates that I call bookends because they surround
   the agent with boundaries that cannot be ignored.
 draft: false
-featured: true
+featured: false
 images: [cmw-editor.png]
 hero_alt: "Many moving parts in a web app requires an excellent regression test suite"
 ---

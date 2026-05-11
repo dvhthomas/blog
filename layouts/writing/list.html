@@ -7,10 +7,11 @@
     (where .Site.RegularPages "Section" "til")
 }}
 {{ $sorted := sort $base "PublishDate" "desc" }}
+{{ $popularPaths := partialCached "popular-paths" . "all" }}
 
 {{ $paginator := .Paginate $sorted }}
 {{ range $paginator.Pages }}
-    {{ partial "article-listing.html" . }}
+    {{ partial "article-listing.html" (dict "page" . "showIcons" true "popularPaths" $popularPaths) }}
 {{ end }}
 
 {{- partial "pagination.html" . -}}

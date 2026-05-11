@@ -1,0 +1,18 @@
+{{ define "main" }}
+
+<div class="content-type-badge">{{ .Section }}</div>
+
+<header>
+    <h1>{{ .Title }}</h1>
+</header>
+
+{{ if .Params.description }}
+<div id="abstract">{{ .Params.description | markdownify }}</div>
+{{ end }}
+
+<article class="section-popular">
+    {{ .Content }}
+    {{ partial "popular.html" (dict "noHeading" true) }}
+</article>
+
+{{ end }}

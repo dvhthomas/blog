@@ -327,6 +327,12 @@ h6:hover .heading-anchor, h6:focus-within .heading-anchor {
     font-weight: 600;
 }
 
+.article-listing-icon {
+    vertical-align: -2px;
+    margin-right: 0.3rem;
+    color: var(--muted-color);
+}
+
 .article-listing-section {
     font-size: 0.75rem;
     text-transform: uppercase;

@@ -683,7 +683,15 @@ func runServeMode(contentDir, configFile string, config *Config, verbose bool, b
 	// rebuilds, invalidating the fsnotify watcher's dir registration. The
 	// flag is for production-build hygiene; in serve mode it just breaks
 	// the live-reload loop for our generated PDF.
-	hugoCmd := exec.CommandContext(ctx, "hugo", "server", "--bind", "0.0.0.0", "--baseURL", baseURL, "--buildDrafts", "--noHTTPCache", "--gc", "--disableFastRender")
+	//
+	// --gc is also intentionally omitted: Hugo's "remove unused cache files"
+	// step evicts our resources.GetRemote on-disk cache for the GoatCounter
+	// API response (used by layouts/partials/popular-data.html) after a few
+	// rebuilds, even though the partial still reads it. The eviction forces
+	// a refetch on each rebuild, and any non-2xx blip silently empties the
+	// Popular section site-wide. Production (CI) still runs `hugo --gc` —
+	// CI runners are ephemeral so there's no cache to thrash.
+	hugoCmd := exec.CommandContext(ctx, "hugo", "server", "--bind", "0.0.0.0", "--baseURL", baseURL, "--buildDrafts", "--noHTTPCache", "--disableFastRender")
 	hugoCmd.Stdout = os.Stdout
 	hugoCmd.Stderr = os.Stderr
 	hugoCmd.Stdin = os.Stdin

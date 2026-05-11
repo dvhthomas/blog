@@ -29,7 +29,13 @@
 <article class="section-{{ .Type }}">
     {{ .Content }}
     <br />
-    {{ partial "related.html" . }} {{- if and .File .Site.Params.githubRepo -}}
+    {{ partial "related.html" . }}
+    {{- if ne .RelPermalink "/popular/" }}
+    <p class="see-popular">
+        <a href="/popular/">See what others are reading &rarr;</a>
+    </p>
+    {{- end }}
+    {{- if and .File .Site.Params.githubRepo -}}
     <p class="view-source">
         <a
             href="{{ .Site.Params.githubRepo }}/blob/main/content/{{ .File.Path }}"

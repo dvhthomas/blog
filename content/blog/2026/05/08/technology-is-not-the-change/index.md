@@ -8,6 +8,7 @@ summary: |-
   AI is the technology change of the moment, and like every technology change before it, the technology is not the change being managed.
   This piece treats ADKAR---Prosci's five-gate model of individual change---as a diagnostic for the people side of any technology transformation, with a data center migration as the worked example.
 draft: false
+featured: true
 images: [adkar-gates-diagram.png]
 hero_alt: "ADKAR's five gates with the reflex intervention at each gate next to the intervention that actually moves people through"
 ---

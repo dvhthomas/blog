@@ -1,14 +1,39 @@
-{{/* Reusable article listing partial */}}
-{{- $dateFormat := .Site.Params.dateFormat | default "Jan 2, 2006" -}}
+{{/*
+    Reusable article listing row.
+
+    Context: either a Page (default — no icons), or a dict like
+        (dict "page" $page "showIcons" true "popularPaths" $paths)
+    where $paths is a slice of RelPermalink strings for the currently
+    popular pages. When showIcons is true, a Featured icon (star) is
+    rendered for .Params.featured pages; otherwise a Popular icon
+    (trending-up) is rendered if the page's RelPermalink is in
+    popularPaths. Featured wins when both apply.
+*/}}
+
+{{- $page := . -}}
+{{- $showIcons := false -}}
+{{- $popularPaths := slice -}}
+{{- if reflect.IsMap . -}}
+    {{- $page = .page -}}
+    {{- $showIcons = .showIcons | default false -}}
+    {{- $popularPaths = .popularPaths | default slice -}}
+{{- end -}}
+
+{{- $dateFormat := site.Params.dateFormat | default "Jan 2, 2006" -}}
+{{- $isFeatured := and $showIcons (eq $page.Params.featured true) -}}
+{{- $isPopular := and $showIcons (not $isFeatured) (in $popularPaths $page.RelPermalink) -}}
+
 <div class="article-listing">
     <div>
-        <a class="article-listing-title" href="{{ .RelPermalink }}">{{ .Title }}</a>
-        <a class="article-listing-section" href="{{ .Section | printf "/%s/" }}">{{ .Section }}</a>
+        {{- if $isFeatured -}}{{ partial "icons/featured.html" }}{{- end -}}
+        {{- if $isPopular -}}{{ partial "icons/popular.html" }}{{- end -}}
+        <a class="article-listing-title" href="{{ $page.RelPermalink }}">{{ $page.Title }}</a>
+        <a class="article-listing-section" href="{{ $page.Section | printf "/%s/" }}">{{ $page.Section }}</a>
         <span class="article-listing-date">
-            &mdash; <time datetime="{{ .PublishDate.Format "2006-01-02" }}">{{ .PublishDate.Format $dateFormat }}</time>
+            &mdash; <time datetime="{{ $page.PublishDate.Format "2006-01-02" }}">{{ $page.PublishDate.Format $dateFormat }}</time>
         </span>
     </div>
-    {{ if .Params.summary }}
-    <span class="article-listing-summary">{{ .Params.summary | markdownify | truncate 200 }}</span>
+    {{ if $page.Params.summary }}
+    <span class="article-listing-summary">{{ $page.Params.summary | markdownify | truncate 200 }}</span>
     {{ end }}
 </div>

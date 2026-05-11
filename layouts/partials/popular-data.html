@@ -1,0 +1,56 @@
+{{/*
+    popular-data.html — returns the top 5 most-viewed blog/TIL pages as a
+    slice of dicts: [{page, count, date}, ...], sorted by (count desc,
+    publishDate desc). Returns an empty slice if the env var is missing or
+    the API call fails — callers can safely range over the result.
+
+    Call this via partialCached so the GoatCounter fetch + join happens
+    once per build, e.g.:
+
+        {{ $popular := partialCached "popular-data" . "all" }}
+*/}}
+
+{{- $apiKey := os.Getenv "GOAT_COUNTER_API" -}}
+{{- $top := slice -}}
+
+{{- if not $apiKey -}}
+    {{ warnf "popular: GOAT_COUNTER_API not set; skipping Popular section" }}
+{{- else -}}
+    {{- $url := "https://bitsby.goatcounter.com/api/v0/stats/hits?start=2020-01-01&daily=false&limit=100" -}}
+    {{- $opts := dict
+        "headers" (dict "Authorization" (printf "Bearer %s" $apiKey))
+        "key" (printf "popular-%s" (now.Format "2006-01-02"))
+        "timeout" "30s"
+    -}}
+
+    {{- with try (resources.GetRemote $url $opts) -}}
+        {{- with .Err -}}
+            {{ warnf "popular: GoatCounter fetch failed: %s" . }}
+        {{- else with .Value -}}
+            {{- $data := transform.Unmarshal . -}}
+            {{- $eligible := where site.RegularPages "Section" "in" (slice "blog" "til") -}}
+            {{- $items := slice -}}
+            {{- range $hit := $data.hits -}}
+                {{- $path := $hit.path -}}
+                {{- if strings.Contains $path "?" -}}
+                    {{- $path = index (split $path "?") 0 -}}
+                {{- end -}}
+                {{- if not (strings.HasSuffix $path "/") -}}
+                    {{- $path = printf "%s/" $path -}}
+                {{- end -}}
+                {{- $match := where $eligible "RelPermalink" $path -}}
+                {{- with index $match 0 -}}
+                    {{- $items = $items | append (dict "page" . "count" $hit.count "date" .PublishDate) -}}
+                {{- end -}}
+            {{- end -}}
+            {{- /* Stable sort: secondary (date desc) first, then primary (count desc) */ -}}
+            {{- $items = sort $items "date" "desc" -}}
+            {{- $items = sort $items "count" "desc" -}}
+            {{- $top = first 5 $items -}}
+        {{- else -}}
+            {{ warnf "popular: GoatCounter returned nil (non-2xx response — check key permissions / endpoint URL)" }}
+        {{- end -}}
+    {{- end -}}
+{{- end -}}
+
+{{- return $top -}}

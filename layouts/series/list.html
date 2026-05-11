@@ -3,9 +3,10 @@
 <h1>{{ .Title }}</h1>
 
 {{ .Content }}
+{{ $popularPaths := partialCached "popular-paths" . "all" }}
 {{/* For series pages, show oldest to newest (chronological order) */}}
 {{ range .Paginator.Pages.ByPublishDate }}
-    {{ partial "article-listing.html" . }}
+    {{ partial "article-listing.html" (dict "page" . "showIcons" true "popularPaths" $popularPaths) }}
 {{ end }}
 {{- partial "pagination.html" . -}}
 {{ end }}

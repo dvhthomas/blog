@@ -1,0 +1,29 @@
+{{ define "main" }}
+
+<div class="content-type-badge">{{ .Section }}</div>
+
+<header>
+    <h1>{{ .Title }}</h1>
+</header>
+
+{{ if .Params.description }}
+<div id="abstract">{{ .Params.description | markdownify }}</div>
+{{ end }}
+
+<article class="section-featured">
+    {{ .Content }}
+
+    {{ $featured := where (where .Site.RegularPages "Section" "in" (slice "blog" "til")) ".Params.featured" true }}
+    {{ $featured = sort $featured "PublishDate" "desc" }}
+    {{ $popularPaths := partialCached "popular-paths" . "all" }}
+
+    {{ with $featured }}
+    <div class="recent-section">
+        {{ range . }}
+            {{ partial "article-listing.html" (dict "page" . "showIcons" true "popularPaths" $popularPaths) }}
+        {{ end }}
+    </div>
+    {{ end }}
+</article>
+
+{{ end }}

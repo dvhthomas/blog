@@ -9,6 +9,12 @@ enableGitInfo = true
 
 ignoreErrors = ["error-remote-getjson"]
 
+# Allow popular.html partial to read GOAT_COUNTER_API env var.
+# Hugo's default getenv allowlist is ['^HUGO_', '^CI$']; we extend it.
+[security]
+  [security.funcs]
+    getenv = ['^HUGO_', '^CI$', '^GOAT_COUNTER_API$']
+
 [params]
     author = "Dylan Thomas"
     homeText = "Hi, I'm [Dylan](/about/). I write about operations, engineering, tools, and things I'm learning."

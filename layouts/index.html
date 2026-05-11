@@ -15,11 +15,13 @@
 {{ $base := where (where .Site.RegularPages "Section" "in" (slice "blog" "til")) ".Params.featured" "ne" true }}
 {{ $aiEssays := where $base "Params.series" "intersect" (slice "Essays with AI") }}
 {{ $allContent := $base | complement $aiEssays }}
-{{ range first 10 $allContent }}
+{{ range first 5 $allContent }}
     {{ partial "article-listing.html" . }}
 {{ end }}
 <a class="all-writing-link" href="/writing/">All writing &rarr;</a>
 </div>
+
+{{ partial "popular.html" (dict) }}
 
 <script>
     document.addEventListener("keydown", function (e) {

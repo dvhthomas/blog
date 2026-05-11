@@ -7,6 +7,11 @@ on:
         branches:
             - main
 
+    # Daily refresh so the Popular section picks up new GoatCounter view
+    # counts even when no code changes have been pushed. ~02:17 PT.
+    schedule:
+        - cron: "17 9 * * *"
+
     # Allows you to run this workflow manually from the Actions tab
     workflow_dispatch:
 
@@ -62,6 +67,9 @@ jobs:
                   HUGO_CACHEDIR: ${{ runner.temp }}/hugo_cache
                   HUGO_ENVIRONMENT: production
                   TZ: America/Los_Angeles
+                  # Bearer token for the Popular partial's GoatCounter fetch.
+                  # If unset, the partial logs a warning and renders nothing.
+                  GOAT_COUNTER_API: ${{ secrets.GOAT_COUNTER_API }}
               run: |
                   hugo \
                     --gc \
