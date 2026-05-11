@@ -512,6 +512,8 @@ func generateResumePDF(verbose bool) error {
 			document.querySelectorAll('.heading-anchor').forEach(el => el.remove());
 			// Remove "View page source" link
 			document.querySelectorAll('.view-source').forEach(el => el.remove());
+			// Remove "See what others are reading" link
+			document.querySelectorAll('.see-popular').forEach(el => el.remove());
 
 			// Set clean sans-serif font for PDF (overriding site's body font)
 			document.body.style.fontFamily = '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif';
