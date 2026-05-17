@@ -464,9 +464,14 @@ func generateResumePDF(verbose bool) error {
 	// Create browser context for PDF generation
 	allocCtx, allocCancel := chromedp.NewExecAllocator(context.Background(),
 		append(chromedp.DefaultExecAllocatorOptions[:],
-			chromedp.Flag("headless", true),
+			// --headless=new is the current headless mode; legacy
+			// --headless silently fails on Ubuntu 24.04 runners with
+			// a dbus error. --disable-dev-shm-usage is required in
+			// CI containers where /dev/shm is too small for Chrome.
+			chromedp.Flag("headless", "new"),
 			chromedp.Flag("disable-gpu", true),
 			chromedp.Flag("no-sandbox", true),
+			chromedp.Flag("disable-dev-shm-usage", true),
 		)...)
 	defer allocCancel()
 
