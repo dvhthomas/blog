@@ -43,6 +43,18 @@ ignoreErrors = ["error-remote-getjson"]
 [outputs]
   home = ["HTML", "RSS", "JSON"]
 
+# Custom `md` output format used by blog.go --pdf-only to feed pandoc.
+# Pages opt in via `outputs: ["html", "md"]` in their frontmatter; the
+# layout that backs this format (layouts/_default/single.md) just emits
+# .RenderShortcodes so {{< ref >}} URLs are resolved by Hugo rather than
+# reconstructed in Go.
+[outputFormats]
+  [outputFormats.md]
+    mediaType = "text/markdown"
+    suffix = "md"
+    isPlainText = true
+    notAlternative = true
+
 [menu]
     [[menu.main]]
         name = "Home"

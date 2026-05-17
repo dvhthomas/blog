@@ -103,16 +103,24 @@ import (
 	"time"
 
 	"github.com/BurntSushi/toml"
-	"github.com/chromedp/cdproto/page"
-	"github.com/chromedp/chromedp"
 	"github.com/fsnotify/fsnotify"
 )
 
-// errResumeHTMLMissing is returned by generateResumePDF when Hugo hasn't
-// produced public/resume/index.html yet. Callers can use errors.Is to
+// errPDFSourceMissing is returned by generatePDF when the (Hugo-rendered)
+// markdown source file doesn't exist yet. Callers use errors.Is to
 // distinguish this expected pre-build state from genuine failures
-// (Chrome missing, render errors, etc.) that should always be surfaced.
-var errResumeHTMLMissing = errors.New("resume HTML not found")
+// (pandoc missing, render errors).
+var errPDFSourceMissing = errors.New("markdown source not found")
+
+const (
+	// Defaults for --pdf-only when no overrides are supplied. The source
+	// is Hugo's resolved markdown output (see layouts/_default/single.md
+	// and the `markdown` output format in config.toml), NOT the raw
+	// content file — Hugo has already turned {{< ref >}} shortcodes into
+	// real URLs by the time we get here.
+	defaultPDFSrc = "public/resume/index.md"
+	defaultPDFOut = "public/resume.pdf"
+)
 
 // Config represents the Hugo config.toml structure containing D2 rendering settings.
 // Only the [params.d2] section is parsed; other Hugo settings are ignored.
@@ -142,16 +150,18 @@ func main() {
 	serve := flag.Bool("serve", false, "Run Hugo dev server with D2 watching")
 	watch := flag.Bool("watch", false, "Watch D2 files only (no Hugo server)")
 	verbose := flag.Bool("verbose", false, "Show detailed output")
-	pdfOnly := flag.Bool("pdf-only", false, "Generate resume PDF only (skip D2 rendering and watchers)")
+	pdfOnly := flag.Bool("pdf-only", false, "Generate a PDF from a Hugo markdown source and exit")
+	pdfSrc := flag.String("pdf-src", defaultPDFSrc, "Markdown source for --pdf-only")
+	pdfOut := flag.String("pdf-out", defaultPDFOut, "Output path for --pdf-only")
 	baseURL := flag.String("baseURL", "", "Base URL for Hugo server (auto-detects Codespaces if empty)")
 	flag.Parse()
 
-	// --pdf-only: just generate the PDF and exit. Used by `task build` and
-	// CI after Hugo has produced public/resume/index.html, so we avoid
-	// re-walking the D2 tree on the way to a PDF.
+	// --pdf-only: generate one PDF and exit. Used by `task build` and CI.
+	// Defaults to the resume but accepts arbitrary --pdf-src/--pdf-out so
+	// any page in the site can be exported the same way.
 	if *pdfOnly {
-		if err := generateResumePDF(*verbose); err != nil {
-			log.Fatalf("Failed to generate resume PDF: %v", err)
+		if err := generatePDF(*pdfSrc, *pdfOut, *verbose); err != nil {
+			log.Fatalf("Failed to generate PDF: %v", err)
 		}
 		return
 	}
@@ -166,14 +176,23 @@ func main() {
 		log.Fatal("d2 is not installed. Install: curl -fsSL https://d2lang.com/install.sh | sh -s --")
 	}
 
-	// Chrome is required for resume PDF generation. Warn (don't fatal) so
-	// D2-only workflows still run when Chrome isn't installed.
-	if path, ok := findChrome(); !ok {
-		log.Println("Warning: Chrome/Chromium not found — resume PDF generation will fail.")
-		log.Println("  macOS: brew install --cask google-chrome")
-		log.Println("  Linux: apt-get install google-chrome-stable")
-	} else if *verbose {
-		log.Printf("Found Chrome: %s", path)
+	// pandoc + xelatex are required for PDF generation. Warn (don't fatal)
+	// so D2-only workflows still run when neither is installed. blog.go
+	// can also fall back to `docker run pandoc/extra` when Docker is
+	// available — CI relies on that fallback.
+	switch {
+	case commandExists("pandoc"):
+		if *verbose {
+			log.Println("Found pandoc — will use native install for PDF generation")
+		}
+	case commandExists("docker"):
+		if *verbose {
+			log.Println("pandoc not in PATH — will use `docker run pandoc/extra` for PDF generation")
+		}
+	default:
+		log.Println("Warning: neither pandoc nor docker found — resume PDF generation will fail.")
+		log.Println("  macOS: brew install pandoc && brew install --cask mactex-no-gui")
+		log.Println("  Linux: apt-get install pandoc texlive-xetex texlive-fonts-extra")
 	}
 
 	// Load Hugo config to get D2 settings
@@ -184,20 +203,17 @@ func main() {
 		log.Fatalf("Failed to render D2 files: %v", err)
 	}
 
-	// Try to generate resume PDF if public/resume/index.html exists
-	// (handles the case where Hugo has already been run). Skip in --serve
-	// mode: the watcher's initial-gen-if-exists check covers stale state,
-	// and Hugo's first build will trigger fsnotify regardless. Doing it
-	// here too would just produce a duplicate PDF before Hugo even starts.
-	if !*serve {
-		if err := generateResumePDF(*verbose); err != nil {
-			if errors.Is(err, errResumeHTMLMissing) {
-				if *verbose {
-					log.Printf("Note: %v", err)
-				}
-			} else {
-				log.Printf("Warning: %v", err)
+	// Eagerly regenerate the resume PDF on every startup (build OR serve)
+	// so the page that the dev server is about to display already has a
+	// fresh /resume.pdf to download. The markdown watcher handles
+	// subsequent re-gens for in-session edits.
+	if err := generatePDF(defaultPDFSrc, defaultPDFOut, *verbose); err != nil {
+		if errors.Is(err, errPDFSourceMissing) {
+			if *verbose {
+				log.Printf("Note: %v", err)
 			}
+		} else {
+			log.Printf("Warning: %v", err)
 		}
 	}
 
@@ -216,28 +232,12 @@ func commandExists(cmd string) bool {
 	return err == nil
 }
 
-// findChrome locates a Chrome/Chromium binary using the same set of names
-// and paths chromedp searches internally. Returns the resolved path and
-// whether one was found. Used to warn users early if PDF generation will
-// fail, rather than failing inside chromedp with a less obvious error.
-func findChrome() (string, bool) {
-	locations := []string{
-		"headless_shell", "headless-shell",
-		"chrome", "chrome-browser",
-		"google-chrome", "google-chrome-stable",
-		"google-chrome-beta", "google-chrome-unstable",
-		"chromium", "chromium-browser",
-		"/usr/bin/google-chrome",
-		"/snap/bin/chromium",
-		"/Applications/Google Chrome.app/Contents/MacOS/Google Chrome",
-	}
-	for _, loc := range locations {
-		if path, err := exec.LookPath(loc); err == nil {
-			return path, true
-		}
-	}
-	return "", false
-}
+// Hugo is the source of truth for permalink resolution. We rely on a
+// `markdown` output format (configured in config.toml; layout in
+// layouts/_default/single.md) to write the page as plain markdown with
+// {{< ref >}} shortcodes resolved via .RenderShortcodes. blog.go just
+// reads that file and pipes it to pandoc — no regex permalink
+// reconstruction in Go.
 
 // loadConfig reads Hugo's config.toml and extracts D2 rendering settings.
 // Returns an empty config (with safe defaults) if the file cannot be read.
@@ -419,156 +419,169 @@ func findD2Files(dir string) ([]string, error) {
 	return files, err
 }
 
-// generateResumePDF renders the resume page to PDF from Hugo's generated HTML.
+// regenPDFSubprocess invokes `go run blog.go --pdf-only` as a child process.
 //
-// This function reads the already-generated public/resume/index.html file
-// and uses headless Chrome to render it to PDF.
-//
-// The PDF is saved to public/resume.pdf alongside Hugo's other output files.
-// The entire public/ directory is git-ignored.
-//
-// PDF generation preserves:
-//   - Hugo's theme styling and layout
-//   - Text as selectable text (not images) for ATS compatibility
-//   - Print-optimized CSS if defined in theme
-//   - All semantic HTML structure for accessibility
-//
-// Returns an error if the HTML file doesn't exist or PDF generation fails.
-func generateResumePDF(verbose bool) error {
-	resumeHTML := filepath.Join("public", "resume", "index.html")
+// The dev-mode watcher uses this instead of calling generatePDF() directly
+// so that edits to blog.go during a `task` session take effect without
+// restarting the dev server. `go run` recompiles the source each call, so
+// any change to the pandoc args, preamble, or fonts shows up on the next
+// markdown save.
+func regenPDFSubprocess(srcPath, outPath string, verbose bool) error {
+	args := []string{"run", "blog.go", "--pdf-only", "--pdf-src=" + srcPath, "--pdf-out=" + outPath}
+	if verbose {
+		args = append(args, "--verbose")
+	}
+	cmd := exec.Command("go", args...)
+	cmd.Stdout = os.Stdout
+	cmd.Stderr = os.Stderr
+	return cmd.Run()
+}
 
-	// Check if Hugo has generated the resume HTML
-	if _, err := os.Stat(resumeHTML); os.IsNotExist(err) {
-		return fmt.Errorf("%w at %s (run Hugo first)", errResumeHTMLMissing, resumeHTML)
+// generatePDF converts a Hugo-rendered markdown file into a PDF using
+// pandoc. The input is the OUTPUT of Hugo's `markdown` output format —
+// shortcodes already resolved, ready to feed straight to pandoc.
+//
+// The pipeline is intentionally generic — any page in the site can be
+// exported by enabling the `md` output format on it and passing
+// --pdf-src=public/<path>/index.md --pdf-out=public/<name>.pdf.
+//
+// pandoc resolution order:
+//  1. `pandoc` in PATH (native install — used locally on Mac per
+//     content/til/2026/04/15/markdown-to-pdf-on-mac/index.md)
+//  2. `docker run pandoc/extra` (used in CI; image includes xelatex
+//     and TeX Gyre fonts, ~300MB single pull per runner)
+//
+// Flags match the markdown-to-pdf-on-mac TIL: xelatex engine, TeX Gyre
+// fonts at 11pt, 1.25" margins, navy links, sans-serif headings.
+func generatePDF(srcPath, outPath string, verbose bool) error {
+	src, err := os.ReadFile(srcPath)
+	if os.IsNotExist(err) {
+		return fmt.Errorf("%w at %s (run Hugo first to produce the markdown output)", errPDFSourceMissing, srcPath)
+	}
+	if err != nil {
+		return fmt.Errorf("read %s: %w", srcPath, err)
 	}
 
-	// Chrome is only needed once we know we have HTML to convert. Fail
-	// loudly with install hints rather than letting chromedp produce a
-	// cryptic exec error.
-	if _, ok := findChrome(); !ok {
-		return fmt.Errorf("Chrome/Chromium not found — install Chrome (macOS: brew install --cask google-chrome; Linux: apt-get install google-chrome-stable)")
+	if err := os.MkdirAll(filepath.Dir(outPath), 0o755); err != nil {
+		return fmt.Errorf("mkdir %s: %w", filepath.Dir(outPath), err)
 	}
 
 	if verbose {
-		log.Printf("Generating PDF from %s", resumeHTML)
+		log.Printf("Generating PDF: %s → %s", srcPath, outPath)
 	} else {
-		log.Println("Generating resume PDF...")
+		log.Printf("Generating PDF: %s", outPath)
 	}
 
-	// Get absolute path for file:// URL
-	absPath, err := filepath.Abs(resumeHTML)
-	if err != nil {
-		return fmt.Errorf("failed to get absolute path: %v", err)
+	if err := invokePandoc(string(src), outPath, verbose); err != nil {
+		return err
 	}
 
-	// Create browser context for PDF generation
-	allocCtx, allocCancel := chromedp.NewExecAllocator(context.Background(),
-		append(chromedp.DefaultExecAllocatorOptions[:],
-			// --headless=new is the current headless mode; legacy
-			// --headless silently fails on Ubuntu 24.04 runners with
-			// a dbus error. --disable-dev-shm-usage is required in
-			// CI containers where /dev/shm is too small for Chrome.
-			chromedp.Flag("headless", "new"),
-			chromedp.Flag("disable-gpu", true),
-			chromedp.Flag("no-sandbox", true),
-			chromedp.Flag("disable-dev-shm-usage", true),
-		)...)
-	defer allocCancel()
-
-	browserCtx, browserCancel := chromedp.NewContext(allocCtx)
-	defer browserCancel()
-
-	// Set a timeout for PDF generation
-	pdfCtx, pdfCancel := context.WithTimeout(browserCtx, 15*time.Second)
-	defer pdfCancel()
-
-	// Generate PDF with print-friendly settings
-	var pdfBuf []byte
-	fileURL := "file://" + absPath
-
-	// Re-check that the file still exists right before chromedp navigates.
-	// Hugo's dev server with --cleanDestinationDir briefly deletes
-	// public/resume/index.html while rewriting it; if our debounce timer
-	// expires inside that delete-recreate gap, chromedp would otherwise
-	// fail with net::ERR_FILE_NOT_FOUND. Treat this as transient — the
-	// next file write will trigger another regen.
-	if _, err := os.Stat(resumeHTML); os.IsNotExist(err) {
-		return fmt.Errorf("%w at %s (file vanished mid-rebuild)", errResumeHTMLMissing, resumeHTML)
-	}
-
-	err = chromedp.Run(pdfCtx,
-		chromedp.Navigate(fileURL),
-		chromedp.WaitReady("body"),
-		// Wait for CSS to load from file:// URL
-		chromedp.Sleep(500*time.Millisecond),
-		// WORKAROUND: chromedp's emulation.SetEmulatedMedia().WithMedia("print") does NOT
-		// properly trigger @media print CSS rules when using file:// URLs. Testing confirmed
-		// that elements remain visible (display: block) even after calling SetEmulatedMedia.
-		// Therefore, we use JavaScript to prepare the page for PDF generation.
-		// See: https://github.com/chromedp/chromedp/issues/941 and related discussions.
-		chromedp.Evaluate(`
-			// Remove navigation elements
-			document.querySelectorAll('#nav-border, #nav, .skip-to-main').forEach(el => el.remove());
-			// Remove footer
-			document.querySelectorAll('footer').forEach(el => el.remove());
-			// Remove hidden SVG icon definitions
-			document.querySelectorAll('svg[display="none"], svg[style*="display: none"]').forEach(el => el.remove());
-			// Remove heading anchor links (octothorpes)
-			document.querySelectorAll('.heading-anchor').forEach(el => el.remove());
-			// Remove "View page source" link
-			document.querySelectorAll('.view-source').forEach(el => el.remove());
-			// Remove "See what others are reading" link
-			document.querySelectorAll('.see-popular').forEach(el => el.remove());
-
-			// Set clean sans-serif font for PDF (overriding site's body font)
-			document.body.style.fontFamily = '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif';
-			document.body.style.lineHeight = '1.3rem';
-
-			// Optimize layout for PDF
-			const main = document.querySelector('#main');
-			if (main) {
-				main.style.marginTop = '0';
-				main.style.marginBottom = '0';
-			}
-		`, nil),
-		chromedp.ActionFunc(func(ctx context.Context) error {
-			var err error
-			pdfBuf, _, err = page.PrintToPDF().
-				WithPrintBackground(true).
-				WithPreferCSSPageSize(true).
-				WithMarginTop(0.4).
-				WithMarginBottom(0.4).
-				WithMarginLeft(0.4).
-				WithMarginRight(0.4).
-				Do(ctx)
-			return err
-		}),
-	)
-
-	if err != nil {
-		return fmt.Errorf("failed to generate PDF: %v", err)
-	}
-
-	// Write PDF directly to public directory (where Hugo output lives)
-	pdfPath := filepath.Join("public", "resume.pdf")
-	if err := os.WriteFile(pdfPath, pdfBuf, 0644); err != nil {
-		return fmt.Errorf("failed to write PDF: %v", err)
-	}
-
-	log.Printf("✓ Resume PDF generated: %s", pdfPath)
+	log.Printf("✓ PDF generated: %s", outPath)
 	return nil
 }
 
-// watchResumeHTML monitors public/resume/index.html for changes and regenerates the PDF.
+// pandocArgs builds the pandoc flag set for PDF generation.
 //
-// This function watches for the resume HTML file to be created or modified by Hugo,
-// then automatically regenerates static/resume.pdf from it.
+// Font selection uses kpathsea-style file specs (the *-regular, *-bold,
+// *-italic, *-bolditalic glob pattern), NOT family names like "Latin
+// Modern Roman". The family-name approach fails on macOS because
+// xelatex queries Core Text — which doesn't index TeX Live's font tree
+// — but kpathsea finds them everywhere TeX Live is installed (MacTeX,
+// apt texlive on Linux, the pandoc/extra Docker image). One spec, every
+// host.
 //
-// In development mode, Hugo rebuilds this file whenever content/resume/index.md changes.
-// This watcher detects those changes and keeps the PDF in sync.
+// Fonts are the Latin Modern family. Originally we used TeX Gyre per
+// content/til/2026/04/15/markdown-to-pdf-on-mac/, but the pandoc/extra
+// Docker image (used by CI) ships only Latin Modern by default and
+// dropping a tlmgr install step kept CI fast and self-contained.
+func pandocArgs(outPath string) []string {
+	// Latin Modern uses inconsistent slant/weight suffixes across the
+	// Roman/Sans/Mono families: roman has *-italic, sans has *-oblique,
+	// mono ships no bold at all. Custom option strings per family
+	// instead of one shared pattern.
+	const romanOpts = "Extension=.otf, UprightFont=*-regular, BoldFont=*-bold, ItalicFont=*-italic, BoldItalicFont=*-bolditalic"
+	const sansOpts = "Extension=.otf, UprightFont=*-regular, BoldFont=*-bold, ItalicFont=*-oblique, BoldItalicFont=*-boldoblique"
+	const monoOpts = "Extension=.otf, UprightFont=*-regular, ItalicFont=*-italic"
+	return []string{
+		"--pdf-engine=xelatex",
+		"--from=markdown",
+		"-V", "mainfont=lmroman10",
+		"-V", "mainfontoptions=" + romanOpts,
+		"-V", "sansfont=lmsans10",
+		"-V", "sansfontoptions=" + sansOpts,
+		"-V", "monofont=lmmono10",
+		"-V", "monofontoptions=" + monoOpts,
+		"-V", "fontsize=11pt",
+		"-V", "geometry:top=0.85in, bottom=0.85in, left=0.85in, right=0.85in",
+		"-V", "linestretch=1.15",
+		"-V", "colorlinks=true",
+		"-V", "urlcolor=[rgb]{0.13,0.33,0.60}",
+		"-V", "linkcolor=[rgb]{0.13,0.33,0.60}",
+		// Heading hierarchy sized for resume-style hierarchy: name → top
+		// section → company → job title. titlesec overrides the article-
+		// class defaults so each level is visibly bigger than body text
+		// and there's a clear step-down between levels.
+		"-V", `header-includes=\usepackage{titlesec} \titleformat{\section}{\Huge\bfseries\sffamily}{}{0em}{} \titleformat{\subsection}{\huge\bfseries\sffamily}{}{0em}{} \titleformat{\subsubsection}{\LARGE\bfseries\sffamily}{}{0em}{} \titleformat{\paragraph}[block]{\Large\bfseries\sffamily}{}{0em}{}`,
+		"-o", outPath,
+	}
+}
+
+// invokePandoc runs pandoc against the preprocessed markdown content,
+// writing the PDF to outPath. Prefers a native `pandoc` binary; falls
+// back to `docker run pandoc/extra` when only Docker is available.
+func invokePandoc(content, outPath string, verbose bool) error {
+	args := pandocArgs(outPath)
+
+	if _, err := exec.LookPath("pandoc"); err == nil {
+		return runPandoc(exec.Command("pandoc", args...), content, verbose)
+	}
+
+	if _, err := exec.LookPath("docker"); err == nil {
+		cwd, err := os.Getwd()
+		if err != nil {
+			return fmt.Errorf("getwd: %w", err)
+		}
+		dockerArgs := []string{
+			"run", "--rm", "-i",
+			"-v", cwd + ":/data",
+			"-w", "/data",
+			"pandoc/extra",
+		}
+		return runPandoc(exec.Command("docker", append(dockerArgs, args...)...), content, verbose)
+	}
+
+	return fmt.Errorf("neither 'pandoc' nor 'docker' found in PATH — install pandoc + xelatex (macOS: brew install pandoc && brew install --cask mactex-no-gui; Linux: apt-get install pandoc texlive-xetex texlive-fonts-extra) or install Docker")
+}
+
+// runPandoc executes the provided pandoc (or docker-wrapped pandoc)
+// command, piping content to its stdin. On failure the captured stderr
+// is included in the returned error so callers see pandoc's diagnostic
+// output even in non-verbose mode.
+func runPandoc(cmd *exec.Cmd, content string, verbose bool) error {
+	cmd.Stdin = strings.NewReader(content)
+	if verbose {
+		cmd.Stdout = os.Stdout
+		cmd.Stderr = os.Stderr
+		return cmd.Run()
+	}
+	var stderr strings.Builder
+	cmd.Stderr = &stderr
+	if err := cmd.Run(); err != nil {
+		return fmt.Errorf("pandoc failed: %w\n%s", err, stderr.String())
+	}
+	return nil
+}
+
+// watchResumePDF monitors Hugo's rendered resume markdown for changes
+// and regenerates public/resume.pdf via pandoc.
 //
-// The watcher runs until ctx is cancelled (when the user hits Ctrl+C).
-func watchResumeHTML(ctx context.Context, verbose bool) {
+// In dev mode `hugo server --renderToDisk` writes public/resume/index.md
+// (the `markdown` output format) whenever content/resume/index.md is
+// edited. fsnotify catches that write and triggers a debounced pandoc
+// re-run, so the user always has a fresh /resume.pdf to download.
+//
+// The watcher runs until ctx is cancelled (Ctrl+C).
+func watchResumePDF(ctx context.Context, verbose bool) {
 	watcher, err := fsnotify.NewWatcher()
 	if err != nil {
 		log.Printf("Warning: Failed to create resume watcher: %v", err)
@@ -578,7 +591,7 @@ func watchResumeHTML(ctx context.Context, verbose bool) {
 
 	resumeDir := filepath.Join("public", "resume")
 
-	// Wait for public/resume directory to exist (Hugo may not have created it yet)
+	// Wait for public/resume to exist (Hugo may not have rendered yet).
 	for i := 0; i < 30; i++ {
 		if _, err := os.Stat(resumeDir); err == nil {
 			break
@@ -590,52 +603,49 @@ func watchResumeHTML(ctx context.Context, verbose bool) {
 		}
 	}
 
-	// Watch the resume directory
 	if err := watcher.Add(resumeDir); err != nil {
 		log.Printf("Warning: Failed to watch resume directory: %v", err)
 		return
 	}
 
-	// Debouncing: wait after last change before rendering
 	var debounceTimer *time.Timer
 	var debounceMu sync.Mutex
 
-	// Generate initial PDF only if the existing one is stale relative to
-	// the HTML. This skips redundant work on warm starts where a prior
-	// `task build` left a fresh PDF on disk, but still covers the
-	// cold-start race where Hugo wrote the HTML before fsnotify attached
-	// (in which case we'd otherwise miss the Write event entirely).
-	htmlPath := filepath.Join(resumeDir, "index.html")
-	pdfPath := filepath.Join("public", "resume.pdf")
-	if htmlInfo, err := os.Stat(htmlPath); err == nil {
+	// Initial gen only if the PDF is stale relative to the markdown.
+	// Covers the cold-start race where Hugo wrote the .md before
+	// fsnotify attached (we'd otherwise miss the Write event entirely).
+	mdPath := filepath.Join(resumeDir, "index.md")
+	pdfPath := defaultPDFOut
+	if mdInfo, err := os.Stat(mdPath); err == nil {
 		pdfInfo, pdfErr := os.Stat(pdfPath)
-		if pdfErr != nil || pdfInfo.ModTime().Before(htmlInfo.ModTime()) {
-			if err := generateResumePDF(verbose); err != nil && !errors.Is(err, errResumeHTMLMissing) {
+		if pdfErr != nil || pdfInfo.ModTime().Before(mdInfo.ModTime()) {
+			// Initial-gen at dev-server startup: in-process call is
+			// fine because blog.go was just compiled. Only the in-loop
+			// regen below needs the subprocess hop to pick up future
+			// blog.go edits during the session.
+			if err := generatePDF(mdPath, pdfPath, verbose); err != nil && !errors.Is(err, errPDFSourceMissing) {
 				log.Printf("Warning: Failed to generate resume PDF: %v", err)
 			}
 		}
 	}
 
-	// Watch for Create and Write events to regenerate PDF when resume changes
 	for {
 		select {
 		case <-ctx.Done():
 			return
 
 		case event := <-watcher.Events:
-			if event.Name == filepath.Join(resumeDir, "index.html") {
-				if event.Op&(fsnotify.Write|fsnotify.Create) != 0 {
-					debounceMu.Lock()
-					if debounceTimer != nil {
-						debounceTimer.Stop()
-					}
-					debounceTimer = time.AfterFunc(300*time.Millisecond, func() {
-						if err := generateResumePDF(verbose); err != nil && !errors.Is(err, errResumeHTMLMissing) {
-							log.Printf("Warning: Failed to regenerate PDF: %v", err)
-						}
-					})
-					debounceMu.Unlock()
+			if event.Name == mdPath && event.Op&(fsnotify.Write|fsnotify.Create) != 0 {
+				debounceMu.Lock()
+				if debounceTimer != nil {
+					debounceTimer.Stop()
 				}
+				debounceTimer = time.AfterFunc(300*time.Millisecond, func() {
+					if err := regenPDFSubprocess(mdPath, pdfPath, verbose); err != nil && !errors.Is(err, errPDFSourceMissing) {
+						log.Printf("Warning: Failed to regenerate PDF: %v", err)
+					}
+				})
+				debounceMu.Unlock()
 			}
 
 		case err := <-watcher.Errors:
@@ -677,7 +687,7 @@ func runServeMode(contentDir, configFile string, config *Config, verbose bool, b
 	// Start resume PDF watcher in background
 	go func() {
 		log.Println("Starting resume PDF watcher...")
-		watchResumeHTML(ctx, verbose)
+		watchResumePDF(ctx, verbose)
 	}()
 
 	time.Sleep(500 * time.Millisecond) // Let watchers start
@@ -698,7 +708,11 @@ func runServeMode(contentDir, configFile string, config *Config, verbose bool, b
 	// a refetch on each rebuild, and any non-2xx blip silently empties the
 	// Popular section site-wide. Production (CI) still runs `hugo --gc` —
 	// CI runners are ephemeral so there's no cache to thrash.
-	hugoCmd := exec.CommandContext(ctx, "hugo", "server", "--bind", "0.0.0.0", "--baseURL", baseURL, "--buildDrafts", "--noHTTPCache", "--disableFastRender")
+	// --renderToMemory=false: write rendered output to public/ in dev
+	// mode (Hugo's server defaults to in-memory). We need files on disk
+	// so blog.go's markdown watcher can read public/resume/index.md (the
+	// resolved-shortcodes output) and feed it to pandoc for PDF regen.
+	hugoCmd := exec.CommandContext(ctx, "hugo", "server", "--bind", "0.0.0.0", "--baseURL", baseURL, "--buildDrafts", "--noHTTPCache", "--disableFastRender", "--renderToMemory=false")
 	hugoCmd.Stdout = os.Stdout
 	hugoCmd.Stderr = os.Stderr
 	hugoCmd.Stdin = os.Stdin
