@@ -12,7 +12,7 @@ I enjoy working on my open source projects [CalcMark](https://calcmark.org), [Gi
 
 ## People first and then the machines
 
-> TIP: Skip to my [resume]({{< ref "resume/index.md" >}}) ([PDF](/resume.pdf)) if you just need a rundown of my career, or check out [examples of my work]({{< ref "work/_index.md" >}}).
+> TIP: Skip to my [resume]({{< relref "resume/index.md" >}}) ([PDF](/resume.pdf)) if you just need a rundown of my career, or check out [examples of my work]({{< relref "work/_index.md" >}}).
 
 I've coded for money, but I'm really all about using any technology[^sed] to solve problems.
 I really like to **start with the people and eventually get to the machines**.

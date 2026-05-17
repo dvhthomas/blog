@@ -50,5 +50,5 @@ The team went from being the bottleneck to being **the architects of a system th
 - **75+ partners across 130+ head unit variants shipped in the first 24 months.** Each one was a distinct integration effort with a distinct partner.
 - **3PL program eliminated the certification bottleneck.** Authorized labs could validate integrations independently, decoupling Android Auto's growth from the size of my team.
 - **Audio management codebase improved** as a direct result of documenting partner requirements---making the implicit explicit benefited Google's platform, not just the partners.
-- **By 2017, Android Auto was available in 300+ car models from 40+ brands**, as noted in Google I/O keynotes.
+- **By 2017, Android Auto was available in 300+ car models from 40+ brands**, as noted in Google I/O keynotes — ultimately reaching 70 million cars on the road.
 - **Philosophy: every integration is a partnership.** Technical excellence and relationship building are inseparable. The OEMs that shipped fastest were the ones where we invested the most in trust.
