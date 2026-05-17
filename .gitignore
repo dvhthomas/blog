@@ -24,6 +24,7 @@ $RECYCLE.BIN/
 content/**/*.svg
 
 # Dev-specific Env and configs
+.env
 .venv
 .ipynb_checkpoints
 .vscode
