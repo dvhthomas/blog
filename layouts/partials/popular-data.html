@@ -16,7 +16,11 @@
 {{- if not $apiKey -}}
     {{ warnf "popular: GOAT_COUNTER_API not set; skipping Popular section" }}
 {{- else -}}
-    {{- $url := "https://bitsby.goatcounter.com/api/v0/stats/hits?start=2020-01-01&daily=false&limit=100" -}}
+    {{/* limit=5 matches what we render; start is a rolling 1-year window —
+         the stats[] array per path scales with the date range, so a wider
+         window inflates the response (we hit 32MB at start=2020-01-01). */}}
+    {{- $start := now.AddDate -1 0 0 | time.Format "2006-01-02" -}}
+    {{- $url := printf "https://bitsby.goatcounter.com/api/v0/stats/hits?start=%s&limit=5" $start -}}
     {{- $opts := dict
         "headers" (dict "Authorization" (printf "Bearer %s" $apiKey))
         "key" (printf "popular-%s" (now.Format "2006-01-02"))
