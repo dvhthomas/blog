@@ -37,7 +37,7 @@ jobs:
     build:
         runs-on: ubuntu-latest
         env:
-            HUGO_VERSION: 0.161.1 # Locked version to ensure consistent builds
+            HUGO_VERSION: 0.162.0 # Locked version to ensure consistent builds
         steps:
             - name: Checkout
               uses: actions/checkout@v4

@@ -9,9 +9,15 @@ enableGitInfo = true
 
 ignoreErrors = ["error-remote-getjson"]
 
-# Allow popular.html partial to read GOAT_COUNTER_API env var.
-# Hugo's default getenv allowlist is ['^HUGO_', '^CI$']; we extend it.
 [security]
+  # Hugo 0.162+ gates which media types it will read as page sources in
+  # content/. Ours is markdown plus two raw HTML pages (an embedded map
+  # and a WASM demo), so both must be allowed or the build aborts with
+  # "access denied".
+  allowContent = ['text/markdown', 'text/html']
+
+  # Allow popular.html partial to read GOAT_COUNTER_API env var.
+  # Hugo's default getenv allowlist is ['^HUGO_', '^CI$']; we extend it.
   [security.funcs]
     getenv = ['^HUGO_', '^CI$', '^GOAT_COUNTER_API$']
 
