@@ -886,6 +886,22 @@ mark {
     font-size: 0.9rem;
 }
 
+/* ── Download PDF link (resume) ────────────────────────────── */
+.download-pdf {
+    float: right;
+    margin-top: 0.5rem;
+    font-size: 0.8rem;
+    color: var(--muted-color);
+}
+
+.download-pdf:hover {
+    color: var(--action-color);
+}
+
+.download-pdf .download-icon {
+    vertical-align: -2px;
+}
+
 /* ── Footer ────────────────────────────────────────────────── */
 footer {
     margin-top: 2rem;

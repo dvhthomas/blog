@@ -3,6 +3,9 @@
 <div class="content-type-badge">{{ .Section }}</div>
 
 <header>
+    {{- if eq .Type "resume" -}}
+    <a class="download-pdf no-print" href="/resume.pdf" download title="Download as PDF">PDF {{ partial "icons/download.html" . }}</a>
+    {{- end -}}
     <h1>{{ .Title }}</h1>
     {{- if ne .Type "resume" -}}
     <div class="article-meta">{{ partial "date-and-tags.html" . }}</div>
