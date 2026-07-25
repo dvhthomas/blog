@@ -49,6 +49,23 @@ tasks:
       TITLE: ""
 
 
+  squish:
+    desc: Compress images in a page bundle and replace the originals, DIR="content/work/my-post" task squish
+    cmds:
+      - |
+        if [ -z "$DIR" ]; then
+          echo 'Set DIR to the page bundle directory, e.g. DIR="content/work/my-post" task squish' >&2
+          exit 1
+        fi
+        ./squish "$DIR" --now
+        if find "$DIR" \( -name '*-fs8.png' -o -name '*-squished.jpg' -o -name '*-squished.jpeg' \) -type f | grep -q .; then
+          echo yes | ./squish "$DIR" --clean
+        else
+          echo "Nothing to promote."
+        fi
+    env:
+      DIR: ""
+
   build:
     desc: Build the site for production
     deps: [render-d2]

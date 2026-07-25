@@ -42,6 +42,45 @@ These read as obviously AI-generated. Do not use them:
 - `"Every. Single. Night."` — dramatic single-word sentences. Just say "every single night."
 - `"The design lesson:"` / `"The key insight:"` — labels as transitions. Weave it in, don't label it.
 
+## Hard Rules
+
+These are not stylistic preferences. Violating them makes the writing unusable.
+
+### Write prose, not content bait
+
+Full sentences with subjects and verbs. Never drop facts as headline fragments the way a social media post would.
+
+- Bad: `"Six months, three people."` / `"$450K, greenfield, Google as the customer."`
+- Good: `"Delivery took six months with three of us on it, me as the TPM alongside two software engineers."`
+
+The same goes for stacking fragments to list things. If there are five facts, they belong in a sentence or a real list, not five one-word paragraphs.
+
+- Bad: `"Total distance driven. Total cost. Shipments assigned versus skipped."`
+- Good: `"...with summary metrics above them: total distance driven, total cost, shipments assigned versus skipped."`
+
+A short sentence for emphasis is fine. A fragment engineered to make the reader lean in is not.
+
+### Never manufacture tension
+
+Describe what happened and why it mattered to the customer. Do not build suspense, withhold information for a reveal, or set up a problem-then-cliffhanger rhythm.
+
+- Bad: `"We had the people. We hadn't yet delivered anything with Google sitting on the client side of the table."`
+- Good: `"Woolpert was already a Google Maps reseller. This engagement was the first with Google itself as the client."`
+
+Also avoid the reveal-flourish tag at the end of a paragraph: `"That last part matters more than it sounds."` / `"which is usually the number that starts the conversation."` Cut it, or state the fact plainly.
+
+### Never invent or infer Dylan's opinions
+
+Only write an opinion, preference, feeling, or motivation that Dylan actually stated. If he did not say it, leave it out and ask him.
+
+This includes soft attributions that read as his judgment:
+
+- Bad: `"The part I care about most is the undo button."` (he never said this)
+- Bad: `"which is the right framing"` / `"the numbers a dispatcher actually argues about"` / `"It's good operations research"`
+- Good: describe the feature and what it does. `"The solution is editable, which is what the undo button next to the timeline is for."`
+
+When a fact is needed to make a paragraph work and Dylan hasn't provided it, flag the gap rather than filling it.
+
 ## Em Dashes
 
 Write them `like---this` (three hyphens, no spaces). Use sparingly. If you're reaching for one, try a comma, colon, parentheses, or restructuring first. More than ~3 per section means some should be something else.

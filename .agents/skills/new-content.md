@@ -34,7 +34,11 @@ Content lives in `content/` as Hugo page bundles (directory with `index.md`). Al
 3. **Write the content** following the [voice guide](voice-guide.md). This is mandatory, not optional.
 
 4. **Images** go in the page bundle directory:
-   - Compress PNGs: `./squish <path> --now` then `mv image-fs8.png image.png`
+   - Compress images with one command. `DIR` is the **bundle directory**, not a file path, and the task replaces the originals for you — never hand-`mv` the compressed files:
+
+     ```sh
+     DIR="content/blog/2026/01/01/my-post" task squish
+     ```
    - Set the hero/OG image in front matter: `images: [filename.png]`
    - Use `{{</* figure src="image.png" title="Caption" */>}}` for the first image in the body
 

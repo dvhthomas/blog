@@ -9,12 +9,20 @@ Hugo static site for [bitsby.me](https://bitsby.me), a personal blog by Dylan Th
 - **Never fabricate the author's experiences or opinions.** Only write what Dylan actually told you. No invented quotes, embellished motivations, or made-up anecdotes.
 - **All writing follows the [voice guide](.agents/skills/voice-guide.md).** This is the authority on tone, banned words, structure, and AI slop patterns to avoid.
 - Posts default to `draft: true`. Only publish when the user says to.
-- Compress images before committing: `./squish <path> --now`. PNGs become `*-fs8.png`; JPEGs become `*-squished.{jpg,jpeg}`. Then either `mv` the compressed file over the original, or run `./squish <path> --clean` (prompts interactively).
+- Compress images before committing. Use the task, which compresses and replaces the originals in one go:
+
+  ```sh
+  DIR="content/work/my-post" task squish
+  ```
+
+  `DIR` is the page bundle **directory**, not a file path. Never hand-`mv` the `-fs8.png` / `-squished.jpg` files over the originals — that misses files and leaves strays behind. (The task wraps `./squish <dir> --now` followed by `--clean`; call the script directly only if you want the dry run first.)
 - Generated SVGs from D2 are gitignored. Only commit `.d2` source files.
 
 ## Creating Content
 
 See the [new-content](.agents/skills/new-content.md) skill for scaffolding, front matter, images, and diagrams.
+
+For a case study in `content/work/`, use the [work-article](.agents/skills/work-article.md) skill instead.
 
 ## Shortcodes
 
@@ -36,6 +44,8 @@ D2 site-wide config is in `config.toml` under `[params.d2]`.
 task              # Dev server with D2 watching (http://localhost:1313)
 task build        # Production build: D2 + Hugo + resume PDF
 task render-d2    # Render D2 diagrams only
+
+DIR="content/work/my-post" task squish   # Compress images and replace originals
 ```
 
 `blog.go` handles D2 rendering, file watching, and resume PDF generation.
@@ -44,4 +54,5 @@ task render-d2    # Render D2 diagrams only
 
 - **[voice-guide](.agents/skills/voice-guide.md)** — The authority on Dylan's writing style. Load for any writing task.
 - **[new-content](.agents/skills/new-content.md)** — Scaffold and write a new blog post or TIL.
+- **[work-article](.agents/skills/work-article.md)** — Create or update a Situation/Behavior/Impact case study in `content/work/`.
 - **[edit-content](.agents/skills/edit-content.md)** — Editorial review pass before committing. Checks purpose, clarity, tone, grammar, assumptions, and voice compliance.
