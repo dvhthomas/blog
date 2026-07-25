@@ -8,6 +8,7 @@ summary: |-
 mathjax: false
 draft: false
 images: [desktop-tiles.png]
+hero_alt: "ArcGIS Pro showing a cloud-hosted vector tile layer of contour lines drawn over an Ohio street map, with the Contents panel listing the vector tile layer above the basemap"
 capabilities:
   - agility
   - experimentation

@@ -9,6 +9,7 @@ summary: |-
 mathjax: false
 draft: false
 images: [bamboo.png]
+hero_alt: "Applicant tracking system pipeline stages for a single role: New 146, Reviewed 222, Manual Review 8, Initial Screen 11"
 capabilities:
   - ai
   - automation

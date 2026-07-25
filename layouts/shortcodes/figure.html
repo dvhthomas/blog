@@ -34,11 +34,10 @@
  {{- end -}}
  {{- end -}}
 
+ {{- /* alt is required. Prefer an explicit alt, then caption, then title. */ -}}
+ {{- $alt := or (.Get "alt") (.Get "caption") (.Get "title") | markdownify | plainify -}}
  <a href="{{ $src }}" target="_blank" rel="noopener">
- <img src="{{ $src }}"
- {{- if or (.Get "alt") (.Get "caption") }}
- alt="{{ with .Get "alt" }}{{ . }}{{ else }}{{ .Get "caption" | markdownify| plainify }}{{ end }}"
- {{- end -}}
+ <img src="{{ $src }}" alt="{{ $alt }}"
  {{- with $imgWidth }} width="{{ . }}"{{ end -}}
  {{- with $imgHeight }} height="{{ . }}"{{ end -}}
  {{- with .Get "loading" }} loading="{{ . }}"{{ end -}}

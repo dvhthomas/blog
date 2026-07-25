@@ -7,6 +7,7 @@ summary: Creating a rapid response team to handle urgent projects, then scaling 
 mathjax: false
 draft: false
 images: [flex-team.png]
+hero_alt: "Slide titled 'Ship To Learn: High Priority Projects' pairing response, experiment, and impact notes with a project board named TPM Flex Team Engagements and Projects grouped by status"
 capabilities:
   - leadership
   - agility
