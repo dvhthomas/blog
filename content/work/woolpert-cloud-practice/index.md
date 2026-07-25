@@ -38,12 +38,12 @@ Every support response lives at a permanent, shareable link so the team scales w
 The next time a customer asks the same thing, you send a URL instead of writing a new email.
 
 The biggest proof point came from winning and delivering a $450K Google engagement.
-I wrote the proposal, led agile delivery, and shipped the official reference application for Google's brand-new logistics API---built from scratch, with Google as the client.
+I wrote the proposal, led agile delivery, and shipped the [official reference application]({{< ref "work/google-fleet-routing-app/index.md" >}}) for Google's brand-new logistics API---built from scratch, with Google as the client.
 
 ## Impact
 
 - **Internal pull, not mandate.** The practice's reputation spread beyond its charter. Another Woolpert division serving a US Federal government department _invited_ us to help close and service a $1M+ net-new business deal. They weren't told to involve us; they asked.
 - **First SaaS product.** Built and shipped the organization's first SaaS product, [STREAM Raster](https://woolpert.com/stream-raster/): I defined features, pricing, SLOs, and [SLAs](https://support.woolpert.io/hc/en-us/articles/360042964933-STREAM-RASTER-Service-Level), directed engineering daily, and landed the first paying customer.
 - **Knowledge that compounds.** The [support system](https://support.woolpert.io) scaled without re-answering. The "every answer is a URL" principle meant knowledge compounded over time rather than evaporating in inboxes.
-- **Google-grade delivery.** The $450K engagement proved the team could perform at Google's own standards---the first engagement of its kind for the practice.
+- **[First engagement with Google as the client]({{< ref "work/google-fleet-routing-app/index.md" >}}).** The practice had been building on Google's platform for Woolpert's customers. This one was delivered to Google, to Google's standards.
 - **Zero to practice in under two years.** From zero technical capability to a fully staffed, revenue-generating practice with three distinct functions and 12 engineers.
