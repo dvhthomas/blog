@@ -25,7 +25,7 @@ Content lives in `content/` as Hugo page bundles (directory with `index.md`). Al
 1. **Scaffold the page bundle** using the table above.
 
 2. **Update front matter** from the generated archetype:
-   - `title` — sentence case, no clickbait
+   - `title` — Title Case, no clickbait (see [voice guide](voice-guide.md#titles-and-headings))
    - `summary` — one or two plain sentences (see [voice guide](voice-guide.md#summaries))
    - `tags` — lowercase, short. Check existing posts for conventions.
    - `draft: true` — always. Only the author publishes.

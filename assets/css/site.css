@@ -687,7 +687,8 @@ figure img {
     margin-right: auto;
 }
 
-figcaption h4 {
+figcaption h4,
+figcaption p {
     font-family: inherit;
     font-weight: 400;
     font-size: 0.95rem;
@@ -696,6 +697,12 @@ figcaption h4 {
     padding-top: 0.75rem;
     padding-bottom: 1rem;
     color: var(--muted-color);
+}
+
+figcaption p {
+    font-weight: 600;
+    margin: 2rem 0 0.5rem;
+    padding: 0;
 }
 
 .figures-side-by-side {

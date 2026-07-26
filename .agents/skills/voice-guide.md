@@ -41,6 +41,7 @@ These read as obviously AI-generated. Do not use them:
 - `"No external services. No setup. Just results."` — statement-statement-hook. Combine into a real sentence.
 - `"Every. Single. Night."` — dramatic single-word sentences. Just say "every single night."
 - `"The design lesson:"` / `"The key insight:"` — labels as transitions. Weave it in, don't label it.
+- Single-sentence lead paragraphs that announce a section (`"I treated professional development as a real workstream during the year."`) — fold the setup sentence into the section's first real paragraph. (Single-sentence paragraphs for *emphasis* are still fine; it's the topic-sentence-as-its-own-paragraph opener that reads as generated.)
 
 ## Hard Rules
 
@@ -80,6 +81,15 @@ This includes soft attributions that read as his judgment:
 - Good: describe the feature and what it does. `"The solution is editable, which is what the undo button next to the timeline is for."`
 
 When a fact is needed to make a paragraph work and Dylan hasn't provided it, flag the gap rather than filling it.
+
+## Titles and Headings
+
+Post titles and section headings use Title Case: capitalize the major words; keep articles, coordinating conjunctions, and short prepositions lowercase.
+
+- Good: `"The Job Search"`, `"Dealing with Surprises"`, `"Why Do It at All"`
+- Bad: `"The job search"` (sentence case), `"Why Do It At All"` (capitalized short preposition)
+
+No clickbait in either.
 
 ## Em Dashes
 
