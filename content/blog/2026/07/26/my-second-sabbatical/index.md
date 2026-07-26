@@ -74,7 +74,7 @@ With my cousin Margaret I went to [Niagara Falls](https://en.wikipedia.org/wiki/
 
 ## Dealing with Surprises
 
-I had everything planned for the [Erie Canal](https://en.wikipedia.org/wiki/Erie_Canal) ride from [Buffalo](https://en.wikipedia.org/wiki/Buffalo,_New_York) to [Rochester](https://en.wikipedia.org/wiki/Rochester,_New_York): eight days, fully self-supported, camping the whole way. Four days before the ride I got a herniated disk in my spine and had to cancel everything.
+Not everything went perfectly; far from it! I had everything planned for the [Erie Canal](https://en.wikipedia.org/wiki/Erie_Canal) ride from [Buffalo](https://en.wikipedia.org/wiki/Buffalo,_New_York) to [Rochester](https://en.wikipedia.org/wiki/Rochester,_New_York): eight days, fully self-supported, camping the whole way. Four days before the ride I got a herniated disk in my spine and had to cancel everything.
 
 {{< figure src="cycling.jpg" alt="A touring bicycle loaded with front and rear panniers, helmet resting on the saddle" title="Training with the full loadout on a ride from Denver to Fort Collins." >}}
 
