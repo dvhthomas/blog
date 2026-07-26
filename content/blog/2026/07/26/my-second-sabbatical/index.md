@@ -40,7 +40,7 @@ What made Japan special was that the [itinerary](https://wanderlog.com/view/fuva
 
 {{< figure src="sushi.jpg" alt="A tray of sushi from a Japanese train station" title="Sushi at the train station." >}}
 
-Visiting an [onsen](https://en.wikipedia.org/wiki/Onsen) was definitely my idea, but walking through an absolute blizzard to see the [snow monkeys](https://en.wikipedia.org/wiki/Jigokudani_Monkey_Park) was a shared experience we'll never forget. The best part? Probably eating Japanese junk food for dinner after sitting in an exquisite public onsen in [Shibu](https://en.wikipedia.org/wiki/Shibu_Onsen) and being cooked alive. I've never slept so well!
+Visiting an [onsen](https://en.wikipedia.org/wiki/Onsen) was definitely my idea, but walking through an absolute blizzard to see the [snow monkeys](https://en.wikipedia.org/wiki/Jigokudani_Monkey_Park) was a shared experience we'll never forget. The best part? Probably eating Japanese junk food for dinner after sitting in an exquisite public onsen in [Shibu](https://shibuonsen.net/) and being cooked alive. I've never slept so well!
 
 ### The UK with My Daughter
 
