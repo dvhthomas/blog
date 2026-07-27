@@ -18,7 +18,7 @@ My last day at GitHub was at the beginning of June 2025. I started my next job o
 
 In between was a sabbatical: a full year away from corporate work, for personal and family reasons. It's the second time I've done this. In 2018 I took five months as a stay-at-home dad to move our family from San Francisco to Denver. This one was longer, and there was a lot more going on.
 
-My wife is a CEO, and for the year I was Head of DadOps, running the household fully to make her life tolerable. That meant the kids' summer and school activities, college prep for one of them, an extended health issue for another (that's all the detail I'm going to share), and, since she works from home, a constant supply of tea, snacks, and lunches.
+My wife is a CEO, and for the year I was Head of DadOps, my job was running the household fully to make her life tolerable. That meant the kids' summer and school activities, college prep for one of them, an extended health issue for another (that's all the detail I'm going to share), and, since she works from home, a constant supply of tea, snacks, and lunches.
 
 ## Decompression and Calibration
 
@@ -26,7 +26,7 @@ The first part of the year was decompression. Running [a TPM organization]({{< r
 
 Once I could, I realized I was not mentally healthy. I was actually quite anxious. The tech industry is going through big shifts---layoffs, cutbacks, radical rethinking of priorities---and there's plenty of fear, uncertainty, and doubt within the TPM profession. (I'm glad to say TPM work has gone the same way as software engineering: the work has shifted from the mundane to the complex and interesting. But that wasn't a given 12-18 months ago!)
 
-So decompression was one thing. Then came realizing that a shift in attitude and perspective was needed as well: mindfulness practice, and paying attention to anxiety rather than ignoring it. Seeing a therapist helped me develop a much healthier relationship with my own idea of work, and of worth. I'm not ashamed of that. The recalibration was overdue, and I'm running smoothly again. (I sound like an old car!)
+So decompression was one thing. Then came realizing that a shift in attitude and perspective was needed as well: mindfulness practice, and paying attention to anxiety rather than ignoring it. I worked with a great therapist to develop a much healthier relationship with my own idea of work, and of worth. The recalibration was overdue, and I'm running smoothly again. (I sound like an old car!)
 
 ## Hitting the Road
 
@@ -64,11 +64,11 @@ The road trip was my son and me camping our way across the western US: [Mesa Ver
 
 ### Niagara and Montreal with Margaret
 
-With my cousin Margaret I went to [Niagara Falls](https://en.wikipedia.org/wiki/Niagara_Falls) on the Canadian side...
+I went to [Niagara Falls](https://en.wikipedia.org/wiki/Niagara_Falls) on the Canadian side with my cousin Margaret...
 
 {{< figure src="niagara-falls.jpg" alt="Two people in red rain ponchos smiling on a boat below Niagara Falls, with the Rainbow Bridge behind them" title="On the Niagara Falls boat with Margaret. The ponchos only sort of work." >}}
 
-...and on to Montreal: tons of sightseeing, late-night walks, classical music, and one of the best museums I've ever been to, [Pointe-à-Callière](https://pacmusee.qc.ca/en/). The exhibits are superb at painting a compelling picture of first peoples and Europeans coming together in one place.
+...and then on to Montreal: tons of sightseeing, late-night walks, classical music, and one of the best museums I've ever been to, [Pointe-à-Callière](https://pacmusee.qc.ca/en/). The exhibits are superb at painting a compelling picture of first peoples and Europeans coming together in one place.
 
 {{< figure src="horses-in-montreal.jpg" alt="Mounted police on large horses at a rainy Montreal intersection as pedestrians walk past" title="The mounted police were out in Montreal, rain or not." >}}
 
@@ -102,7 +102,7 @@ In a case of awful timing, my old team at Google reached out just as I was start
 
 ## The People
 
-A lot of the year went into maintaining, refreshing, and building connections, and I've come out of it with better friendships and better professional relationships. Some of that is the everyday kind: Signal chats, WhatsApp groups, and one-off conversations with interesting people via LinkedIn. Some of it came from being out in the world: meeting [Michael](https://www.linkedin.com/in/michaelcashen/) for dinner in [Tokyo](https://en.wikipedia.org/wiki/Tokyo), almost meeting [Nobu](https://www.linkedin.com/in/nobu-h-3991b028/) in Shibu Onsen, crashing at Jen's house after a hot day on the bike, and sending James my live location as I flew over his house near [Heathrow](https://en.wikipedia.org/wiki/Heathrow_Airport).
+A lot of the year went into maintaining, refreshing, and building connections, and I've come out of it with better friendships and better professional relationships. Some of that is the everyday kind: Signal chats, WhatsApp groups, and one-off conversations with interesting people via LinkedIn. Some of it came from being out in the world: meeting [Michael](https://www.linkedin.com/in/michaelcashen/) for dinner in [Tokyo](https://en.wikipedia.org/wiki/Tokyo), almost meeting [Nobu](https://www.linkedin.com/in/nobu-h-3991b028/) in Shibu Onsen, crashing at [Jen's](https://www.linkedin.com/in/mrry550/) house after a hot day on the bike, and sending [James](https://www.linkedin.com/in/james-cross-a6468914/) my live location as I flew over his house near [Heathrow](https://en.wikipedia.org/wiki/Heathrow_Airport).
 
 Dinner with Michael was at a neighborhood [izakaya](https://en.wikipedia.org/wiki/Izakaya). My son wasn't very hungry, but I was, and Michael had organized an incredible meal. I'll eat anything once; I won't be trying [shirako](https://allthatsinteresting.com/shirako) again.
 
