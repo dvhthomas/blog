@@ -24,7 +24,7 @@ My wife is a CEO, and for the year I was Head of DadOps, my job was running the 
 
 The first part of the year was decompression. Running [a TPM organization]({{< ref "blog/2024/10/20/tpm-journey-at-github/index.md" >}}) through major product and platform shifts is not a job you switch off from overnight, and I needed time to wind down before I could think clearly about anything else.
 
-Once I could, I realized I was not mentally healthy. I was actually quite anxious. The tech industry is going through big shifts---layoffs, cutbacks, radical rethinking of priorities---and there's plenty of fear, uncertainty, and doubt within the TPM profession. (I'm glad to say TPM work has gone the same way as software engineering: the work has shifted from the mundane to the complex and interesting. But that wasn't a given 12-18 months ago!)
+Once I could, I realized that my mental health was not great. I was actually quite anxious. The tech industry is going through big shifts---layoffs, cutbacks, radical rethinking of priorities---and there's plenty of fear, uncertainty, and doubt within the TPM profession. (I'm glad to say TPM work has gone the same way as software engineering: the work has shifted from the mundane to the complex and interesting. But that wasn't a given 12-18 months ago!)
 
 So decompression was one thing. Then came realizing that a shift in attitude and perspective was needed as well: mindfulness practice, and paying attention to anxiety rather than ignoring it. I worked with a great therapist to develop a much healthier relationship with my own idea of work, and of worth. The recalibration was overdue, and I'm running smoothly again. (I sound like an old car!)
 
