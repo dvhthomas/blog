@@ -1,0 +1,35 @@
+direction: down
+
+me: Me {
+  shape: person
+}
+
+gh: "GitHub Issues\n(or Jira, or Linear)" {
+  style.fill: "#cfe8ff"
+}
+
+machine: One repo on my machine {
+  agents: Agents {
+    a1: Agent
+    a2: Agent
+    a3: Agent
+  }
+
+  bd: "beads (bd)\na Dolt database in .beads/" {
+    style.fill: "#ffe8b3"
+  }
+
+  beady: Beady {
+    style.fill: "#d8f5d0"
+  }
+
+  agents -> bd: "bd ready, --claim, bd close"
+  bd <-> beady: read, and careful writes
+}
+
+me -> gh: files the big stuff
+gh -> machine.bd: broken into beads
+me -> machine.bd: "or a planning session, no issue" {
+  style.stroke-dash: 3
+}
+machine.beady -> me: what is in flight
