@@ -38,6 +38,7 @@ jobs:
         runs-on: ubuntu-latest
         env:
             HUGO_VERSION: 0.162.0 # Locked version to ensure consistent builds
+            D2_VERSION: 0.9.0 # Pinned so diagrams render the same on every deploy
         steps:
             - name: Checkout
               uses: actions/checkout@v4
@@ -54,8 +55,13 @@ jobs:
                   wget -O ${{ runner.temp }}/hugo.deb https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/hugo_extended_${HUGO_VERSION}_linux-amd64.deb
                   sudo dpkg -i ${{ runner.temp }}/hugo.deb
             - name: Install D2
+              env:
+                  # The installer fetches release metadata from the GitHub API.
+                  # Unauthenticated, that is rate limited per runner IP and
+                  # fails with 403 on busy days; the token lifts the limit.
+                  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
               run: |
-                  curl -fsSL https://d2lang.com/install.sh | sh -s --
+                  curl -fsSL https://d2lang.com/install.sh | sh -s -- --version v${D2_VERSION} --method standalone
                   echo "$HOME/.local/bin" >> $GITHUB_PATH
             - name: Setup Pages
               id: pages
