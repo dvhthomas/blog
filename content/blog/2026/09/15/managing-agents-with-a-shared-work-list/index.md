@@ -11,6 +11,16 @@ images: [beady-hero.png]
 hero_alt: The Beady app showing twelve in-flight beads on a project, with one bead's details open
 ---
 
+Beady, the Mac app this post ends up at, now installs with Homebrew. You need macOS 15 or later on Apple silicon, and `bd` on your PATH (`brew install beads`):
+
+```bash
+brew install --cask dvhthomas/beady/beady
+```
+
+The app is ad-hoc signed but not notarized (there's no Apple Developer ID behind it), so macOS quarantines it the first time. Open it, then choose Open Anyway in System Settings → Privacy & Security. That's once; Homebrew keeps the approval across upgrades. `brew upgrade` picks up new releases, and `brew uninstall --zap beady` removes the app along with its views and settings. On an Intel Mac, build it from source instead: that's a clone and one script (the commands are at the end of this post), and a self-built app is never quarantined.
+
+The rest of this post is why it exists.
+
 I run several agents at once against the same repo on my own machine. That works right up until two of them decide to work on the same thing, like a feature or a bug, or one starts a refactor that another is already halfway through.
 
 You know you've hit this when you've got multiple sessions happily coding away, but when you try to merge changes from those sessions (and git worktrees), the whole thing comes crashing back to reality with a ton of implementations that overlap, solve the same problem in different ways, and so on. It's the equivalent of having two engineers grab the same issue from the backlog at the same time, implement the feature or fix, then push in different branches. It's not pretty!
@@ -91,7 +101,7 @@ Every write Beady makes is a `bd` command, so it can't break anything bd wouldn'
 
 {{< figure src="beady-confirm.png" title="Nothing is written until the commands are on screen" >}}
 
-The code is at [github.com/dvhthomas/beady](https://github.com/dvhthomas/beady) if you want it, though this is very much an app built for me. Building it yourself avoids the quarantine flag you'd get from an unnotarized download:
+The code is at [github.com/dvhthomas/beady](https://github.com/dvhthomas/beady) if you want it, though this is very much an app built for me. The Homebrew install is at the top of this post. If you'd rather build it yourself, or you're on an Intel Mac, it's one script, and a self-built app skips the quarantine step:
 
 ```bash
 git clone https://github.com/dvhthomas/beady.git
